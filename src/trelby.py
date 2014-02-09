@@ -2690,9 +2690,9 @@ class MyFrame(wx.Frame):
     def OnCloseWindow(self, event):
         doExit = True
         if event.CanVeto() and self.isModifications():
-            if wx.MessageBox("You have unsaved changes. Are\n"
-                             "you sure you want to exit?", "Confirm",
-                             wx.YES_NO | wx.NO_DEFAULT, self) == wx.NO:
+            if wx.MessageBox("Do you want to save changes\n"
+                             "before closing?", "Confirm",
+                             wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
                 doExit = False
 
         if doExit:
@@ -2703,6 +2703,8 @@ class MyFrame(wx.Frame):
             myApp.ExitMainLoop()
         else:
             event.Veto()
+            self.OnSave()
+            self.Close(True)
 
     def OnExit(self, event):
         self.Close(False)

@@ -1032,8 +1032,8 @@ class ConfigGlobal:
         v.addColor("workspace", 237, 237, 237, "Workspace", "Workspace")
         v.addColor("pageBorder", 202, 202, 202, "PageBorder", "Page border")
         v.addColor("pageShadow", 153, 153, 153, "PageShadow", "Page shadow")
-        v.addColor("selected", 200, 200, 200, "Selected", "Selection")
-        v.addColor("cursor", 135, 135, 253, "Cursor", "Cursor")
+        v.addColor("selected", 124, 181, 220, "Selected", "Selection")
+        v.addColor("cursor", 80, 165, 221, "Cursor", "Cursor")
         v.addColor("autoCompFg", 0, 0, 0, "AutoCompletionFG",
                    "Auto-completion foreground")
         v.addColor("autoCompBg", 255, 240, 168, "AutoCompletionBG",
@@ -1048,7 +1048,7 @@ class ConfigGlobal:
         v.addColor("tabText", 50, 50, 50, "TabText", "Tab text")
         v.addColor("tabBorder", 202, 202, 202, "TabBorder",
                    "Tab border")
-        v.addColor("tabBarBg", 221, 217, 215, "TabBarBG",
+        v.addColor("tabBarBg", 222, 222, 222, "TabBarBG",
                    "Tab bar background")
         v.addColor("tabNonActiveBg", 180, 180, 180, "TabNonActiveBg", "Tab, non-active")
 
