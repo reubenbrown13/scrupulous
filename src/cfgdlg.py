@@ -1043,6 +1043,23 @@ class MiscPanel(wx.Panel):
         vsizer.Add(bsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
 
         bsizer = wx.StaticBoxSizer(wx.StaticBox(self, -1,
+            "Default script settings"), wx.VERTICAL)
+
+        hsizer = wx.BoxSizer(wx.HORIZONTAL)
+
+        self.sconfFileEntry = wx.TextCtrl(self, -1)
+        hsizer.Add(self.sconfFileEntry, 1,
+                   wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
+
+        btn = wx.Button(self, -1, "Browse")
+        wx.EVT_BUTTON(self, btn.GetId(), self.OnBrowseSconf)
+        hsizer.Add(btn, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
+
+        bsizer.Add(hsizer, 1, wx.EXPAND | wx.TOP | wx.BOTTOM, 5)
+
+        vsizer.Add(bsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
+
+        bsizer = wx.StaticBoxSizer(wx.StaticBox(self, -1,
             "PDF viewer application"), wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -1116,6 +1133,7 @@ class MiscPanel(wx.Panel):
         util.finishWindow(self, vsizer, center = False)
 
         wx.EVT_TEXT(self, self.scriptDirEntry.GetId(), self.OnMisc)
+        wx.EVT_TEXT(self, self.sconfFileEntry.GetId(), self.OnMisc)
         wx.EVT_TEXT(self, self.progEntry.GetId(), self.OnMisc)
         wx.EVT_TEXT(self, self.argsEntry.GetId(), self.OnMisc)
 
@@ -1144,6 +1162,7 @@ class MiscPanel(wx.Panel):
 
     def OnMisc(self, event = None):
         self.cfg.scriptDir = self.scriptDirEntry.GetValue().rstrip("/\\")
+        self.cfg.sconfFilePath = self.sconfFileEntry.GetValue()
         self.cfg.pdfViewerPath = self.progEntry.GetValue()
         self.cfg.pdfViewerArgs = misc.fromGUI(self.argsEntry.GetValue())
 
@@ -1162,6 +1181,20 @@ class MiscPanel(wx.Panel):
 
         if dlg.ShowModal() == wx.ID_OK:
             self.scriptDirEntry.SetValue(dlg.GetPath())
+
+        dlg.Destroy()
+
+    def OnBrowseSconf(self, event):
+        s = os.path.dirname(self.cfg.sconfFilePath)
+        if not util.fileExists(os.path.dirname(s)):
+            s = misc.confPath
+        dlg = wx.FileDialog(cfgFrame, "Choose settings file",
+            defaultDir = s,
+            wildcard = "Script setting files (*.sconf)|*.sconf|All files|*",
+            style = wx.OPEN)
+
+        if dlg.ShowModal() == wx.ID_OK:
+            self.sconfFileEntry.SetValue(dlg.GetPath())
 
         dlg.Destroy()
 
@@ -1194,6 +1227,7 @@ class MiscPanel(wx.Panel):
         self.paginateEntry.SetValue(5)
 
         self.scriptDirEntry.SetValue(self.cfg.scriptDir)
+        self.sconfFileEntry.SetValue(self.cfg.sconfFilePath)
         self.progEntry.SetValue(self.cfg.pdfViewerPath)
         self.argsEntry.SetValue(self.cfg.pdfViewerArgs)
 

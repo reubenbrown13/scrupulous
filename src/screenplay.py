@@ -59,6 +59,12 @@ class Screenplay:
         self.cfgGl = cfgGl
         self.cfg = config.Config()
 
+        #Load custom screenplay settings file if user has selected one.
+        if util.fileExists(self.cfgGl.sconfFilePath):
+            s = util.loadFile(self.cfgGl.sconfFilePath, None)
+            if s:
+                self.cfg.load(s)
+
         # cursor position: line and column
         self.line = 0
         self.column = 0
@@ -2362,6 +2368,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         # breaking on anything other than space or ".
 
         cnt = 1
+        stopcount = 0
         while 1:
             column -= 1
 
@@ -2398,9 +2405,19 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
                 # must be preceded by a space
                 if char != " ":
                     return False
+
+            elif stopcount == 1 and char == '.':
+                # ellipsis
+                return False
+
+            elif stopcount == 1 and char != '.':
+                return True
+
             else:
-                if char in (".", "?", "!"):
+                if char in ("?", "!"):
                     return True
+                if char == '.':
+                    stopcount += 1
                 elif char not in (" ", "\""):
                     return False
 

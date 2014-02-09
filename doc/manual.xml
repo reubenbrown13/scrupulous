@@ -1221,6 +1221,11 @@
 		the default directory for File/Open dialog on program
 		startup.</para>
 
+		<para>If you've saved your preferred script format settings, you
+		can use the default script settings field to have all new scripts
+		load those settings by default. If you leave this field blank, new
+		scripts will have the system default settings.</para>
+
 		<para>You can specify what application you want to use as your PDF
 		viewer. On Windows, this is usually Adobe Acrobat, and the path is
 		something like "C:\Program Files\Adobe\Acrobat
