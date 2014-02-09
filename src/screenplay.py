@@ -1652,6 +1652,25 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
         return line
 
+    # set selection to uppercase.
+    def convertToUpper(self, saveUndo):
+        selection = self.getMarkedLines()
+        if selection:
+            startSection, endSection = selection
+            selectedElems = self.elemsDistance(startSection, endSection) + 1
+            if saveUndo:
+                u = undo.ManyElems(
+                    self, undo.CMD_MISC, startSection, selectedElems, selectedElems)
+            for i in xrange(startSection, endSection + 1):
+                c1, c2 = self.getMarkedColumns(i, selection)
+                self.lines[i].text = self.lines[i].text[:c1] + util.upper(self.lines[i].text[c1:c2+1]) + \
+                self.lines[i].text[c2+1:]
+            self.clearMark()
+            self.markChanged()
+            if saveUndo:
+                u.setAfter(self)
+                self.addUndo(u)
+
     # convert element(s) to given type
     #  - if multiple elements are selected, all are changed
     #  - if not, the change is applied to element under cursor.
@@ -2901,6 +2920,35 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         self.line = l2
         self.column = len(self.lines[l2].text)
 
+    # select text in the current element, putting cursor at end
+    def selectElementCmd(self, cs):
+        top, bottom = self.getElemIndexesFromLine(self.line)
+        self.mark = Mark(top, 0)
+        self.line = bottom
+        self.column = len(self.lines[bottom].text)
+
+    # select text in the current line, putting cursor at end
+    def selectLineCmd(self, cs):
+        self.column = len(self.lines[self.line].text)
+        self.mark = Mark(self.line, 0)
+
+    # select text in the current word putting cursor on last character
+    def selectWordCmd(self, cs):
+        wstart = self.column
+        wend = self.column
+        if (wend < len(self.lines[self.line].text)) and \
+        (not util.isWordBoundary(self.lines[self.line].text[wend])):
+            while ((wend < len(self.lines[self.line].text)) \
+            and (not util.isWordBoundary(self.lines[self.line].text[wend]))):
+                wend += 1
+
+            if (wend == len(self.lines[self.line].text)):
+                wend +=1
+            self.column = wend-1
+            while ((not util.isWordBoundary(self.lines[self.line].text[wstart])) and (wstart >= 0)):
+                wstart -= 1
+            self.mark = Mark(self.line, wstart+1)
+
     # select all text of the screenplay. sets mark at beginning and moves
     # cursor to the end.
     def selectAllCmd(self, cs):
@@ -3052,6 +3100,9 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
     def toSceneCmd(self, cs):
         self.convertTypeTo(SCENE, True)
+
+    def toUpperCmd(self, cs):
+        self.convertToUpper(True)
 
     def toActionCmd(self, cs):
         self.convertTypeTo(ACTION, True)

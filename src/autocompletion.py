@@ -35,6 +35,29 @@ class AutoCompletion:
         self.types[t.ti.lt] = t
         
         t = Type(screenplay.SHOT)
+        t.items = [
+            "AERIAL SHOT",
+            "ANGLE ON",
+            "CLOSE SHOT",
+            "CLOSEUP",
+            "ESTABLISHING SHOT",
+            "EXTREMELY LONG SHOT",
+            "FAVOR ON",
+            "FREEZE FRAME",
+            "INSERT",
+            "INTERCUT BETWEEN",
+            "INTO VIEW",
+            "PAN",
+            "POV",
+            "REVERSE ANGLE",
+            "SPLIT SCREEN SHOT",
+            "STOCK SHOT",
+            "SUPER",
+            "TRACKING SHOT",
+            "ZOOM IN",
+            "ZOOM OUT",
+            "WIDE SHOT"
+            ]
         self.types[t.ti.lt] = t
 
         self.refresh()

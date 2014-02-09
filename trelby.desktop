@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Trelby
 Comment=Screenwriting Application
-Exec=trelby
+Exec=trelby %f
 Icon=/usr/share/trelby/resources/icon256.png
 Type=Application
-Categories=Utility;Publishing;
+Categories=Office;Publishing;
 

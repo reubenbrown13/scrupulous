@@ -26,6 +26,7 @@ import spellcheck
 import spellcheckdlg
 import spellcheckcfgdlg
 import splash
+import threading
 import titlesdlg
 import util
 import viewmode
@@ -58,6 +59,10 @@ VIEWMODE_SIDE_BY_SIDE,\
 VIEWMODE_OVERVIEW_SMALL,\
 VIEWMODE_OVERVIEW_LARGE,\
 = range(5)
+
+# double-click codes
+WORD_NOT_SELECTED = 0
+WORD_SELECTED = 1
 
 def refreshGuiConfig():
     global cfgGui
@@ -206,7 +211,7 @@ class MyCtrl(wx.Control):
         wx.EVT_ERASE_BACKGROUND(self, self.OnEraseBackground)
         wx.EVT_LEFT_DOWN(self, self.OnLeftDown)
         wx.EVT_LEFT_UP(self, self.OnLeftUp)
-        wx.EVT_LEFT_DCLICK(self, self.OnLeftDown)
+        wx.EVT_LEFT_DCLICK(self, self.OnLeftDClick)
         wx.EVT_RIGHT_DOWN(self, self.OnRightDown)
         wx.EVT_MOTION(self, self.OnMotion)
         wx.EVT_MOUSEWHEEL(self, self.OnMouseWheel)
@@ -214,6 +219,8 @@ class MyCtrl(wx.Control):
 
         self.createEmptySp()
         self.updateScreen(redraw = False)
+        self.dclick = 0
+        self.pos = 0
 
     def OnChangeType(self, event):
         cs = screenplay.CommandState()
@@ -512,6 +519,9 @@ class MyCtrl(wx.Control):
         mainFrame.noFSBtn.Refresh(False)
         mainFrame.toolBar.SetBackgroundColour(cfgGui.tabBarBgColor)
 
+        # update the timer
+        mainFrame.resetTimer()
+
         if writeCfg:
             util.writeToFile(gd.confFilename, cfgGl.save(), mainFrame)
 
@@ -563,6 +573,23 @@ class MyCtrl(wx.Control):
                 self.__class__.screenBuf = sb
 
         self.makeLineVisible(self.sp.line)
+
+    # a double-click highlights the current word.
+    # a second double-click without moving the mouse highlights the whole line
+    # a third double-click without moving the mouse highlights the whole element
+    def OnLeftDClick(self, event, mark = False):
+        pos = event.GetPosition()
+        line, col = gd.vm.pos2linecol(self, 0, pos.y)
+        if self.dclick == WORD_NOT_SELECTED or self.pos != pos:
+            self.sp.selectWordCmd(line)
+            self.dclick = WORD_SELECTED
+        elif self.dclick == WORD_SELECTED:
+            self.sp.selectElementCmd(line)
+            self.dclick = WORD_NOT_SELECTED
+        else:
+            self.dclick = WORD_NOT_SELECTED
+        self.pos = pos
+        self.updateScreen()
 
     def OnLeftDown(self, event, mark = False):
         if not self.mouseSelectActive:
@@ -811,6 +838,10 @@ class MyCtrl(wx.Control):
         self.makeLineVisible(self.sp.line)
         self.updateScreen()
 
+    def OnUpper(self):
+        self.sp.convertToUpper(True)
+
+
     # returns True if something was deleted
     def OnCut(self, doUpdate = True, doDelete = True, copyToClip = True):
         marked = self.sp.getMarkedLines()
@@ -923,6 +954,21 @@ class MyCtrl(wx.Control):
         self.makeLineVisible(self.sp.line)
         self.updateScreen()
 
+    def OnSelectElement(self):
+        self.sp.cmd("SelectElement")
+        self.makelineVisible(self.sp.line)
+        self.updateScreen()
+
+    def OnSelectLine(self):
+        self.sp.cmd("SelectLine")
+        self.makelineVisible(self.sp.line)
+        self.updateScreen()
+
+    def OnSelectWord(self):
+        self.sp.cmd("SelectWord")
+        self.makelineVisible(self.sp.line)
+        self.updateScreen()
+
     def OnSelectAll(self):
         self.sp.cmd("selectAll")
 
@@ -1019,6 +1065,9 @@ class MyCtrl(wx.Control):
     def OnSpellCheckerDlg(self):
         self.sp.clearMark()
         self.clearAutoComp()
+        self.sp.clearMark()
+        self.mouseSelectActive = False
+        self.updateScreen()
 
         wasAtStart = self.sp.line == 0
 
@@ -1091,6 +1140,24 @@ class MyCtrl(wx.Control):
             self.saveFile(self.fileName)
         else:
             self.OnSaveScriptAs()
+
+    def OnAutoSave(self, count = None):
+        if self.fileName:
+            self.saveFile(self.fileName)
+        else:
+            self.OnSaveUntitledScript(count)
+
+    def OnSaveUntitledScript(self, count):
+        # check if we can write this file to default script directory.
+        if os.access(misc.scriptDir, os.W_OK):
+          if misc.isWindows:
+              div = "\\"
+          else:
+              div = "/"
+        # don't use colons for filename below as this may cause issues with OS X.
+          self.saveFile(misc.scriptDir + div + "untitled-" +
+              time.strftime("%Y-%m-%d-%H.%M.%S") + "-tab-" +
+              str(count) + ".trelby")
 
     def OnSaveScriptAs(self):
         if self.fileName:
@@ -1183,6 +1250,9 @@ class MyCtrl(wx.Control):
 
     def cmdAbort(self, cs):
         self.sp.abortCmd(cs)
+
+    def cmdChangeToUpper(self, cs):
+        self.sp.convertToUpper(True)
 
     def cmdChangeToAction(self, cs):
         self.sp.toActionCmd(cs)
@@ -1721,6 +1791,8 @@ class MyFrame(wx.Frame):
         editMenu.Append(ID_EDIT_COPY, "&Copy\tCTRL-C")
         editMenu.Append(ID_EDIT_PASTE, "&Paste\tCTRL-V")
         editMenu.AppendSeparator()
+        editMenu.Append(ID_EDIT_UPPER, "Make uppercase\tCTRL-K")
+        editMenu.AppendSeparator()
 
         tmp = wx.Menu()
         tmp.Append(ID_EDIT_COPY_TO_CB, "&Unformatted")
@@ -1910,6 +1982,10 @@ class MyFrame(wx.Frame):
                 m.Append(ID_EDIT_COPY, "Copy")
 
             m.Append(ID_EDIT_PASTE, "Paste")
+            m.AppendSeparator()
+
+            if m is self.rightClickMenuWithCut:
+                m.Append(ID_EDIT_UPPER, "Make uppercase")
 
         wx.EVT_MENU(self, ID_FILE_NEW, self.OnNewScript)
         wx.EVT_MENU(self, ID_FILE_OPEN, self.OnOpen)
@@ -1934,6 +2010,7 @@ class MyFrame(wx.Frame):
         wx.EVT_MENU(self, ID_EDIT_COPY_TO_CB_FMT, self.OnCopySystemCbFormatted)
         wx.EVT_MENU(self, ID_EDIT_PASTE_FROM_CB, self.OnPasteSystemCb)
         wx.EVT_MENU(self, ID_EDIT_SELECT_SCENE, self.OnSelectScene)
+        wx.EVT_MENU(self, ID_EDIT_UPPER, self.OnUpper)
         wx.EVT_MENU(self, ID_EDIT_SELECT_ALL, self.OnSelectAll)
         wx.EVT_MENU(self, ID_EDIT_GOTO_PAGE, self.OnGotoPage)
         wx.EVT_MENU(self, ID_EDIT_GOTO_SCENE, self.OnGotoScene)
@@ -2024,6 +2101,7 @@ class MyFrame(wx.Frame):
             "ID_EDIT_PASTE_FROM_CB",
             "ID_EDIT_SELECT_ALL",
             "ID_EDIT_SELECT_SCENE",
+            "ID_EDIT_UPPER",
             "ID_FILE_CLOSE",
             "ID_FILE_EXIT",
             "ID_FILE_EXPORT",
@@ -2170,6 +2248,38 @@ class MyFrame(wx.Frame):
             if not (cmd.isFixed and cmd.isMenu):
                 for key in cmd.keys:
                     self.kbdCommands[key] = cmd
+
+    def resetTimer(self):
+        global t
+        if t.isAlive():
+            t.cancel()
+        t = threading.Timer(cfgGl.autoSaveMinutes*60, self.autosaveAllScripts)
+        if cfgGl.autoSaveMinutes > 0:
+            t.start()
+
+    def autosaveAllScripts(self):
+        if self.isModifications():
+            # try to save every open tab
+            count = 1  # track open tabs so we have no naming clashes
+            for c in self.getCtrls():
+                c.OnAutoSave(count)
+                count += 1
+
+        # NOTE:  We want to warn the user if the default script directory is unwritable,
+        #        but using wx.MessageBox w/code below occasionally crashes with:
+        #
+        #    python: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+        #        This may be related to the use of the timer thread (?) and requires more
+        #        investigation.  For now, a bad default script directory will result in
+        #        silent failure as there seems to be no way to safely notify the user.
+        #
+        # if not os.access(misc.scriptDir, os.W_OK):
+        #     wx.MessageBox( "Warning:  No write permission for " + str(misc.scriptDir) +
+        #                    ", which is needed to autosave untitled scripts.  " +
+        #                    "Change the default script directory in the settings.",
+        #                    "Warning", wx.OK, None)
+
+        self.resetTimer()
 
     # open script, in the current tab if it's untouched, or in a new one
     # otherwise
@@ -2349,6 +2459,9 @@ class MyFrame(wx.Frame):
     def OnRedo(self, event = None):
         self.panel.ctrl.OnRedo()
 
+    def OnUpper(self, event = None):
+        self.panel.ctrl.OnUpper()
+
     def OnCut(self, event = None):
         self.panel.ctrl.OnCut()
 
@@ -2369,6 +2482,15 @@ class MyFrame(wx.Frame):
 
     def OnSelectScene(self, event = None):
         self.panel.ctrl.OnSelectScene()
+
+    def OnSelectElement(self, event=None):
+        self.panel.ctrl.OnSelectElement()
+
+    def OnSelectLine(self, event=None):
+        self.panel.ctrl.OnSelectLine()
+
+    def OnSelectWord(self, event=None):
+        self.panel.ctrl.OnSelectWord()
 
     def OnSelectAll(self, event = None):
         self.panel.ctrl.OnSelectAll()
@@ -2577,6 +2699,7 @@ class MyFrame(wx.Frame):
             util.writeToFile(gd.stateFilename, gd.save(), self)
             util.removeTempFiles(misc.tmpPrefix)
             self.Destroy()
+            t.cancel()
             myApp.ExitMainLoop()
         else:
             event.Veto()
@@ -2595,7 +2718,7 @@ class MyFrame(wx.Frame):
 class MyApp(wx.App):
 
     def OnInit(self):
-        global cfgGl, mainFrame, gd
+        global cfgGl, mainFrame, gd, t
 
         if (wx.MAJOR_VERSION != 2) or (wx.MINOR_VERSION != 8):
             wx.MessageBox("You seem to have an invalid version\n"
@@ -2682,6 +2805,9 @@ class MyApp(wx.App):
             win = splash.SplashWindow(mainFrame, cfgGl.splashTime * 1000)
             win.Show()
             win.Raise()
+
+        t = threading.Timer(0, mainFrame.resetTimer)
+        t.start()
 
         return True
 

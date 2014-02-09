@@ -451,8 +451,8 @@ class Config:
         v.addFloat("marginTop", 12.7, "Margin/Top", 0.0, 900.0)
 
         # paper size
-        v.addFloat("paperHeight", 297.0, "Paper/Height", 100.0, 1000.0)
-        v.addFloat("paperWidth", 210.0, "Paper/Width", 50.0, 1000.0)
+        v.addFloat("paperHeight", 279.4, "Paper/Height", 100.0, 1000.0)
+        v.addFloat("paperWidth", 215.9, "Paper/Width", 50.0, 1000.0)
 
         # leave at least this many action lines on the end of a page
         v.addInt("pbActionLines", 2, "PageBreakActionLines", 1, 30)
@@ -702,6 +702,9 @@ class ConfigGlobal:
                     " transition.",
                     [util.Key(ord("T"), alt = True).toInt()]),
 
+            Command("ChangeToUpper", "Change selected text to uppercase.",
+                    [util.Key(ord("K"), alt = True).toInt()]),
+
             Command("CharacterMap", "Open the character map.",
                     isMenu = True),
 
@@ -712,8 +715,7 @@ class ConfigGlobal:
             Command("CompareScripts", "Compare two scripts.", isMenu = True),
 
             Command("Copy", "Copy selected text to the internal clipboard.",
-                    [util.Key(3, ctrl = True).toInt()],
-                    isFixed = True, isMenu = True),
+                    [util.Key(3, ctrl = True).toInt()], isMenu = True),
 
             Command("CopySystemCb", "Copy selected text to the system's"
                     " clipboard, unformatted.", isMenu = True),
@@ -843,8 +845,7 @@ class ConfigGlobal:
             Command("Paginate", "Paginate current script.", isMenu = True),
 
             Command("Paste", "Paste text from the internal clipboard.",
-                    [util.Key(22, ctrl = True).toInt()],
-                    isFixed = True, isMenu = True),
+                    [util.Key(22, ctrl = True).toInt()], isMenu = True),
 
             Command("PasteSystemCb", "Paste text from the system's"
                     " clipboard.", isMenu = True),
@@ -976,6 +977,9 @@ class ConfigGlobal:
 
         # how many lines to scroll per mouse wheel event
         v.addInt("mouseWheelLines", 4, "MouseWheelLines", 1, 50)
+
+        # how many minutes between auto-saves
+        v.addInt("autoSaveMinutes", 0, "AutoSaveMinutes", 0, 60)
 
         # interval in seconds between automatic pagination (0 = disabled)
         v.addInt("paginateInterval", 1, "PaginateInterval", 0, 10)

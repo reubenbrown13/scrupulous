@@ -21,6 +21,10 @@ class Titles:
         y = 240.0
         a.append(TitleString(["123/456-7890", "no.such@thing.com"], x, y + 8.46, False))
 
+        x = 150.0
+        y = 240.0
+        a.append(TitleString(["First Draft", "00/00/14"], x, y + 8.46, False)) 
+
         self.pages.append(a)
 
     # add title pages to doc.
