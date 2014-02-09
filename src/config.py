@@ -388,13 +388,13 @@ class Config:
 
         t = Type(screenplay.PAREN)
         t.indent = 16
-        t.width = 25
+        t.width = 20
         self.types[t.lt] = t
 
         t = Type(screenplay.TRANSITION)
         t.beforeSpacing = 10
         t.indent = 45
-        t.width = 20
+        t.width = 15
         t.screen.isCaps = True
         t.export.isCaps = True
         self.types[t.lt] = t
@@ -409,8 +409,8 @@ class Config:
 
         t = Type(screenplay.ACTBREAK)
         t.beforeSpacing = 10
-        t.indent = 25
-        t.width = 10
+        t.indent = 15
+        t.width = 20
         t.screen.isCaps = True
         t.screen.isBold = True
         t.screen.isUnderlined = True
