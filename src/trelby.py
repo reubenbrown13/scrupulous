@@ -459,12 +459,7 @@ class MyCtrl(wx.Control):
     def updateCommon(self):
         cur = cfgGl.getType(self.sp.lines[self.sp.line].lt)
 
-        if self.sp.tabMakesNew():
-            tabNext = "%s" % cfgGl.getType(cur.newTypeTab).ti.name
-        else:
-            tabNext = "%s" % cfgGl.getType(cur.nextTypeTab).ti.name
-
-        enterNext = cfgGl.getType(cur.newTypeEnter).ti.name
+        tabNext, enterNext = self.sp.getTabEnterTypes()
 
         page = self.sp.line2page(self.sp.line)
         pageCnt = self.sp.line2page(len(self.sp.lines) - 1)
@@ -2723,7 +2718,7 @@ class MyApp(wx.App):
         global cfgGl, mainFrame, gd, t
 
         if (wx.MAJOR_VERSION != 2) or (wx.MINOR_VERSION != 8):
-            wx.MessageBox("You seem to have an invalid version\n"
+            wx.MessageBox("You have an unsupported version\n"
                           "(%s) of wxWidgets installed. This\n"
                           "program needs version 2.8." %
                           wx.VERSION_STRING, "Error", wx.OK)
@@ -2737,14 +2732,14 @@ class MyApp(wx.App):
         if misc.isWindows:
             major = sys.getwindowsversion()[0]
             if major < 5:
-                wx.MessageBox("You seem to have a version of Windows\n"
-                              "older than Windows 2000, which is the minimum\n"
-                              "requirement for this program.", "Error", wx.OK)
+                wx.MessageBox("You are using an unsupported version of\n"
+                              "Windows. Please upgrade to Windows XP\n"
+                              "or higher.", "Error", wx.OK)
                 sys.exit()
 
         if not misc.wxIsUnicode:
-            wx.MessageBox("You seem to be using a non-Unicode build of\n"
-                          "wxWidgets. This is not supported.",
+            wx.MessageBox("You are using a non-Unicode build of\n"
+                          "wxWidgets.",
                           "Error", wx.OK)
             sys.exit()
 
