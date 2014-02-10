@@ -2425,8 +2425,7 @@ class MyFrame(wx.Frame):
 
         if cfgGl.getConflictingKeys() != None:
             wx.MessageBox("You have at least one key bound to more than one\n"
-                          "command. The program will not work correctly until\n"
-                          "you fix this.",
+                          "command. Please fix this.",
                           "Warning", wx.OK, self)
 
         self.kbdCommands = {}
@@ -2554,7 +2553,7 @@ class MyFrame(wx.Frame):
         self.openScript(gd.mru.get(i))
 
     def OnOpen(self, event = None):
-        dlg = wx.FileDialog(self, "File to open",
+        dlg = wx.FileDialog(self, "Open Screenplay",
             misc.scriptDir,
             wildcard = "Trelby files (*.trelby)|*.trelby|All files|*",
             style = wx.OPEN)
@@ -2620,7 +2619,7 @@ class MyFrame(wx.Frame):
         self.panel.ctrl.OnSettings()
 
     def OnLoadSettings(self, event = None):
-        dlg = wx.FileDialog(self, "File to open",
+        dlg = wx.FileDialog(self, "Open Screenplay",
             defaultDir = os.path.dirname(gd.confFilename),
             defaultFile = os.path.basename(gd.confFilename),
             wildcard = "Setting files (*.conf)|*.conf|All files|*",
