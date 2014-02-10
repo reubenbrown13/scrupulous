@@ -217,7 +217,7 @@ class FindDlg(wx.Dialog):
         self.useExtra = flag
 
         if flag:
-            self.moreButton.SetLabel("Less")
+            self.moreButton.SetLabel("  ^  ")
             pos = self.elements.GetPosition()
 
             # don't know of a way to get the vertical spacing of items in
