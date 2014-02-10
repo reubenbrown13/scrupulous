@@ -2619,7 +2619,7 @@ class MyFrame(wx.Frame):
         self.panel.ctrl.OnSettings()
 
     def OnLoadSettings(self, event = None):
-        dlg = wx.FileDialog(self, "Open Screenplay",
+        dlg = wx.FileDialog(self, "Open Settings File",
             defaultDir = os.path.dirname(gd.confFilename),
             defaultFile = os.path.basename(gd.confFilename),
             wildcard = "Setting files (*.conf)|*.conf|All files|*",
