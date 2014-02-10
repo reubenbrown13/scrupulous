@@ -61,15 +61,13 @@ VIEWMODE_OVERVIEW_SMALL,\
 VIEWMODE_OVERVIEW_LARGE,\
 = range(5)
 
-<<<<<<< HEAD
 # double-click codes
 WORD_NOT_SELECTED = 0
 WORD_SELECTED = 1
 
 NAV_TIMER_BUFFER = 500
-=======
+
 CURSOR_BLINK_RATE = 500
->>>>>>> fb5987a598b05b289d013b571b7f151d8be5e272
 
 def refreshGuiConfig():
     global cfgGui
@@ -301,16 +299,13 @@ class MyCtrl(wx.Control):
         wx.EVT_CHAR(self, self.OnKeyChar)
 
         self.createEmptySp()
-<<<<<<< HEAD
 
         self.lnCountLast = len(self.sp.lines)
 
         self.navTimer = wx.Timer(self)
         wx.EVT_TIMER(self, self.navTimer.GetId(), self.OnNavTimer)
 
-=======
         self.setCursorDCs()
->>>>>>> fb5987a598b05b289d013b571b7f151d8be5e272
         self.updateScreen(redraw = False)
         self.dclick = 0
         self.pos = 0
@@ -641,11 +636,8 @@ class MyCtrl(wx.Control):
 
         for c in mainFrame.getCtrls():
             c.sp.cfgGl = cfgGl
-<<<<<<< HEAD
             c.panel.nav.fullRedraw()
-=======
             c.setCursorDCs()
->>>>>>> fb5987a598b05b289d013b571b7f151d8be5e272
             c.refreshCache()
             c.makeLineVisible(c.sp.line)
             c.adjustScrollBar()
