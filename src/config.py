@@ -1066,11 +1066,11 @@ class ConfigGlobal:
                    "Tab bar background")
         v.addColor("tabNonActiveBg", 180, 180, 180, "TabNonActiveBg", "Tab, non-active")
         v.addColor("navSceneText", 0, 0, 0, "NavSceneText", "Navigator scene text")
-        v.addColor("navSceneSelectedMark", 185, 185, 222, "NavSceneSelectedMark", "Navigator selected scene marker")
+        v.addColor("navSceneSelectedMark", 0, 0, 222, "NavSceneSelectedMark", "Navigator selected scene marker")
         v.addColor("navNoteText", 128, 128, 0, "NavNoteText", "Navigator note text")
-        v.addColor("navBlurbText", 96, 96, 96, "NavBlurbText", "Navigator blurb text")
-        v.addColor("navTransitionText", 128, 0, 128, "NavTransitionText", "Navigator transition text")
-        v.addColor("navBg", 255, 255, 255, "NavBg", "Navigator background")
+        v.addColor("navBlurbText", 0, 0, 0, "NavBlurbText", "Navigator blurb text")
+        v.addColor("navTransitionText", 0, 0, 255, "NavTransitionText", "Navigator transition text")
+        v.addColor("navBg", 229, 229, 229, "NavBg", "Navigator background")
         v.addColor("navAnnotatedBg", 255, 237, 223, "NavAnnotatedBg", "Navigator annotated scene background")
 
         for t in getTIs():
