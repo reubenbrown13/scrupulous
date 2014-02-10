@@ -24,7 +24,7 @@ class FindDlg(wx.Dialog):
         gsizer = wx.FlexGridSizer(2, 2, 5, 20)
         gsizer.AddGrowableCol(1)
 
-        gsizer.Add(wx.StaticText(self, -1, "Find what:"), 0,
+        gsizer.Add(wx.StaticText(self, -1, "Text to find:"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.findEntry = wx.TextCtrl(self, -1, style = wx.TE_PROCESS_ENTER)
         gsizer.Add(self.findEntry, 0, wx.EXPAND)
@@ -46,7 +46,7 @@ class FindDlg(wx.Dialog):
         if misc.isWindows:
             pad = 5
 
-        self.matchWholeCb = wx.CheckBox(self, -1, "Match whole word only")
+        self.matchWholeCb = wx.CheckBox(self, -1, "Match entire word")
         vsizer2.Add(self.matchWholeCb, 0, wx.TOP, pad)
 
         self.matchCaseCb = wx.CheckBox(self, -1, "Match case")
@@ -81,13 +81,13 @@ class FindDlg(wx.Dialog):
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
-        find = wx.Button(self, -1, "&Find next")
+        find = wx.Button(self, -1, "&Find")
         vsizer.Add(find, 0, wx.EXPAND | wx.BOTTOM, 5)
 
         replace = wx.Button(self, -1, "&Replace")
         vsizer.Add(replace, 0, wx.EXPAND | wx.BOTTOM, 5)
 
-        replaceAll = wx.Button(self, -1, " Replace all ")
+        replaceAll = wx.Button(self, -1, " Replace All ")
         vsizer.Add(replaceAll, 0, wx.EXPAND | wx.BOTTOM, 5)
 
         self.moreButton = wx.Button(self, -1, "")
@@ -217,7 +217,7 @@ class FindDlg(wx.Dialog):
         self.useExtra = flag
 
         if flag:
-            self.moreButton.SetLabel("<<< Less")
+            self.moreButton.SetLabel("Less")
             pos = self.elements.GetPosition()
 
             # don't know of a way to get the vertical spacing of items in
@@ -226,7 +226,7 @@ class FindDlg(wx.Dialog):
             h = pos.y + len(self.elementTypes) * \
                 (util.getFontHeight(self.elements.GetFont()) + 5) + 15
         else:
-            self.moreButton.SetLabel("More >>>")
+            self.moreButton.SetLabel("More")
             h = max(self.extraLabel.GetPosition().y,
                     self.moreButton.GetPosition().y +
                     self.moreButton.GetClientSize().height + 5)
@@ -345,7 +345,7 @@ class FindDlg(wx.Dialog):
                     break
 
                 if fullSearch:
-                    wx.MessageBox("Search finished without results.",
+                    wx.MessageBox("Nothing to change!",
                                   "No matches", wx.OK, self)
 
                     break
