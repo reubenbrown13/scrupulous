@@ -12,6 +12,8 @@ AutoCompletion/Transition/Items/3:FADE IN:
 AutoCompletion/Transition/Items/4:FADE OUT
 AutoCompletion/Transition/Items/5:FADE TO BLACK
 AutoCompletion/Transition/Items/6:MATCH CUT TO:
+AutoCompletion/Shot/Enabled:True
+AutoCompletion/Shot/Items:0
 #End-Auto-Completion 
 #Begin-Config 
 FontSize:12
@@ -33,8 +35,8 @@ RemoveNotes:False
 OutlineNotes:True
 ShowMargins:False
 ShowLineNumbers:False
-Cursor/Line:0
-Cursor/Column:0
+Cursor/Line:1013
+Cursor/Column:28
 String/MoreDialogue:(MORE)
 String/ContinuedPageEnd:(CONTINUED)
 String/ContinuedPageStart:CONTINUED:
@@ -818,3 +820,382 @@ Words/14:zzzz
 >.terminate all over the four states, blanketing them in
 >.pulsing red circles, until the whole of western United
 ..States is a slowly fading red color.
+.\INT. SITUATION ROOM, WHITE HOUSE - DAY
+>.Wearing a simple black-and-white suit, a 60-year-old man
+>.(MIKE) enters the situation room. Two people (MALE SECURITY
+..GUARD #1 & #2) join him.
+._Mike
+.((shouts)
+>:George... Eh, I mean Minster
+.:President. Abort the mission now!
+._male Security guard #1
+>:Sir, you haven't got the clearance
+.:to be here.
+._PRESIDENT
+>((to MALE Security Guard
+.(#1)
+.:Leave him alone.
+.((to Mike)
+.:Mike, sit down. Speak.
+..Mike sits down.
+._MIKE
+>:There's still a way to solve this
+.:issue. I assure you.
+._PRESIDENT
+.:Speak up then.
+._MIKE
+>:I know these guys, it's a
+>:three-person team. They can
+>:retrieve anything. Their ways
+>:aren't very conventional... But
+>:let's just say, they can get the
+.:job done.
+._PRESIDENT
+>:Not conventional? How do you know
+.:them then?
+._MIKE
+>:After I quit the army as you know,
+>:I followed some dark paths... But
+.:that shouldn't matter anymore.
+._PRESIDENT
+>:Right. I expect great things out of
+.:you.
+>.The president reopens the briefcase, giving a head signal to 
+..Male Security Guard #1. They both reenter the keys.
+.\MAP OF THE UNITED STATES OF AMERICA
+>.The missiles, which were previously shown, are shown slowly
+..turning back and returning to their base.
+.\INT. SITUATION ROOM, WHITE HOUSE - DAY
+.=Closeup on:
+..The president's face as sweat pours down it.
+._PRESIDENT
+.:That was a close one.
+./FADE out
+.=Over black:
+>.We are outdoors. The sounds of HEAVY BREATHING and three
+>.people WALKING closely together as they advance very nearby
+..us.
+./FADE IN:
+.\Int. Cabin - Night
+..SUPER: "Many Miles Away"
+>.Kevin and Sarah are seating next to each other close to an
+..old-fashion chimney.
+._KEVIN
+.((smiling awkwardly)
+>:This turned out good. Well, at
+>:least early retirement is in order
+.:for us.
+._SARAH
+>:Sure. If you don't mind the cold,
+>:the bedbugs and eating fish every
+.:DAY OF THE WEEK...
+._KEVIN
+>:Don't forget, the police are on our
+.:asses.
+._SARAH
+>:Yeah. Our last job was definitely a
+>:mistake. We got Interpol on our
+>:back. We should keep a lookout,
+.:even in the middle of nowhere.
+..There's a silence. A brief awkward silence.
+>.The door opens suddenly with a loud noise. We see Jason
+>.holding down an Asian man from behind. He's also hiding the
+>.man's mouth with his hand. He mumbles a few words, but it's
+..all just a noise.
+._ASON
+.((laughing)
+.:Look who I just found spying on us.
+..Jason releases him.
+._ASIAN MAN
+.:I was not spying on you !
+..Jason punch him in the face.
+._JASON
+.:Stop lying!
+._ASIAN MAN
+.:I swear! I'm just a messenger.
+._SARAH
+.:Well, what's your damn message?
+._ASIAN MAN
+>:I would have told you earlier if
+.:your "friend" wasn't so violent.
+._JASON
+.:Say one more word and I'll...
+._KEVIN
+.((interrupts)
+>:Let him speak! I don't think he can
+.:hurt us even if he wanted to.
+._ASIAN MAN
+>:Have you been following the news on
+>:what's happening in the United
+>:States? Their whole ecosystem
+>:collapsed because of some "koalas"
+.:release.
+..Jason, Sarah and Kevin exchange weird looks.
+._ASIAN MAN
+.((continued)
+>:And apparenlty, the government is
+>:seeking your help to eliminate
+.:them.
+._JASON
+.:And what is in it for us?
+..The Asian man pauses shortly.
+._ASIAN MAN
+>:They're giving you full immunity
+.:for the Stonehedge case.
+._JASON
+>:That's it! We help the government
+>:for a "promise" to freedom. Why
+>:would we help the fucking
+.:government?
+._ASIAN MAN
+.((afraid)
+.:A clean break.
+._JASON
+>:Get out! And make sure we don't see
+.:you around here again.
+>.The Asian man leaves the cabin. Jason closes the door behind
+>.him, then he looks back to Kevin and Sarah. As he opens his
+..mouth:
+._JASON
+.:I've got a plan.
+>%This sets up the conflict between Jason and the rest of
+>%the group by intialing his own plan. Angried by his
+.%plan, who knows what will happen next...
+.\EXT. Cabin - NIGHT TO DAY
+.=Time lapse:
+>.The cabin is at the center of the frame. The whole night
+>.passes by in a few seconds. Shadows move rapidly through the
+..curtains.
+./DISSOLVE TO:
+.\INT. CABIN - NIGHT
+..The three are still arguing.
+._SARAH
+.((tries to stay calm)
+>:Jason, we can't just overtake the
+>:government like that. We're only
+>:three people. But if we take the
+>:oppority to help the government, we
+.:may gain our immunity.
+.((yells)
+.:That's our only chance to freedom!
+._JASON
+>:Oh yeah? Well, what if it's just a
+>:trap? Maybe they're just waiting
+>:for us to show up to lock us down.
+.:Haven't you thought about that.
+._KEVIN
+>:You're right. I have thought about
+>:that. We have to be very cautious.
+>:But Sarah has a good point, we have
+>:very few choices besides taking the
+>:offer. They know where we are. I
+>:mean, if we refuse this offer then
+.:we must relocate.
+._JASON
+>:Well, I can't give in. It goes
+>:against my prinicples. Guys, I'm
+.:out. I'll relocate if I have to.
+./FADE IN:
+.\Ext. Cabin - day
+.=long shot
+>.After packing their car, Kevin and Sarah go inside and start
+..the engine.
+..Jason runs after them.
+.=ANGLE ON:
+..Windshield.
+._JASON
+.((shouts)
+.:WAIT!
+.((pauses)
+.:I was wrong yesterday... I'm sorry.
+>%However, he is lying. Let's see what happens in the
+.%next ten pages.
+._KEVIN
+.:No problem. Get in fast!
+..Jason looks to Kevin and Sarah.
+._JASON
+.:Let's do this.
+.=ANGLE ON:
+>.From a distance, we see the car leaving and a trail of blood
+..is left where the car used to be parked.
+>%Who did it? Jason? Who's blood does it belong to? We
+.%will discover soon.
+./FADE OUT
+./FADE IN:
+.\Int. Car - night
+>.Tired and confunsed, Jason has been driving for while, while
+..Kevin and Sarah sleep.
+>.Sarah is in the front seat. Still tried, but overwhemed, she
+..awakes.
+._SARAH
+.:Where are we now?
+._JASON
+.:I didn't know we were up?
+._SARAH
+.:I just got up.
+._JASON
+>:Good. We are making good progress.
+>:If it goes according to plan, we
+.:may make it by morning.
+._SARAH
+.:That's amazing.
+._JASON
+.:Want to talk?
+._SARAH
+.:Sure, nothing better to do.
+._JASON
+>:Do you think when this is all over
+>:that Kevin and you are going to
+.:rekindle your relationship?
+._SARAH
+.:We never had a relationship.
+._JASON
+>:I thought you did. You speak to one
+.:another like...
+._SARAH
+.:Like what?
+._JASON
+.:Never mind.
+._SARAH
+>:Don't worry. I have my heart set on
+.:someone else.
+._JASON
+.:Oh, and who's that?
+..Sarah gives him a short kiss.
+._JASON
+.((jokingly)
+>:We should probably stop doing that.
+>:That "other guy" might get a bit
+.:jealous.
+._SARAH
+>:Don't think we have to worry about
+.:him.
+._JASON
+>:Good. But we should keep this
+>:secret for a while anyway. We want
+>:to remain as professional as
+.:humanly possible.
+._SARAH
+.:Agreed.
+._JASON
+>:The road is so bare. I don't think
+>:I've seen a car for the last twelen
+.:miles.
+._SARAH
+.:Isn't that a good thing?
+._JASON
+>:I don't know. Sometimes, yes. But
+.:sometimes the vastness seems off.
+._SARAH
+.:How so?
+._JASON
+>:Well, as crazy as it sounds, the
+>:government may be blocking the
+.:roads.
+._SARAH
+>:If you ask me, that does sound a
+.:bit crazy.
+._JASON
+>:The government can't be blamed for
+>:every mishap. Well, shouldn't. I
+>:mean, as much as the government
+>:sucks, we must face the black hole
+.:right in front of us.
+._SARAH
+.:What do you mean?
+._JASON
+>:I mean, we are heading into
+>:trouble. No matter, if we want it
+.:or not.
+._SARAH
+.:Should I wake Kevin?
+._JASON
+.:No matter. We shouldn't worry him.
+.\INT. OVAL OFFICE, WHITE HOUSE - moments later
+>.Worried, the president sits in his chair and drinks a White
+..Russian. He slowly leans back...
+..There's a knock at the door.
+._PRESIDENT
+.:Please, come in.
+>.A somewhat young, tall, skinny man, ALLEN, wearing a basic
+..suit and tie, walks in.
+._Allen
+.:Do you have time to see me, sir?
+._PRESIDENT
+>:Certainly, always have time for a
+.:dear friend.
+..The president points to his drink.
+._PRESIDENT
+.:Would you like a drink?
+._ALLEN
+>:No, I got to be silver for the next
+.:hour. I'm taking my wife out.
+._PRESIDENT
+>:Any celebration? Why don't you take
+.:a seat?
+..He sits down.
+._ALLEN
+.:Well, we have had trouble...
+._PRESIDENT
+>:Nothing a few drink can't fix,
+.:right?
+._ALLEN
+.:That's the trouble.
+._PRESIDENT
+>:Oh, I see. Well, I can't help you
+>:there. I'm a bit of an excessive
+.:drinker myself.
+._ALLEN
+.:That's not it.
+._PRESIDENT
+>:Oh, then what seems to be the
+.:problem?
+._ALLEN
+>:I'm thinking about running for
+>:President. And I would like your
+.:approve.
+._PRESIDENT
+.:Isn't that a year away?
+._ALLEN
+>:About that. But I really would feel
+.:comfort...
+._PRESIDENT
+>:I will need some time to think it
+.:over.
+._ALLEN
+.:I see, no rash decisions.
+._PRESIDENT
+.:Percisely my point.
+._ALLEN
+>:Well, I hate to leave you, but I
+.:have to keep the wife happy.
+._PRESIDENT
+>:You betcha. Tell I said hello to
+.:the misses.
+._ALLEN
+.:Good bye.
+..Allen leaves quickly. The door closes.
+>.Once the president knows that Allen is far enough away. He
+..speaks into an intercom.
+._PRESIDENT
+>:Mindy, I know who running against
+.:me this fall.
+.\Ext. Street - minutes later
+>.It's raining lightly. Allen, holding up a umbrella, walks to
+>.a parked car. His wife opens the window in the passagner's
+..seat.
+._Allen's wife
+.:Did he take the bait?
+._ALLEN
+.:Like a fish on a pole.
+._ALLEN'S WIFE
+>:Good. We have him where we want
+.:him.
+._ALLEN
+>:I don't think I understand the
+.:plan.
+._ALLEN'S WIFE
+.:Don't worry. You will soon.
+..Allen gets into the driver's seat. The car drives away.
+>%Another setup wherein Allen is another player in this
+.%government incident/coverup.
