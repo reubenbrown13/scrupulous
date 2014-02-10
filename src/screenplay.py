@@ -1984,8 +1984,8 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
         return True
 
-     # Return the (tabtype, entertype) of element if tab/enter were pressed now
-     def getTabEnterTypes(self):
+    # Return the (tabtype, entertype) of element if tab/enter were pressed now
+    def getTabEnterTypes(self):
         c = self.cfgGl
         cur = c.getType(self.lines[self.line].lt)
         if self.tabMakesNew():
