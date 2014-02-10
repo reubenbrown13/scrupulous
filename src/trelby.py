@@ -673,7 +673,7 @@ class MyCtrl(wx.Control):
 
             if line != -1:
                 if wx.MessageBox(
-                    "The script seems to contain errors.\n"
+                    "The script contains errors.\n"
                     "Are you sure you want to %s it?" % action, "Confirm",
                      wx.YES_NO | wx.NO_DEFAULT, mainFrame) == wx.NO:
 
@@ -1220,7 +1220,7 @@ class MyCtrl(wx.Control):
             if not wasAtStart:
                 s = "\n\n(Starting position was not at\n"\
                     "the beginning of the script.)"
-            wx.MessageBox("Spell checker found no errors." + s, "Results",
+            wx.MessageBox("No spelling error found." + s, "Results",
                           wx.OK, mainFrame)
 
             return
@@ -2489,8 +2489,8 @@ class MyFrame(wx.Frame):
 
         if failed:
             wx.MessageBox(
-                "The fonts listed below are not fixed width and\n"
-                "will cause the program not to function correctly.\n"
+                "The fonts selected are an unfixed width and\n"
+                "will cause the program to function improperly.\n"
                 "Please change the fonts at File/Settings/Change.\n\n"
                 + "\n".join(failed), "Error", wx.OK, self)
 
@@ -2860,7 +2860,7 @@ class MyFrame(wx.Frame):
 
     def OnNameDatabase(self, event = None):
         if not namesdlg.readNames(self):
-            wx.MessageBox("Error opening name database.", "Error",
+            wx.MessageBox("Cannot open name database.", "Error",
                           wx.OK, self)
 
             return
