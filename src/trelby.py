@@ -61,13 +61,11 @@ VIEWMODE_OVERVIEW_SMALL,\
 VIEWMODE_OVERVIEW_LARGE,\
 = range(5)
 
-<<<<<<< HEAD
 # double-click codes
 WORD_NOT_SELECTED = 0
 WORD_SELECTED = 1
-=======
+
 NAV_TIMER_BUFFER = 500
->>>>>>> 95539ec535ab1ce47fd80b2763e0d5a3ad5806dd
 
 def refreshGuiConfig():
     global cfgGui
