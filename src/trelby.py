@@ -2941,8 +2941,8 @@ class MyFrame(wx.Frame):
             if wx.MessageBox("Do you want to save changes\n"
                              "before closing?", "Confirm",
                              wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
+                modified = self.isModifications()
 
-        modified = self.isModifications()
         if event.CanVeto() and modified:
             dlg = misc.ExitCancelDlg(self,
                     "UNSAVED changes in these files will be lost:\n\n" +
