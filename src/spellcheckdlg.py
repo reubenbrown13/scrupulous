@@ -50,7 +50,7 @@ class SpellCheckDlg(wx.Dialog):
 
         vsizer.Add(gsizer, 0, wx.EXPAND, 0)
 
-        suggestBtn = wx.Button(self, -1, "S&uggest replacement")
+        suggestBtn = wx.Button(self, -1, "S&uggest")
         vsizer.Add(suggestBtn, 0, wx.EXPAND | wx.TOP, 10)
 
         wx.EVT_TEXT_ENTER(self, self.replaceEntry.GetId(), self.OnReplace)
@@ -88,7 +88,7 @@ class SpellCheckDlg(wx.Dialog):
             self.sc.col += len(self.sc.word)
 
         if not self.sc.findNext():
-            wx.MessageBox("No more incorrect words found.", "Results",
+            wx.MessageBox("No more spelling errors found.", "Results",
                           wx.OK, self)
 
             self.EndModal(wx.ID_OK)
@@ -193,13 +193,13 @@ class SpellCheckDlg(wx.Dialog):
         wx.EndBusyCursor()
 
         if len(items) == 0:
-            wx.MessageBox("No similar words found.", "Results",
+            wx.MessageBox("No suggestions words found.", "Results",
                           wx.OK, self)
 
             return
 
         dlg = wx.SingleChoiceDialog(
-            self, "Most similar words:", "Suggestions", items)
+            self, "Most suggested words:", "Suggestions", items)
 
         if dlg.ShowModal() == wx.ID_OK:
             sel = dlg.GetSelection()
