@@ -110,6 +110,10 @@ class Screenplay:
         # estimated amount of memory used by undo objects, in bytes
         self.undoMemoryUsed = 0
 
+        # True if script has had changes done to if after
+        # last recovery. Set to false after a recovery save.
+        self.hasChangedSinceRecovery = False
+
     def isModified(self):
         if not self.hasChanged:
             return False
@@ -120,8 +124,15 @@ class Screenplay:
 
         return (len(self.lines) > 1) or bool(self.lines[0].text)
 
+    def isModifiedSinceRecovery(self):
+        if not self.hasChangedSinceRecovery:
+            return False
+
+        return (len(self.lines) > 1) or bool(self.lines[0].text)
+
     def markChanged(self, state = True):
         self.hasChanged = state
+        self.hasChangedSinceRecovery = state
 
     def cursorAsMark(self):
         return Mark(self.line, self.column)

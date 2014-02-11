@@ -1119,6 +1119,16 @@ class MiscPanel(wx.Panel):
         wx.EVT_LISTBOX(self, self.checkList.GetId(), self.OnMisc)
         wx.EVT_CHECKLISTBOX(self, self.checkList.GetId(), self.OnMisc)
 
+        self.enableRecoveryCb = wx.CheckBox(self, -1,
+            "Try to recover files after crash")
+        wx.EVT_CHECKBOX(self, self.enableRecoveryCb.GetId(), self.OnMisc)
+        vsizer.Add(self.enableRecoveryCb, 0, wx.BOTTOM, pad)
+
+        self.checkErrorsCb = wx.CheckBox(self, -1,
+            "Check script for errors before print, export or compare")
+        wx.EVT_CHECKBOX(self, self.checkErrorsCb.GetId(), self.OnMisc)
+        vsizer.Add(self.checkErrorsCb, 0, wx.BOTTOM, 10)
+
         self.addSpin("splashTime", "Show splash screen for X seconds:\n"
                      " (0 = disable)", self, vsizer, "splashTime")
 
@@ -1175,6 +1185,7 @@ class MiscPanel(wx.Panel):
         self.cfg.mouseWheelLines = util.getSpinValue(self.wheelScrollEntry)
         self.cfg.splashTime = util.getSpinValue(self.splashTimeEntry)
         self.cfg.autoSaveMinutes = util.getSpinValue(self.autoSaveMinutesEntry)
+        self.cfg.enableRecovery = self.enableRecoveryCb.GetValue()
 
     def OnBrowse(self, event):
         dlg = wx.DirDialog(
@@ -1240,6 +1251,7 @@ class MiscPanel(wx.Panel):
         self.wheelScrollEntry.SetValue(self.cfg.mouseWheelLines)
         self.splashTimeEntry.SetValue(self.cfg.splashTime)
         self.autoSaveMinutesEntry.SetValue(self.cfg.autoSaveMinutes)
+        self.enableRecoveryCb.SetValue(self.cfg.enableRecovery)
 
 class ElementsGlobalPanel(wx.Panel):
     def __init__(self, parent, id, cfg):
