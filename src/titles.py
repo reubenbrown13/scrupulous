@@ -13,13 +13,13 @@ class Titles:
         a = []
 
         y = 105.0
-        a.append(TitleString(["UNTITLED SCREENPLAY"], y = y, size = 24,
+        a.append(TitleString(["UNTITLED"], y = y, size = 24,
                              isBold = True, font = pml.HELVETICA))
-        a.append(TitleString(["by", "", "My Name Here"], y = y + 15.46))
+        a.append(TitleString(["by", "", "Your Name"], y = y + 15.46))
 
         x = 15.0
         y = 240.0
-        a.append(TitleString(["123/456-7890", "no.such@thing.com"], x, y + 8.46, False))
+        a.append(TitleString(["(123) 456-7890", "me@email.com"], x, y + 8.46, False))
 
         x = 150.0
         y = 240.0
