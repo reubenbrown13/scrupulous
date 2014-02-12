@@ -2948,7 +2948,7 @@ class MyFrame(wx.Frame):
             dlg = misc.ExitCancelDlg(self,
                     "UNSAVED changes in these files will be lost:\n\n" +
                     "\n".join(modified) + "\n\n"
-                    "Are you sure you want to exit?", "Unsaved changes")
+                    "Are you sure you want to exit?", "Unsaved Changes")
             if dlg.ShowModal() == wx.CANCEL:
                 doExit = False
 

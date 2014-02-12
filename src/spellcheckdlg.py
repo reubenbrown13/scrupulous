@@ -193,7 +193,7 @@ class SpellCheckDlg(wx.Dialog):
         wx.EndBusyCursor()
 
         if len(items) == 0:
-            wx.MessageBox("No suggestions words found.", "Results",
+            wx.MessageBox("No word suggestions found.", "Results",
                           wx.OK, self)
 
             return
