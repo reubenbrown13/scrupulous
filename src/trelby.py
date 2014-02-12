@@ -2936,12 +2936,13 @@ class MyFrame(wx.Frame):
 
     def OnCloseWindow(self, event):
         doExit = True
+        modified = self.isModifications()
 
         if event.CanVeto() and self.isModifications():
             if wx.MessageBox("Do you want to save changes\n"
                              "before closing?", "Confirm",
                              wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
-                modified = self.isModifications()
+                doExit = True
 
         if event.CanVeto() and modified:
             dlg = misc.ExitCancelDlg(self,
