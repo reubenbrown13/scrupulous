@@ -24,3 +24,12 @@ UNDO/REDO
    and script contents are exactly the same
 
   -randomly do undo/redo
+
+
+MILLINGJON
+==========
+
+-package Courier Prime and use it by defeault.
+-fix blinking cursor (vertical).
+-update resources/logo.jpg.
+-invert colors of most icons.
