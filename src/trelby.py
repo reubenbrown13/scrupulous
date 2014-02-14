@@ -1697,8 +1697,8 @@ class MyCtrl(wx.Control):
             for dp in dpages:
                 # + 2 because DrawLine doesn't draw to end point but stops
                 # one pixel short...
-                dc.DrawLine(dp.x1 + 1, dp.y2 + 1, dp.x2 + 1, dp.y2 + 1)
-                dc.DrawLine(dp.x2 + 1, dp.y1 + 1, dp.x2 + 1, dp.y2 + 2)
+                dc.DrawLine(dp.x1 + 2, dp.y2 + 2, dp.x2 + 2, dp.y2 + 2)
+                dc.DrawLine(dp.x2 + 2, dp.y1 + 2, dp.x2 + 2, dp.y2 + 3)
 
         for t in strings:
             i = t.line

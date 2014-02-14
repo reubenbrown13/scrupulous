@@ -35,8 +35,8 @@ RemoveNotes:False
 OutlineNotes:True
 ShowMargins:False
 ShowLineNumbers:False
-Cursor/Line:1013
-Cursor/Column:20
+Cursor/Line:996
+Cursor/Column:47
 String/MoreDialogue:(MORE)
 String/ContinuedPageEnd:(CONTINUED)
 String/ContinuedPageStart:CONTINUED:
@@ -1116,14 +1116,14 @@ Words/14:zzzz
 ..Russian. He slowly leans back...
 ..Someone knocks the door from the outside.
 ._PRESIDENT
-.:It's unlocked.
+.:It's open.
 >.A somewhat young, tall, skinny man, ALLEN, wearing a basic
 ..suit and tie, walks in.
 ._Allen
 .:Do you have time to see me, sir?
 ._PRESIDENT
->:Certainly, I always have time for a
-.:dear friend.
+>:I always have time for a dear
+.:friend.
 ..The president points to his drink.
 ._PRESIDENT
 .:Would you like one?
@@ -1164,7 +1164,7 @@ Words/14:zzzz
 ._ALLEN
 .:I see. No rash decisions.
 ._PRESIDENT
-.:Percisely my point.
+.:Precisely my point.
 ._ALLEN
 >:Well, I hate to leave you, but I'll
 .:better not keep my wife waiting.
@@ -1181,7 +1181,7 @@ Words/14:zzzz
 .:me this fall.
 .\Ext. Street - minutes later
 >.It's raining lightly. Allen, holding up a umbrella, walks to
->.a parked car. His wife opens the window in the passagner's
+>.a parked car. His wife opens the window in the passenger's
 ..seat.
 ._Allen's wife
 .:Did he take the bait?
