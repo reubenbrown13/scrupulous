@@ -36,7 +36,7 @@ OutlineNotes:True
 ShowMargins:False
 ShowLineNumbers:False
 Cursor/Line:1013
-Cursor/Column:28
+Cursor/Column:20
 String/MoreDialogue:(MORE)
 String/ContinuedPageEnd:(CONTINUED)
 String/ContinuedPageStart:CONTINUED:
@@ -897,7 +897,7 @@ Words/14:zzzz
 >:mistake. We got Interpol on our
 >:back. We should keep a lookout,
 .:even in the middle of nowhere.
-..There's a silence. A brief awkward silence.
+..There's a brief awkward silence.
 >.The door opens suddenly with a loud noise. We see Jason
 >.holding down an Asian man from behind. He's also hiding the
 >.man's mouth with his hand. He mumbles a few words, but it's
@@ -1022,21 +1022,21 @@ Words/14:zzzz
 .%will discover soon.
 ./FADE OUT
 ./FADE IN:
-.\Int. Car - night
->.Tired and confunsed, Jason has been driving for while, while
-..Kevin and Sarah sleep.
->.Sarah is in the front seat. Still tried, but overwhemed, she
-..awakes.
+.\Int/ext. Car - night
+>.Tired and confunsed, Jason has been driving for a while
+..while Kevin sleeps.
+>.Sarah is in the front seat. She can hardly keep her eyes
+..open.
 ._SARAH
 .:Where are we now?
 ._JASON
-.:I didn't know we were up?
+.:I didn't know you were up?
 ._SARAH
 .:I just got up.
 ._JASON
 >:Good. We are making good progress.
->:If it goes according to plan, we
-.:may make it by morning.
+>:If everything goes according to
+.:plan, we may make it by morning.
 ._SARAH
 .:That's amazing.
 ._JASON
@@ -1071,7 +1071,7 @@ Words/14:zzzz
 >:Don't think we have to worry about
 .:him.
 ._JASON
->:Good. But we should keep this
+>:Good. But we should keep this a
 >:secret for a while anyway. We want
 >:to remain as professional as
 .:humanly possible.
@@ -1104,29 +1104,29 @@ Words/14:zzzz
 ._SARAH
 .:What do you mean?
 ._JASON
->:I mean, we are heading into
->:trouble. No matter, if we want it
-.:or not.
+>:I think we are heading into
+>:trouble. No matter, we can't really
+.:go back now.
 ._SARAH
 .:Should I wake Kevin?
 ._JASON
-.:No matter. We shouldn't worry him.
+.:We shouldn't worry him.
 .\INT. OVAL OFFICE, WHITE HOUSE - moments later
 >.Worried, the president sits in his chair and drinks a White
 ..Russian. He slowly leans back...
-..There's a knock at the door.
+..Someone knocks the door from the outside.
 ._PRESIDENT
-.:Please, come in.
+.:It's unlocked.
 >.A somewhat young, tall, skinny man, ALLEN, wearing a basic
 ..suit and tie, walks in.
 ._Allen
 .:Do you have time to see me, sir?
 ._PRESIDENT
->:Certainly, always have time for a
+>:Certainly, I always have time for a
 .:dear friend.
 ..The president points to his drink.
 ._PRESIDENT
-.:Would you like a drink?
+.:Would you like one?
 ._ALLEN
 >:No, I got to be silver for the next
 .:hour. I'm taking my wife out.
@@ -1148,14 +1148,13 @@ Words/14:zzzz
 ._ALLEN
 .:That's not it.
 ._PRESIDENT
->:Oh, then what seems to be the
-.:problem?
+.:Oh, what is it?
 ._ALLEN
 >:I'm thinking about running for
 >:President. And I would like your
-.:approve.
+.:approval.
 ._PRESIDENT
-.:Isn't that a year away?
+.:Isn't that next year?
 ._ALLEN
 >:About that. But I really would feel
 .:comfort...
@@ -1163,17 +1162,17 @@ Words/14:zzzz
 >:I will need some time to think it
 .:over.
 ._ALLEN
-.:I see, no rash decisions.
+.:I see. No rash decisions.
 ._PRESIDENT
 .:Percisely my point.
 ._ALLEN
->:Well, I hate to leave you, but I
-.:have to keep the wife happy.
+>:Well, I hate to leave you, but I'll
+.:better not keep my wife waiting.
 ._PRESIDENT
->:You betcha. Tell I said hello to
-.:the misses.
+>:You betcha. Tell her I said hello
+.:to the misses.
 ._ALLEN
-.:Good bye.
+.:Good-bye.
 ..Allen leaves quickly. The door closes.
 >.Once the president knows that Allen is far enough away. He
 ..speaks into an intercom.
@@ -1199,3 +1198,4 @@ Words/14:zzzz
 ..Allen gets into the driver's seat. The car drives away.
 >%Another setup wherein Allen is another player in this
 .%government incident/coverup.
+.\Int/ext. Car - night

@@ -1044,7 +1044,7 @@ class ConfigGlobal:
         v.addColor("textHdr", 128, 128, 128, "TextHeadersFG",
                    "Text foreground (headers)")
         v.addColor("textBg", 255, 255, 255, "TextBG", "Text background")
-        v.addColor("workspace", 240, 240, 240, "Workspace", "Workspace")
+        v.addColor("workspace", 55, 55, 55, "Workspace", "Workspace")
         v.addColor("pageBorder", 202, 202, 202, "PageBorder", "Page border")
         v.addColor("pageShadow", 222, 222, 222, "PageShadow", "Page shadow")
         v.addColor("selected", 124, 181, 220, "Selected", "Selection")
