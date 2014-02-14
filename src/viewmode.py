@@ -277,7 +277,7 @@ class ViewModeLayout(ViewMode):
         width, height = ctrl.GetClientSizeTuple()
 
         # gap between pages (pixels)
-        pageGap = 10
+        pageGap = 15
         pager = mypager.Pager(ctrl.sp.cfg)
 
         mm2p = ctrl.mm2p
