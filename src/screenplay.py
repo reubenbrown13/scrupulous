@@ -22,6 +22,7 @@ TRANSITION = 6
 SHOT = 7
 NOTE = 8
 ACTBREAK = 9
+TITLE = 10
 
 import autocompletion
 import config
@@ -505,6 +506,7 @@ class Screenplay:
             TRANSITION : "tr",
             NOTE : "nt",
             ACTBREAK : "ab",
+            TITLE : "ti",
         }
 
         # html header for files
@@ -626,6 +628,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
             TRANSITION : "Transition",
             NOTE : "Action",
             ACTBREAK : "New Act",
+            TITLE : "Action"
         }
 
         for ele in eleList:
@@ -678,7 +681,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
             lns = txt.split("\n")
 
             #ensure last element of flines is empty for some types.
-            if typ in (SCENE, ACTION, CHARACTER, TRANSITION, SHOT, ACTBREAK, NOTE):
+            if typ in (SCENE, ACTION, CHARACTER, TRANSITION, SHOT, ACTBREAK, NOTE, TITLE):
                 if flines and flines[-1] != "":
                     flines.append("")
 
@@ -3177,6 +3180,9 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
     def toActBreakCmd(self, cs):
         self.convertTypeTo(ACTBREAK, True)
+
+    def toTitleCmd(self, cs):
+        self.convertTypeTo(TITLE, True)
 
     def toNoteCmd(self, cs):
         self.convertTypeTo(NOTE, True)

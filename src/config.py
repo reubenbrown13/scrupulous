@@ -418,6 +418,14 @@ class Config:
         t.export.isUnderlined = True
         self.types[t.lt] = t
 
+        t = Type(screenplay.TITLE)
+        t.beforeSpacing = 0
+        t.indent = 15
+        t.width = 20
+        t.screen.isUnderlined = True
+        t.export.isUnderlined = True
+        self.types[t.lt] = t
+
         t = Type(screenplay.NOTE)
         t.beforeSpacing = 10
         t.indent = 5
@@ -651,6 +659,13 @@ class ConfigGlobal:
         t.prevTypeTab = screenplay.SCENE
         self.types[t.lt] = t
 
+        t = TypeGlobal(screenplay.TITLE)
+        t.newTypeEnter = screenplay.ACTBREAK
+        t.newTypeTab = screenplay.SCENE
+        t.nextTypeTab = screenplay.ACTION
+        t.prevTypeTab = screenplay.SCENE
+        self.types[t.lt] = t
+
         t = TypeGlobal(screenplay.NOTE)
         t.newTypeEnter = screenplay.ACTION
         t.newTypeTab = screenplay.CHARACTER
@@ -697,6 +712,9 @@ class ConfigGlobal:
 
             Command("ChangeToShot", "Change current element's style to"
                     " shot."),
+
+            Command("ChangeToTitle", "Change current element's style to"
+                    " title."),
 
             Command("ChangeToTransition", "Change current element's style to"
                     " transition.",
@@ -1462,6 +1480,7 @@ def _init():
         (screenplay.TRANSITION, "/",  "Transition"),
         (screenplay.SHOT,       "=",  "Shot"),
         (screenplay.ACTBREAK,   "@",  "Act break"),
+        (screenplay.TITLE,      "&",  "Title"),
         (screenplay.NOTE,       "%",  "Note")
         ):
 

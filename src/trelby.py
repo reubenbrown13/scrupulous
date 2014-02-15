@@ -1441,8 +1441,11 @@ class MyCtrl(wx.Control):
     def cmdChangeToShot(self, cs):
         self.sp.toShotCmd(cs)
 
-    def cmdChangeToActBreak(self,cs):
+    def cmdChangeToActBreak(self, cs):
         self.sp.toActBreakCmd(cs)
+
+    def cmdChangeToTitle(self, cs):
+        self.sp.toTitleCmd(cs)
 
     def cmdChangeToTransition(self, cs):
         self.sp.toTransitionCmd(cs)
@@ -2185,6 +2188,7 @@ class MyFrame(wx.Frame):
             tmp.Append(ID_ELEM_TO_TRANSITION, "&Transition")
             tmp.Append(ID_ELEM_TO_SHOT, "Sh&ot")
             tmp.Append(ID_ELEM_TO_ACTBREAK, "Act &break")
+            tmp.Append(ID_ELEM_TO_TITLE, "T&itle")
             tmp.Append(ID_ELEM_TO_NOTE, "&Note")
 
             m.AppendSubMenu(tmp, "Element type")
@@ -2381,6 +2385,7 @@ class MyFrame(wx.Frame):
             "ID_ELEM_TO_SCENE",
             "ID_ELEM_TO_SHOT",
             "ID_ELEM_TO_ACTBREAK",
+            "ID_ELEM_TO_TITLE",
             "ID_ELEM_TO_TRANSITION",
             "ID_NAV_SELECT",
             "ID_NAV_DELETE",
@@ -2401,6 +2406,7 @@ class MyFrame(wx.Frame):
             ID_ELEM_TO_TRANSITION : screenplay.TRANSITION,
             ID_ELEM_TO_SHOT : screenplay.SHOT,
             ID_ELEM_TO_ACTBREAK : screenplay.ACTBREAK,
+            ID_ELEM_TO_TITLE : screenplay.TITLE,
             ID_ELEM_TO_NOTE : screenplay.NOTE,
             }
 

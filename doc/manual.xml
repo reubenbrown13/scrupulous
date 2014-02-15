@@ -19,7 +19,7 @@
     </authorgroup>
 
     <copyright>
-      <year>2012</year>
+      <year>2014</year>
       <holder>Trelby developers</holder>
     </copyright>
 
@@ -122,6 +122,16 @@
 			<para>Defines an act (typically used in teleplays).
             Example: "ACT ONE" or "TEASER".
             </para>
+
+		  </listitem>
+		</varlistentry>
+
+		<varlistentry>
+		  <term>Title</term>
+		  <listitem>
+
+		  	<para>Defines the title (typically used in teleplays).
+		  	Example: "The Koala Incident".</para>
 
 		  </listitem>
 		</varlistentry>
