@@ -1080,7 +1080,7 @@ class ConfigGlobal:
                    "PageBreakNoAdjustLine",
                    "Page-break (original, not adjusted) line")
 
-        v.addColor("tabText", 50, 50, 50, "TabText", "Tab text")
+        v.addColor("tabText", 255, 255, 255, "TabText", "Tab text")
         v.addColor("tabBorder", 55, 55, 55, "TabBorder",
                    "Tab border")
         v.addColor("tabBarBg", 70, 70, 70, "TabBarBG",
