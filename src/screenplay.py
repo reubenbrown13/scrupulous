@@ -371,8 +371,7 @@ class Screenplay:
             raise error.MiscError("Start-Script line not found.")
 
         if len(sp.lines) == 0:
-            raise error.MiscError("File doesn't contain any screenplay"
-                                  " lines.")
+            raise error.MiscError("File isn't a screenplay.")
 
         if sp.lines[-1].lb != LB_LAST:
             raise error.MiscError("Last line doesn't end an element.")

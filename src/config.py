@@ -1085,7 +1085,7 @@ class ConfigGlobal:
                    "Tab border")
         v.addColor("tabBarBg", 70, 70, 70, "TabBarBG",
                    "Tab bar background")
-        v.addColor("tabNonActiveBg", 180, 180, 180, "TabNonActiveBg", "Tab, non-active")
+        v.addColor("tabNonActiveBg", 125, 125, 125, "TabNonActiveBg", "Tab, non-active")
         v.addColor("navSceneText", 0, 0, 0, "NavSceneText", "Navigator scene text")
         v.addColor("navSceneSelectedMark", 166, 166, 166, "NavSceneSelectedMark", "Navigator selected scene marker")
         v.addColor("navNoteText", 128, 128, 0, "NavNoteText", "Navigator note text")
