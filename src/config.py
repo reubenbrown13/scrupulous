@@ -359,7 +359,7 @@ class Config:
 
         # element types
         t = Type(screenplay.SCENE)
-        t.beforeSpacing = 10
+        t.beforeSpacing = 15
         t.indent = 0
         t.width = 60
         t.screen.isCaps = True

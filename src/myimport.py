@@ -233,7 +233,7 @@ def importCeltx(fileName, frame):
     try:
         z = zipfile.ZipFile(buf)
     except:
-        wx.MessageBox("File is not a valid Celtx script file.", "Error", wx.OK, frame)
+        wx.MessageBox("File is an invalid Celtx file.", "Error", wx.OK, frame)
         return None
 
     files = z.namelist()
@@ -248,7 +248,7 @@ def importCeltx(fileName, frame):
     z.close()
 
     if not content:
-        wx.MessageBox("Script seems to be empty.", "Error", wx.OK, frame)
+        wx.MessageBox("Script is blank.", "Error", wx.OK, frame)
         return None
 
     elemMap = {
@@ -295,7 +295,7 @@ def importCeltx(fileName, frame):
             addElem(lt, items)
 
     if len(lines) == 0:
-        wx.MessageBox("The file contains no importable lines", "Error", wx.OK, frame)
+        wx.MessageBox("The file contains unreadable lines.", "Error", wx.OK, frame)
         return None
 
     return lines
