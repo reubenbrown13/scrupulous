@@ -360,7 +360,7 @@ class Config:
         # element types
         t = Type(screenplay.SCENE)
         t.beforeSpacing = 20
-        t.betweenSpacing = 10
+        t.intraSpacing = 10
         t.indent = 0
         t.width = 60
         t.screen.isCaps = True
@@ -370,14 +370,14 @@ class Config:
 
         t = Type(screenplay.ACTION)
         t.beforeSpacing = 15
-        t.betweenSpacing = 4
+        t.intraSpacing = 4
         t.indent = 0
         t.width = 60
         self.types[t.lt] = t
 
         t = Type(screenplay.CHARACTER)
         t.beforeSpacing = 15
-        t.betweenSpacing = 4
+        t.intraSpacing = 4
         t.indent = 22
         t.width = 38
         t.screen.isCaps = True
@@ -386,7 +386,7 @@ class Config:
 
         t = Type(screenplay.DIALOGUE)
         t.beforeSpacing = 6
-        t.betweenSpacing = 4
+        t.intraSpacing = 4
         t.indent = 10
         t.width = 35
         self.types[t.lt] = t
