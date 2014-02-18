@@ -382,6 +382,7 @@ class Config:
         self.types[t.lt] = t
 
         t = Type(screenplay.DIALOGUE)
+        t.beforeSpacing = 6
         t.indent = 10
         t.width = 35
         self.types[t.lt] = t
