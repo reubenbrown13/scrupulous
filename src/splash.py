@@ -45,7 +45,7 @@ class SplashWindow(wx.Frame):
         util.setWH(self, w, h)
         self.CenterOnScreen()
 
-        self.textColor = wx.Colour(0, 0, 0)
+        self.textColor = wx.Colour(255, 255, 255)
 
         self.font = util.createPixelFont(
             14, wx.FONTFAMILY_MODERN, wx.NORMAL, wx.NORMAL)
