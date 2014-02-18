@@ -359,7 +359,7 @@ class Config:
 
         # element types
         t = Type(screenplay.SCENE)
-        t.beforeSpacing = 15
+        t.beforeSpacing = 20
         t.indent = 0
         t.width = 60
         t.screen.isCaps = True
@@ -368,13 +368,13 @@ class Config:
         self.types[t.lt] = t
 
         t = Type(screenplay.ACTION)
-        t.beforeSpacing = 10
+        t.beforeSpacing = 15
         t.indent = 0
         t.width = 60
         self.types[t.lt] = t
 
         t = Type(screenplay.CHARACTER)
-        t.beforeSpacing = 10
+        t.beforeSpacing = 15
         t.indent = 22
         t.width = 38
         t.screen.isCaps = True
