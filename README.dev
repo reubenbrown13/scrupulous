@@ -1,4 +1,4 @@
-This file is intented for people wishing to run Trelby using the sources,
+This file is intented for people wishing to run Scrupulous using the sources,
 i.e., not using a released package. This means mostly developers who want
 to inspect/modify the code.
 
@@ -6,14 +6,14 @@ to inspect/modify the code.
 ===============
 
 You will need Python 2.7 and wxWidgets (2.8) and its Python bindings to
-run Trelby. You also need the lxml Python library (http://lxml.de/).
+run Scrupulous. You also need the lxml Python library (http://lxml.de/).
 
 To build the manual, you will also need xsltproc.
 
 2. Preparing data files
 =======================
 
-Trelby needs special preparation for 4 of its data files. If you do not do
+Scrupulous needs special preparation for 4 of its data files. If you do not do
 this, that aspect of the program will not work.
 
  * Name list
@@ -30,7 +30,7 @@ this, that aspect of the program will not work.
 
  * Manpage
 
-  $ make trelby.1.gz
+  $ make scrupulous.1.gz
 
 You can run "make dist", which prepares all 4 and also generates a Linux
 distribution package which you can ignore.
@@ -39,7 +39,7 @@ distribution package which you can ignore.
 ==================================
 
 If you want to create the Windows package, you'll need to place the
-Windows redistributable runtime file vcredist_x86.exe in the trelby
+Windows redistributable runtime file vcredist_x86.exe in the scrupulous
 directory.
 
 Be sure to have the following installed:
@@ -61,31 +61,31 @@ so all files are in place. (and ensure vcredist_x86.exe is here as well)
 
 Then, on Windows, to create the installer:
 
-1) cd <trelby directory>
+1) cd <scrupulous directory>
 2) build.bat
 
-Your freshly created Setup-Trelby-<version>.exe should be ready.
+Your freshly created Setup-Scrupulous-<version>.exe should be ready.
 
 
-3. Running Trelby in test mode
+3. Running Scrupulous in test mode
 ==============================
 
 On Linux:
 
- $ cd ~/trelby/
- $ bin/trelby --test
+ $ cd ~/scrupulous/
+ $ bin/scrupulous --test
 
 On Windows:
 
- $ cd \trelby
- $ python bin/trelby --test sample.trelby
+ $ cd \scrupulous
+ $ python bin/scrupulous --test sample.trelby
 
  The file t.bat contains the last command.
 
 4. Differences from packaged versions
 =====================================
 
-The "--test" command line argument makes Trelby differ from normal running
+The "--test" command line argument makes Scrupulous differ from normal running
 as follows:
 
  -No splash window is displayed on startup.

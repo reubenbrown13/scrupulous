@@ -1,22 +1,23 @@
-Installation instructions for Trelby on Linux (tar.gz)
+Installation instructions for Scrupulous on Linux (tar.gz)
 ------------------------------------------------------
 
-Trelby uses Python's Distutils tool for installation. By default,
-it will install everything to /opt/trelby if you run
+Scrupulous uses Python's Distutils tool for installation. By default,
+it will install everything to /opt/scrupulous if you run
 
 python setup.py install
 
-Afterwards you can run the program with the command "/opt/trelby/bin/trelby".
+Afterwards you can run the program with the command "/opt/scrupulous/bin/
+scrupulous".
 
-If you prefer to install Trelby e.g. to /usr/local, run
+If you prefer to install Scrupulous e.g. to /usr/local, run
 
 sudo python setup.py install --prefix=/usr/local \
-                             --install-lib=/usr/local/share/trelby \
+                             --install-lib=/usr/local/share/scrupulous \
                              --install-data=/usr/local/share
 
-You can then run it by invoking "/usr/local/bin/trelby", or just by "trelby",
-if the installation path you chose has a "bin/" subdirectory that is part of
-your system's path (as is /usr/local/bin).
+You can then run it by invoking "/usr/local/bin/scrupulous", or just by 
+"scrupulous", if the installation path you chose has a "bin/" subdirectory
+that is part of your system's path (as is /usr/local/bin).
 
 External dependencies required:
 
