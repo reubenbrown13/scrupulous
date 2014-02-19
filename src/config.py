@@ -414,10 +414,9 @@ class Config:
 
         t = Type(screenplay.ACTBREAK)
         t.beforeSpacing = 10
-        t.indent = 15
-        t.width = 20
+        t.indent = 25
+        t.width = 10
         t.screen.isCaps = True
-        t.screen.isBold = True
         t.screen.isUnderlined = True
         t.export.isCaps = True
         t.export.isUnderlined = True
@@ -425,7 +424,8 @@ class Config:
 
         t = Type(screenplay.TITLE)
         t.beforeSpacing = 0
-        t.indent = 15
+        t.intraSpacing = 4
+        t.indent = 20
         t.width = 20
         t.screen.isUnderlined = True
         t.export.isUnderlined = True
