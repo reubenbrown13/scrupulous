@@ -409,7 +409,7 @@ class MyCtrl(wx.Control):
 
         try:
             (sp, msg) = screenplay.Screenplay.load(s, cfgGl)
-        except TrelbyError, e:
+        except ScrupulousError, e:
             wx.MessageBox("Error loading file:\n\n%s" % e, "Error",
                           wx.OK, mainFrame)
 
@@ -1945,7 +1945,7 @@ class MyCtrl(wx.Control):
 class MyFrame(wx.Frame):
 
     def __init__(self, parent, id, title):
-        wx.Frame.__init__(self, parent, id, title, name = "Trelby")
+        wx.Frame.__init__(self, parent, id, title, name = "Scrupulous")
 
         if misc.isUnix:
             # automatically reaps zombies
@@ -2419,7 +2419,7 @@ class MyFrame(wx.Frame):
         return newPanel
 
     def setTitle(self, text):
-        self.SetTitle("Trelby - %s" % text)
+        self.SetTitle("Scrupulous - %s" % text)
 
     def setTabText(self, panel, text):
         i = self.findPage(panel)
@@ -3071,7 +3071,7 @@ class MyApp(wx.App):
             if s:
                 gd.scDict.load(s)
 
-        mainFrame = MyFrame(None, -1, "Trelby")
+        mainFrame = MyFrame(None, -1, "Scrupulous")
         mainFrame.init()
 
         for arg in opts.filenames:

@@ -1,6 +1,6 @@
 # exception classes
 
-class TrelbyError(Exception):
+class ScrupulousError(Exception):
     def __init__(self, msg):
         Exception.__init__(self, msg)
         self.msg = msg
@@ -8,10 +8,10 @@ class TrelbyError(Exception):
     def __str__(self):
         return str(self.msg)
 
-class ConfigError(TrelbyError):
+class ConfigError(ScrupulousError):
     def __init__(self, msg):
-        TrelbyError.__init__(self, msg)
+        ScrupulousError.__init__(self, msg)
 
-class MiscError(TrelbyError):
+class MiscError(ScrupulousError):
     def __init__(self, msg):
-        TrelbyError.__init__(self, msg)
+        ScrupulousError.__init__(self, msg)

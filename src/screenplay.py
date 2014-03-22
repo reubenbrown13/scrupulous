@@ -236,7 +236,7 @@ class Screenplay:
     @staticmethod
     def load(s, cfgGl):
         if s[0:3] != codecs.BOM_UTF8:
-            raise error.MiscError("File is not a Trelby screenplay.")
+            raise error.MiscError("File is not a Scrupulous screenplay.")
 
         lines = s[3:].splitlines()
 

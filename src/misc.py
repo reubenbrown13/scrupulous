@@ -44,7 +44,7 @@ def init(doWX = True):
     # opts (the doWX name is just for similarity with util)
     if not doWX or opts.isTest:
         progPath = u"."
-        confPath = u".trelby"
+        confPath = u".scrupulous"
     else:
         if isUnix:
             progPath = unicode(
