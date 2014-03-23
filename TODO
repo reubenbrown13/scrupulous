@@ -29,6 +29,8 @@ UNDO/REDO
 MILLINGJON
 ==========
 
+-convert wxWidgets to 2.9 when Ubuntu 14.04 LTS releases.
 -package Courier Prime and use it by defeault.
 -fix blinking cursor (vertical).
 -ULTIMATE GOAL: add simple production features.
+-complete rebranding.
