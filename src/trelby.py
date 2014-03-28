@@ -371,7 +371,7 @@ class MyCtrl(wx.Control):
         # find dialog stored settings
         self.findDlgFindText = ""
         self.findDlgReplaceText = ""
-        self.findDlgMatchWholeWord= False
+        self.findDlgMatchWholeWord = False
         self.findDlgMatchCase = False
         self.findDlgDirUp = False
         self.findDlgUseExtra = False
@@ -404,7 +404,7 @@ class MyCtrl(wx.Control):
 
     def loadFile(self, fileName):
         s = util.loadFile(fileName, mainFrame)
-        if s == None:
+        if s is None:
             return
 
         try:
@@ -558,7 +558,7 @@ class MyCtrl(wx.Control):
     # texts = gd.vm.getScreen(self, False)[0], or None, in which case it's
     # called in this function.
     def isLineVisible(self, line, texts = None):
-        if texts == None:
+        if texts is None:
             texts = gd.vm.getScreen(self, False)[0]
 
         # paranoia never hurts
@@ -1153,7 +1153,7 @@ class MyCtrl(wx.Control):
             else:
                 return "Invalid scene number."
 
-        dlg = misc.TextInputDlg(mainFrame, "Enter scene number (%s - %s):" %\
+        dlg = misc.TextInputDlg(mainFrame, "Enter scene number (%s - %s):" %
             (scenes[0][0], scenes[-1][0]), "Goto scene", validateFunc)
 
         if dlg.ShowModal() == wx.ID_OK:
@@ -1181,7 +1181,7 @@ class MyCtrl(wx.Control):
             else:
                 return "Invalid page number."
 
-        dlg = misc.TextInputDlg(mainFrame, "Enter page number (%s - %s):" %\
+        dlg = misc.TextInputDlg(mainFrame, "Enter page number (%s - %s):" %
             (pages[0], pages[-1]), "Goto page", validateFunc)
 
         if dlg.ShowModal() == wx.ID_OK:
@@ -1598,11 +1598,11 @@ class MyCtrl(wx.Control):
             if addChar:
                 cs.char = chr(kc)
 
-                if opts.isTest and (cs.char == "å"):
+                if opts.isTest and (cs.char == "?"):
                     self.loadFile(u"sample.trelby")
-                elif opts.isTest and (cs.char == "¤"):
+                elif opts.isTest and (cs.char == "?"):
                     self.cmdTest(cs)
-                elif opts.isTest and (cs.char == "½"):
+                elif opts.isTest and (cs.char == "?"):
                     self.cmdSpeedTest(cs)
                 else:
                     self.sp.addCharCmd(cs)
@@ -1862,7 +1862,7 @@ class MyCtrl(wx.Control):
 
             if cfgGl.blinkCursor:
                 # reset cursor timer, so we don't blink when typing.
-                mainFrame.cursorTimer.Start(CURSOR_BLINK_RATE//2)
+                mainFrame.cursorTimer.Start(CURSOR_BLINK_RATE // 2)
 
     def drawAutoComp(self, dc, posX, cursorY, fi):
         ac = self.sp.acItems
@@ -2493,13 +2493,13 @@ class MyFrame(wx.Frame):
                 c.OnAutoSave(count)
                 count += 1
 
-        # NOTE:  We want to warn the user if the default script directory is unwritable,
-        #        but using wx.MessageBox w/code below occasionally crashes with:
+        # We want to warn the user if the default script directory is unwritable,
+        # but using wx.MessageBox w/code below occasionally crashes with:
         #
-        #    python: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
-        #        This may be related to the use of the timer thread (?) and requires more
-        #        investigation.  For now, a bad default script directory will result in
-        #        silent failure as there seems to be no way to safely notify the user.
+        # python: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
+        # This may be related to the use of the timer thread (?) and requires more
+        # investigation.  For now, a bad default script directory will result in
+        # silent failure as there seems to be no way to safely notify the user.
         #
         # if not os.access(misc.scriptDir, os.W_OK):
         #     wx.MessageBox( "Warning:  No write permission for " + str(misc.scriptDir) +
@@ -2547,7 +2547,7 @@ class MyFrame(wx.Frame):
         # Set the timer so that the cursor is shown 2/3rd of the time,
         # and hidden 1/3 of the time.
         if self.blinkState:
-            self.cursorTimer.Start(CURSOR_BLINK_RATE//2)
+            self.cursorTimer.Start(CURSOR_BLINK_RATE // 2)
         else:
             self.cursorTimer.Start(CURSOR_BLINK_RATE)
 

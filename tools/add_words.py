@@ -15,7 +15,7 @@ util.init(False)
 misc.init(False)
 
 s = util.loadFile("../dict_en.dat", None)
-if s == None:
+if s is None:
     raise Exception("error")
 
 words = {}

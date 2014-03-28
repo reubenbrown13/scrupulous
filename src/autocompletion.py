@@ -33,7 +33,7 @@ class AutoCompletion:
             "TIME CUT:"
             ]
         self.types[t.ti.lt] = t
-        
+
         t = Type(screenplay.SHOT)
         t.items = [
             "AERIAL SHOT",
