@@ -1477,11 +1477,17 @@ class MyCtrl(wx.Control):
     def cmdMoveLeft(self, cs):
         self.sp.moveLeftCmd(cs)
 
+    def cmdMoveNextWord(self, cs):
+        self.sp.moveNextWordCmd(cs)
+
     def cmdMovePageDown(self, cs):
         self.pageCmd(cs, 1)
 
     def cmdMovePageUp(self, cs):
         self.pageCmd(cs, -1)
+
+    def cmdMovePrevWord(self, cs):
+        self.sp.movePrevWordCmd(cs)
 
     def cmdMoveRight(self, cs):
         self.sp.moveRightCmd(cs)
@@ -1598,11 +1604,11 @@ class MyCtrl(wx.Control):
             if addChar:
                 cs.char = chr(kc)
 
-                if opts.isTest and (cs.char == "Ã¥"):
+                if opts.isTest and (cs.char == "å"):
                     self.loadFile(u"sample.trelby")
-                elif opts.isTest and (cs.char == "Â¤"):
+                elif opts.isTest and (cs.char == "¤"):
                     self.cmdTest(cs)
-                elif opts.isTest and (cs.char == "Â½"):
+                elif opts.isTest and (cs.char == "½"):
                     self.cmdSpeedTest(cs)
                 else:
                     self.sp.addCharCmd(cs)
