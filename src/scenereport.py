@@ -65,7 +65,7 @@ class SceneReport:
         for si in self.scenes:
             tf.addSpace(5.0)
 
-            tf.addText("%-4s %s" % (si.number, si.name), style = pml.BOLD)
+            tf.addText("%-4s %s" % (si.number, si.name), style=pml.BOLD)
 
             tf.addSpace(1.0)
 

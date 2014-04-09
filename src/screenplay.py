@@ -131,7 +131,7 @@ class Screenplay:
 
         return (len(self.lines) > 1) or bool(self.lines[0].text)
 
-    def markChanged(self, state = True):
+    def markChanged(self, state=True):
         self.hasChanged = state
         self.hasChangedSinceRecovery = state
 
@@ -1251,7 +1251,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
     # rewrap element starting at given line. if line is -1, rewraps
     # element containing self.line.
-    def rewrapElem(self, line = -1):
+    def rewrapElem(self, line=-1):
         ls = self.lines
 
         if line == -1:

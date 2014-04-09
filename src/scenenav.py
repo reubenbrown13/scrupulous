@@ -25,7 +25,7 @@ NAVITEM_TRANSITION = range(4)
 class NavigatorItem():
     # one item can consist of many sublines. These are created by genLines.
     # current type of lines - scene, note, blurb, transition.
-    def __init__(self, lineNo, sceneText, sceneNo = -1):
+    def __init__(self, lineNo, sceneText, sceneNo=-1):
         # screenplay line attached to this item.
         self.lineNo = lineNo
         # scene number.
@@ -47,11 +47,11 @@ class NavigatorItem():
     # does this item look the same as the another? Only compare attributes
     # that affect how the item looks.
     def hasSameText(self, another):
-        if (another.sceneText != self.sceneText or\
-            another.blurbText != self.blurbText or\
-            another.tranitionText != self.tranitionText or\
-            another.noteTexts != self.noteTexts or\
-            another.lineNo != self.lineNo or\
+        if (another.sceneText != self.sceneText or
+            another.blurbText != self.blurbText or
+            another.tranitionText != self.tranitionText or
+            another.noteTexts != self.noteTexts or
+            another.lineNo != self.lineNo or
             another.annotated != self.annotated):
             return False
         return True
@@ -71,7 +71,7 @@ class NavigatorItem():
         ln_nos = []
 
         if self.sceneNo > 0:
-            lns.append((NAVITEM_SCENE, "%d. %s" %(self.sceneNo, self.sceneText)))
+            lns.append((NAVITEM_SCENE, "%d. %s" % (self.sceneNo, self.sceneText)))
         else:
             lns.append((NAVITEM_SCENE, self.sceneText))
         ln_nos.append(self.lineNo)
@@ -99,7 +99,7 @@ class MyNavigator(wx.VListBox):
     # Setup margins, data structures and fonts.
     # getCfgGui - function to get global config
     def __init__(self, parent, id, getCfgGui):
-        wx.VListBox.__init__(self, parent, id, size = (NAVIGATOR_WIDTH, -1),
+        wx.VListBox.__init__(self, parent, id, size=(NAVIGATOR_WIDTH, -1),
                 style = wx.NO_BORDER)
         self.items = []
         self.currentLine = 0
@@ -118,7 +118,7 @@ class MyNavigator(wx.VListBox):
         cfgGui = self.getCfgGui()
         self.scenefont = cfgGui.fonts[pml.BOLD].font
 
-        h =  util.getFontHeight(self.scenefont)
+        h = util.getFontHeight(self.scenefont)
         i = int(h*0.1)
         if i <= 1:
             smallh = h - 1
@@ -143,7 +143,7 @@ class MyNavigator(wx.VListBox):
     # Since VListBox provides no easy method to get the mouse position inside
     # an item when clicked, we implement our own method.
     def OnDown(self, event):
-        x,y = event.GetPosition()
+        x, y = event.GetPosition()
         count = len(self.items)
         if count == 0:
             self.selectedIndex = -1
@@ -161,9 +161,9 @@ class MyNavigator(wx.VListBox):
             height = self.OnMeasureItem(i) + NAVMARGIN
 
         ln = y // self.itemheight
-        if ln <0:
+        if ln < 0:
             ln = 0
-        if ln> len(self.items[i].ln_nos)-1:
+        if ln > len(self.items[i].ln_nos)-1:
             ln = len(self.items[i].ln_nos)-1
 
         if i != self.selectedIndex:
@@ -282,7 +282,7 @@ class MyNavigator(wx.VListBox):
         item = self.items[index]
         x = rect.x + NAV_MARK_WIDTH
         i = 0
-        for typ,txt in item.lns:
+        for typ, txt in item.lns:
             y = rect.y + self.itemheight * i + 1
             if typ == NAVITEM_SCENE:
                 dc.SetFont(self.scenefont)
@@ -294,7 +294,7 @@ class MyNavigator(wx.VListBox):
                 else:
                     dc.SetFont(self.blurbfont)
                 dc.SetTextForeground(self.blurbcolor)
-                util.drawText(dc, txt, x , y)
+                util.drawText(dc, txt, x, y)
             elif typ == NAVITEM_NOTE:
                 dc.SetFont(self.blurbfont)
                 dc.SetTextForeground(self.notecolor)
@@ -304,7 +304,7 @@ class MyNavigator(wx.VListBox):
                 dc.SetFont(self.blurbfont)
                 dc.SetTextForeground(self.transitioncolor)
                 util.drawText(dc, txt, rect.x + rect.width - 2, y,
-                                align = util.ALIGN_RIGHT)
+                                align=util.ALIGN_RIGHT)
             i += 1
 
 
@@ -381,7 +381,7 @@ class MyNavigator(wx.VListBox):
                         ni_line = firstline
 
                     # Note/action after scene line.
-                    if len(navList)>0 and navList[-1].lineNo == ni_line-1 and navList[-1].sceneText:
+                    if len(navList) > 0 and navList[-1].lineNo == ni_line-1 and navList[-1].sceneText:
                         if line.lt == NOTE:
                             navList[-1].setBlurb(curLine)
                             navList[-1].annotated = True
@@ -395,9 +395,9 @@ class MyNavigator(wx.VListBox):
 
                         # Skip ahead to next line we care about
                         line_no += 1
-                        while line_no < lineCount and not ls[line_no].lt in (\
+                        while line_no < lineCount and not ls[line_no].lt in (
                             SCENE, ACTBREAK, NOTE, TRANSITION):
-                                line_no +=1
+                                line_no += 1
                         lnIncremented = True
 
                 if not lnIncremented:
