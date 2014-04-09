@@ -77,7 +77,7 @@ class ViewMode:
     #
     # lines in 'texts' have to be in monotonically increasing order, and
     # this has to always return at least one line.
-    def getScreen(self, ctrl, doExtra, partials = False, pageCache = None):
+    def getScreen(self, ctrl, doExtra, partials=False, pageCache=None):
         raise Exception("getScreen not implemented")
 
     # return height for one line on screen
@@ -102,7 +102,7 @@ class ViewMode:
 
     # make line, which is not currently visible, visible. texts =
     # self.getScreen(ctrl, False)[0].
-    def makeLineVisible(self, ctrl, line, texts, direction = config.SCROLL_CENTER):
+    def makeLineVisible(self, ctrl, line, texts, direction=config.SCROLL_CENTER):
         raise Exception("makeLineVisible not implemented")
 
     # handle page up (dir == -1) or page down (dir == 1) command. cursor
@@ -125,7 +125,7 @@ class ViewMode:
             if (t.y + lineh) > y:
                 break
 
-        if sel == None:
+        if sel is None:
             return (None, None)
 
         line = sel.line
@@ -198,7 +198,7 @@ class ViewMode:
 # background.
 class ViewModeDraft(ViewMode):
 
-    def getScreen(self, ctrl, doExtra, partials = False, pageCache = None):
+    def getScreen(self, ctrl, doExtra, partials=False, pageCache=None):
         cfg = ctrl.sp.cfg
         cfgGui = ctrl.getCfgGui()
 
@@ -257,8 +257,8 @@ class ViewModeDraft(ViewMode):
     def pos2linecol(self, ctrl, x, y):
         return self.pos2linecolGeneric(ctrl, x, y)
 
-    def makeLineVisible(self, ctrl, line, texts, direction = config.SCROLL_CENTER):
-        self.makeLineVisibleGeneric(ctrl, line, texts, direction, jumpAhead = 1)
+    def makeLineVisible(self, ctrl, line, texts, direction=config.SCROLL_CENTER):
+        self.makeLineVisibleGeneric(ctrl, line, texts, direction, jumpAhead=1)
 
     def pageCmd(self, ctrl, cs, dir, texts, dpages):
         self.pageCmdGeneric(ctrl, cs, dir, texts, dpages)
@@ -267,7 +267,7 @@ class ViewModeDraft(ViewMode):
 # have.
 class ViewModeLayout(ViewMode):
 
-    def getScreen(self, ctrl, doExtra, partials = False, pageCache = None):
+    def getScreen(self, ctrl, doExtra, partials=False, pageCache=None):
         cfgGui = ctrl.getCfgGui()
         textOp = pml.TextOp
 
@@ -358,7 +358,7 @@ class ViewModeLayout(ViewMode):
 
                 y = max(y, ypos)
 
-                if (y >= height) or (not partials and\
+                if (y >= height) or (not partials and
                                      ((ypos + fontY) > height)):
                     done = True
                     break
@@ -394,8 +394,8 @@ class ViewModeLayout(ViewMode):
     def pos2linecol(self, ctrl, x, y):
         return self.pos2linecolGeneric(ctrl, x, y)
 
-    def makeLineVisible(self, ctrl, line, texts, direction = config.SCROLL_CENTER):
-        self.makeLineVisibleGeneric(ctrl, line, texts, direction, jumpAhead = 3)
+    def makeLineVisible(self, ctrl, line, texts, direction=config.SCROLL_CENTER):
+        self.makeLineVisibleGeneric(ctrl, line, texts, direction, jumpAhead=3)
 
     def pageCmd(self, ctrl, cs, dir, texts, dpages):
         self.pageCmdGeneric(ctrl, cs, dir, texts, dpages)
@@ -405,7 +405,7 @@ class ViewModeLayout(ViewMode):
 # only, in a single row.
 class ViewModeSideBySide(ViewMode):
 
-    def getScreen(self, ctrl, doExtra, partials = False, pageCache = None):
+    def getScreen(self, ctrl, doExtra, partials=False, pageCache=None):
         cfgGui = ctrl.getCfgGui()
         textOp = pml.TextOp
 
@@ -515,7 +515,7 @@ class ViewModeSideBySide(ViewMode):
 
         return (line, column)
 
-    def makeLineVisible(self, ctrl, line, texts, direction = config.SCROLL_CENTER):
+    def makeLineVisible(self, ctrl, line, texts, direction=config.SCROLL_CENTER):
         ctrl.sp.setTopLine(line)
 
     def pageCmd(self, ctrl, cs, dir, texts, dpages):
@@ -538,7 +538,7 @@ class ViewModeOverview(ViewMode):
         # each character is size x size pixels.
         self.size = size
 
-    def getScreen(self, ctrl, doExtra, partials = False, pageCache = None):
+    def getScreen(self, ctrl, doExtra, partials=False, pageCache=None):
         cfgGui = ctrl.getCfgGui()
         textOp = pml.TextOp
 
@@ -615,7 +615,7 @@ class ViewModeOverview(ViewMode):
             sx, sy = tl[1][1][i]
 
             for j in xrange(len(s)):
-                if s[j] not in (" ", " "):
+                if s[j] not in (" ", "?"):
                     off = sx + j * self.size
 
                     for x in range(self.size):
@@ -633,7 +633,7 @@ class ViewModeOverview(ViewMode):
 
         return (None, None)
 
-    def makeLineVisible(self, ctrl, line, texts, direction = config.SCROLL_CENTER):
+    def makeLineVisible(self, ctrl, line, texts, direction=config.SCROLL_CENTER):
         ctrl.sp.setTopLine(line)
 
     # not implemented for overview mode at least for now.

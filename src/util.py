@@ -17,10 +17,10 @@ import StringIO
 import wx
 
 # alignment values
-ALIGN_LEFT    = 0
-ALIGN_CENTER  = 1
-ALIGN_RIGHT   = 2
-VALIGN_TOP    = 1
+ALIGN_LEFT = 0
+ALIGN_CENTER = 1
+ALIGN_RIGHT = 2
+VALIGN_TOP = 1
 VALIGN_CENTER = 2
 VALIGN_BOTTOM = 3
 
@@ -30,18 +30,18 @@ import fontinfo
 
 # mappings from lowercase to uppercase letters for different charsets
 _iso_8859_1_map = {
-    97 : 65, 98 : 66, 99 : 67, 100 : 68, 101 : 69,
-    102 : 70, 103 : 71, 104 : 72, 105 : 73, 106 : 74,
-    107 : 75, 108 : 76, 109 : 77, 110 : 78, 111 : 79,
-    112 : 80, 113 : 81, 114 : 82, 115 : 83, 116 : 84,
-    117 : 85, 118 : 86, 119 : 87, 120 : 88, 121 : 89,
-    122 : 90, 224 : 192, 225 : 193, 226 : 194, 227 : 195,
-    228 : 196, 229 : 197, 230 : 198, 231 : 199, 232 : 200,
-    233 : 201, 234 : 202, 235 : 203, 236 : 204, 237 : 205,
-    238 : 206, 239 : 207, 240 : 208, 241 : 209, 242 : 210,
-    243 : 211, 244 : 212, 245 : 213, 246 : 214, 248 : 216,
-    249 : 217, 250 : 218, 251 : 219, 252 : 220, 253 : 221,
-    254 : 222
+    97: 65, 98: 66, 99: 67, 100: 68, 101: 69,
+    102: 70, 103: 71, 104: 72, 105: 73, 106: 74,
+    107: 75, 108: 76, 109: 77, 110: 78, 111: 79,
+    112: 80, 113: 81, 114: 82, 115: 83, 116: 84,
+    117: 85, 118: 86, 119: 87, 120: 88, 121: 89,
+    122: 90, 224: 192, 225: 193, 226: 194, 227: 195,
+    228: 196, 229: 197, 230: 198, 231: 199, 232: 200,
+    233: 201, 234: 202, 235: 203, 236: 204, 237: 205,
+    238: 206, 239: 207, 240: 208, 241: 209, 242: 210,
+    243: 211, 244: 212, 245: 213, 246: 214, 248: 216,
+    249: 217, 250: 218, 251: 219, 252: 220, 253: 221,
+    254: 222
     }
 
 # current mappings, 256 chars long.
@@ -62,18 +62,18 @@ _identity_tbl = ""
 # map some fancy unicode characters to their nearest ASCII/Latin-1
 # equivalents so when people import text it's not mangled to uselessness
 _fancy_unicode_map = {
-    ord(u"‘") : u"'",
-    ord(u"’") : u"'",
-    ord(u"“") : u'"',
-    ord(u"”") : u'"',
-    ord(u"—") : u"--",
-    ord(u"–") : u"-",
+    ord(u"‘"): u"'",
+    ord(u"’"): u"'",
+    ord(u"“"): u'"',
+    ord(u"”"): u'"',
+    ord(u"—"): u"--",
+    ord(u"–"): u"-",
     }
 
 # permanent memory DC to get text extents etc
 permDc = None
 
-def init(doWX = True):
+def init(doWX=True):
     global _to_upper, _to_lower, _input_tbl, _normalize_tbl, _identity_tbl, \
            permDc
 
@@ -172,7 +172,7 @@ def cleanInput(s):
 
 # replace s[start:start + width] with toInputStr(new) and return s
 def replace(s, new, start, width):
-    return s[0 : start] + toInputStr(new) + s[start + width:]
+    return s[0: start] + toInputStr(new) + s[start + width:]
 
 # delete all characters in 'chars' (a string) from s and return that.
 def deleteChars(s, chars):
@@ -184,25 +184,25 @@ def fixNL(s):
     return s.replace("\r\n", "\n").replace("\r", "\n")
 
 # clamps the given value to a specific range. both limits are optional.
-def clamp(val, minVal = None, maxVal = None):
+def clamp(val, minVal=None, maxVal=None):
     ret = val
 
-    if minVal != None:
+    if minVal is not None:
         ret = max(ret, minVal)
 
-    if maxVal != None:
+    if maxVal is not None:
         ret = min(ret, maxVal)
 
     return ret
 
 # like clamp, but gets/sets value directly from given object
-def clampObj(obj, name, minVal = None, maxVal = None):
+def clampObj(obj, name, minVal=None, maxVal=None):
     setattr(obj, name, clamp(getattr(obj, name), minVal, maxVal))
 
 # convert given string to float, clamping it to the given range
 # (optional). never throws any exceptions, return defVal (possibly clamped
 # as well) on any errors.
-def str2float(s, defVal, minVal = None, maxVal = None):
+def str2float(s, defVal, minVal=None, maxVal=None):
     val = defVal
 
     try:
@@ -213,7 +213,7 @@ def str2float(s, defVal, minVal = None, maxVal = None):
     return clamp(val, minVal, maxVal)
 
 # like str2float, but for ints.
-def str2int(s, defVal, minVal = None, maxVal = None, radix = 10):
+def str2int(s, defVal, minVal=None, maxVal=None, radix=10):
     val = defVal
 
     try:
@@ -438,9 +438,9 @@ def createPixelFont(height, family, style, weight):
     # stuff? get rid of it.
     while 1:
         fn = wx.Font(fs, family, style, weight,
-                     encoding = wx.FONTENCODING_ISO8859_1)
+                     encoding=wx.FONTENCODING_ISO8859_1)
         h = getFontHeight(fn)
-        diff = height -h
+        diff = height - h
 
         if diff >= 0:
             if diff < closest:
@@ -455,7 +455,7 @@ def createPixelFont(height, family, style, weight):
         fs += 2
 
     return wx.Font(selected, family, style, weight,
-                   encoding = wx.FONTENCODING_ISO8859_1)
+                   encoding=wx.FONTENCODING_ISO8859_1)
 
 def reverseComboSelect(combo, clientData):
     for i in range(combo.GetCount()):
@@ -468,7 +468,7 @@ def reverseComboSelect(combo, clientData):
     return False
 
 # set widget's client size. if w or h is -1, that dimension is not changed.
-def setWH(ctrl, w = -1, h = -1):
+def setWH(ctrl, w=-1, h=-1):
     size = ctrl.GetClientSize()
 
     if w != -1:
@@ -552,7 +552,7 @@ def multiFind(s, seq):
 # put everything from dictionary d into a list as (key, value) tuples,
 # then sort the list and return that. by default sorts by "desc(value)
 # asc(key)", but a custom sort function can be given
-def sortDict(d, sortFunc = None):
+def sortDict(d, sortFunc=None):
     def tmpSortFunc(o1, o2):
         ret = cmp(o2[1], o1[1])
 
@@ -561,7 +561,7 @@ def sortDict(d, sortFunc = None):
         else:
             return cmp(o1[0], o2[0])
 
-    if sortFunc == None:
+    if sortFunc is None:
         sortFunc = tmpSortFunc
 
     tmp = []
@@ -600,7 +600,7 @@ class FIFO:
 
             obj = self.arr[j]
 
-            if  obj != None:
+            if  obj is not None:
                 tmp.append(obj)
 
             j -= 1
@@ -613,7 +613,7 @@ def drawLine(dc, x, y, xd, yd):
     dc.DrawLine(x, y, x + xd, y + yd)
 
 # draws text aligned somehow. returns a (w, h) tuple of the text extent.
-def drawText(dc, text, x, y, align = ALIGN_LEFT, valign = VALIGN_TOP):
+def drawText(dc, text, x, y, align=ALIGN_LEFT, valign=VALIGN_TOP):
     w, h = dc.GetTextExtent(text)
 
     if align == ALIGN_CENTER:
@@ -633,7 +633,7 @@ def drawText(dc, text, x, y, align = ALIGN_LEFT, valign = VALIGN_TOP):
 # create pad sizer for given window whose controls are in topSizer, with
 # 'pad' pixels of padding on each side, resize window to correct size, and
 # optionally center it.
-def finishWindow(window, topSizer, pad = 10, center = True):
+def finishWindow(window, topSizer, pad=10, center=True):
     padSizer = wx.BoxSizer(wx.VERTICAL)
     padSizer.Add(topSizer, 1, wx.EXPAND | wx.ALL, pad)
     window.SetSizerAndFit(padSizer)
@@ -664,7 +664,7 @@ class MyColor:
 
 # fake key event, supports same operations as the real one
 class MyKeyEvent:
-    def __init__(self, kc = 0):
+    def __init__(self, kc=0):
         # keycode
         self.kc = kc
 
@@ -690,73 +690,73 @@ class MyKeyEvent:
 # one key press
 class Key:
     keyMap = {
-        1 : "A",
-        2 : "B",
-        3 : "C",
-        4 : "D",
-        5 : "E",
-        6 : "F",
-        7 : "G",
+        1: "A",
+        2: "B",
+        3: "C",
+        4: "D",
+        5: "E",
+        6: "F",
+        7: "G",
 
         # CTRL+Enter = 10 in Windows
-        10 : "Enter (Windows)",
+        10: "Enter (Windows)",
 
-        11 : "K",
-        12 : "L",
-        14 : "N",
-        15 : "O",
-        16 : "P",
-        17 : "Q",
-        18 : "R",
-        19 : "S",
-        20 : "T",
-        21 : "U",
-        22 : "V",
-        23 : "W",
-        24 : "X",
-        25 : "Y",
-        26 : "Z",
-        wx.WXK_BACK : "Backspace",
-        wx.WXK_TAB : "Tab",
-        wx.WXK_RETURN : "Enter",
-        wx.WXK_ESCAPE : "Escape",
-        wx.WXK_DELETE : "Delete",
-        wx.WXK_END : "End",
-        wx.WXK_HOME : "Home",
-        wx.WXK_LEFT : "Left",
-        wx.WXK_UP : "Up",
-        wx.WXK_RIGHT : "Right",
-        wx.WXK_DOWN : "Down",
-        wx.WXK_PAGEUP : "Page up",
-        wx.WXK_PAGEDOWN : "Page down",
-        wx.WXK_INSERT : "Insert",
-        wx.WXK_F1 : "F1",
-        wx.WXK_F2 : "F2",
-        wx.WXK_F3 : "F3",
-        wx.WXK_F4 : "F4",
-        wx.WXK_F5 : "F5",
-        wx.WXK_F6 : "F6",
-        wx.WXK_F7 : "F7",
-        wx.WXK_F8 : "F8",
-        wx.WXK_F9 : "F9",
-        wx.WXK_F10 : "F10",
-        wx.WXK_F11 : "F11",
-        wx.WXK_F12 : "F12",
-        wx.WXK_F13 : "F13",
-        wx.WXK_F14 : "F14",
-        wx.WXK_F15 : "F15",
-        wx.WXK_F16 : "F16",
-        wx.WXK_F17 : "F17",
-        wx.WXK_F18 : "F18",
-        wx.WXK_F19 : "F19",
-        wx.WXK_F20 : "F20",
-        wx.WXK_F21 : "F21",
-        wx.WXK_F22 : "F22",
-        wx.WXK_F23 : "F23",
-        wx.WXK_F24 : "F24",
+        11: "K",
+        12: "L",
+        14: "N",
+        15: "O",
+        16: "P",
+        17: "Q",
+        18: "R",
+        19: "S",
+        20: "T",
+        21: "U",
+        22: "V",
+        23: "W",
+        24: "X",
+        25: "Y",
+        26: "Z",
+        wx.WXK_BACK: "Backspace",
+        wx.WXK_TAB: "Tab",
+        wx.WXK_RETURN: "Enter",
+        wx.WXK_ESCAPE: "Escape",
+        wx.WXK_DELETE: "Delete",
+        wx.WXK_END: "End",
+        wx.WXK_HOME: "Home",
+        wx.WXK_LEFT: "Left",
+        wx.WXK_UP: "Up",
+        wx.WXK_RIGHT: "Right",
+        wx.WXK_DOWN: "Down",
+        wx.WXK_PAGEUP: "Page up",
+        wx.WXK_PAGEDOWN: "Page down",
+        wx.WXK_INSERT: "Insert",
+        wx.WXK_F1: "F1",
+        wx.WXK_F2: "F2",
+        wx.WXK_F3: "F3",
+        wx.WXK_F4: "F4",
+        wx.WXK_F5: "F5",
+        wx.WXK_F6: "F6",
+        wx.WXK_F7: "F7",
+        wx.WXK_F8: "F8",
+        wx.WXK_F9: "F9",
+        wx.WXK_F10: "F10",
+        wx.WXK_F11: "F11",
+        wx.WXK_F12: "F12",
+        wx.WXK_F13: "F13",
+        wx.WXK_F14: "F14",
+        wx.WXK_F15: "F15",
+        wx.WXK_F16: "F16",
+        wx.WXK_F17: "F17",
+        wx.WXK_F18: "F18",
+        wx.WXK_F19: "F19",
+        wx.WXK_F20: "F20",
+        wx.WXK_F21: "F21",
+        wx.WXK_F22: "F22",
+        wx.WXK_F23: "F23",
+        wx.WXK_F24: "F24",
         }
 
-    def __init__(self, kc, ctrl = False, alt = False, shift = False):
+    def __init__(self, kc, ctrl=False, alt=False, shift=False):
 
         # we don't want to handle ALT+a/ALT+A etc separately, so uppercase
         # input char combinations
@@ -837,7 +837,7 @@ class Key:
 # for large strings, since it keeps each appended string as an item in a
 # list.
 class String:
-    def __init__(self, s = None):
+    def __init__(self, s=None):
 
         # byte count of data appended
         self.pos = 0
@@ -865,7 +865,7 @@ class String:
 # load at most maxSize (all if -1) bytes from 'filename', returning the
 # data as a string or None on errors. pops up message boxes with 'frame'
 # as parent on errors.
-def loadFile(filename, frame, maxSize = -1):
+def loadFile(filename, frame, maxSize=-1):
     ret = None
 
     try:
@@ -905,7 +905,7 @@ def loadMaybeCompressedFile(filename, frame):
     # error conditions, so the only safe thing to do is to catch
     # everything.
     try:
-        f = gzip.GzipFile(mode = "r", fileobj = buf)
+        f = gzip.GzipFile(mode="r", fileobj=buf)
         return f.read()
     except:
         wx.MessageBox("Error loading file '%s': Decompression failed" % \
@@ -988,7 +988,7 @@ class TimerDev:
     # how many TimerDev instances are currently in existence
     nestingLevel = 0
 
-    def __init__(self, msg = ""):
+    def __init__(self, msg=""):
         self.msg = msg
         self.__class__.nestingLevel += 1
         self.t = time.time()

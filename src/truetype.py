@@ -31,9 +31,9 @@ class Font:
         # parse functions for tables, and a flag for whether each has been
         # parsed successfully
         self.parseFuncs = {
-            "head" : [self.parseHead, False],
-            "name" : [self.parseName, False],
-            "OS/2" : [self.parseOS2, False]
+            "head": [self.parseHead, False],
+            "name": [self.parseName, False],
+            "OS/2": [self.parseOS2, False]
             }
 
         try:
@@ -77,14 +77,14 @@ class Font:
     # parse a single tag
     def parseTag(self, offset, s):
         tag, checkSum, tagOffset, length = unpack(">4s3L",
-            s[offset : offset + TABLE_DIR_SIZE])
+            s[offset: offset + TABLE_DIR_SIZE])
 
         check(tagOffset >= (OFFSET_TABLE_SIZE +
                             self.tableCnt * TABLE_DIR_SIZE))
 
         func = self.parseFuncs.get(tag)
         if func:
-            func[0](s[tagOffset : tagOffset + length])
+            func[0](s[tagOffset: tagOffset + length])
             func[1] = True
 
     # parse head table
@@ -103,7 +103,7 @@ class Font:
         offset = NAME_TABLE_SIZE
 
         for i in range(nameCnt):
-            if self.parseNameRecord(s[offset : offset + NAME_RECORD_SIZE],
+            if self.parseNameRecord(s[offset: offset + NAME_RECORD_SIZE],
                                     storage):
                 return
 
@@ -124,7 +124,7 @@ class Font:
             # Macintosh, 1-byte strings
 
             self.psName = unpack("%ds" % strLen,
-                                 s2[strOffset : strOffset + strLen])[0]
+                                 s2[strOffset: strOffset + strLen])[0]
 
             return True
 
@@ -132,7 +132,7 @@ class Font:
             # Windows, UTF-16BE
 
             tmp = unpack("%ds" % strLen,
-                                 s2[strOffset : strOffset + strLen])[0]
+                         s2[strOffset: strOffset + strLen])[0]
 
             self.psName = tmp.decode("UTF-16BE", "ignore").encode(
                 "ISO-8859-1", "ignore")

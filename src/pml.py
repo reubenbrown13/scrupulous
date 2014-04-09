@@ -20,7 +20,7 @@ import textwrap
 
 # text flags. don't change these unless you know what you're doing.
 NORMAL = 0
-BOLD   = 1
+BOLD = 1
 ITALIC = 2
 COURIER = 0
 TIMES_ROMAN = 4
@@ -124,9 +124,9 @@ class DrawOp:
 class TextOp(DrawOp):
     pdfOp = pdf.PDFTextOp()
 
-    def __init__(self, text, x, y, size, flags = NORMAL | COURIER,
-                 align = util.ALIGN_LEFT, valign = util.VALIGN_TOP,
-                 line = -1, angle = None):
+    def __init__(self, text, x, y, size, flags=NORMAL | COURIER,
+                 align=util.ALIGN_LEFT, valign=util.VALIGN_TOP,
+                 line=-1, angle=None):
         self.text = text
         self.x = x
         self.y = y
@@ -164,7 +164,7 @@ class TextOp(DrawOp):
 class LineOp(DrawOp):
     pdfOp = pdf.PDFLineOp()
 
-    def __init__(self, points, width, isClosed = False):
+    def __init__(self, points, width, isClosed=False):
         self.points = points
         self.width = width
         self.isClosed = isClosed
@@ -178,7 +178,7 @@ def genLine(x, y, xd, yd, width):
 class RectOp(DrawOp):
     pdfOp = pdf.PDFRectOp()
 
-    def __init__(self, x, y, width, height, fillType = FILL, lineWidth = -1):
+    def __init__(self, x, y, width, height, fillType=FILL, lineWidth=-1):
         self.x = x
         self.y = y
         self.width = width
@@ -192,7 +192,7 @@ class RectOp(DrawOp):
 class QuarterCircleOp(DrawOp):
     pdfOp = pdf.PDFQuarterCircleOp()
 
-    def __init__(self, x, y, radius, width, flipX = False, flipY = False):
+    def __init__(self, x, y, radius, width, flipX=False, flipY=False):
         self.x = x
         self.y = y
         self.radius = radius
@@ -240,11 +240,11 @@ class TextFormatter:
             self.y += mm
 
     # add text
-    def addText(self, text, x = None, fs = None, style = NORMAL):
-        if x == None:
+    def addText(self, text, x=None, fs=None, style=NORMAL):
+        if x is None:
             x = self.margin
 
-        if fs == None:
+        if fs is None:
             fs = self.fontSize
 
         yd = util.getTextHeight(fs)
@@ -261,7 +261,7 @@ class TextFormatter:
     # prefix lines other than the first one with.
     def addWrappedText(self, text, indent):
         tmp = textwrap.wrap(text, self.charsToLine,
-                subsequent_indent = indent)
+                subsequent_indent=indent)
 
         for s in tmp:
             self.addText(s)

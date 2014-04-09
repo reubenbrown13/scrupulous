@@ -1316,14 +1316,14 @@ class MyCtrl(wx.Control):
     def OnSaveUntitledScript(self, count):
         # check if we can write this file to default script directory.
         if os.access(misc.scriptDir, os.W_OK):
-          if misc.isWindows:
-              div = "\\"
-          else:
-              div = "/"
-        # don't use colons for filename below as this may cause issues with OS X.
-          self.saveFile(misc.scriptDir + div + "untitled-" +
-              time.strftime("%Y-%m-%d-%H.%M.%S") + "-tab-" +
-              str(count) + ".trelby")
+            if misc.isWindows:
+                div = "\\"
+            else:
+                div = "/"
+        # don't use colons for filename below as may cause issues with OS X.
+            self.saveFile(misc.scriptDir + div + "untitled-" +
+                time.strftime("%Y-%m-%d-%H.%M.%S") + "-tab-" +
+                str(count) + ".trelby")
 
     def OnSaveScriptAs(self):
         if self.fileName:
@@ -1595,7 +1595,7 @@ class MyCtrl(wx.Control):
 
             addChar = True
 
-            # If there's something selected, either remove it, or clear selection.
+            # If text is selected, either remove it, or clear selection.
             if self.sp.mark and cfgGl.overwriteSelectionOnInsert:
                 if not self.OnCut(doUpdate=False, copyToClip=False):
                     self.sp.clearMark()
@@ -1604,11 +1604,11 @@ class MyCtrl(wx.Control):
             if addChar:
                 cs.char = chr(kc)
 
-                if opts.isTest and (cs.char == "å"):
+                if opts.isTest and (cs.char == "?"):
                     self.loadFile(u"sample.trelby")
-                elif opts.isTest and (cs.char == "¤"):
+                elif opts.isTest and (cs.char == "?"):
                     self.cmdTest(cs)
-                elif opts.isTest and (cs.char == "½"):
+                elif opts.isTest and (cs.char == "?"):
                     self.cmdSpeedTest(cs)
                 else:
                     self.sp.addCharCmd(cs)

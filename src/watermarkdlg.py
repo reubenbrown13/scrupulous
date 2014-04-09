@@ -11,7 +11,7 @@ class WatermarkDlg(wx.Dialog):
     # prefix - prefix name for the PDF files (unicode)
     def __init__(self, parent, sp, prefix):
         wx.Dialog.__init__(self, parent, -1, "Watermarked PDFs generator",
-                           style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+                           style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         self.frame = parent
         self.sp = sp
@@ -42,12 +42,12 @@ class WatermarkDlg(wx.Dialog):
 
         vsizer.Add(wx.StaticText(self, -1, "Common mark:"), 0)
         self.commonMark = wx.TextCtrl(self, -1, "Confidential")
-        vsizer.Add(self.commonMark, 0, wx.EXPAND| wx.BOTTOM, 5)
+        vsizer.Add(self.commonMark, 0, wx.EXPAND | wx.BOTTOM, 5)
 
         vsizer.Add(wx.StaticText(self, -1, "Watermarks (one per line):"))
         self.itemsEntry = wx.TextCtrl(
-            self, -1, style = wx.TE_MULTILINE | wx.TE_DONTWRAP,
-            size = (300, 200))
+            self, -1, style=wx.TE_MULTILINE | wx.TE_DONTWRAP,
+            size=(300, 200))
         vsizer.Add(self.itemsEntry, 1, wx.EXPAND)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -120,13 +120,13 @@ class WatermarkDlg(wx.Dialog):
                 wm = pml.TextOp(
                     util.cleanInput(common),
                     self.sp.cfg.marginLeft + 20, self.sp.cfg.paperHeight * 0.45,
-                    fontsize, pml.BOLD, angle = 45)
+                    fontsize, pml.BOLD, angle=45)
                 ops.append(wm)
 
             wm = pml.TextOp(
                 util.cleanInput(s),
                 self.sp.cfg.marginLeft + 20, self.sp.cfg.paperHeight * 0.6,
-                fontsize, pml.BOLD, angle = 45)
+                fontsize, pml.BOLD, angle=45)
             ops.append(wm)
 
             # ...and back to black
@@ -157,7 +157,7 @@ class WatermarkDlg(wx.Dialog):
 
     def OnBrowse(self, event):
         dlg = wx.DirDialog(
-            self.frame, style = wx.DD_NEW_DIR_BUTTON)
+            self.frame, style=wx.DD_NEW_DIR_BUTTON)
 
         if dlg.ShowModal() == wx.ID_OK:
             self.dirEntry.SetValue(dlg.GetPath())

@@ -131,7 +131,7 @@ class Base:
     def undo(self, sp):
         sp.line, sp.column = self.startPos.line, self.startPos.column
 
-        sp.lines[self.elemStartLine : self.elemStartLine + self.linesAfter[0]] = \
+        sp.lines[self.elemStartLine: self.elemStartLine + self.linesAfter[0]] = \
             storage2lines(self.linesBefore)
 
     # default implementation for redo. can be overridden by subclasses
@@ -139,7 +139,7 @@ class Base:
     def redo(self, sp):
         sp.line, sp.column = self.endPos.line, self.endPos.column
 
-        sp.lines[self.elemStartLine : self.elemStartLine + self.linesBefore[0]] = \
+        sp.lines[self.elemStartLine: self.elemStartLine + self.linesBefore[0]] = \
             storage2lines(self.linesAfter)
 
 # stores a full copy of the screenplay before/after the action. used by
@@ -180,7 +180,7 @@ class SinglePara(Base):
         endLine = sp.getParaLastIndexFromLine(line)
 
         self.linesBefore = lines2storage(
-            sp.lines[self.elemStartLine : endLine + 1])
+            sp.lines[self.elemStartLine: endLine + 1])
 
     def setAfter(self, sp):
         # if all we did was modify a single paragraph, the index of its
@@ -192,7 +192,7 @@ class SinglePara(Base):
         endLine = sp.getParaLastIndexFromLine(self.elemStartLine)
 
         self.linesAfter = lines2storage(
-            sp.lines[self.elemStartLine : endLine + 1])
+            sp.lines[self.elemStartLine: endLine + 1])
 
         self.setEndPos(sp)
 
@@ -217,7 +217,7 @@ class ManyElems(Base):
             endLine = sp.getElemLastIndexFromLine(endLine + 1)
 
         self.linesBefore = lines2storage(
-            sp.lines[self.elemStartLine : endLine + 1])
+            sp.lines[self.elemStartLine: endLine + 1])
 
     def setAfter(self, sp):
         endLine = sp.getElemLastIndexFromLine(self.elemStartLine)
@@ -226,7 +226,7 @@ class ManyElems(Base):
             endLine = sp.getElemLastIndexFromLine(endLine + 1)
 
         self.linesAfter = lines2storage(
-            sp.lines[self.elemStartLine : endLine + 1])
+            sp.lines[self.elemStartLine: endLine + 1])
 
         self.setEndPos(sp)
 
@@ -241,8 +241,8 @@ class AnyDifference(Base):
     def setAfter(self, sp):
         self.a, self.b, self.x, self.y = mySequenceMatcher(self.linesBefore, sp.lines)
 
-        self.removed = lines2storage(self.linesBefore[self.a : self.b])
-        self.inserted = lines2storage(sp.lines[self.x : self.y])
+        self.removed = lines2storage(self.linesBefore[self.a: self.b])
+        self.inserted = lines2storage(sp.lines[self.x: self.y])
 
         self.setEndPos(sp)
 
@@ -255,12 +255,12 @@ class AnyDifference(Base):
     def undo(self, sp):
         sp.line, sp.column = self.startPos.line, self.startPos.column
 
-        sp.lines[self.x : self.y] = storage2lines(self.removed)
+        sp.lines[self.x: self.y] = storage2lines(self.removed)
 
     def redo(self, sp):
         sp.line, sp.column = self.endPos.line, self.endPos.column
 
-        sp.lines[self.a : self.b] = storage2lines(self.inserted)
+        sp.lines[self.a: self.b] = storage2lines(self.inserted)
 
 
 # Our own implementation of difflib.SequenceMatcher, since the actual one

@@ -12,7 +12,7 @@ import wx
 class TitlesDlg(wx.Dialog):
     def __init__(self, parent, titles, cfg, cfgGl):
         wx.Dialog.__init__(self, parent, -1, "Title pages",
-                           style = wx.DEFAULT_DIALOG_STYLE)
+                           style=wx.DEFAULT_DIALOG_STYLE)
 
         self.titles = titles
         self.cfg = cfg
@@ -62,7 +62,7 @@ class TitlesDlg(wx.Dialog):
         tmp = wx.StaticText(self, -1, "Strings:")
         vsizer2.Add(tmp)
 
-        self.stringsLb = wx.ListBox(self, -1, size = (200, 150))
+        self.stringsLb = wx.ListBox(self, -1, size=(200, 150))
         vsizer2.Add(self.stringsLb)
 
         hsizer2 = wx.BoxSizer(wx.HORIZONTAL)
@@ -92,7 +92,7 @@ class TitlesDlg(wx.Dialog):
         hsizer.Add(wx.StaticText(self, -1, "Text:"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.textEntry = wx.TextCtrl(
-            self, -1, style = wx.TE_MULTILINE | wx.TE_DONTWRAP, size = (200, 75))
+            self, -1, style=wx.TE_MULTILINE | wx.TE_DONTWRAP, size=(200, 75))
         hsizer.Add(self.textEntry, 1, wx.LEFT, 10)
         wx.EVT_TEXT(self, self.textEntry.GetId(), self.OnMisc)
 
@@ -109,10 +109,10 @@ class TitlesDlg(wx.Dialog):
 
         hsizer.Add(wx.StaticText(self, -1, "Alignment:"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
-        self.alignCombo = wx.ComboBox(self, -1, style = wx.CB_READONLY)
+        self.alignCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 
-        for it in [ ("Left", util.ALIGN_LEFT), ("Center", util.ALIGN_CENTER),
-                    ("Right", util.ALIGN_RIGHT) ]:
+        for it in [("Left", util.ALIGN_LEFT), ("Center", util.ALIGN_CENTER),
+                   ("Right", util.ALIGN_RIGHT)]:
             self.alignCombo.Append(it[0], it[1])
 
         hsizer.Add(self.alignCombo, 0, wx.LEFT, 10)
@@ -137,16 +137,16 @@ class TitlesDlg(wx.Dialog):
 
         hsizer.Add(wx.StaticText(self, -1, "Font / Size:"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
-        self.fontCombo = wx.ComboBox(self, -1, style = wx.CB_READONLY)
+        self.fontCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 
-        for it in [ ("Courier", pml.COURIER), ("Helvetica", pml.HELVETICA),
-                    ("Times-Roman", pml.TIMES_ROMAN) ]:
+        for it in [("Courier", pml.COURIER), ("Helvetica", pml.HELVETICA),
+                   ("Times-Roman", pml.TIMES_ROMAN)]:
             self.fontCombo.Append(it[0], it[1])
 
         hsizer.Add(self.fontCombo, 0, wx.LEFT, 10)
         wx.EVT_COMBOBOX(self, self.fontCombo.GetId(), self.OnMisc)
 
-        self.sizeEntry = wx.SpinCtrl(self, -1, size = (50, -1))
+        self.sizeEntry = wx.SpinCtrl(self, -1, size=(50, -1))
         self.sizeEntry.SetRange(4, 288)
         wx.EVT_SPINCTRL(self, self.sizeEntry.GetId(), self.OnMisc)
         wx.EVT_KILL_FOCUS(self.sizeEntry, self.OnKillFocus)
@@ -201,9 +201,9 @@ class TitlesDlg(wx.Dialog):
         wx.EVT_LISTBOX(self, self.stringsLb.GetId(), self.OnStringsLb)
 
         # list of widgets that are specific to editing the selected string
-        self.widList = [ self.textEntry, self.xEntry, self.alignCombo,
-                         self.yEntry, self.fontCombo, self.sizeEntry,
-                         self.boldCb, self.italicCb, self.underlinedCb ]
+        self.widList = [self.textEntry, self.xEntry, self.alignCombo,
+                        self.yEntry, self.fontCombo, self.sizeEntry,
+                        self.boldCb, self.italicCb, self.underlinedCb]
 
         self.updateGui()
 
@@ -256,7 +256,7 @@ class TitlesDlg(wx.Dialog):
         # some weird state
         event.Skip()
 
-    def OnStringsLb(self, event = None):
+    def OnStringsLb(self, event=None):
         self.tsIndex = self.stringsLb.GetSelection()
         self.updateStringGui()
 
@@ -389,7 +389,7 @@ class TitlesDlg(wx.Dialog):
 
         self.previewCtrl.Refresh()
 
-    def OnMisc(self, event = None):
+    def OnMisc(self, event=None):
         if (self.tsIndex == -1) or self.block:
             return
 
@@ -507,4 +507,3 @@ class TitlesPreview(wx.Window):
                         dc.DrawRectangle(ox + xp, oy + yp, textW, textH)
 
                     y += textHinMM
-

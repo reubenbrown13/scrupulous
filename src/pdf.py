@@ -5,8 +5,8 @@ import util
 # PDF transform matrixes where key is the angle from x-axis
 # in counter-clockwise direction.
 TRANSFORM_MATRIX = {
-    45 : (1, 1, -1, 1),
-    90 : (0, 1, -1, 0),
+    45: (1, 1, -1, 1),
+    90: (0, 1, -1, 0),
 }
 
 # users should only use this.
@@ -157,7 +157,7 @@ class FontInfo:
 
 # one object in a PDF file
 class PDFObject:
-    def __init__(self, nr, data = ""):
+    def __init__(self, nr, data=""):
         # PDF object number
         self.nr = nr
 
@@ -189,19 +189,19 @@ class PDFExporter:
 
         # fast lookup of font information
         self.fonts = {
-            pml.COURIER : FontInfo("Courier"),
+            pml.COURIER: FontInfo("Courier"),
             pml.COURIER | pml.BOLD: FontInfo("Courier-Bold"),
             pml.COURIER | pml.ITALIC: FontInfo("Courier-Oblique"),
             pml.COURIER | pml.BOLD | pml.ITALIC:
               FontInfo("Courier-BoldOblique"),
 
-            pml.HELVETICA : FontInfo("Helvetica"),
+            pml.HELVETICA: FontInfo("Helvetica"),
             pml.HELVETICA | pml.BOLD: FontInfo("Helvetica-Bold"),
             pml.HELVETICA | pml.ITALIC: FontInfo("Helvetica-Oblique"),
             pml.HELVETICA | pml.BOLD | pml.ITALIC:
               FontInfo("Helvetica-BoldOblique"),
 
-            pml.TIMES_ROMAN : FontInfo("Times-Roman"),
+            pml.TIMES_ROMAN: FontInfo("Times-Roman"),
             pml.TIMES_ROMAN | pml.BOLD: FontInfo("Times-Bold"),
             pml.TIMES_ROMAN | pml.ITALIC: FontInfo("Times-Italic"),
             pml.TIMES_ROMAN | pml.BOLD | pml.ITALIC:
@@ -368,7 +368,7 @@ class PDFExporter:
 
     # generate a stream object's contents. 's' is all data between
     # 'stream/endstream' tags, excluding newlines.
-    def genStream(self, s, isFontStream = False):
+    def genStream(self, s, isFontStream=False):
         compress = True
 
         # embedded TrueType font program streams for some reason need a
@@ -390,7 +390,7 @@ class PDFExporter:
 
     # add a new object and return it. 'data' is all data between
     # 'obj/endobj' tags, excluding newlines.
-    def addObj(self, data = ""):
+    def addObj(self, data=""):
         obj = PDFObject(self.objectCnt, data)
         self.objects.append(obj)
         self.objectCnt += 1
@@ -404,7 +404,7 @@ class PDFExporter:
 
     # write a xref table entry to 'output' (util.String), using position
     # 'pos, generation 'gen' and type 'typ'.
-    def writeXref(self, output, pos, gen = 0, typ = "n"):
+    def writeXref(self, output, pos, gen=0, typ="n"):
         output += "%010d %05d %s \n" % (pos, gen, typ)
 
     # generate PDF file and return it as a string

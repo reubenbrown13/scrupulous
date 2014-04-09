@@ -25,7 +25,7 @@ class SplashWindow(wx.Frame):
     def __init__(self, parent, delay):
         wx.Frame.__init__(
             self, parent, -1, "Splash",
-            style = wx.FRAME_FLOAT_ON_PARENT | wx.NO_BORDER)
+            style=wx.FRAME_FLOAT_ON_PARENT | wx.NO_BORDER)
 
         if not SplashWindow.inited:
             SplashWindow.inited = True
@@ -89,7 +89,7 @@ class SplashWindow(wx.Frame):
 
             dc.SetFont(self.quoteFont)
 
-            for i,line in enumerate(self.quote.lines):
+            for i, line in enumerate(self.quote.lines):
                 x = 10
                 y = 260 - (len(self.quote.lines) - i - 1) * 17
 
@@ -131,7 +131,7 @@ class SplashWindow(wx.Frame):
             # lines saved for current quote being processed
             tmp = []
 
-            for i,line in enumerate(lines):
+            for i, line in enumerate(lines):
                 if line.startswith(u"#") or not line.strip():
                     continue
 
