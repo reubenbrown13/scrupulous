@@ -55,7 +55,7 @@ class Screenplay:
         self.titles = titles.Titles()
         self.scDict = spellcheck.Dict()
 
-        self.lines = [ Line(LB_LAST, SCENE) ]
+        self.lines = [Line(LB_LAST, SCENE)]
 
         self.cfgGl = cfgGl
         self.cfg = config.Config()
@@ -346,12 +346,12 @@ class Screenplay:
                 text = util.toInputStr(util.fromUTF8(s[2:]))
 
                 # convert unknown lb types into LB_SPACE
-                if lb == None:
+                if lb is None:
                     lb = LB_SPACE
                     unknownLb = True
 
                 # convert unknown types into ACTION
-                if lt == None:
+                if lt is None:
                     lt = ACTION
                     unknownTypes = True
 
@@ -491,21 +491,21 @@ class Screenplay:
 
     # generate HTML output and return it as a string, optionally including
     # notes.
-    def generateHtml(self, includeNotes = True):
+    def generateHtml(self, includeNotes=True):
         ls = self.lines
 
         # We save space by shorter class names in html.
         htmlMap = {
-            ACTION : "ac",
-            CHARACTER : "ch",
-            DIALOGUE : "di",
-            PAREN : "pa",
-            SCENE : "sc",
-            SHOT : "sh",
-            TRANSITION : "tr",
-            NOTE : "nt",
-            ACTBREAK : "ab",
-            TITLE : "ti",
+            ACTION: "ac",
+            CHARACTER: "ch",
+            DIALOGUE: "di",
+            PAREN: "pa",
+            SCENE: "sc",
+            SHOT: "sh",
+            TRANSITION: "tr",
+            NOTE: "nt",
+            ACTBREAK: "ab",
+            TITLE: "ti",
         }
 
         # html header for files
@@ -534,7 +534,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 </html>"""
 
         content = etree.Element("div")
-        content.set("class","spcenter")
+        content.set("class", "spcenter")
 
         # title pages
         for page in self.titles.pages:
@@ -618,16 +618,16 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         content = etree.SubElement(fd, "Content")
 
         xmlMap = {
-            ACTION : "Action",
-            CHARACTER : "Character",
-            DIALOGUE : "Dialogue",
-            PAREN : "Parenthetical",
-            SCENE : "Scene Heading",
-            SHOT : "Shot",
-            TRANSITION : "Transition",
-            NOTE : "Action",
-            ACTBREAK : "New Act",
-            TITLE : "Action"
+            ACTION: "Action",
+            CHARACTER: "Character",
+            DIALOGUE: "Dialogue",
+            PAREN: "Parenthetical",
+            SCENE: "Scene Heading",
+            SHOT: "Shot",
+            TRANSITION: "Transition",
+            NOTE: "Action",
+            ACTBREAK: "New Act",
+            TITLE: "Action"
         }
 
         for ele in eleList:
@@ -652,7 +652,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         eleSetFont = etree.SubElement(eleSet, "FontSpec")
         eleSetFont.set("Style", "Underline+AllCaps")
         eleSetPara = etree.SubElement(eleSet, "ParagraphSpec")
-        eleSetPara.set("Alignment","Center")
+        eleSetPara.set("Alignment", "Center")
 
         return etree.tostring(
             fd, xml_declaration=True, encoding='UTF-8', pretty_print=True)
@@ -733,7 +733,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
         s += r"{\rtf1\ansi\deff0{\fonttbl{\f0\fmodern Courier;}}" + "\n"
 
-        s+= "{\\stylesheet\n"
+        s += "{\\stylesheet\n"
 
         mt = util.mm2twips
         fs = self.cfg.fontSize
@@ -912,7 +912,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
             # another side-effect is that if text is deleted at the end,
             # self.pages can point to lines that no longer exist, so we
             # need to clamp it.
-            end = util.clamp(self.pages[pageNr], maxVal = length - 1)
+            end = util.clamp(self.pages[pageNr], maxVal=length - 1)
 
         pg = pml.Page(pager.doc)
 
@@ -985,7 +985,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
             to = pml.TextOp(text,
                 cfg.marginLeft + (tcfg.indent + extraIndent) * chX,
-                cfg.marginTop + (y / 10.0) * chY, fs, typ, line = i)
+                cfg.marginTop + (y / 10.0) * chY, fs, typ, line=i)
 
             pg.add(to)
 
@@ -1183,7 +1183,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
     # rewrap paragraph starting at given line. returns the number of lines
     # in the wrapped paragraph. if line1 is -1, rewraps paragraph
     # containing self.line. maintains cursor position correctness.
-    def rewrapPara(self, line1 = -1):
+    def rewrapPara(self, line1=-1):
         ls = self.lines
 
         if line1 == -1:
@@ -1829,7 +1829,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
     # delete character at given position and optionally position
     # cursor there.
-    def deleteChar(self, line, column, posCursor = True):
+    def deleteChar(self, line, column, posCursor=True):
         s = self.lines[line].text
         self.lines[line].text = s[:column] + s[column + 1:]
 
@@ -1951,7 +1951,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
                 continue
 
-            ch = s[col : col + 1]
+            ch = s[col:col + 1]
 
             if not util.isWordBoundary(ch):
                 word = ch
@@ -1959,7 +1959,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
                 col += 1
 
                 while col < len(s):
-                    ch = s[col : col + 1]
+                    ch = s[col:col + 1]
 
                     if util.isWordBoundary(ch):
                         break
@@ -2534,7 +2534,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         s1 = self.generateText(False).split("\n")
         s2 = sp2.generateText(False).split("\n")
 
-        dltTmp = difflib.unified_diff(s1, s2, lineterm = "")
+        dltTmp = difflib.unified_diff(s1, s2, lineterm="")
 
         # get rid of stupid delta generator object that doesn't allow
         # subscription or anything else really. also expands hunk
@@ -2667,7 +2667,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         return pdf.generate(doc)
 
     # move to line,col, and if mark is True, set mark there
-    def gotoPos(self, line, col, mark = False):
+    def gotoPos(self, line, col, mark=False):
         self.clearAutoComp()
 
         self.line = line
@@ -2747,7 +2747,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
     # helper function for calling commands. name is the name of the
     # command, e.g. "moveLeft".
-    def cmd(self, name, char = None, count = 1):
+    def cmd(self, name, char=None, count=1):
         for i in range(count):
             cs = CommandState()
 
@@ -2761,7 +2761,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
     # TEST CODE.
     def cmdChars(self, s):
         for char in s:
-            self.cmd("addChar", char = char)
+            self.cmd("addChar", char=char)
 
     def moveLeftCmd(self, cs):
         self.maybeMark(cs.mark)
@@ -3054,12 +3054,12 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         wend = self.column
         if (wend < len(self.lines[self.line].text)) and \
         (not util.isWordBoundary(self.lines[self.line].text[wend])):
-            while ((wend < len(self.lines[self.line].text)) \
+            while ((wend < len(self.lines[self.line].text))
             and (not util.isWordBoundary(self.lines[self.line].text[wend]))):
                 wend += 1
 
             if (wend == len(self.lines[self.line].text)):
-                wend +=1
+                wend += 1
             self.column = wend-1
             while ((not util.isWordBoundary(self.lines[self.line].text[wstart])) and (wstart >= 0)):
                 wstart -= 1
@@ -3397,7 +3397,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
 # one line in a screenplay
 class Line:
-    def __init__(self, lb = LB_LAST, lt = ACTION, text = ""):
+    def __init__(self, lb=LB_LAST, lt=ACTION, text=""):
 
         # line break type
         self.lb = lb
