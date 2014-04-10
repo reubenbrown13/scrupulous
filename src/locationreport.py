@@ -108,7 +108,7 @@ class LocationReport:
                 else:
                     pct = ""
 
-                tf.addText("%s%s" % (scene, pct), style = pml.BOLD)
+                tf.addText("%s%s" % (scene, pct), style=pml.BOLD)
 
             tf.addSpace(1.0)
 

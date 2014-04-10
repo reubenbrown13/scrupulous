@@ -28,7 +28,7 @@ def importAstx(fileName, frame):
 
     data = util.loadFile(fileName, frame, 5000000)
 
-    if data == None:
+    if data is None:
         return None
 
     if len(data) == 0:
@@ -37,19 +37,19 @@ def importAstx(fileName, frame):
         return None
 
     elemMap = {
-        "Action" : screenplay.ACTION,
-        "Character" : screenplay.CHARACTER,
-        "Dialog" : screenplay.DIALOGUE,
-        "Parenthetical" : screenplay.PAREN,
-        "SceneHeading" : screenplay.SCENE,
-        "Shot" : screenplay.SHOT,
-        "Transition" : screenplay.TRANSITION,
+        "Action": screenplay.ACTION,
+        "Character": screenplay.CHARACTER,
+        "Dialog": screenplay.DIALOGUE,
+        "Parenthetical": screenplay.PAREN,
+        "SceneHeading": screenplay.SCENE,
+        "Shot": screenplay.SHOT,
+        "Transition": screenplay.TRANSITION,
     }
 
     try:
         root = etree.XML(data)
     except etree.XMLSyntaxError, e:
-        wx.MessageBox("Error parsing file: %s" %e, "Error", wx.OK, frame)
+        wx.MessageBox("Error parsing file: %s" % e, "Error", wx.OK, frame)
         return None
 
     lines = []
@@ -100,7 +100,7 @@ def importFadein(fileName, frame):
     # MemoryError exception for /dev/zero etc.
     data = util.loadFile(fileName, frame, 5000000)
 
-    if data == None:
+    if data is None:
         return None
 
     if len(data) == 0:
@@ -124,19 +124,19 @@ def importFadein(fileName, frame):
         return None
 
     elemMap = {
-        "Action" : screenplay.ACTION,
-        "Character" : screenplay.CHARACTER,
-        "Dialogue" : screenplay.DIALOGUE,
-        "Parenthetical" : screenplay.PAREN,
-        "Scene Heading" : screenplay.SCENE,
-        "Shot" : screenplay.SHOT,
-        "Transition" : screenplay.TRANSITION,
+        "Action": screenplay.ACTION,
+        "Character": screenplay.CHARACTER,
+        "Dialogue": screenplay.DIALOGUE,
+        "Parenthetical": screenplay.PAREN,
+        "Scene Heading": screenplay.SCENE,
+        "Shot": screenplay.SHOT,
+        "Transition": screenplay.TRANSITION,
     }
 
     try:
         root = etree.XML(content)
     except etree.XMLSyntaxError, e:
-        wx.MessageBox("Error parsing file: %s" %e, "Error", wx.OK, frame)
+        wx.MessageBox("Error parsing file: %s" % e, "Error", wx.OK, frame)
         return None
 
     lines = []
@@ -165,7 +165,7 @@ def importFadein(fileName, frame):
             for r in re_rem:
                 s = re.sub(r, "", s)
             for r in rem:
-                s = s.replace(r,"")
+                s = s.replace(r, "")
 
             if s:
                 return s.split("<br>")
@@ -220,7 +220,7 @@ def importCeltx(fileName, frame):
     # MemoryError exception for /dev/zero etc.
     data = util.loadFile(fileName, frame, 5000000)
 
-    if data == None:
+    if data is None:
         return None
 
     if len(data) == 0:
@@ -237,7 +237,7 @@ def importCeltx(fileName, frame):
         return None
 
     files = z.namelist()
-    scripts = [s for s in files if s.startswith("script") ]
+    scripts = [s for s in files if s.startswith("script")]
 
     if len(scripts) == 0:
         wx.MessageBox("Unable to find script in this Celtx file.", "Error", wx.OK, frame)
@@ -252,21 +252,21 @@ def importCeltx(fileName, frame):
         return None
 
     elemMap = {
-        "action" : screenplay.ACTION,
-        "character" : screenplay.CHARACTER,
-        "dialog" : screenplay.DIALOGUE,
-        "parenthetical" : screenplay.PAREN,
-        "sceneheading" : screenplay.SCENE,
-        "shot" : screenplay.SHOT,
-        "transition" : screenplay.TRANSITION,
-        "act" : screenplay.ACTBREAK,
+        "action": screenplay.ACTION,
+        "character": screenplay.CHARACTER,
+        "dialog": screenplay.DIALOGUE,
+        "parenthetical": screenplay.PAREN,
+        "sceneheading": screenplay.SCENE,
+        "shot": screenplay.SHOT,
+        "transition": screenplay.TRANSITION,
+        "act": screenplay.ACTBREAK,
     }
 
     try:
         parser = etree.HTMLParser()
         root = etree.XML(content, parser)
     except etree.XMLSyntaxError, e:
-        wx.MessageBox("Error parsing file: %s" %e, "Error", wx.OK, frame)
+        wx.MessageBox("Error parsing file: %s" % e, "Error", wx.OK, frame)
         return None
 
     lines = []
@@ -303,20 +303,20 @@ def importCeltx(fileName, frame):
 # like importTextFile, but for Final Draft files.
 def importFDX(fileName, frame):
     elemMap = {
-        "Action" : screenplay.ACTION,
-        "Character" : screenplay.CHARACTER,
-        "Dialogue" : screenplay.DIALOGUE,
-        "Parenthetical" : screenplay.PAREN,
-        "Scene Heading" : screenplay.SCENE,
-        "Shot" : screenplay.SHOT,
-        "Transition" : screenplay.TRANSITION,
+        "Action": screenplay.ACTION,
+        "Character": screenplay.CHARACTER,
+        "Dialogue": screenplay.DIALOGUE,
+        "Parenthetical": screenplay.PAREN,
+        "Scene Heading": screenplay.SCENE,
+        "Shot": screenplay.SHOT,
+        "Transition": screenplay.TRANSITION,
     }
 
     # the 5 MB limit is arbitrary, we just want to avoid getting a
     # MemoryError exception for /dev/zero etc.
     data = util.loadFile(fileName, frame, 5000000)
 
-    if data == None:
+    if data is None:
         return None
 
     if len(data) == 0:
@@ -389,7 +389,7 @@ def importFDX(fileName, frame):
         return lines
 
     except etree.XMLSyntaxError, e:
-        wx.MessageBox("Error parsing file: %s" %e, "Error", wx.OK, frame)
+        wx.MessageBox("Error parsing file: %s" % e, "Error", wx.OK, frame)
         return None
 
 # import Fountain files.
@@ -441,7 +441,7 @@ def importFountain(fileName, frame):
 
     data = util.loadFile(fileName, frame, 1000000)
 
-    if data == None:
+    if data is None:
         return None
 
     if len(data) == 0:
@@ -524,7 +524,7 @@ def importFountain(fileName, frame):
 
     # looks ahead to check if next line is not empty
     def isNextEmpty(i):
-        return  (i+1 < len(lines) and lines[i+1] == "")
+        return (i+1 < len(lines) and lines[i+1] == "")
 
     def getPrevType():
         if lns:
@@ -689,7 +689,7 @@ def importTextFile(fileName, frame):
     # MemoryError exception for /dev/zero etc.
     data = util.loadFile(fileName, frame, 1000000)
 
-    if data == None:
+    if data is None:
         return None
 
     if len(data) == 0:
@@ -887,7 +887,7 @@ class Indent:
 class ImportDlg(wx.Dialog):
     def __init__(self, parent, indents):
         wx.Dialog.__init__(self, parent, -1, "Adjust styles",
-                           style = wx.DEFAULT_DIALOG_STYLE)
+                           style=wx.DEFAULT_DIALOG_STYLE)
 
         indents.sort(lambda i1, i2: -cmp(len(i1.lines), len(i2.lines)))
 
@@ -896,7 +896,7 @@ class ImportDlg(wx.Dialog):
         tmp = wx.StaticText(self, -1, "Input:")
         vsizer.Add(tmp)
 
-        self.inputLb = wx.ListBox(self, -1, size = (400, 200))
+        self.inputLb = wx.ListBox(self, -1, size=(400, 200))
         for it in indents:
             self.inputLb.Append("%d lines (indented %d characters)" %
                                 (len(it.lines), it.indent), it)
@@ -907,7 +907,7 @@ class ImportDlg(wx.Dialog):
 
         hsizer.Add(wx.StaticText(self, -1, "Style:"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
-        self.styleCombo = wx.ComboBox(self, -1, style = wx.CB_READONLY)
+        self.styleCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 
         self.styleCombo.Append("Scene / Action", SCENE_ACTION)
         for t in config.getTIs():
@@ -915,7 +915,7 @@ class ImportDlg(wx.Dialog):
 
         self.styleCombo.Append("Ignore", IGNORE)
 
-        util.setWH(self.styleCombo, w = 150)
+        util.setWH(self.styleCombo, w=150)
 
         hsizer.Add(self.styleCombo, 0, wx.LEFT, 10)
 
@@ -923,7 +923,7 @@ class ImportDlg(wx.Dialog):
 
         vsizer.Add(wx.StaticText(self, -1, "Lines:"))
 
-        self.linesEntry = wx.TextCtrl(self, -1, size = (400, 200),
+        self.linesEntry = wx.TextCtrl(self, -1, size=(400, 200),
             style = wx.TE_MULTILINE | wx.TE_DONTWRAP)
         vsizer.Add(self.linesEntry, 0, wx.EXPAND)
 
@@ -956,7 +956,7 @@ class ImportDlg(wx.Dialog):
     def OnCancel(self, event):
         self.EndModal(wx.ID_CANCEL)
 
-    def OnInputLb(self, event = None):
+    def OnInputLb(self, event=None):
         self.selected = self.inputLb.GetClientData(self.inputLb.GetSelection())
 
         util.reverseComboSelect(self.styleCombo, self.selected.lt)

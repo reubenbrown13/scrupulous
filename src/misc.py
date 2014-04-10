@@ -14,7 +14,7 @@ TAB_BAR_HEIGHT = 24
 
 version = "2.3-dev"
 
-def init(doWX = True):
+def init(doWX=True):
     global isWindows, isUnix, unicodeFS, wxIsUnicode, doDblBuf, \
            progPath, confPath, tmpPrefix
 
@@ -108,7 +108,7 @@ def getFullPath(relative):
 
 class MyColorSample(wx.Window):
     def __init__(self, parent, id, size):
-        wx.Window.__init__(self, parent, id, size = size)
+        wx.Window.__init__(self, parent, id, size=size)
 
         wx.EVT_PAINT(self, self.OnPaint)
 
@@ -125,7 +125,7 @@ class MyColorSample(wx.Window):
 class MyButton(wx.Window):
     # bitmap - icon to use for the button
     def __init__(self, parent, id, bitmap, getCfgGui):
-        wx.Window.__init__(self, parent, id, size = (TAB_BAR_HEIGHT, TAB_BAR_HEIGHT))
+        wx.Window.__init__(self, parent, id, size=(TAB_BAR_HEIGHT, TAB_BAR_HEIGHT))
 
         self.getCfgGui = getCfgGui
         self.fsImage = getBitmap(bitmap)
@@ -157,7 +157,7 @@ class MyStatus(wx.Window):
     X_ELEDIVIDER = 100
 
     def __init__(self, parent, id, getCfgGui):
-        wx.Window.__init__(self, parent, id, size = (MyStatus.WIDTH, TAB_BAR_HEIGHT),
+        wx.Window.__init__(self, parent, id, size=(MyStatus.WIDTH, TAB_BAR_HEIGHT),
                            style = wx.FULL_REPAINT_ON_RESIZE)
 
         self.getCfgGui = getCfgGui
@@ -208,7 +208,7 @@ class MyStatus(wx.Window):
         x = xoff
         s = "%s" % self.elemType
         dc.SetFont(self.elementFont)
-        util.drawText(dc, s, x, cy, valign = util.VALIGN_CENTER)
+        util.drawText(dc, s, x, cy, valign=util.VALIGN_CENTER)
 
         dc.SetPen(cfgGui.tabBorderPen)
         dc.DrawLine(0, h-1, w, h-1)
@@ -234,7 +234,7 @@ class MyStatus(wx.Window):
 class MyTabCtrl(wx.Window):
     def __init__(self, parent, id, getCfgGui):
         style = wx.FULL_REPAINT_ON_RESIZE
-        wx.Window.__init__(self, parent, id, style = style)
+        wx.Window.__init__(self, parent, id, style=style)
 
         self.getCfgGui = getCfgGui
 
@@ -368,7 +368,7 @@ class MyTabCtrl(wx.Window):
     # get last visible tab
     def getLastVisibleTab(self):
         return util.clamp(self.firstTab + self.calcMaxVisibleTabs() - 1,
-                          maxVal = len(self.pages) - 1)
+                          maxVal=len(self.pages) - 1)
 
     # make sure selected tab is visible
     def makeSelectedTabVisible(self):
@@ -454,7 +454,7 @@ class MyTabCtrl(wx.Window):
         dc.DrawRectangle(0, 0, w, h)
 
         dc.SetPen(cfgGui.tabBorderPen)
-        dc.DrawLine(0,h-1,w,h-1)
+        dc.DrawLine(0, h-1, w, h-1)
 
         xpos = self.paddingX
 
@@ -480,13 +480,13 @@ class MyTabCtrl(wx.Window):
             dc.SetPen(cfgGui.tabBorderPen)
 
             if i == self.selected:
-                points=((6,1),(tabW-8,1),(tabW-6,2),(tabW-2,tabH),(0,tabH),(4,2))
+                points = ((6, 1), (tabW-8, 1), (tabW-6, 2), (tabW-2, tabH), (0, tabH), (4, 2))
                 dc.SetBrush(cfgGui.workspaceBrush)
             else:
-                points=((5,2),(tabW-8,2),(tabW-6,3),(tabW-2,tabH-1),(0,tabH-1),(3,3))
+                points = ((5, 2), (tabW-8, 2), (tabW-6, 3), (tabW-2, tabH-1), (0, tabH-1), (3, 3))
                 dc.SetBrush(cfgGui.tabNonActiveBgBrush)
 
-            dc.DrawPolygon(points,xpos,tabY)
+            dc.DrawPolygon(points, xpos, tabY)
 
             # clip the text to fit within the tabs
             dc.DestroyClippingRegion()
@@ -498,7 +498,7 @@ class MyTabCtrl(wx.Window):
 
             dc.DestroyClippingRegion()
             dc.SetFont(self.boldFont)
-            dc.DrawText("×", xpos + tabW - self.paddingX * 2, self.textY)
+            dc.DrawText("?", xpos + tabW - self.paddingX * 2, self.textY)
 
             xpos += tabW
 
@@ -559,7 +559,7 @@ class MyTabCtrl2(wx.Window):
 class ScriptChooserDlg(wx.Dialog):
     def __init__(self, parent, items):
         wx.Dialog.__init__(self, parent, -1, "Choose scripts",
-                           style = wx.DEFAULT_DIALOG_STYLE)
+                           style=wx.DEFAULT_DIALOG_STYLE)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
@@ -600,8 +600,8 @@ class ScriptChooserDlg(wx.Dialog):
 
         sizer.Add(wx.StaticText(parent, -1, descr), 0, al, 10)
 
-        combo = wx.ComboBox(parent, -1, style = wx.CB_READONLY)
-        util.setWH(combo, w = 200)
+        combo = wx.ComboBox(parent, -1, style=wx.CB_READONLY)
+        util.setWH(combo, w=200)
 
         for s in items:
             combo.Append(s)
@@ -624,7 +624,7 @@ class ScriptChooserDlg(wx.Dialog):
 
 # CheckBoxDlg below handles lists of these
 class CheckBoxItem:
-    def __init__(self, text, selected = True, cdata = None):
+    def __init__(self, text, selected=True, cdata=None):
         self.text = text
         self.selected = selected
         self.cdata = cdata
@@ -651,16 +651,16 @@ class CheckBoxItem:
 # will be modified.
 class CheckBoxDlg(wx.Dialog):
     def __init__(self, parent, title, cbil1, descr1, btns1,
-                 cbil2 = None, descr2 = None, btns2 = None):
+                 cbil2=None, descr2=None, btns2=None):
         wx.Dialog.__init__(self, parent, -1, title,
-                           style = wx.DEFAULT_DIALOG_STYLE)
+                           style=wx.DEFAULT_DIALOG_STYLE)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         self.cbil1 = cbil1
         self.list1 = self.addList(descr1, self, vsizer, cbil1, btns1, True)
 
-        if cbil2 != None:
+        if cbil2 is not None:
             self.cbil2 = cbil2
             self.list2 = self.addList(descr2, self, vsizer, cbil2, btns2,
                                       False, 20)
@@ -684,16 +684,16 @@ class CheckBoxDlg(wx.Dialog):
 
         okBtn.SetFocus()
 
-    def addList(self, descr, parent, sizer, items, doBtns, isFirst, pad = 0):
+    def addList(self, descr, parent, sizer, items, doBtns, isFirst, pad=0):
         sizer.Add(wx.StaticText(parent, -1, descr), 0, wx.TOP, pad)
 
         if doBtns:
             hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
             if isFirst:
-                funcs = [ self.OnSet1, self.OnClear1, self.OnToggle1 ]
+                funcs = [self.OnSet1, self.OnClear1, self.OnToggle1]
             else:
-                funcs = [ self.OnSet2, self.OnClear2, self.OnToggle2 ]
+                funcs = [self.OnSet2, self.OnClear2, self.OnToggle2]
 
             tmp = wx.Button(parent, -1, "Set")
             hsizer.Add(tmp)
@@ -791,12 +791,12 @@ class CheckBoxDlg(wx.Dialog):
 class TextDlg(wx.Dialog):
     def __init__(self, parent, text, title):
         wx.Dialog.__init__(self, parent, -1, title,
-                           style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+                           style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
-        tc = wx.TextCtrl(self, -1, size = wx.Size(400, 200),
-                         style = wx.TE_MULTILINE | wx.TE_READONLY | wx.TE_LINEWRAP)
+        tc = wx.TextCtrl(self, -1, size=wx.Size(400, 200),
+                         style=wx.TE_MULTILINE | wx.TE_READONLY | wx.TE_LINEWRAP)
         tc.SetValue(text)
         vsizer.Add(tc, 1, wx.EXPAND);
 
@@ -815,16 +815,16 @@ class TextDlg(wx.Dialog):
         self.EndModal(wx.ID_OK)
 
 # helper function for using TextDlg
-def showText(parent, text, title = "Message"):
+def showText(parent, text, title="Message"):
     dlg = TextDlg(parent, text, title)
     dlg.ShowModal()
     dlg.Destroy()
 
 # ask user for a single-line text input.
 class TextInputDlg(wx.Dialog):
-    def __init__(self, parent, text, title, validateFunc = None):
+    def __init__(self, parent, text, title, validateFunc=None):
         wx.Dialog.__init__(self, parent, -1, title,
-                           style = wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
+                           style=wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
 
         # function to call to validate the input string on OK. can be
         # None, in which case it is not called. if it returns "", the
@@ -836,7 +836,7 @@ class TextInputDlg(wx.Dialog):
 
         vsizer.Add(wx.StaticText(self, -1, text), 1, wx.EXPAND | wx.BOTTOM, 5)
 
-        self.tc = wx.TextCtrl(self, -1, style = wx.TE_PROCESS_ENTER)
+        self.tc = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         vsizer.Add(self.tc, 1, wx.EXPAND);
 
         vsizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 5)
@@ -882,7 +882,7 @@ class TextInputDlg(wx.Dialog):
         else:
             event.Skip()
 
-    def OnOK(self, event = None):
+    def OnOK(self, event=None):
         self.input = fromGUI(self.tc.GetValue())
 
         if self.validateFunc:
@@ -895,14 +895,14 @@ class TextInputDlg(wx.Dialog):
 
         self.EndModal(wx.ID_OK)
 
-    def OnCancel(self, event = None):
+    def OnCancel(self, event=None):
         self.EndModal(wx.ID_CANCEL)
 
 # asks the user for a keypress and stores it.
 class KeyDlg(wx.Dialog):
     def __init__(self, parent, cmdName):
         wx.Dialog.__init__(self, parent, -1, "Key capture",
-                           style = wx.DEFAULT_DIALOG_STYLE)
+                           style=wx.DEFAULT_DIALOG_STYLE)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
@@ -919,8 +919,8 @@ class KeyDlg(wx.Dialog):
 # used by KeyDlg
 class KeyDlgWidget(wx.Window):
     def __init__(self, parent, id, size):
-        wx.Window.__init__(self, parent, id, size = size,
-                           style = wx.WANTS_CHARS)
+        wx.Window.__init__(self, parent, id, size=size,
+                           style=wx.WANTS_CHARS)
 
         wx.EVT_CHAR(self, self.OnKeyChar)
 
@@ -1009,13 +1009,13 @@ class MRUFiles:
 class ExitCancelDlg(wx.Dialog):
     def __init__(self, parent, text, title):
         wx.Dialog.__init__(self, parent, -1, title,
-                           style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+                           style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        bmp = wx.ArtProvider_GetBitmap(wx.ART_WARNING, wx.ART_MESSAGE_BOX, (32,32))
+        bmp = wx.ArtProvider_GetBitmap(wx.ART_WARNING, wx.ART_MESSAGE_BOX, (32, 32))
         img = wx.StaticBitmap(self, wx.ID_ANY, bmp)
         tc = wx.StaticText(self, -1)
         tc.SetLabel(text)
@@ -1046,4 +1046,3 @@ class ExitCancelDlg(wx.Dialog):
 
     def OnCancel(self, event):
         self.EndModal(wx.CANCEL)
-

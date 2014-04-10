@@ -21,7 +21,7 @@ class Vars:
 
     # return dictionary containing given type of variable objects, or all
     # if typeObj is None.
-    def getDict(self, typeObj = None):
+    def getDict(self, typeObj=None):
         tmp = {}
 
         for it in self.cvars:
@@ -159,7 +159,7 @@ class NumericVar(ConfVar):
         self.maxVal = maxVal
 
 class FloatVar(NumericVar):
-    def __init__(self, name, defVal, name2, minVal, maxVal, precision = 2):
+    def __init__(self, name, defVal, name2, minVal, maxVal, precision=2):
         NumericVar.__init__(self, name, defVal, name2, minVal, maxVal)
         self.precision = precision
 

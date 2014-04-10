@@ -9,7 +9,7 @@ import wx
 class FindDlg(wx.Dialog):
     def __init__(self, parent, ctrl):
         wx.Dialog.__init__(self, parent, -1, "Find & Replace",
-                           style = wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
+                           style=wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
 
         self.ctrl = ctrl
 
@@ -26,12 +26,12 @@ class FindDlg(wx.Dialog):
 
         gsizer.Add(wx.StaticText(self, -1, "Text to find:"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
-        self.findEntry = wx.TextCtrl(self, -1, style = wx.TE_PROCESS_ENTER)
+        self.findEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         gsizer.Add(self.findEntry, 0, wx.EXPAND)
 
         gsizer.Add(wx.StaticText(self, -1, "Replace with:"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
-        self.replaceEntry = wx.TextCtrl(self, -1, style = wx.TE_PROCESS_ENTER)
+        self.replaceEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         gsizer.Add(self.replaceEntry, 0, wx.EXPAND)
 
         vsizer.Add(gsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
@@ -55,7 +55,7 @@ class FindDlg(wx.Dialog):
         hsizer2.Add(vsizer2, 0, wx.EXPAND | wx.RIGHT, 10)
 
         self.direction = wx.RadioBox(self, -1, "Direction",
-                                    choices = ["Up", "Down"])
+                                     choices=["Up", "Down"])
         self.direction.SetSelection(1)
 
         hsizer2.Add(self.direction, 1, 0)
@@ -120,7 +120,7 @@ class FindDlg(wx.Dialog):
         wx.EVT_CHAR(self.direction, self.OnCharMisc)
         wx.EVT_CHAR(self.elements, self.OnCharMisc)
 
-        util.finishWindow(self, hsizer, center = False)
+        util.finishWindow(self, hsizer, center=False)
 
         self.loadState()
         self.findEntry.SetFocus()
@@ -139,7 +139,7 @@ class FindDlg(wx.Dialog):
         count = self.elements.GetCount()
         tmp = self.ctrl.findDlgElements
 
-        if (tmp == None) or (len(tmp) != count):
+        if (tmp is None) or (len(tmp) != count):
             tmp = [True] * self.elements.GetCount()
 
         for i in range(count):
@@ -232,7 +232,7 @@ class FindDlg(wx.Dialog):
                     self.moreButton.GetClientSize().height + 5)
 
         self.SetSizeHints(self.GetClientSize().width, h)
-        util.setWH(self, h = h)
+        util.setWH(self, h=h)
 
     def getParams(self):
         self.dirUp = self.direction.GetSelection() == 0
@@ -251,7 +251,7 @@ class FindDlg(wx.Dialog):
 
         return self.elementMap[lt]
 
-    def OnFind(self, event = None, autoFind = False):
+    def OnFind(self, event=None, autoFind=False):
         if not autoFind:
             self.getParams()
 
@@ -314,8 +314,8 @@ class FindDlg(wx.Dialog):
 
                     if res != -1:
                         if not self.matchWhole or (
-                            util.isWordBoundary(text[res - 1 : res]) and
-                            util.isWordBoundary(text[res + len(value) :
+                            util.isWordBoundary(text[res - 1: res]) and
+                            util.isWordBoundary(text[res + len(value):
                                                      res + len(value) + 1])):
 
                             found = True
@@ -371,7 +371,7 @@ class FindDlg(wx.Dialog):
         if not autoFind:
             self.ctrl.updateScreen()
 
-    def OnReplace(self, event = None, autoFind = False):
+    def OnReplace(self, event=None, autoFind=False):
         if self.searchLine == -1:
             return False
 
@@ -415,18 +415,18 @@ class FindDlg(wx.Dialog):
         u.setAfter(sp)
         sp.addUndo(u)
 
-        self.OnFind(autoFind = autoFind)
+        self.OnFind(autoFind=autoFind)
 
         return True
 
-    def OnReplaceAll(self, event = None):
+    def OnReplaceAll(self, event=None):
         self.getParams()
 
         if self.searchLine == -1:
-            self.OnFind(autoFind = True)
+            self.OnFind(autoFind=True)
 
         count = 0
-        while self.OnReplace(autoFind = True):
+        while self.OnReplace(autoFind=True):
             count += 1
 
         if count != 0:

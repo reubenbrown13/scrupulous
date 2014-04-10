@@ -9,7 +9,7 @@ import wx
 class SpellCheckDlg(wx.Dialog):
     def __init__(self, parent, ctrl, sc, gScDict):
         wx.Dialog.__init__(self, parent, -1, "Spell checker",
-                           style = wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
+                           style=wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
 
         self.ctrl = ctrl
 
@@ -28,7 +28,7 @@ class SpellCheckDlg(wx.Dialog):
 
         hsizer.Add(wx.StaticText(self, -1, "Word:"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
-        self.replaceEntry = wx.TextCtrl(self, -1, style = wx.TE_PROCESS_ENTER)
+        self.replaceEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         hsizer.Add(self.replaceEntry, 1, wx.EXPAND)
 
         vsizer.Add(hsizer, 1, wx.EXPAND | wx.BOTTOM, 15)
@@ -83,7 +83,7 @@ class SpellCheckDlg(wx.Dialog):
         self.ctrl.makeLineVisible(self.sc.line)
         self.ctrl.updateScreen()
 
-    def gotoNext(self, incCol = True):
+    def gotoNext(self, incCol=True):
         if incCol:
             self.sc.col += len(self.sc.word)
 
@@ -138,7 +138,7 @@ class SpellCheckDlg(wx.Dialog):
 
         self.gotoNext(False)
 
-    def OnSkip(self, event = None, autoFind = False):
+    def OnSkip(self, event=None, autoFind=False):
         if not self.sc.word:
             return
 
@@ -229,4 +229,3 @@ class SpellCheckDlg(wx.Dialog):
             return d2
 
         return d
-

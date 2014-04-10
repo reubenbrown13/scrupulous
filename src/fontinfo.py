@@ -48,28 +48,28 @@ class FontMetrics:
 
 _fontMetrics = {
 
-    pml.COURIER : FontMetrics(
+    pml.COURIER: FontMetrics(
     fontWeight = 400, flags = 35, bbox = (-23, -250, 715, 805),
     italicAngle = 0, ascent = 629, descent = -157, capHeight = 562,
     stemV = 51, stemH = 51, xHeight = 426, widths = None),
 
-    pml.COURIER | pml.BOLD : FontMetrics(
+    pml.COURIER | pml.BOLD: FontMetrics(
     fontWeight = 700, flags = 35, bbox = (-113, -250, 749, 801),
     italicAngle = 0, ascent = 629, descent = -157, capHeight = 562,
     stemV = 106, stemH = 84, xHeight = 439, widths = None),
 
-    pml.COURIER | pml.ITALIC : FontMetrics(
+    pml.COURIER | pml.ITALIC: FontMetrics(
     fontWeight = 400, flags = 99, bbox = (-27, -250, 849, 805),
     italicAngle = -12, ascent = 629, descent = -157, capHeight = 562,
     stemV = 51, stemH = 51, xHeight = 426, widths = None),
 
-    pml.COURIER | pml.BOLD | pml.ITALIC : FontMetrics(
+    pml.COURIER | pml.BOLD | pml.ITALIC: FontMetrics(
     fontWeight = 700, flags = 99, bbox = (-57, -250, 869, 801),
     italicAngle = -12, ascent = 629, descent = -157, capHeight = 562,
     stemV = 106, stemH = 84, xHeight = 439, widths = None),
 
 
-    pml.HELVETICA : FontMetrics(
+    pml.HELVETICA: FontMetrics(
     fontWeight = 400, flags = 32, bbox = (-166, -225, 1000, 931),
     italicAngle = 0, ascent = 718, descent = -207, capHeight = 718,
     stemV = 88, stemH = 76, xHeight = 523, widths = [
@@ -107,7 +107,7 @@ _fontMetrics = {
     611, 556, 556, 556, 556, 500, 556, 500
     ]),
 
-    pml.HELVETICA | pml.BOLD : FontMetrics(
+    pml.HELVETICA | pml.BOLD: FontMetrics(
     fontWeight = 700, flags = 32, bbox = (-170, -228, 1003, 962),
     italicAngle = 0, ascent = 718, descent = -207, capHeight = 718,
     stemV = 140, stemH = 118, xHeight = 532, widths = [
@@ -145,7 +145,7 @@ _fontMetrics = {
     611, 611, 611, 611, 611, 556, 611, 556,
     ]),
 
-    pml.HELVETICA | pml.ITALIC : FontMetrics(
+    pml.HELVETICA | pml.ITALIC: FontMetrics(
     fontWeight = 400, flags = 96, bbox = (-170, -225, 1116, 931),
     italicAngle = -12, ascent = 718, descent = -207, capHeight = 718,
     stemV = 88, stemH = 76, xHeight = 523, widths = [
@@ -183,7 +183,7 @@ _fontMetrics = {
     611, 556, 556, 556, 556, 500, 556, 500,
     ]),
 
-    pml.HELVETICA | pml.BOLD | pml.ITALIC : FontMetrics(
+    pml.HELVETICA | pml.BOLD | pml.ITALIC: FontMetrics(
     fontWeight = 700, flags = 96, bbox = (-174, -228, 1114, 962),
     italicAngle = -12, ascent = 718, descent = -207, capHeight = 718,
     stemV = 140, stemH = 118, xHeight = 532, widths = [
@@ -222,7 +222,7 @@ _fontMetrics = {
     ]),
 
 
-    pml.TIMES_ROMAN : FontMetrics(
+    pml.TIMES_ROMAN: FontMetrics(
     fontWeight = 400, flags = 34, bbox = (-168, -218, 1000, 898),
     italicAngle = 0, ascent = 683, descent = -217, capHeight = 662,
     stemV = 84, stemH = 28, xHeight = 450, widths = [
@@ -260,7 +260,7 @@ _fontMetrics = {
     500, 500, 500, 500, 500, 500, 500, 500,
     ]),
 
-    pml.TIMES_ROMAN | pml.BOLD : FontMetrics(
+    pml.TIMES_ROMAN | pml.BOLD: FontMetrics(
     fontWeight = 700, flags = 34, bbox = (-168, -218, 1000, 935),
     italicAngle = 0, ascent = 683, descent = -217, capHeight = 676,
     stemV = 139, stemH = 44, xHeight = 461, widths = [
@@ -298,7 +298,7 @@ _fontMetrics = {
     500, 556, 556, 556, 556, 500, 556, 500,
     ]),
 
-    pml.TIMES_ROMAN | pml.ITALIC : FontMetrics(
+    pml.TIMES_ROMAN | pml.ITALIC: FontMetrics(
     fontWeight = 400, flags = 98, bbox = (-169, -217, 1010, 883),
     italicAngle = -15.5, ascent = 683, descent = -217, capHeight = 653,
     stemV = 76, stemH = 32, xHeight = 441, widths = [
@@ -336,7 +336,7 @@ _fontMetrics = {
     500, 500, 500, 500, 500, 444, 500, 444,
     ]),
 
-    pml.TIMES_ROMAN | pml.BOLD | pml.ITALIC : FontMetrics(
+    pml.TIMES_ROMAN | pml.BOLD | pml.ITALIC: FontMetrics(
     fontWeight = 700, flags = 98, bbox = (-200, -218, 996, 921),
     italicAngle = -15, ascent = 683, descent = -217, capHeight = 669,
     stemV = 121, stemH = 42, xHeight = 462, widths = [

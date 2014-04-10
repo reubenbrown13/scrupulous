@@ -14,13 +14,13 @@ def genDialogueChart(mainFrame, sp):
     # which would need some thinking.
 
     inf = []
-    for it in [ ("Characters with < 10 lines", None),
-                ("Sorted by: First appearance", cmpFirst),
-                ("Sorted by: Last appearance", cmpLast),
-                ("Sorted by: Number of lines spoken", cmpCount),
-                ("Sorted by: Name", cmpName)
-                ]:
-        inf.append(misc.CheckBoxItem(it[0], cdata = it[1]))
+    for it in [("Characters with < 10 lines", None),
+               ("Sorted by: First appearance", cmpFirst),
+               ("Sorted by: Last appearance", cmpLast),
+               ("Sorted by: Number of lines spoken", cmpCount),
+               ("Sorted by: Name", cmpName)
+               ]:
+        inf.append(misc.CheckBoxItem(it[0], cdata=it[1]))
 
     dlg = misc.CheckBoxDlg(mainFrame, "Report type", inf,
                            "Information to include:", False)
@@ -75,7 +75,7 @@ class DialogueChart:
         name = "UNKNOWN"
 
         for i in xrange(len(ls)):
-            pgNr = sp.line2page(i) -1
+            pgNr = sp.line2page(i) - 1
             pi = self.pages[pgNr]
             line = ls[i]
 
@@ -216,7 +216,7 @@ class DialogueChart:
             if (i == 0) or ((i + 1) % 10) == 0:
                 x = self.chartX + i * mmPerPage
                 pg.add(pml.TextOp("%d" % (i + 1), x, self.pageY,
-                                  10, align = util.ALIGN_CENTER))
+                                  10, align=util.ALIGN_CENTER))
                 if i != 0:
                     pg.add(pml.genLine(x, self.chartY, 0, self.chartHeight,
                                         lw))
@@ -276,7 +276,7 @@ class DialogueChart:
             ci = self.cinfo[i]
 
             pg.add(pml.TextOp(ci.name, self.margin, y + self.charY / 2.0,
-                self.charFs, valign = util.VALIGN_CENTER))
+                self.charFs, valign=util.VALIGN_CENTER))
 
             for i in xrange(pageCnt):
                 pi = self.pages[i]

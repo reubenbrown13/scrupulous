@@ -18,7 +18,7 @@ import wx
 def listBoxSelect(lb, index):
     old = lb.GetSelection()
 
-    if  old!= -1:
+    if old != -1:
         lb.SetSelection(old, False)
 
     lb.SetSelection(index, True)
@@ -42,12 +42,12 @@ def createStockButton(parent, label):
     # all, so it's better not to use them at all on Windows.
     if misc.isUnix:
         ids = {
-            "OK" : wx.ID_OK,
-            "Cancel" : wx.ID_CANCEL,
-            "Apply" : wx.ID_APPLY,
-            "Add" : wx.ID_ADD,
-            "Delete" : wx.ID_DELETE,
-            "Preview" : wx.ID_PREVIEW
+            "OK": wx.ID_OK,
+            "Cancel": wx.ID_CANCEL,
+            "Apply": wx.ID_APPLY,
+            "Add": wx.ID_ADD,
+            "Delete": wx.ID_DELETE,
+            "Preview": wx.ID_PREVIEW
             }
 
         return wx.Button(parent, ids[label])
@@ -57,7 +57,7 @@ def createStockButton(parent, label):
 # wxWidgets has a bug in 2.6 on wxGTK2 where double clicking on a button
 # does not send two wx.EVT_BUTTON events, only one. since the wxWidgets
 # maintainers do not seem interested in fixing this
-# (http://sourceforge.net/tracker/index.php?func=detail&aid=1449838&group_id=9863&atid=109863),
+# (sourceforge.net/tracker/index.php?func=detail&aid=1449838&group_id=9863&atid=109863),
 # we work around it ourselves by binding the left mouse button double
 # click event to the same callback function on the buggy platforms.
 def btnDblClick(btn, func):
@@ -73,8 +73,8 @@ def showTempPDF(pdfData, cfgGl, mainFrame):
         try:
             util.removeTempFiles(misc.tmpPrefix)
 
-            fd, filename = tempfile.mkstemp(prefix = misc.tmpPrefix,
-                                            suffix = ".pdf")
+            fd, filename = tempfile.mkstemp(prefix=misc.tmpPrefix,
+                                            suffix=".pdf")
 
             try:
                 os.write(fd, pdfData)
