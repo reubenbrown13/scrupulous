@@ -12,11 +12,11 @@ import u
 def testPasteAfterForcedLineBreak():
     sp = u.new()
 
-    sp.cmd("addChar", char = "E")
+    sp.cmd("addChar", char="E")
     assert sp.lines[0].lt != scr.CHARACTER
 
     sp.cmd("insertForcedLineBreak")
-    sp.paste([scr.Line(text = "Tsashkataar", lt = scr.CHARACTER)])
+    sp.paste([scr.Line(text="Tsashkataar", lt=scr.CHARACTER)])
 
     assert len(sp.lines) == 2
     assert (sp.line == 1) and (sp.column == 11)

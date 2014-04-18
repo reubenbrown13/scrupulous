@@ -15,14 +15,14 @@ def testChangeOneElem():
     assert ls[1].lt == scr.ACTION
 
     functionMap = {
-        "toScene" : scr.SCENE,
-        "toCharacter" : scr.CHARACTER,
-        "toAction" : scr.ACTION,
-        "toDialogue" : scr.DIALOGUE,
-        "toParen" : scr.PAREN,
-        "toShot" : scr.SHOT,
-        "toNote" : scr.NOTE,
-        "toTransition" : scr.TRANSITION,
+        "toScene": scr.SCENE,
+        "toCharacter": scr.CHARACTER,
+        "toAction": scr.ACTION,
+        "toDialogue": scr.DIALOGUE,
+        "toParen": scr.PAREN,
+        "toShot": scr.SHOT,
+        "toNote": scr.NOTE,
+        "toTransition": scr.TRANSITION,
     }
 
     for (func, ele) in functionMap.items():
@@ -50,7 +50,7 @@ def testChangeManyElemes():
     # select second and third elements
     sp.cmd("moveDown")
     sp.cmd("setMark")
-    sp.cmd("moveDown", count = 4)
+    sp.cmd("moveDown", count=4)
 
     sp.cmd("toTransition")
 

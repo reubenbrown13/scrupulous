@@ -19,7 +19,7 @@ def testLastDelete():
 
     sp.cmd("moveEnd")
     sp.cmd("setMark")
-    sp.cmd("moveUp", count = 4)
+    sp.cmd("moveUp", count=4)
     sp.cmd("moveLineStart")
 
     # we used to have a bug where if we deleted e.g. the last two lines of
@@ -30,7 +30,7 @@ def testLastDelete():
 def testEndPrevPara():
     sp = u.load()
 
-    sp.cmd("moveDown", count = 4)
+    sp.cmd("moveDown", count=4)
     sp.cmd("moveLineEnd")
     sp.cmd("setMark")
     sp.cmd("moveLineStart")
@@ -50,9 +50,9 @@ def testEndPrevPara():
 def testForcedLb():
     sp = u.load()
 
-    sp.cmd("moveDown", count = 2)
+    sp.cmd("moveDown", count=2)
     sp.cmd("insertForcedLineBreak")
-    sp.cmd("moveUp", count = 2)
+    sp.cmd("moveUp", count=2)
     sp.cmd("moveLineEnd")
     sp.cmd("setMark")
     sp.cmd("moveRight")
@@ -87,7 +87,7 @@ def testTypeConvert():
     sp = u.load()
 
     sp.cmd("toTransition")
-    sp.cmd("moveDown", count = 3)
+    sp.cmd("moveDown", count=3)
     sp.cmd("insertForcedLineBreak")
     sp.cmd("moveUp")
     sp.cmd("setMark")

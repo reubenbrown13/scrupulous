@@ -10,7 +10,7 @@ def testInitial():
 
 def testAddChar():
     sp = u.load()
-    sp.cmd("addChar", char = "a")
+    sp.cmd("addChar", char="a")
     assert sp.isModified()
 
 def testDeleteBackwardsStart():
@@ -68,12 +68,12 @@ def testConvert():
 
 def testPaste():
     sp = u.load()
-    sp.paste([scr.Line(text = "yo")])
+    sp.paste([scr.Line(text="yo")])
     assert sp.isModified()
 
 def testRemoveElementTypes():
     sp = u.load()
-    sp.removeElementTypes({ scr.ACTION : 0 }, False)
+    sp.removeElementTypes({scr.ACTION: 0}, False)
     assert sp.isModified()
 
 def testApplyCfg():

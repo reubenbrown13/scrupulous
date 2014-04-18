@@ -27,7 +27,7 @@ def testBackJoinElements():
 def testBackLbSpace():
     sp = u.load()
     sp.gotoPos(16, 60)
-    sp.cmd("addChar", char = " ")
+    sp.cmd("addChar", char=" ")
     assert sp.lines[16].lb == scr.LB_SPACE
     sp.cmd("moveDown")
     sp.cmd("moveLineStart")
@@ -48,9 +48,9 @@ def testBackLbNone():
     assert sp.lines[19].text == "Aye,it'snightslikethisthatmakemeree"
     assert sp.lines[20].text == "mber why I love being a fisherman."
     assert sp.lines[19].lb == scr.LB_NONE
-    sp.cmd("moveRight", count = 3)
-    sp.cmd("addChar", char = " ")
-    sp.cmd("moveLeft", count = 2)
+    sp.cmd("moveRight", count=3)
+    sp.cmd("addChar", char=" ")
+    sp.cmd("moveLeft", count=2)
     sp.cmd("deleteBackward")
     assert (sp.line == 19) and (sp.column == 34)
     assert sp.lines[19].text == "Aye,it'snightslikethisthatmakemerem"
@@ -74,7 +74,7 @@ def testBackLbForcedTypeConvert():
     sp = u.load()
 
     sp.cmd("toTransition")
-    sp.cmd("moveDown", count = 3)
+    sp.cmd("moveDown", count=3)
     sp.cmd("insertForcedLineBreak")
     sp.cmd("moveUp")
     sp.cmd("deleteBackward")
@@ -90,9 +90,9 @@ def testForwardLbForcedTypeConvert():
     sp = u.load()
 
     sp.cmd("toTransition")
-    sp.cmd("moveDown", count = 3)
+    sp.cmd("moveDown", count=3)
     sp.cmd("insertForcedLineBreak")
-    sp.cmd("moveUp", count = 2)
+    sp.cmd("moveUp", count=2)
     sp.cmd("moveLineEnd")
     sp.cmd("deleteForward")
 

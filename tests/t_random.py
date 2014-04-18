@@ -101,7 +101,7 @@ class Op:
     #   -cut (getSelectedAsCD(True))
     #   -paste
 
-    def __init__(self, name = None):
+    def __init__(self, name=None):
         # name of operation
         self.name = name
 

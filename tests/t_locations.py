@@ -16,10 +16,10 @@ def test():
     u.init()
 
     scenes = {
-        "INT. MOTEL ROOM - DAY" : None,
-        "INT. MOTEL ROOM - NIGHT" : None,
-        "EXT. PALACE - DAY" : None,
-        "EXT. SHOPFRONT - DAY" : None
+        "INT. MOTEL ROOM - DAY": None,
+        "INT. MOTEL ROOM - NIGHT": None,
+        "EXT. PALACE - DAY": None,
+        "EXT. SHOPFRONT - DAY": None
         }
 
     ch([], {}, [])

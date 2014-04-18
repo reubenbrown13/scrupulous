@@ -10,12 +10,12 @@ import u
 def testForcedLb():
     sp = u.new()
 
-    sp.cmd("addChar", char = "a")
+    sp.cmd("addChar", char="a")
     sp.cmd("splitElement")
     sp.cmd("toDialogue")
-    sp.cmd("addChar", char = "b")
+    sp.cmd("addChar", char="b")
     sp.cmd("insertForcedLineBreak")
-    sp.cmd("addChar", char = "c")
+    sp.cmd("addChar", char="c")
     sp.cmd("moveLeft")
     sp.cmd("moveUp")
     sp.cmd("deleteBackward")
@@ -32,7 +32,7 @@ def testForcedLb():
 def testForcedLb2():
     sp = u.new()
 
-    sp.cmd("addChar", char = "a")
+    sp.cmd("addChar", char="a")
     sp.cmd("splitElement")
     sp.cmd("toTransition")
     sp.cmdChars("line 1///////////// ")

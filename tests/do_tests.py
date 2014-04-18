@@ -15,11 +15,11 @@ import types
 VERSION = 0.1
 
 def main():
-    parser = optparse.OptionParser(version = "%%prog %s" % VERSION)
+    parser = optparse.OptionParser(version="%%prog %s" % VERSION)
     parser.add_option("--file", dest="file", help="FILE to test")
     parser.add_option("--function", dest="func", help="FUNCTION to test")
     parser.add_option("--file-at-a-time", action="store_true", dest="faat",
-        default = False, help="run tests from each file in the same"
+        default=False, help="run tests from each file in the same"
         " process (faster, but coarser if tests fail)")
 
     (opts, args) = parser.parse_args()
