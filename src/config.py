@@ -369,26 +369,26 @@ class Config:
         self.types[t.lt] = t
 
         t = Type(screenplay.ACTION)
-        t.beforeSpacing = 15
-        t.intraSpacing = 4
+        t.beforeSpacing = 10
+        t.intraSpacing = 0
         t.indent = 0
         t.width = 60
         self.types[t.lt] = t
 
         t = Type(screenplay.CHARACTER)
-        t.beforeSpacing = 15
-        t.intraSpacing = 4
-        t.indent = 22
+        t.beforeSpacing = 10
+        t.intraSpacing = 0
+        t.indent = 25
         t.width = 38
         t.screen.isCaps = True
         t.export.isCaps = True
         self.types[t.lt] = t
 
         t = Type(screenplay.DIALOGUE)
-        t.beforeSpacing = 6
-        t.intraSpacing = 4
-        t.indent = 10
-        t.width = 35
+        t.beforeSpacing = 0
+        t.intraSpacing = 2
+        t.indent = 13
+        t.width = 40
         self.types[t.lt] = t
 
         t = Type(screenplay.PAREN)
@@ -398,8 +398,8 @@ class Config:
 
         t = Type(screenplay.TRANSITION)
         t.beforeSpacing = 10
-        t.indent = 45
-        t.width = 15
+        t.indent = 40
+        t.width = 20
         t.screen.isCaps = True
         t.export.isCaps = True
         self.types[t.lt] = t
@@ -413,7 +413,7 @@ class Config:
         self.types[t.lt] = t
 
         t = Type(screenplay.ACTBREAK)
-        t.beforeSpacing = 10
+        t.beforeSpacing = 0
         t.indent = 25
         t.width = 10
         t.screen.isCaps = True
