@@ -143,7 +143,7 @@ class GlobalData:
             try:
                 os.mkdir(misc.toPath(misc.confPath), 0755)
             except OSError, (errno, strerror):
-                wx.MessageBox("Error creating configuration directory\n"
+                wx.MessageBox("Can't create configuration directory\n"
                               "'%s': %s" % (misc.confPath, strerror),
                               "Error", wx.OK, None)
 
@@ -410,7 +410,7 @@ class MyCtrl(wx.Control):
         try:
             (sp, msg) = screenplay.Screenplay.load(s, cfgGl)
         except ScrupulousError, e:
-            wx.MessageBox("Error loading file:\n\n%s" % e, "Error",
+            wx.MessageBox("Can't load file:\n\n%s" % e, "Error",
                           wx.OK, mainFrame)
 
             return
@@ -901,8 +901,7 @@ class MyCtrl(wx.Control):
 
     def OnCompareScripts(self):
         if mainFrame.tabCtrl.getPageCount() < 2:
-            wx.MessageBox("You need at least two scripts open to"
-                          " compare them.", "Error", wx.OK, mainFrame)
+            wx.MessageBox("Can't compare one script.", "Error", wx.OK, mainFrame)
 
             return
 
@@ -925,7 +924,7 @@ class MyCtrl(wx.Control):
             return
 
         if sel1 == sel2:
-            wx.MessageBox("You can't compare a script to itself.", "Error",
+            wx.MessageBox("Can't compare a script to itself.", "Error",
                           wx.OK, mainFrame)
 
             return
@@ -955,8 +954,8 @@ class MyCtrl(wx.Control):
 
     def canBeClosed(self):
         if self.sp.isModified():
-            if wx.MessageBox("The script has been modified. Are you sure\n"
-                             "you want to discard the changes?", "Confirm",
+            if wx.MessageBox("Changes have been made. Quit \n"
+                             "without saving?", "Confirm",
                              wx.YES_NO | wx.NO_DEFAULT, mainFrame) == wx.NO:
                 return False
 
@@ -2472,8 +2471,8 @@ class MyFrame(wx.Frame):
         cfgGl.addShiftKeys()
 
         if cfgGl.getConflictingKeys() != None:
-            wx.MessageBox("You have at least one key bound to more than one\n"
-                          "command. Please fix this.",
+            wx.MessageBox("At least one key bound to more than one\n"
+                          "command. Fix this.",
                           "Warning", wx.OK, self)
 
         self.kbdCommands = {}
@@ -2543,7 +2542,7 @@ class MyFrame(wx.Frame):
             wx.MessageBox(
                 "The fonts selected are an unfixed width and\n"
                 "will cause the program to function improperly.\n"
-                "Please change the fonts at File/Settings/Change.\n\n"
+                "Change the fonts at File/Settings/Change.\n\n"
                 + "\n".join(failed), "Error", wx.OK, self)
 
     def OnCursorTimer(self, event):
@@ -2951,8 +2950,8 @@ class MyFrame(wx.Frame):
         modified = self.isModifications()
 
         if event.CanVeto() and self.isModifications():
-            if wx.MessageBox("Do you want to save changes\n"
-                             "before closing?", "Confirm",
+            if wx.MessageBox("Save changes before \n"
+                             "closing?", "Confirm",
                              wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
                 doExit = True
 
@@ -3013,9 +3012,9 @@ class MyApp(wx.App):
             sys.exit()
 
         if (wx.MAJOR_VERSION != 2) or (wx.MINOR_VERSION != 8):
-            wx.MessageBox("You have an unsupported version\n"
-                          "(%s) of wxWidgets installed. This\n"
-                          "program needs version 2.8." %
+            wx.MessageBox("An unsupported version\n"
+                          "(%s) of wxWidgets was found.\n"
+                          "Program needs version 2.8." %
                           wx.VERSION_STRING, "Error", wx.OK)
             sys.exit()
 
@@ -3026,14 +3025,14 @@ class MyApp(wx.App):
         if misc.isWindows:
             major = sys.getwindowsversion()[0]
             if major < 5:
-                wx.MessageBox("You are using an unsupported version of\n"
-                              "Windows. Please upgrade to Windows XP\n"
+                wx.MessageBox("An unsupported version of Windows\n"
+                              "was found. Upgrade to Windows XP\n"
                               "or higher.", "Error", wx.OK)
                 sys.exit()
 
         if not misc.wxIsUnicode:
-            wx.MessageBox("You are using a non-Unicode build of\n"
-                          "wxWidgets.",
+            wx.MessageBox("A non-Unicode build of\n"
+                          "wxWidgets was found.",
                           "Error", wx.OK)
             sys.exit()
 
