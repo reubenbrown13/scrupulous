@@ -1263,7 +1263,6 @@ class ConfigGlobal:
                 (u"/usr/local/Adobe/Acrobat7.0/bin/acroread", "-tempFile"),
                 (u"acroread", "-tempFile"),
                 (u"xpdf", ""),
-                (u"epdfview", ""),
                 (u"evince", ""),
                 (u"gpdf", ""),
                 (u"kpdf", ""),
