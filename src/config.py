@@ -1037,7 +1037,7 @@ class ConfigGlobal:
         v.addBool("blinkCursor", True, "BlinkCursor")
 
         # whether to recenter screen when cursor moves out of it
-        v.addBool("recenterOnScroll", False, "RecenterOnScroll")
+        v.addBool("recenterOnScroll", True, "RecenterOnScroll")
 
         # whether to overwrite selected text on typing
         v.addBool("overwriteSelectionOnInsert", True, "OverwriteSelectionOnInsert")
