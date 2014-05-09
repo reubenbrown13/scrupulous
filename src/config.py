@@ -1242,7 +1242,7 @@ class ConfigGlobal:
                 fn[3] = "0;-13;0;0;0;700;255;0;0;0;3;2;1;49;Courier New"
 
         else:
-            raise ConfigError("Unknown platform")
+            raise ConfigError("Unsupported platform")
 
         self.fontNormal = fn[0]
         self.fontBold = fn[1]
