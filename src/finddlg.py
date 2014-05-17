@@ -55,7 +55,7 @@ class FindDlg(wx.Dialog):
         hsizer2.Add(vsizer2, 0, wx.EXPAND | wx.RIGHT, 10)
 
         self.direction = wx.RadioBox(self, -1, "Direction",
-                                     choices=["Up", "Down"])
+                                     choices=["Backward", "Forward"])
         self.direction.SetSelection(1)
 
         hsizer2.Add(self.direction, 1, 0)
