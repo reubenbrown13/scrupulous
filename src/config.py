@@ -1075,8 +1075,8 @@ class ConfigGlobal:
                    "Text foreground (headers)")
         v.addColor("textBg", 255, 255, 255, "TextBG", "Text background")
         v.addColor("workspace", 90, 90, 90, "Workspace", "Workspace")
-        v.addColor("pageBorder", 202, 202, 202, "PageBorder", "Page border")
-        v.addColor("pageShadow", 70, 70, 70, "PageShadow", "Page shadow")
+        v.addColor("pageBorder", 145, 145, 145, "PageBorder", "Page border")
+        v.addColor("pageShadow", 222, 222, 222, "PageShadow", "Page shadow")
         v.addColor("selected", 124, 181, 220, "Selected", "Selection")
         v.addColor("cursor", 80, 165, 221, "Cursor", "Cursor")
         v.addColor("selected", 200, 200, 200, "Selected", "Selection")
@@ -1092,10 +1092,10 @@ class ConfigGlobal:
                    "PageBreakNoAdjustLine",
                    "Page-break (original, not adjusted) line")
 
-        v.addColor("tabText", 255, 255, 255, "TabText", "Tab text")
-        v.addColor("tabBorder", 55, 55, 55, "TabBorder",
+        v.addColor("tabText", 214, 73, 55, "TabText", "Tab text")
+        v.addColor("tabBorder", 45, 45, 45, "TabBorder",
                    "Tab border")
-        v.addColor("tabBarBg", 70, 70, 70, "TabBarBG",
+        v.addColor("tabBarBg", 45, 45, 45, "TabBarBG",
                    "Tab bar background")
         v.addColor("tabNonActiveBg", 125, 125, 125, "TabNonActiveBg", "Tab, non-active")
         v.addColor("navSceneText", 0, 0, 0, "NavSceneText", "Navigator scene text")
