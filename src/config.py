@@ -1039,11 +1039,11 @@ class ConfigGlobal:
         v.addBool("recenterOnScroll", True, "RecenterOnScroll")
 
         # whether to overwrite selected text on typing
-        v.addBool("overwriteSelectionOnInsert", True, "OverwriteSelectionOnInsert")
+        v.addBool("overwriteSelectionOnInsert", False, "OverwriteSelectionOnInsert")
 
         # whether to use per-elem-type colors (textSceneColor etc.)
         # instead of using textColor for all elem types
-        v.addBool("useCustomElemColors", False, "UseCustomElemColors")
+        v.addBool("useCustomElemColors", True, "UseCustomElemColors")
 
         # location of default screenplay settings file
         v.addStrUnicode("sconfFilePath", u"", "SconfFilePath")
@@ -1070,11 +1070,11 @@ class ConfigGlobal:
         v.addStrUnicode("scriptDir", misc.progPath, "DefaultScriptDirectory")
 
         # colors
-        v.addColor("text", 0, 0, 0, "TextFG", "Text foreground")
+        v.addColor("text", 24, 43, 48, "TextFG", "Text foreground")
         v.addColor("textHdr", 128, 128, 128, "TextHeadersFG",
                    "Text foreground (headers)")
-        v.addColor("textBg", 255, 255, 255, "TextBG", "Text background")
-        v.addColor("workspace", 90, 90, 90, "Workspace", "Workspace")
+        v.addColor("textBg", 243, 243, 243, "TextBG", "Text background")
+        v.addColor("workspace", 231, 231, 231, "Workspace", "Workspace")
         v.addColor("pageBorder", 145, 145, 145, "PageBorder", "Page border")
         v.addColor("pageShadow", 222, 222, 222, "PageShadow", "Page shadow")
         v.addColor("selected", 124, 181, 220, "Selected", "Selection")
@@ -1092,18 +1092,18 @@ class ConfigGlobal:
                    "PageBreakNoAdjustLine",
                    "Page-break (original, not adjusted) line")
 
-        v.addColor("tabText", 214, 73, 55, "TabText", "Tab text")
+        v.addColor("tabText", 3, 177, 217, "TabText", "Tab text")
         v.addColor("tabBorder", 45, 45, 45, "TabBorder",
                    "Tab border")
-        v.addColor("tabBarBg", 45, 45, 45, "TabBarBG",
+        v.addColor("tabBarBg", 62, 70, 81, "TabBarBG",
                    "Tab bar background")
-        v.addColor("tabNonActiveBg", 125, 125, 125, "TabNonActiveBg", "Tab, non-active")
+        v.addColor("tabNonActiveBg", 77, 77, 77, "TabNonActiveBg", "Tab, non-active")
         v.addColor("navSceneText", 0, 0, 0, "NavSceneText", "Navigator scene text")
         v.addColor("navSceneSelectedMark", 166, 166, 166, "NavSceneSelectedMark", "Navigator selected scene marker")
         v.addColor("navNoteText", 128, 128, 0, "NavNoteText", "Navigator note text")
         v.addColor("navBlurbText", 0, 0, 0, "NavBlurbText", "Navigator blurb text")
         v.addColor("navTransitionText", 0, 0, 255, "NavTransitionText", "Navigator transition text")
-        v.addColor("navBg", 230, 230, 230, "NavBg", "Navigator background")
+        v.addColor("navBg", 231, 231, 231, "NavBg", "Navigator background")
         v.addColor("navAnnotatedBg", 255, 237, 223, "NavAnnotatedBg", "Navigator annotated scene background")
 
         for t in getTIs():
