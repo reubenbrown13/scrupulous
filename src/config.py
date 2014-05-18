@@ -364,7 +364,6 @@ class Config:
         t.indent = 0
         t.width = 60
         t.screen.isCaps = True
-        t.screen.isBold = True
         t.export.isCaps = True
         self.types[t.lt] = t
 
