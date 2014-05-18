@@ -1039,11 +1039,11 @@ class ConfigGlobal:
         v.addBool("recenterOnScroll", True, "RecenterOnScroll")
 
         # whether to overwrite selected text on typing
-        v.addBool("overwriteSelectionOnInsert", False, "OverwriteSelectionOnInsert")
+        v.addBool("overwriteSelectionOnInsert", True, "OverwriteSelectionOnInsert")
 
         # whether to use per-elem-type colors (textSceneColor etc.)
         # instead of using textColor for all elem types
-        v.addBool("useCustomElemColors", True, "UseCustomElemColors")
+        v.addBool("useCustomElemColors", False, "UseCustomElemColors")
 
         # location of default screenplay settings file
         v.addStrUnicode("sconfFilePath", u"", "SconfFilePath")
