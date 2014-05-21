@@ -498,7 +498,7 @@ class MyTabCtrl(wx.Window):
 
             dc.DestroyClippingRegion()
             dc.SetFont(self.boldFont)
-            dc.DrawText("?", xpos + tabW - self.paddingX * 2, self.textY)
+            dc.DrawText("x", xpos + tabW - self.paddingX * 2, self.textY)
 
             xpos += tabW
 
