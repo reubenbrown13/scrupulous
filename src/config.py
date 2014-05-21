@@ -1085,19 +1085,19 @@ class ConfigGlobal:
                    "Auto-completion foreground")
         v.addColor("autoCompBg", 255, 240, 168, "AutoCompletionBG",
                    "Auto-completion background")
-        v.addColor("note", 255, 237, 223, "ScriptNote", "Script note")
+        v.addColor("note", 28, 182, 219, "ScriptNote", "Script note")
         v.addColor("pagebreak", 221, 221, 221, "PageBreakLine",
                    "Page-break line")
         v.addColor("pagebreakNoAdjust", 221, 221, 221,
                    "PageBreakNoAdjustLine",
                    "Page-break (original, not adjusted) line")
 
-        v.addColor("tabText", 3, 177, 217, "TabText", "Tab text")
-        v.addColor("tabBorder", 45, 45, 45, "TabBorder",
+        v.addColor("tabText", 38, 139, 210, "TabText", "Tab text")
+        v.addColor("tabBorder", 38, 139, 210, "TabBorder",
                    "Tab border")
-        v.addColor("tabBarBg", 62, 70, 81, "TabBarBG",
+        v.addColor("tabBarBg", 63, 77, 82, "TabBarBG",
                    "Tab bar background")
-        v.addColor("tabNonActiveBg", 77, 77, 77, "TabNonActiveBg", "Tab, non-active")
+        v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg", "Tab, non-active")
         v.addColor("navSceneText", 0, 0, 0, "NavSceneText", "Navigator scene text")
         v.addColor("navSceneSelectedMark", 166, 166, 166, "NavSceneSelectedMark", "Navigator selected scene marker")
         v.addColor("navNoteText", 128, 128, 0, "NavNoteText", "Navigator note text")
