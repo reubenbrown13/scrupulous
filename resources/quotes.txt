@@ -13,64 +13,17 @@
 # line3 [optional]
 #   source
 
-I say we take off and nuke the site from orbit.
-It's the only way to be sure.
-  Aliens
+I see dead people.
+  The Sixth Sense
 
-It's supposed to be hard. If it wasn't hard, everyone
-would do it. The hard… is what makes it great.
-  A League of Their Own
+Houston, we have a problem.
+  Apollo 13
 
-I flipped through catalogs and wondered: What kind of
-dining set defines me as a person?
-  Fight Club
+My precious.
+  The Lord of the Rings: The Two Towers
 
-Show me the money!
-  Jerry Maguire
-
-I'm going to make him an offer he can't refuse.
-  The Godfather
-
-You talkin' to me?
-  Taxi Driver
-
-What we've got here is a failure to communicate.
-  Cool Hand Luke
-
-I love the smell of napalm in the morning.
-  Apocalypse Now
-
-You can't handle the truth!
-  A Few Good Men
-
-I'll have what she's having.
-  When Harry Met Sally…
-
-You're gonna need a bigger boat.
-  Jaws
-
-I'll be back.
-  The Terminator
-
-Well, nobody's perfect.
-  Some Like It Hot
-
-You've got to ask yourself one question: ‘Do I feel lucky?’
-Well, do ya, punk?
-  Dirty Harry
-
-Greed, for lack of a better word, is good.
-  Wall Street
-
-Say ‘hello’ to my little friend!
-  Scarface
-
-Gentlemen, you can't fight in here!
-This is the War Room!
-  Dr. Strangelove
-
-The Dude abides.
-  The Big Lebowski
+I'm the king of the world!
+  Titanic
 
 Roads? Where we're going, we don't need roads.
   Back to the Future
@@ -78,8 +31,12 @@ Roads? Where we're going, we don't need roads.
 I'm sorry, Dave. I'm afraid I can't do that.
   2001: A Space Odyssey
 
-Fasten your seatbelts. It's going to be a bumpy night.
-  All About Eve
-
 Cue the sun!
   The Truman Show
+
+May the Force be with you.
+  Star Wars
+
+Mama always said life was like a box of chocolates.
+You never know what you're gonna get.
+  Forest Gump
