@@ -1074,12 +1074,12 @@ class ConfigGlobal:
         v.addColor("textHdr", 128, 128, 128, "TextHeadersFG",
                    "Text foreground (headers)")
         v.addColor("textBg", 243, 243, 243, "TextBG", "Text background")
-        v.addColor("workspace", 231, 231, 231, "Workspace", "Workspace")
-        v.addColor("pageBorder", 145, 145, 145, "PageBorder", "Page border")
-        v.addColor("pageShadow", 222, 222, 222, "PageShadow", "Page shadow")
+        v.addColor("workspace", 80, 90, 100, "Workspace", "Workspace")
+        v.addColor("pageBorder", 0, 0, 0, "PageBorder", "Page border")
+        v.addColor("pageShadow", 65, 85, 115, "PageShadow", "Page shadow")
         v.addColor("selected", 124, 181, 220, "Selected", "Selection")
-        v.addColor("cursor", 80, 165, 221, "Cursor", "Cursor")
-        v.addColor("selected", 200, 200, 200, "Selected", "Selection")
+        v.addColor("cursor", 124, 181, 220, "Cursor", "Cursor")
+        v.addColor("selected", 38, 139, 210, "Selected", "Selection")
         v.addColor("cursor", 135, 135, 253, "Cursor", "Cursor in block mode")
         v.addColor("autoCompFg", 0, 0, 0, "AutoCompletionFG",
                    "Auto-completion foreground")
