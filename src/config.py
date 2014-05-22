@@ -1095,7 +1095,7 @@ class ConfigGlobal:
         v.addColor("tabText", 38, 139, 210, "TabText", "Tab text")
         v.addColor("tabBorder", 38, 139, 210, "TabBorder",
                    "Tab border")
-        v.addColor("tabBarBg", 63, 77, 82, "TabBarBG",
+        v.addColor("tabBarBg", 62, 71, 83, "TabBarBG",
                    "Tab bar background")
         v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg", "Tab, non-active")
         v.addColor("navSceneText", 0, 0, 0, "NavSceneText", "Navigator scene text")
