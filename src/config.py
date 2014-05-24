@@ -1070,7 +1070,7 @@ class ConfigGlobal:
         v.addStrUnicode("scriptDir", misc.progPath, "DefaultScriptDirectory")
 
         # colors
-        v.addColor("text", 24, 43, 48, "TextFG", "Text foreground")
+        v.addColor("text", 187, 191, 191, "TextFG", "Text foreground")
         v.addColor("textHdr", 187, 191, 191, "TextHeadersFG",
                    "Text foreground (headers)")
         v.addColor("textBg", 44, 44, 44, "TextBG", "Text background")
