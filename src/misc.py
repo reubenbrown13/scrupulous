@@ -991,9 +991,12 @@ class MRUFiles:
 
         # add new menu items
         for i in range(self.getCount()):
-            self.menu.Insert(self.menuPos + i, self.firstId + i,
+            menu_item = self.menu.Insert(self.menuPos + i, self.firstId + i,
                              "&%d %s" % (
-                i + 1, os.path.basename(self.get(i))))
+                    i + 1, os.path.basename(self.get(i))))
+            if not os.path.isfile(self.get(i)):
+                # If file no longer exists, we disable its menu item
+                menu_item.Enable(False)
 
     # return number of items.
     def getCount(self):
