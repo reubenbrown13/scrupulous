@@ -3095,7 +3095,7 @@ class MyApp(wx.App):
         # recover them, else show startup splash.
         r = util.listRecoveryFiles()
         if r:
-            wx.MessageBox("Trelby did not exit cleanly. "
+            wx.MessageBox("Scrupulous did not exit cleanly."
                           "The following auto-saved files will be recovered.\n\n" +
                           "\n".join(os.path.basename(f) for f in r),
                           "Crash recovery", wx.OK)
