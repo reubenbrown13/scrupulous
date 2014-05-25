@@ -8,7 +8,7 @@ import wx
 
 class FindDlg(wx.Dialog):
     def __init__(self, parent, ctrl):
-        wx.Dialog.__init__(self, parent, -1, "Find & Replace",
+        wx.Dialog.__init__(self, parent, -1, "Find and Replace",
                            style=wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
 
         self.ctrl = ctrl
@@ -46,7 +46,7 @@ class FindDlg(wx.Dialog):
         if misc.isWindows:
             pad = 5
 
-        self.matchWholeCb = wx.CheckBox(self, -1, "Match entire word")
+        self.matchWholeCb = wx.CheckBox(self, -1, "Match whole word")
         vsizer2.Add(self.matchWholeCb, 0, wx.TOP, pad)
 
         self.matchCaseCb = wx.CheckBox(self, -1, "Match case")
