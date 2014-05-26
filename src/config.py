@@ -341,7 +341,7 @@ class PDFFontInfo:
         # to avoid confused users not understanding why their embedded
         # font isn't working, put in an arbitrary font name if needed
         if self.filename and not self.pdfName:
-            self.pdfName = "SampleFontName"
+            self.pdfName = "ACourierFont"
 
 # per-script config, each script has its own one of these.
 class Config:
@@ -378,7 +378,7 @@ class Config:
         t.beforeSpacing = 10
         t.intraSpacing = 0
         t.indent = 25
-        t.width = 38
+        t.width = 35
         t.screen.isCaps = True
         t.export.isCaps = True
         self.types[t.lt] = t
@@ -423,7 +423,7 @@ class Config:
 
         t = Type(screenplay.TITLE)
         t.beforeSpacing = 0
-        t.intraSpacing = 4
+        t.intraSpacing = 10
         t.indent = 20
         t.width = 20
         t.screen.isUnderlined = True
@@ -432,6 +432,7 @@ class Config:
 
         t = Type(screenplay.NOTE)
         t.beforeSpacing = 10
+        t.intraSpacing = 5
         t.indent = 5
         t.width = 55
         t.screen.isItalic = True
