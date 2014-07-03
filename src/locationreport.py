@@ -1,4 +1,3 @@
-import gutil
 import misc
 import pdf
 import pml
@@ -6,32 +5,12 @@ import scenereport
 import screenplay
 import util
 
-import wx
-
-def genLocationReport(mainFrame, sp):
-    report = LocationReport(scenereport.SceneReport(sp))
-
-    dlg = misc.CheckBoxDlg(mainFrame, "Report type", report.inf,
-        "Information to include:", False)
-
-    ok = False
-    if dlg.ShowModal() == wx.ID_OK:
-        ok = True
-
-    dlg.Destroy()
-
-    if not ok:
-        return
-
-    data = report.generate()
-
-    gutil.showTempPDF(data, sp.cfgGl, mainFrame)
+import operator
 
 class LocationReport:
     # sr = SceneReport
     def __init__(self, sr):
-        # TODO: have this construct SceneReport internally
-
+        
         self.sp = sr.sp
 
         # key = scene name, value = LocationInfo. note that multiple keys
@@ -94,13 +73,8 @@ class LocationReport:
             # DESC(lines_in_scene) ASC(scenename) order.
             tmp = [(scene, self.scenes[scene].lines) for scene in li.scenes]
 
-            # PY2.4: this should work (test it):
-            #  tmp.sort(key=itemgetter(0))
-            #  tmp.sort(key=itemgetter(1) reverse=True)
-            tmp.sort(lambda x, y: cmp(x[0], y[0]))
-            tmp.reverse()
-            tmp.sort(lambda x, y: cmp(x[1], y[1]))
-            tmp.reverse()
+            tmp.sort(key = operator.itemgetter(0))
+            tmp.sort(key = operator.itemgetter(1), reverse=True)
 
             for scene, lines in tmp:
                 if len(tmp) > 1:

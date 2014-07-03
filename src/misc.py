@@ -8,15 +8,18 @@ import os
 import os.path
 import sys
 
-import wx
+if "TRELBY_TESTING" in os.environ:
+  import mock
+  wx = mock.Mock()
+else:
+  import wx
 
 TAB_BAR_HEIGHT = 24
 
 version = "2.3-dev"
 
 def init(doWX=True):
-    global isWindows, isUnix, unicodeFS, wxIsUnicode, doDblBuf, \
-           progPath, confPath, tmpPrefix
+    global isWindows, isUnix, unicodeFS, doDblBuf, progPath, confPath, tmpPrefix
 
     # prefix used for temp files
     tmpPrefix = "trelby-tmp-"
@@ -24,13 +27,10 @@ def init(doWX=True):
     isWindows = False
     isUnix = False
 
-    if wx.Platform == "__WXMSW__":
-        isWindows = True
-    else:
+    if sys.platform.startswith("linux") or sys.platform.startswith("darwin"):
         isUnix = True
-
-    # are we using a Unicode build of wxWidgets
-    wxIsUnicode = "unicode" in wx.PlatformInfo
+    else:
+        isWindows = True
 
     # does this platform support using Python's unicode strings in various
     # filesystem calls; if not, we need to convert filenames to UTF-8
@@ -105,6 +105,8 @@ def getBitmap(filename):
 # example.
 def getFullPath(relative):
     return progPath + "/" + relative
+
+# TODO: move all GUI stuff to gutil
 
 class MyColorSample(wx.Window):
     def __init__(self, parent, id, size):
