@@ -706,7 +706,7 @@ class MyCtrl(wx.Control):
             if line != -1:
                 if wx.MessageBox(
                     "The script contains errors.\n"
-                    "Are you sure you want to %s it?" % action, "Confirm",
+                    "Want to %s it anyway?" % action, "Confirm",
                      wx.YES_NO | wx.NO_DEFAULT, mainFrame) == wx.NO:
 
                     return None

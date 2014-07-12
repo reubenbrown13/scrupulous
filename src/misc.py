@@ -76,7 +76,7 @@ def getPathFromRegistry():
 
     except:
         wx.MessageBox("There was an error reading the following registry key: %s.\n"
-                      "You may need to reinstall the program to fix this error." %
+                      "Try reinstalling the program to fix this error." %
                       registryPath, "Error", wx.OK)
         sys.exit()
 
