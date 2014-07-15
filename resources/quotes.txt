@@ -13,25 +13,24 @@
 # line3 [optional]
 #   source
 #
-# All quotations should be from less than twenty years ago.
+# All quotations should be from less than ten years ago.
 
-I see dead people.
-  The Sixth Sense (1999)
-
-Houston, we have a problem.
-  Apollo 13 (1995)
-
-My precious.
-  The Lord of the Rings: The Two Towers (2002)
-
-I'm the king of the world!
-  Titanic (1997)
+I'm an open book. Everybody always seems to know my
+secrets before I know them myself.
+  The Hunger Games: Catching Fire (2013)
 
 Fish are friends, not food.
   Finding Nemo (2003)
 
-Cue the sun!
-  The Truman Show (1998)
+Big things have small beginnings.
+  Prometheus (2012)
 
-May the Force be with you.
-  Star Wars (1977)
+A wise man can learn more from his ememies than a
+fool from his friends.
+  Rush (2013)
+
+I don't want to survive. I want to live.
+  12 Years a Slave (2013)
+
+Why so serious?
+  The Dark Knight (2008)
