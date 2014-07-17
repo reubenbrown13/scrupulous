@@ -15,10 +15,10 @@ def genDialogueChart(mainFrame, sp):
 
     inf = []
     for it in [("Characters with < 10 lines", None),
-               ("Sorted by: First appearance", cmpFirst),
-               ("Sorted by: Last appearance", cmpLast),
-               ("Sorted by: Number of lines spoken", cmpCount),
-               ("Sorted by: Name", cmpName)
+               ("Sorted by First Appearance", cmpFirst),
+               ("Sorted by Last Appearance", cmpLast),
+               ("Sorted by Number of Spoken Lines", cmpCount),
+               ("Sorted by Name", cmpName)
                ]:
         inf.append(misc.CheckBoxItem(it[0], cdata=it[1]))
 

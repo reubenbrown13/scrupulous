@@ -359,8 +359,8 @@ class FindDlg(wx.Dialog):
                     s2 = "end"
                     restart = len(ls) - 1
 
-                if wx.MessageBox("Search finished at the %s of the script. Do\n"
-                                 "you want to continue at the %s of the script?"
+                if wx.MessageBox("Search finished at the %s of the screenplay. Do\n"
+                                 "you want to continue at the %s of the screenplay?"
                                  % (s1, s2), "Continue?",
                                  wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
                     line = restart

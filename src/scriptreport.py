@@ -19,7 +19,7 @@ class ScriptReport:
         ls = self.sp.lines
 
         total = len(ls)
-        tf.addText("Total lines in script: %5d" % total)
+        tf.addText("Total lines in screenplay: %5d" % total)
 
         tf.addSpace(2.0)
 

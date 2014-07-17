@@ -129,7 +129,7 @@ class Dict:
 
         return word[0]
 
-# spell check a script
+# spell check a screenplay
 class SpellChecker:
     def __init__(self, sp, gScDict):
         self.sp = sp

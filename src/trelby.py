@@ -2112,17 +2112,17 @@ class MyFrame(wx.Frame):
                 shortHelp=toolTip)
 
         addTB(ID_FILE_NEW, "new.png", "New Screenplay")
-        addTB(ID_FILE_OPEN, "open.png", "Open Screenplay..")
-        addTB(ID_FILE_SAVE, "save.png", "Save..")
-        addTB(ID_FILE_SAVE_AS, "saveas.png", "Save as..")
+        addTB(ID_FILE_OPEN, "open.png", "Open Screenplay")
+        addTB(ID_FILE_SAVE, "save.png", "Save")
+        addTB(ID_FILE_SAVE_AS, "saveas.png", "Save as")
         addTB(ID_FILE_CLOSE, "close.png", "Close Screenplay")
         addTB(ID_TOOLBAR_SCRIPTSETTINGS, "scrset.png", "Screenplay settings")
         addTB(ID_FILE_PRINT, "pdf.png", "Print as PDF")
 
         self.toolBar.AddSeparator()
 
-        addTB(ID_FILE_IMPORT, "import.png", "Import a text screenplay")
-        addTB(ID_FILE_EXPORT, "export.png", "Export screenplay")
+        addTB(ID_FILE_IMPORT, "import.png", "Import Screenplay")
+        addTB(ID_FILE_EXPORT, "export.png", "Export Screenplay")
 
         self.toolBar.AddSeparator()
 
@@ -2132,7 +2132,7 @@ class MyFrame(wx.Frame):
         self.toolBar.AddSeparator()
 
         addTB(ID_EDIT_FIND, "find.png", "Find / Replace")
-        addTB(ID_TOOLBAR_VIEWS, "layout.png", "View mode")
+        addTB(ID_TOOLBAR_VIEWS, "layout.png", "View Mode")
         addTB(ID_TOOLBAR_REPORTS, "report.png", "Screenplay reports")
         addTB(ID_TOOLBAR_TOOLS, "tools.png", "Tools")
         addTB(ID_TOOLBAR_SETTINGS, "settings.png", "Global settings")
@@ -2149,7 +2149,7 @@ class MyFrame(wx.Frame):
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
         self.noFSBtn = misc.MyButton(self, -1, "resources/fullscreen.png", getCfgGui)
-        self.noFSBtn.SetToolTipString("Exit fullscreen")
+        self.noFSBtn.SetToolTipString("Exit Fullscreen")
         self.noFSBtn.Show(False)
         hsizer.Add(self.noFSBtn)
 
@@ -2538,7 +2538,7 @@ class MyFrame(wx.Frame):
         if failed:
             wx.MessageBox(
                 "The fonts selected are an unfixed width and\n"
-                "will cause the program to function improperly.\n"
+                "will look incorrectly.\n"
                 "Change the fonts at File/Settings/Change.\n\n"
                 + "\n".join(failed), "Error", wx.OK, self)
 
@@ -2620,7 +2620,7 @@ class MyFrame(wx.Frame):
         self.panel.ctrl.OnSaveScriptAs()
 
     def OnImportScript(self, event=None):
-        dlg = wx.FileDialog(self, "File to import",
+        dlg = wx.FileDialog(self, "Import Screenplay",
             misc.scriptDir,
             wildcard="Importable files (*.txt;*.fdx;*.celtx;*.astx;*.fountain;*.fadein)|" +
                        "*.fdx;*.txt;*.celtx;*.astx;*.fountain;*.fadein|" +
@@ -2687,7 +2687,7 @@ class MyFrame(wx.Frame):
         dlg.Destroy()
 
     def OnSaveSettingsAs(self, event=None):
-        dlg = wx.FileDialog(self, "Filename to save as",
+        dlg = wx.FileDialog(self, "Save Screenplay As",
             defaultDir=os.path.dirname(gd.confFilename),
             defaultFile=os.path.basename(gd.confFilename),
             wildcard="Setting files (*.conf)|*.conf|All files|*",
@@ -2877,7 +2877,7 @@ class MyFrame(wx.Frame):
         dlg.Destroy()
 
     def OnSaveScriptSettingsAs(self, event=None):
-        dlg = wx.FileDialog(self, "Filename to save as",
+        dlg = wx.FileDialog(self, "Save Screenplay Settings As",
             defaultDir=gd.scriptSettingsPath,
             wildcard="Screenplay setting files (*.sconf)|*.sconf|All files|*",
             style=wx.SAVE | wx.OVERWRITE_PROMPT)
@@ -3095,7 +3095,7 @@ class MyApp(wx.App):
             wx.MessageBox("Scrupulous did not exit cleanly."
                           "The following auto-saved files will be recovered.\n\n" +
                           "\n".join(os.path.basename(f) for f in r),
-                          "Crash recovery", wx.OK)
+                          "Crash Recovery", wx.OK)
             for f in r:
                 mainFrame.openScript(f, recovery=True)
 
