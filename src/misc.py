@@ -555,19 +555,19 @@ class MyTabCtrl2(wx.Window):
     def OnPaint(self, event):
         dc = wx.PaintDC(self)
 
-# dialog that shows two lists of script names, allowing user to choose one
+# dialog that shows two lists of screenplay names, allowing user to choose one
 # from both. stores indexes of selections in members named 'sel1' and
 # 'sel2' when OK is pressed. 'items' must have at least two items.
 class ScriptChooserDlg(wx.Dialog):
     def __init__(self, parent, items):
-        wx.Dialog.__init__(self, parent, -1, "Choose scripts",
+        wx.Dialog.__init__(self, parent, -1, "Choose screenplays",
                            style=wx.DEFAULT_DIALOG_STYLE)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         gsizer = wx.FlexGridSizer(2, 2, 5, 0)
 
-        self.addCombo("first", "Compare script", self, gsizer, items, 0)
+        self.addCombo("first", "Compare screenplay", self, gsizer, items, 0)
         self.addCombo("second", "to", self, gsizer, items, 1)
 
         vsizer.Add(gsizer)

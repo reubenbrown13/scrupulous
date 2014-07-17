@@ -1,7 +1,7 @@
 import pml
 import util
 
-# a script's title pages.
+# a screenplay's title pages.
 class Titles:
 
     def __init__(self):

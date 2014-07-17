@@ -5,7 +5,7 @@
 LB_SPACE = 1
 
 # we don't use this anymore, but we have to keep it in order to be able to
-# load old scripts
+# load old screenplays
 LB_SPACE2 = 2
 
 LB_NONE = 3
@@ -94,7 +94,7 @@ class Screenplay:
         # max nr of auto comp items displayed at once
         self.acMax = 10
 
-        # True if script has had changes done to it after
+        # True if screenplay has had changes done to it after
         # load/save/creation.
         self.hasChanged = False
 
@@ -111,7 +111,7 @@ class Screenplay:
         # estimated amount of memory used by undo objects, in bytes
         self.undoMemoryUsed = 0
 
-        # True if script has had changes done to if after
+        # True if screenplay has had changes done to if after
         # last recovery. Set to false after a recovery save.
         self.hasChangedSinceRecovery = False
 
@@ -120,7 +120,7 @@ class Screenplay:
             return False
 
         # nothing of value is ever lost by not saving a completely empty
-        # script, and it's annoying getting warnings about unsaved changes
+        # screenplay, and it's annoying getting warnings about unsaved changes
         # on those, so don't do that
 
         return (len(self.lines) > 1) or bool(self.lines[0].text)
@@ -176,14 +176,14 @@ class Screenplay:
 
         sp.lines = [Line(ln.lb, ln.lt, ln.text) for ln in self.lines]
 
-        # "open PDF on current page" breaks on scripts we're removing
+        # "open PDF on current page" breaks on screenplays we're removing
         # notes from before printing if we don't copy these
         sp.line = self.line
         sp.column = self.column
 
         return sp
 
-    # save script to a string and return that
+    # save screenplay to a string and return that
     def save(self):
         self.cfg.cursorLine = self.line
         self.cfg.cursorColumn = self.column
@@ -229,7 +229,7 @@ class Screenplay:
 
         return str(output)
 
-    # load script from string s and return a (Screenplay, msg) tuple,
+    # load screenplay from string s and return a (Screenplay, msg) tuple,
     # where msgs is string (possibly empty) of warnings about the loading
     # process. fatal errors are indicated by raising a MiscError. note
     # that this is a static function.
@@ -294,7 +294,7 @@ class Screenplay:
         # did we encounter unknown config lines
         unknownConfigs = False
 
-        # have we seen the Start-Script line. defaults to True in old
+        # have we seen the Start-Screenplay line. defaults to True in old
         # files which didn't have it.
         startSeen = version < 3
 
@@ -368,7 +368,7 @@ class Screenplay:
                     prevType = None
 
         if not startSeen:
-            raise error.MiscError("Start-Script line not found.")
+            raise error.MiscError("Start-Screenplay line not found.")
 
         if len(sp.lines) == 0:
             raise error.MiscError("File isn't a screenplay.")
@@ -451,7 +451,7 @@ class Screenplay:
 
         self.markChanged()
 
-    # return script config as a string.
+    # return screenplay config as a string.
     def saveCfg(self):
         return self.cfg.save()
 
@@ -858,7 +858,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
                 if pf.filename != u"":
                     # we load at most 10 MB to avoid a denial-of-service
-                    # attack by passing around scripts containing
+                    # attack by passing around screenplays containing
                     # references to fonts with filenames like "/dev/zero"
                     # etc. no real font that I know of is this big so it
                     # shouldn't hurt.
@@ -900,7 +900,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         start = self.pages[pageNr - 1] + 1
 
         if start >= length:
-            # text has been deleted at end of script and pagination has
+            # text has been deleted at end of screenplay and pagination has
             # not been updated.
             return None
 
@@ -1483,7 +1483,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
             line -= 1
 
-    # return total number of characters in script
+    # return total number of characters in screenplay
     def getCharCount(self):
         return sum([len(ln.text) for ln in self.lines])
 
@@ -1662,7 +1662,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
             # only remove one element at most, to avoid generating
             # potentially thousands of pages in degenerate cases when
-            # script only contains scenes or characters or something like
+            # screenplay only contains scenes or characters or something like
             # that.
             if (line != startLine) and (ln.lb == LB_LAST):
                 break
@@ -1891,7 +1891,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         return pages
 
     # return a list of all scene locations in a [(sceneNumber, startLine),
-    # ...] format. if script does not start with a scene line, that scene
+    # ...] format. if screenplay does not start with a scene line, that scene
     # is not included in this list. note that the sceneNumber in the
     # returned list is a string, not a number.
     def getSceneLocations(self):
@@ -1934,7 +1934,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
     # get next word, starting at (line, col). line must be valid, but col
     # can point after the line's length, in which case the search starts
     # at (line + 1, 0). returns (word, line, col), where word is None if
-    # at end of script, and (line, col) point to the start of the word.
+    # at end of screenplay, and (line, col) point to the start of the word.
     # note that this only handles words that are on a single line.
     def getWord(self, line, col):
         ls = self.lines
@@ -2084,7 +2084,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         return mlist
 
     # returns pair (start, end) of marked lines, inclusive. if mark is
-    # after the end of the script (text has been deleted since setting
+    # after the end of the screenplay (text has been deleted since setting
     # it), returns a valid pair (by truncating selection to current
     # end). returns None if no lines marked.
     def getMarkedLines(self):
@@ -2163,7 +2163,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         return (line >= marked[0]) and (line <= marked[1])
 
     # get selected text as a ClipData object, optionally deleting it from
-    # the script. if nothing is selected, returns None.
+    # the screenplay. if nothing is selected, returns None.
     def getSelectedAsCD(self, doDelete):
         marked = self.getMarkedLines()
 
@@ -2275,7 +2275,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
         return cd
 
-    # paste data into script. clines is a list of Line objects.
+    # paste data into screenplay. clines is a list of Line objects.
     def paste(self, clines):
         if len(clines) == 0:
             return
@@ -2528,8 +2528,8 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
 
         return (line, msg)
 
-    # compare this script to sp2 (Screenplay), return a PDF file (as a
-    # string) of the differences, or None if the scripts are identical.
+    # compare this screenplay to sp2 (Screenplay), return a PDF file (as a
+    # string) of the differences, or None if the screenplays are identical.
     def compareScripts(self, sp2):
         s1 = self.generateText(False).split("\n")
         s2 = sp2.generateText(False).split("\n")
@@ -3357,7 +3357,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
         self.clearMark()
         self.markChanged()
 
-    # check script for internal consistency. raises an AssertionError on
+    # check screenplay for internal consistency. raises an AssertionError on
     # errors. ONLY MEANT TO BE USED IN TEST CODE.
     def _validate(self):
         # type of previous line, or None when a new element starts

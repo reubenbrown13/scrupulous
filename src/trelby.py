@@ -85,7 +85,7 @@ class GlobalData:
         self.stateFilename = misc.confPath + "/state"
         self.scDictFilename = misc.confPath + "/spell_checker_dictionary"
 
-        # current script config path
+        # current screenplay config path
         self.scriptSettingsPath = misc.confPath
 
         # global spell checker (user) dictionary
@@ -424,7 +424,7 @@ class MyCtrl(wx.Control):
         # display the first page
         self.makeLineVisible(self.sp.line)
 
-    # save script to given filename. returns True on success.
+    # save screenplay to given filename. returns True on success.
     def saveFile(self, fileName):
         fileName = util.ensureEndsIn(fileName, ".trelby")
 
@@ -617,7 +617,7 @@ class MyCtrl(wx.Control):
         if redraw:
             self.Refresh(False)
 
-    # update GUI elements shared by all scripts, like statusbar etc
+    # update GUI elements shared by all screenplays, like statusbar, etc.
     def updateCommon(self):
         cur = cfgGl.getType(self.sp.lines[self.sp.line].lt)
 
@@ -637,7 +637,7 @@ class MyCtrl(wx.Control):
         mainFrame.toolBar.EnableTool(ID_EDIT_UNDO, canUndo)
         mainFrame.toolBar.EnableTool(ID_EDIT_REDO, canRedo)
 
-    # apply per-script config
+    # apply per-screenplay config
     def applyCfg(self, newCfg):
         self.sp.applyCfg(newCfg)
 
@@ -697,15 +697,15 @@ class MyCtrl(wx.Control):
 
     # return an exportable, paginated Screenplay object, or None if for
     # some reason that's not possible / wanted. 'action' is the name of
-    # the action, e.g. "export" or "print", that'll be done to the script,
-    # and is used in dialogue with the user if needed.
+    # the action, e.g. "export" or "print", that'll be done to the
+    # screenplay, and is used in dialogue with the user if needed.
     def getExportable(self, action):
         if cfgGl.checkOnExport:
             line = self.sp.findError(0)[0]
 
             if line != -1:
                 if wx.MessageBox(
-                    "The script contains errors.\n"
+                    "The screenplay contains errors.\n"
                     "Want to %s it anyway?" % action, "Confirm",
                      wx.YES_NO | wx.NO_DEFAULT, mainFrame) == wx.NO:
 
@@ -898,7 +898,7 @@ class MyCtrl(wx.Control):
 
     def OnCompareScripts(self):
         if mainFrame.tabCtrl.getPageCount() < 2:
-            wx.MessageBox("Can't compare one script.", "Error", wx.OK, mainFrame)
+            wx.MessageBox("Can't compare one screenplay.", "Error", wx.OK, mainFrame)
 
             return
 
@@ -921,7 +921,7 @@ class MyCtrl(wx.Control):
             return
 
         if sel1 == sel2:
-            wx.MessageBox("Can't compare a script to itself.", "Error",
+            wx.MessageBox("Can't compare a screenplay to itself.", "Error",
                           wx.OK, mainFrame)
 
             return
@@ -946,7 +946,7 @@ class MyCtrl(wx.Control):
         if s:
             gutil.showTempPDF(s, cfgGl, mainFrame)
         else:
-            wx.MessageBox("The scripts are identical.", "Results", wx.OK,
+            wx.MessageBox("The screenplays are identical.", "Results", wx.OK,
                           mainFrame)
 
     def canBeClosed(self):
@@ -1250,7 +1250,7 @@ class MyCtrl(wx.Control):
 
             if not wasAtStart:
                 s = "\n\n(Starting position was not at\n"\
-                    "the beginning of the script.)"
+                    "the beginning of the screenplay.)"
             wx.MessageBox("No spelling error found." + s, "Results",
                           wx.OK, mainFrame)
 
@@ -1310,7 +1310,7 @@ class MyCtrl(wx.Control):
             self.OnSaveUntitledScript(count)
 
     def OnSaveUntitledScript(self, count):
-        # check if we can write this file to default script directory.
+        # check if we can write this file to default screenplay directory.
         if os.access(misc.scriptDir, os.W_OK):
             if misc.isWindows:
                 div = "\\"
@@ -1566,7 +1566,7 @@ class MyCtrl(wx.Control):
         print "-" * 20
 
         # it's annoying having the program ask if you want to save after
-        # running these tests, so pretend the script hasn't changed
+        # running these tests, so pretend the screenplay hasn't changed
         self.sp.markChanged(False)
 
     def cmdTest(self, cs):
@@ -2085,7 +2085,7 @@ class MyFrame(wx.Frame):
         toolsMenu.Append(ID_TOOLS_SPELL_CHECK, "&Spell checker...")
         toolsMenu.Append(ID_TOOLS_NAME_DB, "&Name database...")
         toolsMenu.Append(ID_TOOLS_CHARMAP, "&Character map...")
-        toolsMenu.Append(ID_TOOLS_COMPARE_SCRIPTS, "C&ompare scripts...")
+        toolsMenu.Append(ID_TOOLS_COMPARE_SCRIPTS, "C&ompare screenplays...")
         toolsMenu.Append(ID_TOOLS_WATERMARK, "&Generate watermarked PDFs...")
 
         helpMenu = wx.Menu()
@@ -2111,18 +2111,18 @@ class MyFrame(wx.Frame):
                 id, "", misc.getBitmap("resources/%s" % iconFilename),
                 shortHelp=toolTip)
 
-        addTB(ID_FILE_NEW, "new.png", "New script")
-        addTB(ID_FILE_OPEN, "open.png", "Open Script..")
+        addTB(ID_FILE_NEW, "new.png", "New Screenplay")
+        addTB(ID_FILE_OPEN, "open.png", "Open Screenplay..")
         addTB(ID_FILE_SAVE, "save.png", "Save..")
         addTB(ID_FILE_SAVE_AS, "saveas.png", "Save as..")
-        addTB(ID_FILE_CLOSE, "close.png", "Close Script")
-        addTB(ID_TOOLBAR_SCRIPTSETTINGS, "scrset.png", "Script settings")
-        addTB(ID_FILE_PRINT, "pdf.png", "Print (via PDF)")
+        addTB(ID_FILE_CLOSE, "close.png", "Close Screenplay")
+        addTB(ID_TOOLBAR_SCRIPTSETTINGS, "scrset.png", "Screenplay settings")
+        addTB(ID_FILE_PRINT, "pdf.png", "Print as PDF")
 
         self.toolBar.AddSeparator()
 
-        addTB(ID_FILE_IMPORT, "import.png", "Import a text script")
-        addTB(ID_FILE_EXPORT, "export.png", "Export script")
+        addTB(ID_FILE_IMPORT, "import.png", "Import a text screenplay")
+        addTB(ID_FILE_EXPORT, "export.png", "Export screenplay")
 
         self.toolBar.AddSeparator()
 
@@ -2133,7 +2133,7 @@ class MyFrame(wx.Frame):
 
         addTB(ID_EDIT_FIND, "find.png", "Find / Replace")
         addTB(ID_TOOLBAR_VIEWS, "layout.png", "View mode")
-        addTB(ID_TOOLBAR_REPORTS, "report.png", "Script reports")
+        addTB(ID_TOOLBAR_REPORTS, "report.png", "Screenplay reports")
         addTB(ID_TOOLBAR_TOOLS, "tools.png", "Tools")
         addTB(ID_TOOLBAR_SETTINGS, "settings.png", "Global settings")
 
@@ -2446,7 +2446,7 @@ class MyFrame(wx.Frame):
 
         return -1
 
-    # get list of MyCtrl objects for all open scripts
+    # get list of MyCtrl objects for all open screenplays
     def getCtrls(self):
         l = []
 
@@ -2455,7 +2455,7 @@ class MyFrame(wx.Frame):
 
         return l
 
-    # returns True if any open script has been modified
+    # returns True if any open screenplay has been modified
     def isModifications(self):
         modified = []
         for c in self.getCtrls():
@@ -2495,23 +2495,23 @@ class MyFrame(wx.Frame):
                 c.OnAutoSave(count)
                 count += 1
 
-        # We want to warn the user if the default script directory is unwritable,
+        # We want to warn the user if the default screenplay directory is unwritable,
         # but using wx.MessageBox w/code below occasionally crashes with:
         #
         # python: Fatal IO error 11 (Resource temporarily unavailable) on X server :0.
         # This may be related to the use of the timer thread (?) and requires more
-        # investigation.  For now, a bad default script directory will result in
+        # investigation.  For now, a bad default screenplay directory will result in
         # silent failure as there seems to be no way to safely notify the user.
         #
         # if not os.access(misc.scriptDir, os.W_OK):
         #     wx.MessageBox( "Warning:  No write permission for " + str(misc.scriptDir) +
         #                    ", which is needed to autosave untitled scripts.  " +
-        #                    "Change the default script directory in the settings.",
+        #                    "Change the default screenplay directory in the settings.",
         #                    "Warning", wx.OK, None)
 
         self.resetTimer()
 
-    # open script, in the current tab if it's untouched, or in a new one
+    # open screenplay, in the current tab if it's untouched, or in a new one
     # otherwise
     # recovery : is this file a recovered file?
     def openScript(self, filename, recovery=False):
@@ -2861,7 +2861,7 @@ class MyFrame(wx.Frame):
     def OnLoadScriptSettings(self, event=None):
         dlg = wx.FileDialog(self, "File to open",
             defaultDir=gd.scriptSettingsPath,
-            wildcard="Script setting files (*.sconf)|*.sconf|All files|*",
+            wildcard="Screenplay setting files (*.sconf)|*.sconf|All files|*",
             style=wx.OPEN)
 
         if dlg.ShowModal() == wx.ID_OK:
@@ -2879,7 +2879,7 @@ class MyFrame(wx.Frame):
     def OnSaveScriptSettingsAs(self, event=None):
         dlg = wx.FileDialog(self, "Filename to save as",
             defaultDir=gd.scriptSettingsPath,
-            wildcard="Script setting files (*.sconf)|*.sconf|All files|*",
+            wildcard="Screenplay setting files (*.sconf)|*.sconf|All files|*",
             style=wx.SAVE | wx.OVERWRITE_PROMPT)
 
         if dlg.ShowModal() == wx.ID_OK:
