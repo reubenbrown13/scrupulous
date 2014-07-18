@@ -1978,7 +1978,7 @@ class MyFrame(wx.Frame):
         fileMenu.Append(ID_FILE_IMPORT, "&Import...")
         fileMenu.Append(ID_FILE_EXPORT, "&Export...")
         fileMenu.AppendSeparator()
-        fileMenu.Append(ID_FILE_PRINT, "&Print (via PDF)\tCTRL-P")
+        fileMenu.Append(ID_FILE_PRINT, "&Print as PDF\tCTRL-P")
         fileMenu.AppendSeparator()
 
         tmp = wx.Menu()
@@ -1988,7 +1988,7 @@ class MyFrame(wx.Frame):
         tmp.Append(ID_SETTINGS_LOAD, "Load...")
         tmp.Append(ID_SETTINGS_SAVE_AS, "Save as...")
         tmp.AppendSeparator()
-        tmp.Append(ID_SETTINGS_SC_DICT, "&Spell checker dictionary...")
+        tmp.Append(ID_SETTINGS_SC_DICT, "&Spell Checker Dictionary...")
         settingsMenu = tmp
 
         fileMenu.AppendMenu(ID_FILE_SETTINGS, "Se&ttings", tmp)
@@ -2006,7 +2006,7 @@ class MyFrame(wx.Frame):
         editMenu.Append(ID_EDIT_COPY, "&Copy\tCTRL-C")
         editMenu.Append(ID_EDIT_PASTE, "&Paste\tCTRL-V")
         editMenu.AppendSeparator()
-        editMenu.Append(ID_EDIT_UPPER, "Make uppercase\tCTRL-K")
+        editMenu.Append(ID_EDIT_UPPER, "Make Uppercase\tCTRL-K")
         editMenu.AppendSeparator()
 
         tmp = wx.Menu()
@@ -2016,21 +2016,21 @@ class MyFrame(wx.Frame):
         editMenu.AppendMenu(ID_EDIT_COPY_SYSTEM, "C&opy (system)", tmp)
         editMenu.Append(ID_EDIT_PASTE_FROM_CB, "P&aste (system)")
         editMenu.AppendSeparator()
-        editMenu.Append(ID_EDIT_SELECT_SCENE, "&Select scene")
-        editMenu.Append(ID_EDIT_SELECT_ALL, "Select a&ll")
-        editMenu.Append(ID_EDIT_GOTO_PAGE, "&Goto page...\tCTRL-G")
-        editMenu.Append(ID_EDIT_GOTO_SCENE, "Goto sc&ene...\tALT-G")
+        editMenu.Append(ID_EDIT_SELECT_SCENE, "&Select Scene")
+        editMenu.Append(ID_EDIT_SELECT_ALL, "Select A&ll")
+        editMenu.Append(ID_EDIT_GOTO_PAGE, "&Goto Page...\tCTRL-G")
+        editMenu.Append(ID_EDIT_GOTO_SCENE, "Goto Sc&ene...\tALT-G")
         editMenu.AppendSeparator()
-        editMenu.Append(ID_EDIT_INSERT_NBSP, "Insert non-breaking space")
+        editMenu.Append(ID_EDIT_INSERT_NBSP, "Insert Non-breaking Space")
         editMenu.AppendSeparator()
         editMenu.Append(ID_EDIT_FIND, "&Find && Replace...\tCTRL-F")
         editMenu.AppendSeparator()
-        editMenu.Append(ID_EDIT_DELETE_ELEMENTS, "&Delete elements...")
+        editMenu.Append(ID_EDIT_DELETE_ELEMENTS, "&Delete Elements...")
 
         viewMenu = wx.Menu()
         viewMenu.AppendRadioItem(ID_VIEW_STYLE_DRAFT, "&Draft")
         viewMenu.AppendRadioItem(ID_VIEW_STYLE_LAYOUT, "&Layout")
-        viewMenu.AppendRadioItem(ID_VIEW_STYLE_SIDE_BY_SIDE, "&Side by side")
+        viewMenu.AppendRadioItem(ID_VIEW_STYLE_SIDE_BY_SIDE, "&Side by Side")
         viewMenu.AppendRadioItem(ID_VIEW_STYLE_OVERVIEW_SMALL,
                                  "&Overview - Small")
         viewMenu.AppendRadioItem(ID_VIEW_STYLE_OVERVIEW_LARGE,
@@ -2048,21 +2048,21 @@ class MyFrame(wx.Frame):
             viewMenu.Check(ID_VIEW_STYLE_OVERVIEW_LARGE, True)
 
         viewMenu.AppendSeparator()
-        viewMenu.AppendCheckItem(ID_VIEW_SHOW_FORMATTING, "&Show formatting")
+        viewMenu.AppendCheckItem(ID_VIEW_SHOW_FORMATTING, "&Show Formatting")
         viewMenu.AppendCheckItem(ID_VIEW_SHOW_NAVIGATOR, "Show Scene &Navigator\tF9")
         if gd.showNavigator:
             viewMenu.Check(ID_VIEW_SHOW_NAVIGATOR, True)
         viewMenu.Append(ID_VIEW_FULL_SCREEN, "&Fullscreen\tF11")
 
         scriptMenu = wx.Menu()
-        scriptMenu.Append(ID_SCRIPT_FIND_ERROR, "&Find next error")
+        scriptMenu.Append(ID_SCRIPT_FIND_ERROR, "&Find Next Error")
         scriptMenu.Append(ID_SCRIPT_PAGINATE, "&Paginate")
         scriptMenu.AppendSeparator()
         scriptMenu.Append(ID_SCRIPT_AUTO_COMPLETION, "&Auto-completion...")
         scriptMenu.Append(ID_SCRIPT_HEADERS, "&Headers...")
         scriptMenu.Append(ID_SCRIPT_LOCATIONS, "&Locations...")
-        scriptMenu.Append(ID_SCRIPT_TITLES, "&Title pages...")
-        scriptMenu.Append(ID_SCRIPT_SC_DICT, "&Spell checker dictionary...")
+        scriptMenu.Append(ID_SCRIPT_TITLES, "&Title Pages...")
+        scriptMenu.Append(ID_SCRIPT_SC_DICT, "&Spell Checker Dictionary...")
         scriptMenu.AppendSeparator()
 
         tmp = wx.Menu()
@@ -2075,18 +2075,18 @@ class MyFrame(wx.Frame):
         scriptSettingsMenu = tmp
 
         reportsMenu = wx.Menu()
-        reportsMenu.Append(ID_REPORTS_SCRIPT_REP, "Sc&ript report")
-        reportsMenu.Append(ID_REPORTS_LOCATION_REP, "&Location report...")
-        reportsMenu.Append(ID_REPORTS_SCENE_REP, "&Scene report...")
-        reportsMenu.Append(ID_REPORTS_CHARACTER_REP, "&Character report...")
-        reportsMenu.Append(ID_REPORTS_DIALOGUE_CHART, "&Dialogue chart...")
+        reportsMenu.Append(ID_REPORTS_SCRIPT_REP, "Sc&ript Report")
+        reportsMenu.Append(ID_REPORTS_LOCATION_REP, "&Location Report...")
+        reportsMenu.Append(ID_REPORTS_SCENE_REP, "&Scene Report...")
+        reportsMenu.Append(ID_REPORTS_CHARACTER_REP, "&Character Report...")
+        reportsMenu.Append(ID_REPORTS_DIALOGUE_CHART, "&Dialogue Chart...")
 
         toolsMenu = wx.Menu()
-        toolsMenu.Append(ID_TOOLS_SPELL_CHECK, "&Spell checker...")
-        toolsMenu.Append(ID_TOOLS_NAME_DB, "&Name database...")
-        toolsMenu.Append(ID_TOOLS_CHARMAP, "&Character map...")
-        toolsMenu.Append(ID_TOOLS_COMPARE_SCRIPTS, "C&ompare screenplays...")
-        toolsMenu.Append(ID_TOOLS_WATERMARK, "&Generate watermarked PDFs...")
+        toolsMenu.Append(ID_TOOLS_SPELL_CHECK, "&Spell Checker...")
+        toolsMenu.Append(ID_TOOLS_NAME_DB, "&Name Database...")
+        toolsMenu.Append(ID_TOOLS_CHARMAP, "&Character Map...")
+        toolsMenu.Append(ID_TOOLS_COMPARE_SCRIPTS, "C&ompare Screenplays...")
+        toolsMenu.Append(ID_TOOLS_WATERMARK, "&Generate Watermarked PDFs...")
 
         helpMenu = wx.Menu()
         helpMenu.Append(ID_HELP_COMMANDS, "&Commands...")
@@ -2116,7 +2116,7 @@ class MyFrame(wx.Frame):
         addTB(ID_FILE_SAVE, "save.png", "Save")
         addTB(ID_FILE_SAVE_AS, "saveas.png", "Save as")
         addTB(ID_FILE_CLOSE, "close.png", "Close Screenplay")
-        addTB(ID_TOOLBAR_SCRIPTSETTINGS, "scrset.png", "Screenplay settings")
+        addTB(ID_TOOLBAR_SCRIPTSETTINGS, "scrset.png", "Screenplay Settings")
         addTB(ID_FILE_PRINT, "pdf.png", "Print as PDF")
 
         self.toolBar.AddSeparator()
@@ -2133,9 +2133,9 @@ class MyFrame(wx.Frame):
 
         addTB(ID_EDIT_FIND, "find.png", "Find / Replace")
         addTB(ID_TOOLBAR_VIEWS, "layout.png", "View Mode")
-        addTB(ID_TOOLBAR_REPORTS, "report.png", "Screenplay reports")
+        addTB(ID_TOOLBAR_REPORTS, "report.png", "Screenplay Reports")
         addTB(ID_TOOLBAR_TOOLS, "tools.png", "Tools")
-        addTB(ID_TOOLBAR_SETTINGS, "settings.png", "Global settings")
+        addTB(ID_TOOLBAR_SETTINGS, "settings.png", "Global Settings")
 
         self.toolBar.SetBackgroundColour(cfgGui.tabBarBgColor)
         self.toolBar.Realize()
@@ -3086,8 +3086,8 @@ class MyApp(wx.App):
         # recover them, else show startup splash.
         r = util.listRecoveryFiles()
         if r:
-            wx.MessageBox("Scrupulous did not exit cleanly."
-                          "The following auto-saved files will be recovered.\n\n" +
+            wx.MessageBox("Scrupulous did not exit cleanly. The following"
+                          "auto-saved screenplays will be recovered.\n\n" +
                           "\n".join(os.path.basename(f) for f in r),
                           "Crash Recovery", wx.OK)
             for f in r:
