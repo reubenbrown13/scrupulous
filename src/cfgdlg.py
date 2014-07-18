@@ -98,7 +98,7 @@ class CfgDlg(wx.Dialog):
             self.AddPage(KeyboardPanel, "Keyboard")
             self.AddPage(MiscPanel, "Misc")
         else:
-            self.SetTitle("Script settings dialog")
+            self.SetTitle("Screenplay settings dialog")
 
             self.AddPage(ScriptAboutPanel, "About")
             self.AddPage(ElementsPanel, "Elements")
@@ -180,30 +180,30 @@ class AboutPanel(wx.Panel):
 class GlobalAboutPanel(AboutPanel):
     def __init__(self, parent, id, cfg):
         s = \
-"""This is the config dialog for global settings, which means things
-that affect the user interface of the program like interface colors,
-keyboard shortcuts, display fonts, and so on.
+"""This is the config dialog for global settings, which affects
+the user interface of the program like interface colors, keyboard
+shortcuts, display fonts, etc.
 
-The settings here are independent of any script being worked on,
-and unique to this computer.
+The settings here are independent of any screenplay opened in
+Scrupulous, and unique to this computer.
 
 None of the settings here have any effect on the generated PDF
-output for a script. See Script/Settings for those."""
+output for a screenplay. See Script/Settings for those."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
 
 class ScriptAboutPanel(AboutPanel):
     def __init__(self, parent, id, cfg):
         s = \
-"""This is the config dialog for script format settings, which means
-things that affect the generated PDF output of a script. Things like
-paper size, indendation/line widths/font styles for the different
-element types, and so on.
+"""This is the config dialog for screenplay format settings, which
+affects the generated PDF output of a screenplay. Such formatting
+as paper size, indendation/line widths/font styles for the
+different element types, and so on.
 
 The settings here are saved within the screenplay itself.
 
-If you're looking for the user interface settings (colors, keyboard
-shortcuts, etc.), those are found in File/Settings."""
+Looking for the user interface settings (colors, keyboard
+shortcuts, etc.)? See File/Settings for those."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
 
@@ -1026,7 +1026,7 @@ class MiscPanel(wx.Panel):
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         bsizer = wx.StaticBoxSizer(wx.StaticBox(self, -1,
-            "Default script directory"), wx.VERTICAL)
+            "Default screenplay directory"), wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
@@ -1043,7 +1043,7 @@ class MiscPanel(wx.Panel):
         vsizer.Add(bsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
 
         bsizer = wx.StaticBoxSizer(wx.StaticBox(self, -1,
-            "Default script settings"), wx.VERTICAL)
+            "Default screenplay settings"), wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
@@ -1101,10 +1101,10 @@ class MiscPanel(wx.Panel):
         self.checkListItems = [
             ("capitalize", "Auto-capitalize sentences"),
             ("capitalizeI", "Auto-capitalize i -> I"),
-            ("honorSavedPos", "When opening a script, start at last saved position"),
+            ("honorSavedPos", "When opening a screenplay, start at last saved position"),
             ("recenterOnScroll", "Recenter screen on scrolling"),
             ("overwriteSelectionOnInsert", "Typing replaces selected text"),
-            ("checkOnExport", "Check script for errors before print, export or compare"),
+            ("checkOnExport", "Check screenplay for errors before print, export or compare"),
             ("useBlockCursor", "Use a block cursor"),
             ("blinkCursor", "Blink the cursor"),
             ]
@@ -1125,7 +1125,7 @@ class MiscPanel(wx.Panel):
         vsizer.Add(self.enableRecoveryCb, 0, wx.BOTTOM, pad)
 
         self.checkErrorsCb = wx.CheckBox(self, -1,
-            "Check script for errors before print, export or compare")
+            "Check screenplay for errors before print, export or compare")
         wx.EVT_CHECKBOX(self, self.checkErrorsCb.GetId(), self.OnMisc)
         vsizer.Add(self.checkErrorsCb, 0, wx.BOTTOM, 10)
 
@@ -1203,7 +1203,7 @@ class MiscPanel(wx.Panel):
             s = misc.confPath
         dlg = wx.FileDialog(cfgFrame, "Choose settings file",
             defaultDir=s,
-            wildcard="Script setting files (*.sconf)|*.sconf|All files|*",
+            wildcard="Screenplay setting files (*.sconf)|*.sconf|All files|*",
             style=wx.OPEN)
 
         if dlg.ShowModal() == wx.ID_OK:
@@ -1566,7 +1566,7 @@ class PDFFontsPanel(wx.Panel):
     # or "" on errors.
     def getFontPostscriptName(self, filename):
         # we load at most 10 MB to avoid a denial-of-service attack by
-        # passing around scripts containing references to fonts with
+        # passing around screenplays containing references to fonts with
         # filenames like "/dev/zero" etc. no real font that I know of is
         # this big so it shouldn't hurt.
         fontProgram = util.loadFile(filename, cfgFrame, 10 * 1024 * 1024)

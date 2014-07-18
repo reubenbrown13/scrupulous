@@ -2946,17 +2946,11 @@ class MyFrame(wx.Frame):
         doExit = True
         modified = self.isModifications()
 
-        if event.CanVeto() and self.isModifications():
-            if wx.MessageBox("Save changes before \n"
-                             "closing?", "Confirm",
-                             wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
-                doExit = True
-
         if event.CanVeto() and modified:
             dlg = misc.ExitCancelDlg(self,
-                    "UNSAVED changes in these files will be lost:\n\n" +
+                    "UNSAVED changes in these screenplays will be lost:\n\n" +
                     "\n".join(modified) + "\n\n"
-                    "Are you sure you want to exit?", "Unsaved Changes")
+                    "Want to dismiss these changes?", "Unsaved Changes")
             if dlg.ShowModal() == wx.CANCEL:
                 doExit = False
 
@@ -3004,7 +2998,7 @@ class MyApp(wx.App):
         if self.instance.IsAnotherRunning():
             del self.instance
             wx.MessageBox("Trelby is already running.",
-                    "Already running",
+                    "Already Running",
                     wx.OK)
             sys.exit()
 

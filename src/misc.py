@@ -560,14 +560,14 @@ class MyTabCtrl2(wx.Window):
 # 'sel2' when OK is pressed. 'items' must have at least two items.
 class ScriptChooserDlg(wx.Dialog):
     def __init__(self, parent, items):
-        wx.Dialog.__init__(self, parent, -1, "Choose screenplays",
+        wx.Dialog.__init__(self, parent, -1, "Choose Screenplays",
                            style=wx.DEFAULT_DIALOG_STYLE)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         gsizer = wx.FlexGridSizer(2, 2, 5, 0)
 
-        self.addCombo("first", "Compare screenplay", self, gsizer, items, 0)
+        self.addCombo("first", "Compare Screenplay", self, gsizer, items, 0)
         self.addCombo("second", "to", self, gsizer, items, 1)
 
         vsizer.Add(gsizer)
@@ -1032,7 +1032,7 @@ class ExitCancelDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        exitBtn = wx.Button(self, -1, "&Exit without saving")
+        exitBtn = wx.Button(self, -1, "&Exit Without Saving")
         hsizer.Add(exitBtn)
         wx.EVT_BUTTON(self, exitBtn.GetId(), self.OnExitWithout)
 

@@ -23,7 +23,7 @@ def genDialogueChart(mainFrame, sp):
         inf.append(misc.CheckBoxItem(it[0], cdata=it[1]))
 
     dlg = misc.CheckBoxDlg(mainFrame, "Report type", inf,
-                           "Information to include:", False)
+                           "Information to include", False)
 
     if dlg.ShowModal() != wx.ID_OK:
         dlg.Destroy()
