@@ -84,7 +84,7 @@ class TypeInfo:
         # line type, e.g. screenplay.ACTION
         self.lt = lt
 
-        # character used in saved scripts, e.g. "."
+        # character used in saved screenplays, e.g. "."
         self.char = char
 
         # textual name, e.g. "Action"
@@ -111,7 +111,7 @@ class TextType:
     def load(self, vals, prefix):
         self.cvars.load(vals, prefix, self)
 
-# script-specific information about an element type
+# screenplay-specific information about an element type
 class Type:
     cvars = None
 
@@ -349,7 +349,7 @@ class PDFFontInfo:
         if self.filename and not self.pdfName:
             self.pdfName = "ACourierFont"
 
-# per-script config, each script has its own one of these.
+# per-screenplay config, each screenplay has its own one of these.
 class Config:
     cvars = None
 
@@ -515,7 +515,7 @@ class Config:
         # cursor position, column
         v.addInt("cursorColumn", 0, "Cursor/Column", 0, 1000000)
 
-        # various strings we add to the script
+        # various strings we add to the screenplay
         v.addStrLatin1("strMore", "(MORE)", "String/MoreDialogue")
         v.addStrLatin1("strContinuedPageEnd", "(CONTINUED)",
                        "String/ContinuedPageEnd")
@@ -737,11 +737,11 @@ class ConfigGlobal:
             Command("CharacterMap", "Open the character map.",
                     isMenu=True),
 
-            Command("CloseScript", "Close the current script.",
+            Command("CloseScript", "Close the current screenplay.",
                     [util.Key(23, ctrl=True).toInt()],
                     isFixed=True, isMenu=True),
 
-            Command("CompareScripts", "Compare two scripts.", isMenu=True),
+            Command("CompareScripts", "Compare two screenplays.", isMenu=True),
 
             Command("Copy", "Copy selected text to the internal clipboard.",
                     [util.Key(3, ctrl=True).toInt()], isMenu=True),
@@ -765,14 +765,14 @@ class ConfigGlobal:
             Command("DeleteElements", "Open the 'Delete elements' dialog.",
                     isMenu=True),
 
-            Command("ExportScript", "Export the current script.",
+            Command("ExportScript", "Export the current screenplay.",
                     isMenu=True),
 
             Command("FindAndReplaceDlg", "Open the 'Find & Replace' dialog.",
                     [util.Key(6, ctrl=True).toInt()],
                     isFixed=True, isMenu=True),
 
-            Command("FindNextError", "Find next error in the current script.",
+            Command("FindNextError", "Find next error in the current screenplay.",
                     [util.Key(5, ctrl=True).toInt()], isMenu=True),
 
             Command("ForcedLineBreak", "Insert a forced line break.",
@@ -802,13 +802,13 @@ class ConfigGlobal:
 
             Command("HelpManual", "Open the manual.", isMenu=True),
 
-            Command("ImportScript", "Import a script.", isMenu=True),
+            Command("ImportScript", "Import a screenplay.", isMenu=True),
 
             Command("InsertNbsp", "Insert non-breaking space.",
                     [util.Key(wx.WXK_SPACE, shift=True, ctrl=True).toInt()],
                     isMenu=True),
 
-            Command("LoadScriptSettings", "Load script-specific settings.",
+            Command("LoadScriptSettings", "Load screenplay-specific settings.",
                     isMenu=True),
 
             Command("LoadSettings", "Load global settings.", isMenu=True),
@@ -823,7 +823,7 @@ class ConfigGlobal:
                     " finish auto-completion.",
                     [wx.WXK_END], isMovement=True),
 
-            Command("MoveEndOfScript", "Move to the end of the script.",
+            Command("MoveEndOfScript", "Move to the end of the screenplay.",
                     [util.Key(wx.WXK_END, ctrl=True).toInt()],
                     isMovement=True),
 
@@ -858,7 +858,7 @@ class ConfigGlobal:
                     [wx.WXK_HOME], isMovement=True),
 
             Command("MoveStartOfScript", "Move to the start of the"
-                    " script.",
+                    " screenplay.",
                     [util.Key(wx.WXK_HOME, ctrl=True).toInt()],
                     isMovement=True),
 
@@ -871,15 +871,15 @@ class ConfigGlobal:
             Command("NewElement", "Create a new element.", [wx.WXK_RETURN],
                     isFixed=True),
 
-            Command("NewScript", "Create a new script.",
+            Command("NewScript", "Create a new screenplay.",
                     [util.Key(14, ctrl=True).toInt()],
                     isFixed=True, isMenu=True),
 
-            Command("OpenScript", "Open a script.",
+            Command("OpenScript", "Open a screenplay.",
                     [util.Key(15, ctrl=True).toInt()],
                     isFixed=True, isMenu=True),
 
-            Command("Paginate", "Paginate current script.", isMenu=True),
+            Command("Paginate", "Paginate current screenplay.", isMenu=True),
 
             Command("Paste", "Paste text from the internal clipboard.",
                     [util.Key(22, ctrl=True).toInt()], isMenu=True),
@@ -887,7 +887,7 @@ class ConfigGlobal:
             Command("PasteSystemCb", "Paste text from the system's"
                     " clipboard.", isMenu=True),
 
-            Command("PrintScript", "Print current script.",
+            Command("PrintScript", "Print current screenplay.",
                     [util.Key(16, ctrl=True).toInt()],
                     isFixed=True, isMenu=True),
 
@@ -911,39 +911,39 @@ class ConfigGlobal:
             Command("ReportScene", "Generate scene report.",
                     isMenu=True),
 
-            Command("ReportScript", "Generate script report.",
+            Command("ReportScript", "Generate screenplay report.",
                     isMenu=True),
 
-            Command("RevertScript", "Revert current script to the"
+            Command("RevertScript", "Revert current screenplay to the"
                     " version on disk.", isMenu=True),
 
-            Command("SaveScript", "Save the current script.",
+            Command("SaveScript", "Save the current screenplay.",
                     [util.Key(19, ctrl=True).toInt()],
                     isFixed=True, isMenu=True),
 
-            Command("SaveScriptAs", "Save the current script to a new file.",
+            Command("SaveScriptAs", "Save the current screenplay to a new file.",
                     isMenu=True),
 
-            Command("SaveScriptSettingsAs", "Save script-specific settings"
+            Command("SaveScriptSettingsAs", "Save screenplay-specific settings"
                     " to a new file.", isMenu=True),
 
             Command("SaveSettingsAs", "Save global settings to a new file.",
                     isMenu=True),
 
-            Command("ScriptNext", "Change to next open script.",
+            Command("ScriptNext", "Change to next open screenplay.",
                     [util.Key(wx.WXK_TAB, ctrl=True).toInt(),
                      util.Key(wx.WXK_PAGEDOWN, ctrl=True).toInt()],
                     isMenu=True),
 
-            Command("ScriptPrev", "Change to previous open script.",
+            Command("ScriptPrev", "Change to previous open screenplay.",
                     [util.Key(wx.WXK_TAB, shift=True, ctrl=True).toInt(),
                      util.Key(wx.WXK_PAGEUP, ctrl=True).toInt()],
                     isMenu=True),
 
-            Command("ScriptSettings", "Change script-specific settings.",
+            Command("ScriptSettings", "Change screenplay-specific settings.",
                     isMenu=True),
 
-            Command("SelectAll", "Select the entire script.", isMenu=True),
+            Command("SelectAll", "Select the entire screenplay.", isMenu=True),
 
             Command("SelectScene", "Select the current scene.",
                     [util.Key(1, ctrl=True).toInt()], isMenu=True),
@@ -957,12 +957,12 @@ class ConfigGlobal:
                     "Open the global spell checker dictionary dialog.",
                     isMenu=True),
 
-            Command("SpellCheckerDlg", "Spell check the script.",
+            Command("SpellCheckerDlg", "Spell check the screenplay.",
                     [util.Key(wx.WXK_F8).toInt()], isMenu=True),
 
             Command("SpellCheckerScriptDictionaryDlg",
-                    "Open the script-specific spell checker dictionary"
-                    " dialog.",
+                    "Open the screenplay-specific spell checker"
+                    " dictionary dialog.",
                     isMenu=True),
 
             Command("Tab", "Change current element to the next style or"
@@ -1073,45 +1073,45 @@ class ConfigGlobal:
         v.addStrBinary("fontItalic", "", "FontItalic")
         v.addStrBinary("fontBoldItalic", "", "FontBoldItalic")
 
-        # default script directory
+        # default screenplay directory
         v.addStrUnicode("scriptDir", misc.progPath, "DefaultScriptDirectory")
 
         # colors
-        v.addColor("text", 187, 191, 191, "TextFG", "Text foreground")
+        v.addColor("text", 187, 191, 191, "TextFG", "Text Foreground")
         v.addColor("textHdr", 187, 191, 191, "TextHeadersFG",
-                   "Text foreground (headers)")
-        v.addColor("textBg", 44, 44, 44, "TextBG", "Text background")
+                   "Text Foreground (Headers)")
+        v.addColor("textBg", 44, 44, 44, "TextBG", "Text Background")
         v.addColor("workspace", 80, 90, 100, "Workspace", "Workspace")
-        v.addColor("pageBorder", 0, 177, 217, "PageBorder", "Page border")
-        v.addColor("pageShadow", 65, 85, 115, "PageShadow", "Page shadow")
+        v.addColor("pageBorder", 0, 177, 217, "PageBorder", "Page Border")
+        v.addColor("pageShadow", 65, 85, 115, "PageShadow", "Page Shadow")
         v.addColor("selected", 124, 181, 220, "Selected", "Selection")
         v.addColor("cursor", 124, 181, 220, "Cursor", "Cursor")
         v.addColor("selected", 127, 127, 127, "Selected", "Selection")
-        v.addColor("cursor", 135, 135, 253, "Cursor", "Cursor in block mode")
+        v.addColor("cursor", 135, 135, 253, "Cursor", "Cursor (Block Mode)")
         v.addColor("autoCompFg", 0, 0, 0, "AutoCompletionFG",
-                   "Auto-completion foreground")
+                   "Auto-completion Foreground")
         v.addColor("autoCompBg", 255, 240, 168, "AutoCompletionBG",
-                   "Auto-completion background")
-        v.addColor("note", 28, 182, 219, "ScriptNote", "Script note")
+                   "Auto-completion Background")
+        v.addColor("note", 80, 90, 100, "ScriptNote", "Script Note")
         v.addColor("pagebreak", 221, 221, 221, "PageBreakLine",
-                   "Page-break line")
+                   "Page-break Line")
         v.addColor("pagebreakNoAdjust", 221, 221, 221,
                    "PageBreakNoAdjustLine",
-                   "Page-break (original, not adjusted) line")
+                   "Page-break (Original, Not adjusted) Line")
 
-        v.addColor("tabText", 38, 139, 210, "TabText", "Tab text")
+        v.addColor("tabText", 38, 139, 210, "TabText", "Tab Text")
         v.addColor("tabBorder", 38, 139, 210, "TabBorder",
-                   "Tab border")
+                   "Tab Border")
         v.addColor("tabBarBg", 62, 71, 83, "TabBarBG",
-                   "Tab bar background")
-        v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg", "Tab, non-active")
-        v.addColor("navSceneText", 0, 0, 0, "NavSceneText", "Navigator scene text")
-        v.addColor("navSceneSelectedMark", 166, 166, 166, "NavSceneSelectedMark", "Navigator selected scene marker")
-        v.addColor("navNoteText", 128, 128, 0, "NavNoteText", "Navigator note text")
-        v.addColor("navBlurbText", 0, 0, 0, "NavBlurbText", "Navigator blurb text")
-        v.addColor("navTransitionText", 0, 0, 255, "NavTransitionText", "Navigator transition text")
-        v.addColor("navBg", 231, 231, 231, "NavBg", "Navigator background")
-        v.addColor("navAnnotatedBg", 255, 237, 223, "NavAnnotatedBg", "Navigator annotated scene background")
+                   "Tab Bar Background")
+        v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg", "Tab, Non-active")
+        v.addColor("navSceneText", 255, 255, 255, "NavSceneText", "Navigator Scene Text")
+        v.addColor("navSceneSelectedMark", 62, 71, 83, "NavSceneSelectedMark", "Navigator Selected Scene Marker")
+        v.addColor("navNoteText", 230, 219, 116, "NavNoteText", "Navigator Note Text")
+        v.addColor("navBlurbText", 248, 248, 242, "NavBlurbText", "Navigator Blurb Text")
+        v.addColor("navTransitionText", 173, 216, 230, "NavTransitionText", "Navigator Transition Text")
+        v.addColor("navBg", 80, 90, 100, "NavBg", "Navigator Background")
+        v.addColor("navAnnotatedBg", 255, 237, 223, "NavAnnotatedBg", "Navigator Annotated Scene Background")
 
         for t in getTIs():
             v.addColor("text%s" % t.name, 0, 0, 0, "Text%sFG" % t.name,
