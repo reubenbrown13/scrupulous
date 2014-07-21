@@ -467,8 +467,8 @@ class MyCtrl(wx.Control):
         inf = []
         inf.append(misc.CheckBoxItem("Include page markers"))
 
-        dlg = misc.CheckBoxDlg(mainFrame, "Output options", inf,
-                               "Options:", False)
+        dlg = misc.CheckBoxDlg(mainFrame, "Output Options", inf,
+                               "Options", False)
 
         if dlg.ShowModal() != wx.ID_OK:
             dlg.Destroy()
@@ -481,8 +481,8 @@ class MyCtrl(wx.Control):
         inf = []
         inf.append(misc.CheckBoxItem("Include Notes"))
 
-        dlg = misc.CheckBoxDlg(mainFrame, "Output options", inf,
-                               "Options:", False)
+        dlg = misc.CheckBoxDlg(mainFrame, "Output Options", inf,
+                               "Options", False)
 
         if dlg.ShowModal() != wx.ID_OK:
             dlg.Destroy()
@@ -951,8 +951,7 @@ class MyCtrl(wx.Control):
 
     def canBeClosed(self):
         if self.sp.isModified():
-            if wx.MessageBox("Changes have been made. Quit \n"
-                             "without saving?", "Confirm",
+            if wx.MessageBox("Quit without saving?", "Confirm",
                              wx.YES_NO | wx.NO_DEFAULT, mainFrame) == wx.NO:
                 return False
 
@@ -1149,8 +1148,8 @@ class MyCtrl(wx.Control):
             else:
                 return "Invalid scene number."
 
-        dlg = misc.TextInputDlg(mainFrame, "Enter scene number (%s - %s):" %
-            (scenes[0][0], scenes[-1][0]), "Goto scene", validateFunc)
+        dlg = misc.TextInputDlg(mainFrame, "Enter Scene Number (%s - %s):" %
+            (scenes[0][0], scenes[-1][0]), "Goto Scene", validateFunc)
 
         if dlg.ShowModal() == wx.ID_OK:
             for it in scenes:
@@ -1175,10 +1174,10 @@ class MyCtrl(wx.Control):
             if s in pages:
                 return ""
             else:
-                return "Invalid page number."
+                return "Invalid Page Number"
 
-        dlg = misc.TextInputDlg(mainFrame, "Enter page number (%s - %s):" %
-            (pages[0], pages[-1]), "Goto page", validateFunc)
+        dlg = misc.TextInputDlg(mainFrame, "Enter Page Number (%s - %s):" %
+            (pages[0], pages[-1]), "Goto Page", validateFunc)
 
         if dlg.ShowModal() == wx.ID_OK:
             page = int(dlg.input)
@@ -1279,7 +1278,7 @@ class MyCtrl(wx.Control):
             types.append(misc.CheckBoxItem(t.name, False, t.lt))
 
         dlg = misc.CheckBoxDlg(mainFrame, "Delete elements", types,
-                               "Element types to delete:", True)
+                               "Element types to delete", True)
 
         ok = False
         if dlg.ShowModal() == wx.ID_OK:
@@ -1329,7 +1328,7 @@ class MyCtrl(wx.Control):
             dDir = misc.scriptDir
             dFile = u""
 
-        dlg = wx.FileDialog(mainFrame, "Filename to save as",
+        dlg = wx.FileDialog(mainFrame, "Save Screenplay As",
             defaultDir=dDir,
             defaultFile=dFile,
             wildcard="Trelby files (*.trelby)|*.trelby|All files|*",
@@ -1344,7 +1343,7 @@ class MyCtrl(wx.Control):
         if not sp:
             return
 
-        dlg = wx.FileDialog(mainFrame, "Filename to export as",
+        dlg = wx.FileDialog(mainFrame, "Export Screenplay As",
             misc.scriptDir,
             wildcard="PDF|*.pdf|"
                        "RTF|*.rtf|"
@@ -1561,7 +1560,7 @@ class MyCtrl(wx.Control):
 
             t = time.time() - t
 
-            print "%.5f seconds per %s" % (t / count, name)
+            print "%.5f Seconds Per %s" % (t / count, name)
 
         print "-" * 20
 
@@ -2993,11 +2992,11 @@ class MyApp(wx.App):
         misc.init()
 
         # check if another instance is running, using the same config path
-        instanceName = "Trelby-%s" % (misc.confPath)
+        instanceName = "Scrupulous-%s" % (misc.confPath)
         self.instance = wx.SingleInstanceChecker(instanceName)
         if self.instance.IsAnotherRunning():
             del self.instance
-            wx.MessageBox("Trelby is already running.",
+            wx.MessageBox("Scrupulous is already running.",
                     "Already Running",
                     wx.OK)
             sys.exit()
