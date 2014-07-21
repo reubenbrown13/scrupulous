@@ -812,7 +812,7 @@ class FormattingPanel(wx.Panel):
 
         gsizer = wx.FlexGridSizer(2, 2, 5, 0)
 
-        self.addSpin("action", "Action:", self, gsizer, "pbActionLines")
+        self.addSpin("action", "Action", self, gsizer, "pbActionLines")
         self.addSpin("dialogue", "Dialogue", self, gsizer, "pbDialogueLines")
 
         vsizer.Add(gsizer, 0, wx.LEFT, 10)
@@ -836,7 +836,7 @@ class FormattingPanel(wx.Panel):
                   wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
         vsizer.Add(hsizer, 0, wx.LEFT, 5)
 
-        self.scenesCb = wx.CheckBox(self, -1, "Include scene numbers")
+        self.scenesCb = wx.CheckBox(self, -1, "Include Scene Numbers")
         wx.EVT_CHECKBOX(self, self.scenesCb.GetId(), self.OnMisc)
         vsizer.Add(self.scenesCb, 0, wx.TOP, 10)
 
@@ -1392,19 +1392,19 @@ class PDFPanel(wx.Panel):
         if misc.isWindows:
             pad = 10
 
-        self.includeTOCCb = self.addCb("Add table of contents", vsizer, pad)
+        self.includeTOCCb = self.addCb("Add Table of Contents", vsizer, pad)
 
-        self.showTOCCb = self.addCb("Show table of contents on PDF open",
+        self.showTOCCb = self.addCb("Show Table of Contents on PDF Open",
                                     vsizer, pad)
 
-        self.openOnCurrentPageCb = self.addCb("Open PDF on current page",
+        self.openOnCurrentPageCb = self.addCb("Open PDF on Current Page",
                                               vsizer, pad)
 
         self.removeNotesCb = self.addCb(
-            "Omit Note elements", vsizer, pad)
+            "Omit Note Elements", vsizer, pad)
 
         self.outlineNotesCb = self.addCb(
-            "  Draw rectangles around Note elements", vsizer, pad)
+            "  Draw Rectangles Around Note Elements", vsizer, pad)
 
         self.marginsCb = self.addCb("Show Margins (Debug)", vsizer, pad)
 

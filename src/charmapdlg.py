@@ -143,9 +143,9 @@ class MyCharMap(wx.Window):
             dc.DrawText("Character Code: %d" % code, 360, y + pad)
 
             if code == 32:
-                dc.DrawText("Normal space", 360, y + pad + 30)
+                dc.DrawText("Normal Space", 360, y + pad + 30)
             elif code == 160:
-                dc.DrawText("Non-breaking space", 360, y + pad + 30)
+                dc.DrawText("Non-breaking Space", 360, y + pad + 30)
 
         else:
             dc.SetFont(self.smallFont)

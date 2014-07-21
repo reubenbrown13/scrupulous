@@ -1297,10 +1297,6 @@ class ConfigGlobal:
                  ""),
                 (ur"C:\Program Files\Adobe\Acrobat 6.0\Reader\AcroRd32.exe",
                  ""),
-                (ur"C:\Program Files\Adobe\Acrobat 5.0\Reader\AcroRd32.exe",
-                 ""),
-                (ur"C:\Program Files\Adobe\Acrobat 4.0\Reader\AcroRd32.exe",
-                 ""),
                 (ur"C:\Program Files\Foxit Software\Foxit Reader\Foxit Reader.exe",
                  ""),
                 ]

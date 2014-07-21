@@ -465,7 +465,7 @@ class MyCtrl(wx.Control):
     # generate exportable text from given screenplay, or None.
     def getExportText(self, sp):
         inf = []
-        inf.append(misc.CheckBoxItem("Include page markers"))
+        inf.append(misc.CheckBoxItem("Include Page Markers"))
 
         dlg = misc.CheckBoxDlg(mainFrame, "Output Options", inf,
                                "Options", False)
@@ -1146,7 +1146,7 @@ class MyCtrl(wx.Control):
             if s in [x[0] for x in scenes]:
                 return ""
             else:
-                return "Invalid scene number."
+                return "Invalid Scene Number"
 
         dlg = misc.TextInputDlg(mainFrame, "Enter Scene Number (%s - %s):" %
             (scenes[0][0], scenes[-1][0]), "Goto Scene", validateFunc)
@@ -1205,7 +1205,7 @@ class MyCtrl(wx.Control):
             self.updateScreen()
 
         else:
-            msg = "No errors found."
+            msg = "No Errors Found"
 
         wx.MessageBox(msg, "Results", wx.OK, mainFrame)
 
