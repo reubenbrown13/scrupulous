@@ -2054,24 +2054,24 @@ class MyFrame(wx.Frame):
             viewMenu.Check(ID_VIEW_SHOW_NAVIGATOR, True)
         viewMenu.Append(ID_VIEW_FULL_SCREEN, "&Fullscreen\tF11")
 
-        scriptMenu = wx.Menu()
-        scriptMenu.Append(ID_SCRIPT_FIND_ERROR, "&Find Next Error")
-        scriptMenu.Append(ID_SCRIPT_PAGINATE, "&Paginate")
-        scriptMenu.AppendSeparator()
-        scriptMenu.Append(ID_SCRIPT_AUTO_COMPLETION, "&Auto-completion...")
-        scriptMenu.Append(ID_SCRIPT_HEADERS, "&Headers...")
-        scriptMenu.Append(ID_SCRIPT_LOCATIONS, "&Locations...")
-        scriptMenu.Append(ID_SCRIPT_TITLES, "&Title Pages...")
-        scriptMenu.Append(ID_SCRIPT_SC_DICT, "&Spell Checker Dictionary...")
-        scriptMenu.AppendSeparator()
+        screenplayMenu = wx.Menu()
+        screenplayMenu.Append(ID_SCREENPLAY_FIND_ERROR, "&Find Next Error")
+        screenplayMenu.Append(ID_SCREENPLAY_PAGINATE, "&Paginate")
+        screenplayMenu.AppendSeparator()
+        screenplayMenu.Append(ID_SCREENPLAY_AUTO_COMPLETION, "&Auto-completion...")
+        screenplayMenu.Append(ID_SCREENPLAY_HEADERS, "&Headers...")
+        screenplayMenu.Append(ID_SCREENPLAY_LOCATIONS, "&Locations...")
+        screenplayMenu.Append(ID_SCREENPLAY_TITLES, "&Title Pages...")
+        screenplayMenu.Append(ID_SCREENPLAY_SC_DICT, "&Spell Checker Dictionary...")
+        screenplayMenu.AppendSeparator()
 
         tmp = wx.Menu()
 
-        tmp.Append(ID_SCRIPT_SETTINGS_CHANGE, "&Change...")
+        tmp.Append(ID_SCREENPLAY_SETTINGS_CHANGE, "&Change...")
         tmp.AppendSeparator()
-        tmp.Append(ID_SCRIPT_SETTINGS_LOAD, "&Load...")
-        tmp.Append(ID_SCRIPT_SETTINGS_SAVE_AS, "&Save as...")
-        scriptMenu.AppendMenu(ID_SCRIPT_SETTINGS, "&Settings", tmp)
+        tmp.Append(ID_SCREENPLAY_SETTINGS_LOAD, "&Load...")
+        tmp.Append(ID_SCREENPLAY_SETTINGS_SAVE_AS, "&Save as...")
+        screenplayMenu.AppendMenu(ID_SCREENPLAY_SETTINGS, "&Settings", tmp)
         scriptSettingsMenu = tmp
 
         reportsMenu = wx.Menu()
@@ -2098,7 +2098,7 @@ class MyFrame(wx.Frame):
         self.menuBar.Append(fileMenu, "&File")
         self.menuBar.Append(editMenu, "&Edit")
         self.menuBar.Append(viewMenu, "&View")
-        self.menuBar.Append(scriptMenu, "Scr&ipt")
+        self.menuBar.Append(screenplayMenu, "Scr&eenplay")
         self.menuBar.Append(reportsMenu, "&Reports")
         self.menuBar.Append(toolsMenu, "Too&ls")
         self.menuBar.Append(helpMenu, "&Help")
@@ -2114,7 +2114,7 @@ class MyFrame(wx.Frame):
         addTB(ID_FILE_NEW, "new.png", "New Screenplay")
         addTB(ID_FILE_OPEN, "open.png", "Open Screenplay")
         addTB(ID_FILE_SAVE, "save.png", "Save")
-        addTB(ID_FILE_SAVE_AS, "saveas.png", "Save as")
+        addTB(ID_FILE_SAVE_AS, "saveas.png", "Save As")
         addTB(ID_FILE_CLOSE, "close.png", "Close Screenplay")
         addTB(ID_TOOLBAR_SCRIPTSETTINGS, "scrset.png", "Screenplay Settings")
         addTB(ID_FILE_PRINT, "pdf.png", "Print as PDF")
@@ -2244,17 +2244,17 @@ class MyFrame(wx.Frame):
         wx.EVT_MENU(self, ID_VIEW_SHOW_FORMATTING, self.OnShowFormatting)
         wx.EVT_MENU(self, ID_VIEW_FULL_SCREEN, self.ToggleFullscreen)
         wx.EVT_MENU(self, ID_VIEW_SHOW_NAVIGATOR, self.OnShowNavigator)
-        wx.EVT_MENU(self, ID_SCRIPT_FIND_ERROR, self.OnFindNextError)
-        wx.EVT_MENU(self, ID_SCRIPT_PAGINATE, self.OnPaginate)
-        wx.EVT_MENU(self, ID_SCRIPT_AUTO_COMPLETION, self.OnAutoCompletionDlg)
-        wx.EVT_MENU(self, ID_SCRIPT_HEADERS, self.OnHeadersDlg)
-        wx.EVT_MENU(self, ID_SCRIPT_LOCATIONS, self.OnLocationsDlg)
-        wx.EVT_MENU(self, ID_SCRIPT_TITLES, self.OnTitlesDlg)
-        wx.EVT_MENU(self, ID_SCRIPT_SC_DICT,
+        wx.EVT_MENU(self, ID_SCREENPLAY_FIND_ERROR, self.OnFindNextError)
+        wx.EVT_MENU(self, ID_SCREENPLAY_PAGINATE, self.OnPaginate)
+        wx.EVT_MENU(self, ID_SCREENPLAY_AUTO_COMPLETION, self.OnAutoCompletionDlg)
+        wx.EVT_MENU(self, ID_SCREENPLAY_HEADERS, self.OnHeadersDlg)
+        wx.EVT_MENU(self, ID_SCREENPLAY_LOCATIONS, self.OnLocationsDlg)
+        wx.EVT_MENU(self, ID_SCREENPLAY_TITLES, self.OnTitlesDlg)
+        wx.EVT_MENU(self, ID_SCREENPLAY_SC_DICT,
                     self.OnSpellCheckerScriptDictionaryDlg)
-        wx.EVT_MENU(self, ID_SCRIPT_SETTINGS_CHANGE, self.OnScriptSettings)
-        wx.EVT_MENU(self, ID_SCRIPT_SETTINGS_LOAD, self.OnLoadScriptSettings)
-        wx.EVT_MENU(self, ID_SCRIPT_SETTINGS_SAVE_AS, self.OnSaveScriptSettingsAs)
+        wx.EVT_MENU(self, ID_SCREENPLAY_SETTINGS_CHANGE, self.OnScriptSettings)
+        wx.EVT_MENU(self, ID_SCREENPLAY_SETTINGS_LOAD, self.OnLoadScriptSettings)
+        wx.EVT_MENU(self, ID_SCREENPLAY_SETTINGS_SAVE_AS, self.OnSaveScriptSettingsAs)
         wx.EVT_MENU(self, ID_REPORTS_DIALOGUE_CHART, self.OnReportDialogueChart)
         wx.EVT_MENU(self, ID_REPORTS_CHARACTER_REP, self.OnReportCharacter)
         wx.EVT_MENU(self, ID_REPORTS_SCRIPT_REP, self.OnReportScript)
@@ -2346,17 +2346,17 @@ class MyFrame(wx.Frame):
             "ID_REPORTS_LOCATION_REP",
             "ID_REPORTS_SCENE_REP",
             "ID_REPORTS_SCRIPT_REP",
-            "ID_SCRIPT_AUTO_COMPLETION",
-            "ID_SCRIPT_FIND_ERROR",
-            "ID_SCRIPT_HEADERS",
-            "ID_SCRIPT_LOCATIONS",
-            "ID_SCRIPT_PAGINATE",
-            "ID_SCRIPT_SC_DICT",
-            "ID_SCRIPT_SETTINGS",
-            "ID_SCRIPT_SETTINGS_CHANGE",
-            "ID_SCRIPT_SETTINGS_LOAD",
-            "ID_SCRIPT_SETTINGS_SAVE_AS",
-            "ID_SCRIPT_TITLES",
+            "ID_SCREENPLAY_AUTO_COMPLETION",
+            "ID_SCREENPLAY_FIND_ERROR",
+            "ID_SCREENPLAY_HEADERS",
+            "ID_SCREENPLAY_LOCATIONS",
+            "ID_SCREENPLAY_PAGINATE",
+            "ID_SCREENPLAY_SC_DICT",
+            "ID_SCREENPLAY_SETTINGS",
+            "ID_SCREENPLAY_SETTINGS_CHANGE",
+            "ID_SCREENPLAY_SETTINGS_LOAD",
+            "ID_SCREENPLAY_SETTINGS_SAVE_AS",
+            "ID_SCREENPLAY_TITLES",
             "ID_SETTINGS_CHANGE",
             "ID_SETTINGS_LOAD",
             "ID_SETTINGS_SAVE_AS",
@@ -2604,7 +2604,7 @@ class MyFrame(wx.Frame):
     def OnOpen(self, event=None):
         dlg = wx.FileDialog(self, "Open Screenplay",
             misc.scriptDir,
-            wildcard="Trelby files (*.trelby)|*.trelby|All files|*",
+            wildcard="Trelby screenplays (*.trelby)|*.trelby|All files|*",
             style=wx.OPEN)
 
         if dlg.ShowModal() == wx.ID_OK:
@@ -2859,9 +2859,9 @@ class MyFrame(wx.Frame):
         self.panel.ctrl.OnScriptSettings()
 
     def OnLoadScriptSettings(self, event=None):
-        dlg = wx.FileDialog(self, "File to open",
+        dlg = wx.FileDialog(self, "Open Settings File",
             defaultDir=gd.scriptSettingsPath,
-            wildcard="Screenplay setting files (*.sconf)|*.sconf|All files|*",
+            wildcard="Screenplay Setting Files (*.sconf)|*.sconf|All files|*",
             style=wx.OPEN)
 
         if dlg.ShowModal() == wx.ID_OK:
