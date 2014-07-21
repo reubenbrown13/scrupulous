@@ -24,12 +24,12 @@ class FindDlg(wx.Dialog):
         gsizer = wx.FlexGridSizer(2, 2, 5, 20)
         gsizer.AddGrowableCol(1)
 
-        gsizer.Add(wx.StaticText(self, -1, "Text to find:"), 0,
+        gsizer.Add(wx.StaticText(self, -1, "Text to Find"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.findEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         gsizer.Add(self.findEntry, 0, wx.EXPAND)
 
-        gsizer.Add(wx.StaticText(self, -1, "Replace with:"), 0,
+        gsizer.Add(wx.StaticText(self, -1, "Replace With"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.replaceEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         gsizer.Add(self.replaceEntry, 0, wx.EXPAND)
@@ -46,10 +46,10 @@ class FindDlg(wx.Dialog):
         if misc.isWindows:
             pad = 5
 
-        self.matchWholeCb = wx.CheckBox(self, -1, "Match whole word")
+        self.matchWholeCb = wx.CheckBox(self, -1, "Match Whole Word")
         vsizer2.Add(self.matchWholeCb, 0, wx.TOP, pad)
 
-        self.matchCaseCb = wx.CheckBox(self, -1, "Match case")
+        self.matchCaseCb = wx.CheckBox(self, -1, "Match Case")
         vsizer2.Add(self.matchCaseCb, 0, wx.TOP, pad)
 
         hsizer2.Add(vsizer2, 0, wx.EXPAND | wx.RIGHT, 10)
@@ -62,7 +62,7 @@ class FindDlg(wx.Dialog):
 
         vsizer.Add(hsizer2, 0, wx.EXPAND | wx.BOTTOM, 10)
 
-        self.extraLabel = wx.StaticText(self, -1, "Search in:")
+        self.extraLabel = wx.StaticText(self, -1, "Search In")
         vsizer.Add(self.extraLabel)
 
         self.elements = wx.CheckListBox(self, -1)
@@ -345,7 +345,7 @@ class FindDlg(wx.Dialog):
                     break
 
                 if fullSearch:
-                    wx.MessageBox("Nothing to change!",
+                    wx.MessageBox("Nothing found!",
                                   "No matches", wx.OK, self)
 
                     break
@@ -359,8 +359,8 @@ class FindDlg(wx.Dialog):
                     s2 = "end"
                     restart = len(ls) - 1
 
-                if wx.MessageBox("Search finished at the %s of the screenplay. Do\n"
-                                 "you want to continue at the %s of the screenplay?"
+                if wx.MessageBox("Search finished at the %s of the screenplay.\n"
+                                 "Want to continue at the %s of the screenplay?"
                                  % (s1, s2), "Continue?",
                                  wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
                     line = restart

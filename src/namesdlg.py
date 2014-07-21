@@ -50,7 +50,7 @@ def readNames(frame):
 
 class NamesDlg(wx.Dialog):
     def __init__(self, parent, ctrl):
-        wx.Dialog.__init__(self, parent, -1, "Character name database",
+        wx.Dialog.__init__(self, parent, -1, "Character Name Database",
                            style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         self.ctrl = ctrl
@@ -59,13 +59,14 @@ class NamesDlg(wx.Dialog):
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
-        vsizer.Add(wx.StaticText(self, -1, "Search in:"))
-
         self.typeList = wx.ListCtrl(self, -1,
             style=wx.LC_REPORT | wx.LC_HRULES | wx.LC_VRULES)
 
+        insertNameBtn = wx.Button(self, -1, "Insert Name")
+        vsizer.Add(insertNameBtn, 0, wx.ALIGN_CENTER)
+
         self.typeList.InsertColumn(0, "Count")
-        self.typeList.InsertColumn(1, "Type")
+        self.typeList.InsertColumn(1, "Origin")
 
         for i in range(len(nameArr.typeNamesById)):
             typeName = nameArr.typeNamesById[i]
@@ -87,8 +88,8 @@ class NamesDlg(wx.Dialog):
         self.selectAllTypes()
         vsizer.Add(self.typeList, 1, wx.EXPAND | wx.BOTTOM, 5)
 
-        selectAllBtn = wx.Button(self, -1, "Select all")
-        vsizer.Add(selectAllBtn)
+        selectAllBtn = wx.Button(self, -1, "Select All")
+        vsizer.Add(selectAllBtn, 0, wx.ALIGN_CENTER)
 
         hsizer.Add(vsizer, 0, wx.EXPAND)
 
@@ -98,33 +99,27 @@ class NamesDlg(wx.Dialog):
 
         vsizer2 = wx.BoxSizer(wx.VERTICAL)
 
-        searchBtn = wx.Button(self, -1, "Search")
-        wx.EVT_BUTTON(self, searchBtn.GetId(), self.OnSearch)
-        vsizer2.Add(searchBtn, 0, wx.BOTTOM | wx.TOP, 10)
-
         self.searchEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         vsizer2.Add(self.searchEntry, 0, wx.EXPAND)
 
-        tmp = wx.Button(self, -1, "Insert")
-        wx.EVT_BUTTON(self, tmp.GetId(), self.OnInsertName)
-        vsizer2.Add(tmp, 0, wx.BOTTOM | wx.TOP, 10)
+        searchBtn = wx.Button(self, -1, "Search")
+        wx.EVT_BUTTON(self, searchBtn.GetId(), self.OnSearch)
+        vsizer2.Add(searchBtn, 0, wx.EXPAND)
 
         hsizer2.Add(vsizer2, 1, wx.RIGHT, 10)
 
-        self.nameRb = wx.RadioBox(self, -1, "Name",
+        self.nameRb = wx.RadioBox(self, -1, "Sort By",
             style=wx.RA_SPECIFY_COLS, majorDimension=1,
             choices=["begins with", "contains", "ends in"])
         hsizer2.Add(self.nameRb)
 
-        self.sexRb = wx.RadioBox(self, -1, "Sex",
+        self.sexRb = wx.RadioBox(self, -1, "Gender",
             style=wx.RA_SPECIFY_COLS, majorDimension=1,
             choices=["Male", "Female", "Both"])
         self.sexRb.SetSelection(2)
         hsizer2.Add(self.sexRb, 0, wx.LEFT, 5)
 
         vsizer.Add(hsizer2, 0, wx.EXPAND | wx.ALIGN_CENTER)
-
-        vsizer.Add(wx.StaticText(self, -1, "Results:"))
 
         self.list = MyListCtrl(self)
         vsizer.Add(self.list, 1, wx.EXPAND | wx.BOTTOM, 5)
@@ -137,6 +132,7 @@ class NamesDlg(wx.Dialog):
 
         wx.EVT_TEXT_ENTER(self, self.searchEntry.GetId(), self.OnSearch)
         wx.EVT_BUTTON(self, selectAllBtn.GetId(), self.selectAllTypes)
+        wx.EVT_BUTTON(self, insertNameBtn.GetId(), self.OnInsertName)
         wx.EVT_LIST_COL_CLICK(self, self.typeList.GetId(), self.OnHeaderClick)
 
         util.finishWindow(self, hsizer)
@@ -229,7 +225,7 @@ class NamesDlg(wx.Dialog):
 
         wx.EndBusyCursor()
 
-        self.foundLabel.SetLabel("%d names found." % len(l))
+        self.foundLabel.SetLabel("%d Names" % len(l))
 
 class MyListCtrl(wx.ListCtrl):
     def __init__(self, parent):
@@ -240,8 +236,8 @@ class MyListCtrl(wx.ListCtrl):
         self.sex = ["Female", "Male"]
 
         self.InsertColumn(0, "Name")
-        self.InsertColumn(1, "Type")
-        self.InsertColumn(2, "Sex")
+        self.InsertColumn(1, "Origin")
+        self.InsertColumn(2, "Gender")
         self.SetColumnWidth(0, 120)
         self.SetColumnWidth(1, 120)
 

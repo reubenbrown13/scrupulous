@@ -28,7 +28,7 @@ class HeadersDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Empty lines after headers:"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Empty Lines After Headers"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
 
         self.elinesEntry = wx.SpinCtrl(self, -1)
@@ -42,7 +42,7 @@ class HeadersDlg(wx.Dialog):
         vsizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND | wx.TOP | wx.BOTTOM,
                    10)
 
-        tmp = wx.StaticText(self, -1, "Strings:")
+        tmp = wx.StaticText(self, -1, "Strings")
         vsizer.Add(tmp)
 
         self.stringsLb = wx.ListBox(self, -1, size = (200, 100))
@@ -64,7 +64,7 @@ class HeadersDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Text:"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Text"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
 
         self.textEntry = wx.TextCtrl(self, -1)
@@ -74,14 +74,14 @@ class HeadersDlg(wx.Dialog):
         vsizer.Add(hsizer, 0, wx.EXPAND | wx.TOP, 20)
 
         vsizer.Add(wx.StaticText(self, -1,
-            "'${PAGE}' will be replaced by the page number."), 0,
+            "'${PAGE}' = Page Number"), 0,
             wx.ALIGN_CENTER | wx.TOP, 5)
 
         hsizerTop = wx.BoxSizer(wx.HORIZONTAL)
 
         gsizer = wx.FlexGridSizer(3, 2, 5, 0)
 
-        gsizer.Add(wx.StaticText(self, -1, "Header line:"), 0,
+        gsizer.Add(wx.StaticText(self, -1, "Header Line"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
 
         self.lineEntry = wx.SpinCtrl(self, -1)
@@ -90,7 +90,7 @@ class HeadersDlg(wx.Dialog):
         wx.EVT_KILL_FOCUS(self.lineEntry, self.OnKillFocus)
         gsizer.Add(self.lineEntry)
 
-        gsizer.Add(wx.StaticText(self, -1, "X offset (characters):"), 0,
+        gsizer.Add(wx.StaticText(self, -1, "X Offset (Characters)"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
 
         self.xoffEntry = wx.SpinCtrl(self, -1)
@@ -99,7 +99,7 @@ class HeadersDlg(wx.Dialog):
         wx.EVT_KILL_FOCUS(self.xoffEntry, self.OnKillFocus)
         gsizer.Add(self.xoffEntry)
 
-        gsizer.Add(wx.StaticText(self, -1, "Alignment:"), 0,
+        gsizer.Add(wx.StaticText(self, -1, "Alignment"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.alignCombo = wx.ComboBox(self, -1, style = wx.CB_READONLY)
 

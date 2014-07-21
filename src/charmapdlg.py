@@ -6,7 +6,7 @@ import wx
 
 class CharMapDlg(wx.Dialog):
     def __init__(self, parent, ctrl):
-        wx.Dialog.__init__(self, parent, -1, "Character map")
+        wx.Dialog.__init__(self, parent, -1, "Character Map")
 
         self.ctrl = ctrl
 
@@ -15,7 +15,7 @@ class CharMapDlg(wx.Dialog):
         self.charMap = MyCharMap(self)
         hsizer.Add(self.charMap)
 
-        self.insertButton = wx.Button(self, -1, " Insert character ")
+        self.insertButton = wx.Button(self, -1, " Insert Character ")
         hsizer.Add(self.insertButton, 0, wx.ALL, 10)
         wx.EVT_BUTTON(self, self.insertButton.GetId(), self.OnInsert)
         gutil.btnDblClick(self.insertButton, self.OnInsert)
@@ -126,7 +126,7 @@ class MyCharMap(wx.Window):
         if self.selected:
             code = ord(self.selected)
 
-            self.drawCharBox(dc, "Selected:", self.selected, self.offset,
+            self.drawCharBox(dc, "Selected", self.selected, self.offset,
                              y + pad, 75)
 
             c = util.upper(self.selected)
@@ -136,11 +136,11 @@ class MyCharMap(wx.Window):
                     c = None
 
             if c:
-                self.drawCharBox(dc, "Opposite case:", c, self.offset + 150,
+                self.drawCharBox(dc, "Opposite Case", c, self.offset + 150,
                                  y + pad, 110)
 
             dc.SetFont(self.smallFont)
-            dc.DrawText("Character code: %d" % code, 360, y + pad)
+            dc.DrawText("Character Code: %d" % code, 360, y + pad)
 
             if code == 32:
                 dc.DrawText("Normal space", 360, y + pad + 30)
@@ -149,7 +149,7 @@ class MyCharMap(wx.Window):
 
         else:
             dc.SetFont(self.smallFont)
-            dc.DrawText("Click on a character to select it.", self.offset,
+            dc.DrawText("Click on a character", self.offset,
                         y + pad)
 
     def drawCharBox(self, dc, text, char, x, y, xinc):

@@ -11,7 +11,7 @@ import wx
 
 class TitlesDlg(wx.Dialog):
     def __init__(self, parent, titles, cfg, cfgGl):
-        wx.Dialog.__init__(self, parent, -1, "Title pages",
+        wx.Dialog.__init__(self, parent, -1, "Title Pages",
                            style=wx.DEFAULT_DIALOG_STYLE)
 
         self.titles = titles
@@ -59,9 +59,6 @@ class TitlesDlg(wx.Dialog):
 
         vsizer2 = wx.BoxSizer(wx.VERTICAL)
 
-        tmp = wx.StaticText(self, -1, "Strings:")
-        vsizer2.Add(tmp)
-
         self.stringsLb = wx.ListBox(self, -1, size=(200, 150))
         vsizer2.Add(self.stringsLb)
 
@@ -89,7 +86,7 @@ class TitlesDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Text:"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Text"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.textEntry = wx.TextCtrl(
             self, -1, style=wx.TE_MULTILINE | wx.TE_DONTWRAP, size=(200, 75))
@@ -107,7 +104,7 @@ class TitlesDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Alignment:"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Alignment"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.alignCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 
@@ -122,7 +119,7 @@ class TitlesDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "X / Y Pos (mm):"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "X / Y Pos (mm)"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.xEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.xEntry, 0, wx.LEFT, 10)
@@ -135,7 +132,7 @@ class TitlesDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Font / Size:"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Font / Size"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.fontCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 

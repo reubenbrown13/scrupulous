@@ -8,7 +8,7 @@ import wx
 
 class SpellCheckDlg(wx.Dialog):
     def __init__(self, parent, ctrl, sc, gScDict):
-        wx.Dialog.__init__(self, parent, -1, "Spell checker",
+        wx.Dialog.__init__(self, parent, -1, "Spell Checker",
                            style=wx.DEFAULT_DIALOG_STYLE | wx.WANTS_CHARS)
 
         self.ctrl = ctrl
@@ -26,7 +26,7 @@ class SpellCheckDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Word:"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Word"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
         self.replaceEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         hsizer.Add(self.replaceEntry, 1, wx.EXPAND)
@@ -39,13 +39,13 @@ class SpellCheckDlg(wx.Dialog):
         replaceBtn = wx.Button(self, -1, "&Replace")
         gsizer.Add(replaceBtn)
 
-        addScriptBtn = wx.Button(self, -1, "Add to &script dictionary")
+        addScriptBtn = wx.Button(self, -1, "Add to &Script Dictionary")
         gsizer.Add(addScriptBtn, 0, wx.EXPAND)
 
         skipBtn = wx.Button(self, -1, "S&kip")
         gsizer.Add(skipBtn)
 
-        addGlobalBtn = wx.Button(self, -1, "Add to &global dictionary")
+        addGlobalBtn = wx.Button(self, -1, "Add to &Global Dictionary")
         gsizer.Add(addGlobalBtn, 0, wx.EXPAND)
 
         vsizer.Add(gsizer, 0, wx.EXPAND, 0)
@@ -193,13 +193,13 @@ class SpellCheckDlg(wx.Dialog):
         wx.EndBusyCursor()
 
         if len(items) == 0:
-            wx.MessageBox("No word suggestions found.", "Results",
+            wx.MessageBox("No Word Suggestions Found", "Results",
                           wx.OK, self)
 
             return
 
         dlg = wx.SingleChoiceDialog(
-            self, "Most suggested words:", "Suggestions", items)
+            self, "Most Suggested Words", "Suggestions", items)
 
         if dlg.ShowModal() == wx.ID_OK:
             sel = dlg.GetSelection()

@@ -26,7 +26,7 @@ class CommandsDlg(wx.Frame):
                     k = util.Key.fromInt(key)
                     s += "%s<br>" % xss.escape(k.toStr())
             else:
-                s += "No key defined<br>"
+                s += "No Key Defined<br>"
 
             s += '</td><td valign="top">'
             s += "%s" % xss.escape(cmd.desc)
@@ -80,7 +80,7 @@ R                      Replace
         self.Destroy()
 
     def OnSave(self, event):
-        dlg = wx.FileDialog(self, "Filename to save as",
+        dlg = wx.FileDialog(self, "Save Screenplay As",
             wildcard = "HTML files (*.html)|*.html|All files|*",
             style = wx.SAVE | wx.OVERWRITE_PROMPT)
 

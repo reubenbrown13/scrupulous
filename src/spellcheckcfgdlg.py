@@ -14,9 +14,9 @@ class SCDictDlg(wx.Dialog):
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         if isGlobal:
-            s = "Global words:"
+            s = "Global Words"
         else:
-            s = "Script-specific words:"
+            s = "Script-specific Words"
 
         vsizer.Add(wx.StaticText(self, -1, s))
 
@@ -28,7 +28,7 @@ class SCDictDlg(wx.Dialog):
 
         hsizer.Add((1, 1), 1)
 
-        cancelBtn = gutil.createStockButton(self, "Cancel")
+        cancelBtn = gutil.createStockButton(self, "Close")
         hsizer.Add(cancelBtn, 0, wx.LEFT, 10)
 
         okBtn = gutil.createStockButton(self, "OK")
