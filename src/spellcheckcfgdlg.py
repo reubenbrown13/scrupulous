@@ -6,7 +6,7 @@ import wx
 
 class SCDictDlg(wx.Dialog):
     def __init__(self, parent, scDict, isGlobal):
-        wx.Dialog.__init__(self, parent, -1, "Spell checker dictionary",
+        wx.Dialog.__init__(self, parent, -1, "Spell Checker Dictionary",
                            style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         self.scDict = scDict
