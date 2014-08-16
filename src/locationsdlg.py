@@ -13,8 +13,8 @@ class LocationsDlg(wx.Dialog):
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
-        tmp = wx.StaticText(self, -1, "Locations:")
-        vsizer.Add(tmp)
+        tmp = wx.StaticText(self, -1, "Locations")
+        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 5)
 
         self.locationsLb = wx.ListBox(self, -1, size=(450, 200))
         vsizer.Add(self.locationsLb, 1, wx.EXPAND)
@@ -31,8 +31,8 @@ class LocationsDlg(wx.Dialog):
 
         vsizer.Add(hsizer, 0, wx.ALIGN_CENTER | wx.TOP, 10)
 
-        tmp = wx.StaticText(self, -1, "Scenes:")
-        vsizer.Add(tmp)
+        tmp = wx.StaticText(self, -1, "Scenes")
+        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 5)
 
         self.scenesLb = wx.ListBox(self, -1, size=(450, 200),
                                    style = wx.LB_EXTENDED)

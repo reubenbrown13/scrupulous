@@ -345,8 +345,8 @@ class FindDlg(wx.Dialog):
                     break
 
                 if fullSearch:
-                    wx.MessageBox("Nothing found!",
-                                  "No matches", wx.OK, self)
+                    wx.MessageBox("Nothing was found.",
+                                  "No Matches", wx.OK, self)
 
                     break
 
@@ -360,7 +360,7 @@ class FindDlg(wx.Dialog):
                     restart = len(ls) - 1
 
                 if wx.MessageBox("Search finished at the %s of the screenplay.\n"
-                                 "Want to continue at the %s of the screenplay?"
+                                 "Continue at the %s of the screenplay?"
                                  % (s1, s2), "Continue?",
                                  wx.YES_NO | wx.YES_DEFAULT, self) == wx.YES:
                     line = restart

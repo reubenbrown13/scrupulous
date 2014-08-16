@@ -89,7 +89,7 @@ class CfgDlg(wx.Dialog):
         hsizer.Add(self.panel, 1, wx.EXPAND)
 
         if isGlobal:
-            self.SetTitle("Settings dialog")
+            self.SetTitle("Settings Dialog")
 
             self.AddPage(GlobalAboutPanel, "About")
             self.AddPage(ColorsPanel, "Colors")
@@ -98,7 +98,7 @@ class CfgDlg(wx.Dialog):
             self.AddPage(KeyboardPanel, "Keyboard")
             self.AddPage(MiscPanel, "Misc")
         else:
-            self.SetTitle("Screenplay settings dialog")
+            self.SetTitle("Screenplay Settings Dialog")
 
             self.AddPage(ScriptAboutPanel, "About")
             self.AddPage(ElementsPanel, "Elements")
@@ -224,7 +224,7 @@ class DisplayPanel(wx.Panel):
         vsizer.Add(self.fontsLb, 0, wx.BOTTOM, 10)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
-        btn = wx.Button(self, -1, "Change...")
+        btn = wx.Button(self, -1, "Change")
         wx.EVT_LISTBOX_DCLICK(self, self.fontsLb.GetId(),
             self.OnChangeFont)
         wx.EVT_BUTTON(self, btn.GetId(), self.OnChangeFont)
@@ -503,7 +503,7 @@ class ElementsPanel(wx.Panel):
         self.exportUnderlinedCb.SetValue(tcfg.export.isUnderlined)
 
         # stupid wxwindows/wxpython displays empty box if the initial
-        # value is zero if we don't do this...
+        # value is zero if we don't do this.
         self.beforeSpacingEntry.SetValue(5)
         self.intraSpacingEntry.SetValue(5)
         self.indentEntry.SetValue(5)
@@ -885,7 +885,7 @@ class FormattingPanel(wx.Panel):
 
     def cfg2gui(self):
         # stupid wxwindows/wxpython displays empty box if the initial
-        # value is zero if we don't do this...
+        # value is zero if we don't do this.
         self.actionEntry.SetValue(5)
         self.dialogueEntry.SetValue(5)
         self.sceneContinuedIndentEntry.SetValue(5)
@@ -1034,7 +1034,7 @@ class MiscPanel(wx.Panel):
         hsizer.Add(self.scriptDirEntry, 1,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
-        btn = wx.Button(self, -1, "Browse")
+        btn = wx.Button(self, -1, "Directory")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnBrowse)
         hsizer.Add(btn, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
@@ -1051,7 +1051,7 @@ class MiscPanel(wx.Panel):
         hsizer.Add(self.sconfFileEntry, 1,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
-        btn = wx.Button(self, -1, "Browse")
+        btn = wx.Button(self, -1, "Choose")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnBrowseSconf)
         hsizer.Add(btn, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
@@ -1070,7 +1070,7 @@ class MiscPanel(wx.Panel):
         self.progEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.progEntry, 1, wx.ALIGN_CENTER_VERTICAL)
 
-        btn = wx.Button(self, -1, "Browse")
+        btn = wx.Button(self, -1, "Set Path")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnBrowsePDF)
         hsizer.Add(btn, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
@@ -1129,17 +1129,20 @@ class MiscPanel(wx.Panel):
         wx.EVT_CHECKBOX(self, self.checkErrorsCb.GetId(), self.OnMisc)
         vsizer.Add(self.checkErrorsCb, 0, wx.BOTTOM, 10)
 
-        self.addSpin("splashTime", "Show splash screen for X seconds\n"
-                     " (0 = disable)", self, vsizer, "splashTime")
+        tmp = wx.StaticText(self, -1, "0 = disabled")
+        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 3)
 
-        self.addSpin("paginate", "Auto-paginate interval in seconds\n"
-                     " (0 = disable)", self, vsizer, "paginateInterval")
+        self.addSpin("splashTime", "Show splash screen in seconds",
+                     self, vsizer, "splashTime")
+
+        self.addSpin("paginate", "Auto-paginate interval in seconds",
+                     self, vsizer, "paginateInterval")
 
         self.addSpin("wheelScroll", "Lines to scroll per mouse wheel event",
                      self, vsizer, "mouseWheelLines")
 
-        self.addSpin("autoSaveMinutes", "Minutes between auto-saves\n"
-                     " (0 = disable):", self, vsizer, "autoSaveMinutes")
+        self.addSpin("autoSaveMinutes", "Minutes between auto-saves",
+                     self, vsizer, "autoSaveMinutes")
         self.cfg2gui()
 
         util.finishWindow(self, vsizer, center=False)
@@ -1236,7 +1239,7 @@ class MiscPanel(wx.Panel):
 
     def cfg2gui(self):
         # stupid wxwindows/wxpython displays empty box if the initial
-        # value is zero if we don't do this...
+        # value is zero if we don't do this.
         self.paginateEntry.SetValue(5)
 
         self.scriptDirEntry.SetValue(self.cfg.scriptDir)
@@ -1261,9 +1264,6 @@ class ElementsGlobalPanel(wx.Panel):
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
-
-        hsizer.Add(wx.StaticText(self, -1, "Element"), 0,
-                   wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
 
         self.elementsCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 

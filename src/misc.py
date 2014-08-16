@@ -55,13 +55,13 @@ def init(doWX=True):
         else:
             progPath = getPathFromRegistry()
 
-            confPath = util.getWindowsUnicodeEnvVar(u"USERPROFILE") + ur"\Trelby\conf"
+            confPath = util.getWindowsUnicodeEnvVar(u"USERPROFILE") + ur"\Scrupulous\conf"
 
             if not os.path.exists(confPath):
                 os.makedirs(confPath)
 
 def getPathFromRegistry():
-    registryPath = r"Software\Microsoft\Windows\CurrentVersion\App Paths\trelby.exe"
+    registryPath = r"Software\Microsoft\Windows\CurrentVersion\App Paths\scrupulous.exe"
 
     try:
         import _winreg
@@ -903,13 +903,13 @@ class TextInputDlg(wx.Dialog):
 # asks the user for a keypress and stores it.
 class KeyDlg(wx.Dialog):
     def __init__(self, parent, cmdName):
-        wx.Dialog.__init__(self, parent, -1, "Key capture",
+        wx.Dialog.__init__(self, parent, -1, "Key Capture",
                            style=wx.DEFAULT_DIALOG_STYLE)
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
-        vsizer.Add(wx.StaticText(self, -1, "Press the key combination you\n"
-            "want to bind to the command\n'%s'." % cmdName))
+        vsizer.Add(wx.StaticText(self, -1, "Press a key combination to\n"
+            " bind to the command\n'%s'." % cmdName))
 
         tmp = KeyDlgWidget(self, -1, (1, 1))
         vsizer.Add(tmp)

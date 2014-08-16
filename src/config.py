@@ -689,7 +689,7 @@ class ConfigGlobal:
             Command("Abort", "Abort something, e.g. selection,"
                     " auto-completion, etc.", [wx.WXK_ESCAPE], isFixed=True),
 
-            Command("About", "Show the about dialog.", isMenu=True),
+            Command("About", "Show the About dialog.", isMenu=True),
 
             Command("AutoCompletionDlg", "Open the auto-completion dialog.",
                     isMenu=True),
@@ -1268,10 +1268,7 @@ class ConfigGlobal:
             progs = [
                 (u"/usr/local/Adobe/Acrobat7.0/bin/acroread", "-tempFile"),
                 (u"acroread", "-tempFile"),
-                (u"xpdf", ""),
                 (u"evince", ""),
-                (u"gpdf", ""),
-                (u"kpdf", ""),
                 (u"okular", ""),
                 ]
         elif misc.isWindows:
@@ -1296,8 +1293,6 @@ class ConfigGlobal:
                 (ur"C:\Program Files\Adobe\Acrobat 7.0\Reader\AcroRd32.exe",
                  ""),
                 (ur"C:\Program Files\Adobe\Acrobat 6.0\Reader\AcroRd32.exe",
-                 ""),
-                (ur"C:\Program Files\Foxit Software\Foxit Reader\Foxit Reader.exe",
                  ""),
                 ]
         else:
