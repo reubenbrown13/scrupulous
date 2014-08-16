@@ -1077,10 +1077,10 @@ class ConfigGlobal:
         v.addStrUnicode("scriptDir", misc.progPath, "DefaultScriptDirectory")
 
         # colors
-        v.addColor("text", 187, 191, 191, "TextFG", "Text Foreground")
-        v.addColor("textHdr", 187, 191, 191, "TextHeadersFG",
+        v.addColor("text", 0, 7, 26, "TextFG", "Text Foreground")
+        v.addColor("textHdr", 0, 7, 26, "TextHeadersFG",
                    "Text Foreground (Headers)")
-        v.addColor("textBg", 44, 44, 44, "TextBG", "Text Background")
+        v.addColor("textBg", 243, 243, 243, "TextBG", "Text Background")
         v.addColor("workspace", 80, 90, 100, "Workspace", "Workspace")
         v.addColor("pageBorder", 0, 177, 217, "PageBorder", "Page Border")
         v.addColor("pageShadow", 65, 85, 115, "PageShadow", "Page Shadow")
@@ -1104,7 +1104,7 @@ class ConfigGlobal:
                    "Tab Border")
         v.addColor("tabBarBg", 62, 71, 83, "TabBarBG",
                    "Tab Bar Background")
-        v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg", "Tab, Non-active")
+        v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg", "Non-active Tab")
         v.addColor("navSceneText", 255, 255, 255, "NavSceneText", "Navigator Scene Text")
         v.addColor("navSceneSelectedMark", 62, 71, 83, "NavSceneSelectedMark", "Navigator Selected Scene Marker")
         v.addColor("navNoteText", 230, 219, 116, "NavNoteText", "Navigator Note Text")
