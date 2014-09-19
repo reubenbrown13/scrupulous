@@ -17,7 +17,7 @@
 MILLINGJON
 ==========
 
--convert wxWidgets to 2.9 when Ubuntu 16.04 LTS releases.
--package Courier Prime.
--fix blinking cursor (vertical).
+-package Courier Prime. (http://quoteunquoteapps.com/courierprime/)
 -ULTIMATE GOAL: add simple production features.
+-fix page formatting to match major screenwriting software.
+-
