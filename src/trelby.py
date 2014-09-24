@@ -892,7 +892,7 @@ class MyCtrl(wx.Control):
         self.sp.paginate()
         reports.genSceneReport(mainFrame, self.sp)
 
-    def OnReportScript(self):
+    def OnReportScreenplay(self):
         self.sp.paginate()
         reports.genScriptReport(mainFrame, self.sp)
 
@@ -2074,7 +2074,7 @@ class MyFrame(wx.Frame):
         scriptSettingsMenu = tmp
 
         reportsMenu = wx.Menu()
-        reportsMenu.Append(ID_REPORTS_SCRIPT_REP, "Sc&ript Report")
+        reportsMenu.Append(ID_REPORTS_SCRIPT_REP, "Sc&reenplay Report...")
         reportsMenu.Append(ID_REPORTS_LOCATION_REP, "&Location Report...")
         reportsMenu.Append(ID_REPORTS_SCENE_REP, "&Scene Report...")
         reportsMenu.Append(ID_REPORTS_CHARACTER_REP, "&Character Report...")
@@ -2256,7 +2256,7 @@ class MyFrame(wx.Frame):
         wx.EVT_MENU(self, ID_SCREENPLAY_SETTINGS_SAVE_AS, self.OnSaveScriptSettingsAs)
         wx.EVT_MENU(self, ID_REPORTS_DIALOGUE_CHART, self.OnReportDialogueChart)
         wx.EVT_MENU(self, ID_REPORTS_CHARACTER_REP, self.OnReportCharacter)
-        wx.EVT_MENU(self, ID_REPORTS_SCRIPT_REP, self.OnReportScript)
+        wx.EVT_MENU(self, ID_REPORTS_SCRIPT_REP, self.OnReportScreenplay)
         wx.EVT_MENU(self, ID_REPORTS_LOCATION_REP, self.OnReportLocation)
         wx.EVT_MENU(self, ID_REPORTS_SCENE_REP, self.OnReportScene)
         wx.EVT_MENU(self, ID_TOOLS_SPELL_CHECK, self.OnSpellCheckerDlg)
@@ -2899,8 +2899,8 @@ class MyFrame(wx.Frame):
     def OnReportScene(self, event=None):
         self.panel.ctrl.OnReportScene()
 
-    def OnReportScript(self, event=None):
-        self.panel.ctrl.OnReportScript()
+    def OnReportScreenplay(self, event=None):
+        self.panel.ctrl.OnReportScreenplay()
 
     def OnSpellCheckerDlg(self, event=None):
         self.panel.ctrl.OnSpellCheckerDlg()
