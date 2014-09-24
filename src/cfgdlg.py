@@ -630,7 +630,7 @@ class PaperPanel(wx.Panel):
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
         self.widthEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.widthEntry)
-        hsizer.Add(wx.StaticText(self, -1, "MM"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "mm"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 5)
         gsizer.Add(hsizer)
 
@@ -639,7 +639,7 @@ class PaperPanel(wx.Panel):
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
         self.heightEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.heightEntry)
-        hsizer.Add(wx.StaticText(self, -1, "MM"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "mm"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 5)
         gsizer.Add(hsizer)
 
@@ -659,7 +659,7 @@ class PaperPanel(wx.Panel):
 
         vsizer.Add(bsizer, 0, wx.BOTTOM, 10)
 
-        vsizer.Add(wx.StaticText(self, -1, "(1 Inch = 25.4 MM)"), 0,
+        vsizer.Add(wx.StaticText(self, -1, "(1 Inch = 25.4 mm)"), 0,
                    wx.LEFT, 25)
 
         self.linesLabel = wx.StaticText(self, -1, "")
@@ -721,7 +721,7 @@ class PaperPanel(wx.Panel):
 
     def setLines(self):
         self.cfg.recalc(False)
-        self.linesLabel.SetLabel("%d Lines Per Page" % self.cfg.linesOnPage)
+        self.linesLabel.SetLabel("%d lines per page." % self.cfg.linesOnPage)
 
     def OnPaperCombo(self, event):
         w, h = self.paperCombo.GetClientData(self.paperCombo.GetSelection())
@@ -977,7 +977,7 @@ class KeyboardPanel(wx.Panel):
                 return
 
             if key.isValidInputChar():
-                wx.MessageBox("You can't bind input characters to commands.",
+                wx.MessageBox("Can't bind input characters to commands.",
                               "Error", wx.OK, cfgFrame)
 
                 return
@@ -1121,20 +1121,20 @@ class MiscPanel(wx.Panel):
         vsizer.Add(self.enableRecoveryCb, 0, wx.BOTTOM, pad)
 
         self.checkErrorsCb = wx.CheckBox(self, -1,
-            "Check screenplay for errors before print, export, or compare")
+            "Check Screenplay for Errors Before Print, Export, or Compare")
         wx.EVT_CHECKBOX(self, self.checkErrorsCb.GetId(), self.OnMisc)
         vsizer.Add(self.checkErrorsCb, 0, wx.BOTTOM, 10)
 
-        tmp = wx.StaticText(self, -1, "0 = disabled")
-        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 3)
+        tmp = wx.StaticText(self, -1, "(0 = disabled)")
+        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 5)
 
-        self.addSpin("splashTime", "Show splash screen in seconds",
+        self.addSpin("splashTime", "Seconds to show splash screen",
                      self, vsizer, "splashTime")
 
-        self.addSpin("paginate", "Auto-paginate interval in seconds",
+        self.addSpin("paginate", "Seconds between auto-paginates",
                      self, vsizer, "paginateInterval")
 
-        self.addSpin("wheelScroll", "Lines to scroll per mouse wheel event",
+        self.addSpin("wheelScroll", "Lines to scroll each mouse wheel",
                      self, vsizer, "mouseWheelLines")
 
         self.addSpin("autoSaveMinutes", "Minutes between auto-saves",
@@ -1230,7 +1230,7 @@ class MiscPanel(wx.Panel):
         if viewer:
             self.progEntry.SetValue(viewer)
         else:
-            wx.MessageBox("Unable to guess. Set the path manually.",
+            wx.MessageBox("Unable to guess; set the path manually.",
                           "PDF Viewer", wx.OK, cfgFrame)
 
     def cfg2gui(self):
@@ -1402,7 +1402,7 @@ class PDFPanel(wx.Panel):
         self.outlineNotesCb = self.addCb(
             "Draw Rectangles Around Note Elements", vsizer, pad)
 
-        self.marginsCb = self.addCb("Show Margins (Debug)", vsizer, pad)
+        self.marginsCb = self.addCb("Show Margins", vsizer, pad)
 
         self.cfg2gui()
 
@@ -1446,8 +1446,8 @@ class PDFFontsPanel(wx.Panel):
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         vsizer.Add(wx.StaticText(self, -1,
-            "Leave all the fields empty to use the default PDF Courier\n"
-            "fonts.\n"
+            "Leave all the fields empty to use the default PDF \n"
+            "Courier fonts.\n"
             "\n"
             "Fill in the font name (e.g. AndaleMono) to use the\n"
             "specified TrueType font. To embed the font in the\n"
