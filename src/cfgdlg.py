@@ -188,17 +188,18 @@ The settings here are independent of any screenplay opened in
 Scrupulous, and unique to this computer.
 
 None of the settings here have any effect on the generated PDF
-output for a screenplay. Navigate to Screenplay/Settings for those."""
+output for a screenplay. Navigate to Screenplay/Settings for
+those."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
 
 class ScriptAboutPanel(AboutPanel):
     def __init__(self, parent, id, cfg):
         s = \
-"""This is the config dialog for screenplay format settings, which
-affects the generated PDF output of a screenplay. Such formatting
-as paper size, indendation/line widths/font styles for the
-different element types, and more.
+"""This is the config dialog for screenplay format settings,
+which affects the generated PDF output of a screenplay. Such
+formatting as paper size, indendation/line widths/font styles
+for the different element types, and more.
 
 These settings are saved within the screenplay itself.
 
@@ -298,8 +299,8 @@ class DisplayPanel(wx.Panel):
                 self.cfg2gui()
                 self.updateFontLb()
             else:
-                wx.MessageBox("The selected font is not fixed width and"
-                              " cannot be used.", "Error", wx.OK, cfgFrame)
+                wx.MessageBox("The selected font is an unfixed width"
+                              " and cannot be used.", "Error", wx.OK, cfgFrame)
 
         dlg.Destroy()
 
@@ -522,7 +523,7 @@ class ColorsPanel(wx.Panel):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.colorsLb = wx.ListBox(self, -1, size=(300, 250))
+        self.colorsLb = wx.ListBox(self, -1, size=(300, 375))
 
         tmp = self.cfg.cvars.color.values()
         tmp.sort(lambda c1, c2: cmp(c1.descr, c2.descr))
@@ -540,16 +541,16 @@ class ColorsPanel(wx.Panel):
 
         btn = wx.Button(self, -1, "Color...")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnChangeColor)
-        vsizer2.Add(btn, 0, wx.BOTTOM, 10)
+        vsizer2.Add(btn, 0, wx.ALIGN_CENTER | wx.BOTTOM, 10)
 
-        btn = wx.Button(self, -1, "Restore Default")
+        btn = wx.Button(self, -1, " Restore Default ")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnDefaultColor)
-        vsizer2.Add(btn)
+        vsizer2.Add(btn, wx.ALIGN_CENTER)
 
         hsizer.Add(vsizer2, 0, wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
 
         self.colorSample = misc.MyColorSample(self, -1,
-            size=wx.Size(200, 50))
+            size=wx.Size(200, 28))
         hsizer.Add(self.colorSample, 1, wx.EXPAND)
 
         vsizer.Add(hsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
@@ -921,7 +922,7 @@ class KeyboardPanel(wx.Panel):
 
         vsizer2 = wx.BoxSizer(wx.VERTICAL)
 
-        self.keysLb = wx.ListBox(self, -1, size=(150, 60))
+        self.keysLb = wx.ListBox(self, -1, size=(150, 125))
         vsizer2.Add(self.keysLb, 1, wx.BOTTOM, 10)
 
         btn = wx.Button(self, -1, "Add")
@@ -945,7 +946,7 @@ class KeyboardPanel(wx.Panel):
         vsizer.Add(wx.StaticText(self, -1, "Conflicting Keys"), 0, wx.TOP, 10)
 
         self.conflictsEntry = wx.TextCtrl(self, -1,
-            style=wx.TE_MULTILINE | wx.TE_READONLY, size=(50, 75))
+            style=wx.TE_MULTILINE | wx.TE_READONLY, size=(50, 25))
         vsizer.Add(self.conflictsEntry, 1, wx.EXPAND)
 
         util.finishWindow(self, vsizer, center=False)
@@ -1055,7 +1056,7 @@ class MiscPanel(wx.Panel):
         vsizer.Add(bsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
 
         bsizer = wx.StaticBoxSizer(wx.StaticBox(self, -1,
-            "PDF Viewer Application"), wx.VERTICAL)
+            "PDF Viewer"), wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 

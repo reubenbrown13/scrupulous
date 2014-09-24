@@ -6,7 +6,6 @@ import util
 import wx
 
 # various pixel widths
-
 # width of our navigator.
 NAVIGATOR_WIDTH = 280
 
