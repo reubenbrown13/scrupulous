@@ -13,9 +13,9 @@ class Titles:
         a = []
 
         y = 105.0
-        a.append(TitleString(["UNTITLED"], y=y, size=24,
+        a.append(TitleString(["UNTITLED SCREENPLAY"], y=y, size=24,
                              isBold=True, font=pml.HELVETICA))
-        a.append(TitleString(["by", "", "Your Name"], y=y + 15.46))
+        a.append(TitleString(["Written by", "", "Your Name"], y=y + 15.46))
 
         x = 15.0
         y = 240.0

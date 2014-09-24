@@ -19,7 +19,7 @@ class ScriptReport:
         ls = self.sp.lines
 
         total = len(ls)
-        tf.addText("Total lines in screenplay: %5d" % total)
+        tf.addText("%5d lines in screenplay." % total)
 
         tf.addSpace(2.0)
 
@@ -83,6 +83,6 @@ class ScriptReport:
 
         tf.addSpace(4.0)
 
-        tf.addText("Speaking characters: %d" % len(self.cr.cinfo))
+        tf.addText("%d speaking characters." % len(self.cr.cinfo))
 
         return pdf.generate(tf.doc)

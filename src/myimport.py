@@ -49,7 +49,7 @@ def importAstx(fileName, frame):
     try:
         root = etree.XML(data)
     except etree.XMLSyntaxError, e:
-        wx.MessageBox("Error parsing file: %s" % e, "Error", wx.OK, frame)
+        wx.MessageBox("Error parsing %s." % e, "Error", wx.OK, frame)
         return None
 
     lines = []
@@ -116,11 +116,11 @@ def importFadein(fileName, frame):
         content = f.read()
         z.close()
     except:
-        wx.MessageBox("File is not a valid .fadein file.", "Error", wx.OK, frame)
+        wx.MessageBox("File is an invalid .fadein file.", "Error", wx.OK, frame)
         return None
 
     if not content:
-        wx.MessageBox("Script seems to be empty.", "Error", wx.OK, frame)
+        wx.MessageBox("Screenplay seems to be empty.", "Error", wx.OK, frame)
         return None
 
     elemMap = {
@@ -136,7 +136,7 @@ def importFadein(fileName, frame):
     try:
         root = etree.XML(content)
     except etree.XMLSyntaxError, e:
-        wx.MessageBox("Error parsing file: %s" % e, "Error", wx.OK, frame)
+        wx.MessageBox("Error parsing %s." % e, "Error", wx.OK, frame)
         return None
 
     lines = []
@@ -206,7 +206,7 @@ def importFadein(fileName, frame):
         addElem(lt, items)
 
     if len(lines) == 0:
-        wx.MessageBox("The file contains no importable lines", "Error", wx.OK, frame)
+        wx.MessageBox("The file contains no importable lines.", "Error", wx.OK, frame)
         return None
 
     return lines
@@ -224,7 +224,7 @@ def importCeltx(fileName, frame):
         return None
 
     if len(data) == 0:
-        wx.MessageBox("File is empty.", "Error", wx.OK, frame)
+        wx.MessageBox("The .celtx file is empty.", "Error", wx.OK, frame)
 
         return None
 
@@ -240,7 +240,7 @@ def importCeltx(fileName, frame):
     scripts = [s for s in files if s.startswith("script")]
 
     if len(scripts) == 0:
-        wx.MessageBox("Unable to find script in this Celtx file.", "Error", wx.OK, frame)
+        wx.MessageBox("Unable to find screenplay in this Celtx file.", "Error", wx.OK, frame)
         return None
 
     f = z.open(scripts[0])
@@ -248,7 +248,7 @@ def importCeltx(fileName, frame):
     z.close()
 
     if not content:
-        wx.MessageBox("Script is blank.", "Error", wx.OK, frame)
+        wx.MessageBox("Screenplay is blank.", "Error", wx.OK, frame)
         return None
 
     elemMap = {
@@ -266,7 +266,7 @@ def importCeltx(fileName, frame):
         parser = etree.HTMLParser()
         root = etree.XML(content, parser)
     except etree.XMLSyntaxError, e:
-        wx.MessageBox("Error parsing file: %s" % e, "Error", wx.OK, frame)
+        wx.MessageBox("Error parsing %s." % e, "Error", wx.OK, frame)
         return None
 
     lines = []
@@ -320,7 +320,7 @@ def importFDX(fileName, frame):
         return None
 
     if len(data) == 0:
-        wx.MessageBox("File is empty.", "Error", wx.OK, frame)
+        wx.MessageBox("The .fdx file is empty.", "Error", wx.OK, frame)
 
         return None
 
@@ -383,7 +383,7 @@ def importFDX(fileName, frame):
                 addElem(lt, s)
 
         if len(lines) == 0:
-            wx.MessageBox("The file contains no importable lines", "Error", wx.OK, frame)
+            wx.MessageBox("The file contains no importable lines.", "Error", wx.OK, frame)
             return None
 
         return lines
@@ -445,7 +445,7 @@ def importFountain(fileName, frame):
         return None
 
     if len(data) == 0:
-        wx.MessageBox("File is empty.", "Error", wx.OK, frame)
+        wx.MessageBox("The .fountain file is empty.", "Error", wx.OK, frame)
         return None
 
     inf = []
@@ -453,8 +453,8 @@ def importFountain(fileName, frame):
     inf.append(misc.CheckBoxItem("Remove unsupported formatting markup."))
     inf.append(misc.CheckBoxItem("Import section/synopsis as notes."))
 
-    dlg = misc.CheckBoxDlg(frame, "Fountain import options", inf,
-        "Import options:", False)
+    dlg = misc.CheckBoxDlg(frame, "Fountain Import Options", inf,
+        "Import Options:", False)
 
     if dlg.ShowModal() != wx.ID_OK:
         dlg.Destroy()
@@ -693,7 +693,7 @@ def importTextFile(fileName, frame):
         return None
 
     if len(data) == 0:
-        wx.MessageBox("File is empty.", "Error", wx.OK, frame)
+        wx.MessageBox("Text file is empty.", "Error", wx.OK, frame)
 
         return None
 
@@ -736,7 +736,7 @@ def importTextFile(fileName, frame):
         lines[i] = s
 
     if len(indDict) == 0:
-        wx.MessageBox("File contains only empty lines.", "Error", wx.OK, frame)
+        wx.MessageBox("Text file contains only empty lines.", "Error", wx.OK, frame)
 
         return None
 
@@ -886,14 +886,14 @@ class Indent:
 
 class ImportDlg(wx.Dialog):
     def __init__(self, parent, indents):
-        wx.Dialog.__init__(self, parent, -1, "Adjust styles",
+        wx.Dialog.__init__(self, parent, -1, "Adjust Styles",
                            style=wx.DEFAULT_DIALOG_STYLE)
 
         indents.sort(lambda i1, i2: -cmp(len(i1.lines), len(i2.lines)))
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
-        tmp = wx.StaticText(self, -1, "Input:")
+        tmp = wx.StaticText(self, -1, "Input")
         vsizer.Add(tmp)
 
         self.inputLb = wx.ListBox(self, -1, size=(400, 200))
@@ -905,7 +905,7 @@ class ImportDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Style:"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Style"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
         self.styleCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 
@@ -921,7 +921,7 @@ class ImportDlg(wx.Dialog):
 
         vsizer.Add(hsizer, 0, wx.TOP | wx.BOTTOM, 10)
 
-        vsizer.Add(wx.StaticText(self, -1, "Lines:"))
+        vsizer.Add(wx.StaticText(self, -1, "Lines"))
 
         self.linesEntry = wx.TextCtrl(self, -1, size=(400, 200),
             style = wx.TE_MULTILINE | wx.TE_DONTWRAP)

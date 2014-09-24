@@ -1,18 +1,18 @@
 Source: trelby
 Section: python
 Priority: extra
-Maintainer: Anil Gulecha <anil.verve@gmail.com>
+Maintainer: Jon Miller <millingjon@gmail.com>
 Build-Depends: debhelper (>= 8), python-all (>= 2.7), xsltproc, docbook-xsl, devscripts, fakeroot, python-mock
 Standards-Version: 3.9.5
-Homepage: http://www.trelby.org/
+Homepage: http://www.github.com/millingjon/scrupulous
 
 Package: trelby
 Architecture: all
 Depends: ${misc:Depends}, ${python:Depends}, python-wxgtk2.8, python-crypto, python-lxml
 Description: Feature-rich screenwriting program
  Scrupulous is a simple, powerful, full-featured, multi-platform program
- for writing movie screenplays. It is simple, fast and elegantly laid
- out to make screenwriting simple, and it is infinitely configurable.
+ for writing movie screenplays. Layout is simple and elegantly designed
+ to make screenwriting efficient, and it is infinitely configurable.
  .
  Features:
  .
@@ -21,17 +21,17 @@ Description: Feature-rich screenwriting program
   * Multiplatform: Behaves identically on all platforms, generating the exact
     same output.
   * Choice of view: Multiple views, including draft view, WYSIWYG mode,
-    and fullscreen to suit your writing style.
+    and fullscreen to suit your need.
   * Name database: Character name database containing over 200,000 names
     from various countries.
   * Reporting: Scene/location/character/dialogue reports.
-  * Compare: Ability to compare scripts, so you know what changed between
-    versions.
+  * Compare: Ability to compare screenplays, so you know what changed
+    between drafts.
   * Import: Screenplay formatted text, Final Draft XML (.fdx)
      and Celtx (.celtx).
   * Export: PDF, formatted text, HTML, RTF, Final Draft XML (.fdx).
   * PDF: Built-in, highly configurable PDF generator. Supports embedding your
     chosen font. Also supports generating PDFs with custom watermarks,
     to help track shared files.
-  * Free software: Licensed under the GPL, Scrupulous welcomes developers and
+  * Free Software: Licensed under the GPL, Scrupulous welcomes developers and
     screenwriters to contribute in making it more useful.

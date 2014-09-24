@@ -14,9 +14,9 @@ class LocationsDlg(wx.Dialog):
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         tmp = wx.StaticText(self, -1, "Locations")
-        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 5)
+        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 3)
 
-        self.locationsLb = wx.ListBox(self, -1, size=(450, 200))
+        self.locationsLb = wx.ListBox(self, -1, size=(400, 200))
         vsizer.Add(self.locationsLb, 1, wx.EXPAND)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -32,9 +32,9 @@ class LocationsDlg(wx.Dialog):
         vsizer.Add(hsizer, 0, wx.ALIGN_CENTER | wx.TOP, 10)
 
         tmp = wx.StaticText(self, -1, "Scenes")
-        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 5)
+        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 3)
 
-        self.scenesLb = wx.ListBox(self, -1, size=(450, 200),
+        self.scenesLb = wx.ListBox(self, -1, size=(500, 200),
                                    style = wx.LB_EXTENDED)
         vsizer.Add(self.scenesLb, 1, wx.EXPAND)
 
@@ -85,7 +85,7 @@ class LocationsDlg(wx.Dialog):
         selected = self.scenesLb.GetSelections()
 
         if not selected:
-            wx.MessageBox("No scenes selected in the lower list.", "Error",
+            wx.MessageBox("None of the scenes are selected.", "Error",
                           wx.OK, self)
 
             return
@@ -134,7 +134,7 @@ class LocationsDlg(wx.Dialog):
             scene = self.locationsLb.GetClientData(idx)
 
         if scene is None:
-            wx.MessageBox("No scene selected in the upper list.", "Error",
+            wx.MessageBox("None of the locations are selected.", "Error",
                           wx.OK, self)
 
             return

@@ -247,17 +247,17 @@ class Screenplay:
 
         if len(lines) < 2:
             raise error.MiscError("File has too few lines to be a valid\n"
-                                  "screenplay file.")
+                                  "screenplay.")
 
         key, version = Screenplay.parseConfigLine(lines[0])
         if not key or (key != "Version"):
             raise error.MiscError("File doesn't seem to be a proper\n"
-                                  "screenplay file.")
+                                  "screenplay.")
 
         if version not in ("1", "2", "3"):
             raise error.MiscError("File uses fileformat version '%s',\n"
-                                  "which is not supported by this version\n"
-                                  "of the program." % version)
+                                  "which is unsupported by this version\n"
+                                  "of Scrupulous." % version)
 
         version = int(version)
 
@@ -368,7 +368,7 @@ class Screenplay:
                     prevType = None
 
         if not startSeen:
-            raise error.MiscError("Start-Screenplay line not found.")
+            raise error.MiscError("Start-Screenplay line is not found.")
 
         if len(sp.lines) == 0:
             raise error.MiscError("File isn't a screenplay.")
@@ -389,17 +389,17 @@ class Screenplay:
         msgs = []
 
         if unknownLb:
-            msgs.append("Screenplay contained unknown linebreak types.")
+            msgs.append("Screenplay contains unknown linebreak types.")
 
         if unknownTypes:
-            msgs.append("Screenplay contained unknown element types. These"
-                        " have been converted to Action elements.")
+            msgs.append("Screenplay contains unknown element types. These"
+                        " lines are now Action elements.")
 
         if unknownConfigs:
-            msgs.append("Screenplay contained unknown information. This"
-                        " probably means that the file was created with a"
-                        " newer version of this program.\n\n"
-                        "  You'll lose that information if you save over"
+            msgs.append("Screenplay contains unknown information. This"
+                        " means that the file modified with a"
+                        " newer version of Scrupulous.\n\n"
+                        "  Information will be lost if you save over"
                         " the existing file.")
 
         return (sp, "\n\n".join(msgs))
@@ -529,7 +529,7 @@ p {text-align: center;}
 <body>
 """
         htmlFooter = """<p class = "footer">***<br>
-Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
+Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous</a>.</p>
 </body>
 </html>"""
 
@@ -2477,7 +2477,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
                 break
 
             if (len(ln.text.strip("  ")) == 0) and (ln.lt != NOTE):
-                msg = "Empty line (contains only spaces)."
+                msg = "Empty line contains only spaces."
                 break
 
             if (ln.lt == PAREN) and isOnly and (ln.text == "()"):
@@ -2485,11 +2485,11 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
                 break
 
             if ln.text != util.toInputStr(ln.text):
-                msg = "Line contains invalid characters (BUG)."
+                msg = "Line contains invalid characters."
                 break
 
             if len(ln.text.rstrip(" ")) > tcfg.width:
-                msg = "Line is too long (BUG)."
+                msg = "Line is too long."
                 break
 
             if ln.lt == CHARACTER:
@@ -2513,7 +2513,7 @@ Generated with <a href="http://www.trelby.org">Trelby</a>.</p>
             if prevType:
                 if ln.lt != prevType:
                     msg = "Element contains lines with different line"\
-                          " types (BUG)."
+                          " types."
                     break
 
             if ln.lb == LB_LAST:

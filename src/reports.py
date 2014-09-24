@@ -12,8 +12,8 @@ import wx
 def genSceneReport(mainFrame, sp):
     report = scenereport.SceneReport(sp)
 
-    dlg = misc.CheckBoxDlg(mainFrame, "Report type", report.inf,
-        "Information to include:", False)
+    dlg = misc.CheckBoxDlg(mainFrame, "Report Type", report.inf,
+        "Information to include", False)
 
     ok = False
     if dlg.ShowModal() == wx.ID_OK:
@@ -31,8 +31,8 @@ def genSceneReport(mainFrame, sp):
 def genLocationReport(mainFrame, sp):
     report = locationreport.LocationReport(scenereport.SceneReport(sp))
 
-    dlg = misc.CheckBoxDlg(mainFrame, "Report type", report.inf,
-        "Information to include:", False)
+    dlg = misc.CheckBoxDlg(mainFrame, "Report Type", report.inf,
+        "Information to include", False)
 
     ok = False
     if dlg.ShowModal() == wx.ID_OK:
@@ -60,9 +60,9 @@ def genCharacterReport(mainFrame, sp):
     for s in util.listify(report.cinfo, "name"):
         charNames.append(misc.CheckBoxItem(s))
 
-    dlg = misc.CheckBoxDlg(mainFrame, "Report type", report.inf,
-        "Information to include:", False, charNames,
-        "Characters to include:", True)
+    dlg = misc.CheckBoxDlg(mainFrame, "Report Type", report.inf,
+        "Information to include", False, charNames,
+        "Characters to include", True)
 
     ok = False
     if dlg.ShowModal() == wx.ID_OK:

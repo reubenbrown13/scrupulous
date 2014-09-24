@@ -47,7 +47,7 @@ class SceneReport:
 
             tf.addSpace(1.0)
 
-            tf.addText("     Lines: %d (%s%% action), Pages: %d"
+            tf.addText("     %d Lines (%s%% action), %d Pages"
                 " (%s)" % (si.lines, util.pct(si.actionLines, si.lines),
                 len(si.pages), si.pages))
 

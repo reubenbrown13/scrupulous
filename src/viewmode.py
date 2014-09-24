@@ -317,7 +317,6 @@ class ViewModeLayout(ViewMode):
 
         # create pages, convert them to display format, repeat until
         # script ends or we've filled the display.
-
         done = False
         while 1:
             if done or (y >= height):

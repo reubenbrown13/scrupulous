@@ -76,7 +76,7 @@ def getPathFromRegistry():
 
     except:
         wx.MessageBox("There was an error reading the following registry key: %s.\n"
-                      "Try reinstalling the program to fix this error." %
+                      "Try reinstalling Scrupulous." %
                       registryPath, "Error", wx.OK)
         sys.exit()
 
@@ -572,7 +572,7 @@ class ScriptChooserDlg(wx.Dialog):
 
         vsizer.Add(gsizer)
 
-        self.forceCb = wx.CheckBox(self, -1, "Use same configuration")
+        self.forceCb = wx.CheckBox(self, -1, "Use Same Configuration")
         self.forceCb.SetValue(True)
         vsizer.Add(self.forceCb, 0, wx.TOP, 10)
 

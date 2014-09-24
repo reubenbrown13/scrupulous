@@ -15,9 +15,6 @@ class AutoCompletionDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Element"), 0,
-                   wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
-
         self.elementsCombo = wx.ComboBox(self, -1, style = wx.CB_READONLY)
 
         for t in autoCompletion.types.itervalues():
@@ -35,10 +32,10 @@ class AutoCompletionDlg(wx.Dialog):
         wx.EVT_CHECKBOX(self, self.enabledCb.GetId(), self.OnMisc)
         vsizer.Add(self.enabledCb, 0, wx.BOTTOM, 10)
 
-        vsizer.Add(wx.StaticText(self, -1, "Default Items"))
+        vsizer.Add(wx.StaticText(self, -1, "Default List"))
 
         self.itemsEntry = wx.TextCtrl(self, -1, style = wx.TE_MULTILINE |
-                                      wx.TE_DONTWRAP, size = (400, 200))
+                                      wx.TE_DONTWRAP, size = (200, 250))
         wx.EVT_TEXT(self, self.itemsEntry.GetId(), self.OnMisc)
         vsizer.Add(self.itemsEntry, 1, wx.EXPAND)
 

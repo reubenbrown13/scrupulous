@@ -105,7 +105,7 @@ class CfgDlg(wx.Dialog):
             self.AddPage(FormattingPanel, "Formatting")
             self.AddPage(PaperPanel, "Paper")
             self.AddPage(PDFPanel, "PDF")
-            self.AddPage(PDFFontsPanel, "PDF/Fonts")
+            self.AddPage(PDFFontsPanel, "PDF Fonts")
             self.AddPage(StringsPanel, "Strings")
 
         size = self.listbook.GetContainingSize()
@@ -188,7 +188,7 @@ The settings here are independent of any screenplay opened in
 Scrupulous, and unique to this computer.
 
 None of the settings here have any effect on the generated PDF
-output for a screenplay. See Script/Settings for those."""
+output for a screenplay. Navigate to Screenplay/Settings for those."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
 
@@ -198,12 +198,12 @@ class ScriptAboutPanel(AboutPanel):
 """This is the config dialog for screenplay format settings, which
 affects the generated PDF output of a screenplay. Such formatting
 as paper size, indendation/line widths/font styles for the
-different element types, and so on.
+different element types, and more.
 
-The settings here are saved within the screenplay itself.
+These settings are saved within the screenplay itself.
 
 Looking for the user interface settings (colors, keyboard
-shortcuts, etc.)? See File/Settings for those."""
+shortcuts, etc.)? Navigate to File/Settings for those."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
 
@@ -251,14 +251,14 @@ class DisplayPanel(wx.Panel):
         wx.EVT_KILL_FOCUS(self.spacingEntry, self.OnKillFocus)
         hsizer.Add(self.spacingEntry, 0)
 
-        hsizer.Add(wx.StaticText(self, -1, "pixels"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "(in pixels)"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
         vsizer.Add(hsizer, 0, wx.EXPAND | wx.BOTTOM, 15)
 
-        self.pbRb = wx.RadioBox(self, -1, "Page break lines to show",
+        self.pbRb = wx.RadioBox(self, -1, "Page Break Lines",
             style=wx.RA_SPECIFY_COLS, majorDimension=1,
-            choices=["None", "Normal", "Normal + unadjusted   "])
+            choices=["None", "Normal", "Normal + unadjusted"])
         vsizer.Add(self.pbRb)
 
         self.fontsLb.SetSelection(0)
@@ -299,7 +299,7 @@ class DisplayPanel(wx.Panel):
                 self.updateFontLb()
             else:
                 wx.MessageBox("The selected font is not fixed width and"
-                              " can not be used.", "Error", wx.OK, cfgFrame)
+                              " cannot be used.", "Error", wx.OK, cfgFrame)
 
         dlg.Destroy()
 
@@ -604,8 +604,9 @@ class PaperPanel(wx.Panel):
         self.blockEvents = 1
 
         self.paperSizes = {
-            "A4": (210.0, 297.0),
             "Letter": (215.9, 279.4),
+            "Legal": (215.9, 355.6),
+            "A4 sheet": (210.0, 297.0),
             "Custom": (1.0, 1.0)
             }
 
@@ -628,7 +629,7 @@ class PaperPanel(wx.Panel):
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
         self.widthEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.widthEntry)
-        hsizer.Add(wx.StaticText(self, -1, "mm"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "MM"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 5)
         gsizer.Add(hsizer)
 
@@ -637,7 +638,7 @@ class PaperPanel(wx.Panel):
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
         self.heightEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.heightEntry)
-        hsizer.Add(wx.StaticText(self, -1, "mm"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "MM"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 5)
         gsizer.Add(hsizer)
 
@@ -719,7 +720,7 @@ class PaperPanel(wx.Panel):
 
     def setLines(self):
         self.cfg.recalc(False)
-        self.linesLabel.SetLabel("Lines Per Page: %d" % self.cfg.linesOnPage)
+        self.linesLabel.SetLabel("%d Lines Per Page" % self.cfg.linesOnPage)
 
     def OnPaperCombo(self, event):
         w, h = self.paperCombo.GetClientData(self.paperCombo.GetSelection())
@@ -808,7 +809,7 @@ class FormattingPanel(wx.Panel):
 
         vsizer.Add(wx.StaticText(self, -1,
             "Leave at least this many lines at the end of a page when\n"
-            "breaking in the middle of an element"), 0, wx.BOTTOM, 5)
+            "breaking in the middle of an element."), 0, wx.BOTTOM, 5)
 
         gsizer = wx.FlexGridSizer(2, 2, 5, 0)
 
@@ -846,7 +847,7 @@ class FormattingPanel(wx.Panel):
         if misc.isWindows:
             pad = 10
 
-        self.lineNumbersCb = wx.CheckBox(self, -1, "Show Line Numbers (Debug)")
+        self.lineNumbersCb = wx.CheckBox(self, -1, "Show Line Numbers")
         wx.EVT_CHECKBOX(self, self.lineNumbersCb.GetId(), self.OnMisc)
         vsizer.Add(self.lineNumbersCb, 0, wx.TOP, pad)
 
@@ -909,8 +910,6 @@ class KeyboardPanel(wx.Panel):
 
         vsizer2 = wx.BoxSizer(wx.VERTICAL)
 
-        vsizer2.Add(wx.StaticText(self, -1, "Commands"))
-
         self.commandsLb = wx.ListBox(self, -1, size=(175, 50))
 
         for cmd in self.cfg.commands:
@@ -921,8 +920,6 @@ class KeyboardPanel(wx.Panel):
         hsizer.Add(vsizer2, 0, wx.EXPAND | wx.RIGHT, 15)
 
         vsizer2 = wx.BoxSizer(wx.VERTICAL)
-
-        vsizer2.Add(wx.StaticText(self, -1, "Keys"))
 
         self.keysLb = wx.ListBox(self, -1, size=(150, 60))
         vsizer2.Add(self.keysLb, 1, wx.BOTTOM, 10)
@@ -937,8 +934,6 @@ class KeyboardPanel(wx.Panel):
         vsizer2.Add(btn, 0, wx.ALIGN_CENTER | wx.BOTTOM, 10)
         self.deleteBtn = btn
 
-        vsizer2.Add(wx.StaticText(self, -1, "Description"))
-
         self.descEntry = wx.TextCtrl(self, -1,
             style=wx.TE_MULTILINE | wx.TE_READONLY, size=(150, 75))
         vsizer2.Add(self.descEntry, 1, wx.EXPAND)
@@ -947,7 +942,7 @@ class KeyboardPanel(wx.Panel):
 
         vsizer.Add(hsizer)
 
-        vsizer.Add(wx.StaticText(self, -1, "Conflicting keys"), 0, wx.TOP, 10)
+        vsizer.Add(wx.StaticText(self, -1, "Conflicting Keys"), 0, wx.TOP, 10)
 
         self.conflictsEntry = wx.TextCtrl(self, -1,
             style=wx.TE_MULTILINE | wx.TE_READONLY, size=(50, 75))
@@ -1109,7 +1104,7 @@ class MiscPanel(wx.Panel):
             ("blinkCursor", "Blink the Cursor"),
             ]
 
-        self.checkList = wx.CheckListBox(self, -1, size=(-1, 120))
+        self.checkList = wx.CheckListBox(self, -1, size=(-1, 80))
 
         for it in self.checkListItems:
             self.checkList.Append(it[1])
@@ -1125,7 +1120,7 @@ class MiscPanel(wx.Panel):
         vsizer.Add(self.enableRecoveryCb, 0, wx.BOTTOM, pad)
 
         self.checkErrorsCb = wx.CheckBox(self, -1,
-            "Check screenplay for errors before print, export or compare")
+            "Check screenplay for errors before print, export, or compare")
         wx.EVT_CHECKBOX(self, self.checkErrorsCb.GetId(), self.OnMisc)
         vsizer.Add(self.checkErrorsCb, 0, wx.BOTTOM, 10)
 
@@ -1404,7 +1399,7 @@ class PDFPanel(wx.Panel):
             "Omit Note Elements", vsizer, pad)
 
         self.outlineNotesCb = self.addCb(
-            "  Draw Rectangles Around Note Elements", vsizer, pad)
+            "Draw Rectangles Around Note Elements", vsizer, pad)
 
         self.marginsCb = self.addCb("Show Margins (Debug)", vsizer, pad)
 
@@ -1453,9 +1448,9 @@ class PDFFontsPanel(wx.Panel):
             "Leave all the fields empty to use the default PDF Courier\n"
             "fonts.\n"
             "\n"
-            "Otherwise, fill in the font name (e.g. AndaleMono) to use\n"
-            "the specified TrueType font. To embed the font in the\n"
-            "generated PDF files, fill in the font filename as well.\n"
+            "Fill in the font name (e.g. AndaleMono) to use the\n"
+            "specified TrueType font. To embed the font in the\n"
+            "generated PDF files, fill in the font filename.\n"
             "\n"
             "Read the manual for more information.\n"))
 

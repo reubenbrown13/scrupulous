@@ -1149,7 +1149,7 @@ class MyCtrl(wx.Control):
                 return "Invalid Scene Number"
 
         dlg = misc.TextInputDlg(mainFrame, "Enter Scene Number (%s - %s):" %
-            (scenes[0][0], scenes[-1][0]), "Goto Scene", validateFunc)
+            (scenes[0][0], scenes[-1][0]), "Go to Scene", validateFunc)
 
         if dlg.ShowModal() == wx.ID_OK:
             for it in scenes:
@@ -1177,7 +1177,7 @@ class MyCtrl(wx.Control):
                 return "Invalid Page Number"
 
         dlg = misc.TextInputDlg(mainFrame, "Enter Page Number (%s - %s):" %
-            (pages[0], pages[-1]), "Goto Page", validateFunc)
+            (pages[0], pages[-1]), "Go to Page", validateFunc)
 
         if dlg.ShowModal() == wx.ID_OK:
             page = int(dlg.input)
@@ -2017,8 +2017,8 @@ class MyFrame(wx.Frame):
         editMenu.AppendSeparator()
         editMenu.Append(ID_EDIT_SELECT_SCENE, "&Select Scene")
         editMenu.Append(ID_EDIT_SELECT_ALL, "Select A&ll")
-        editMenu.Append(ID_EDIT_GOTO_PAGE, "&Goto Page...\tCTRL-G")
-        editMenu.Append(ID_EDIT_GOTO_SCENE, "Goto Sc&ene...\tALT-G")
+        editMenu.Append(ID_EDIT_GO_TO_PAGE, "&Go to Page...\tCTRL-G")
+        editMenu.Append(ID_EDIT_GO_TO_SCENE, "Go to Sc&ene...\tALT-G")
         editMenu.AppendSeparator()
         editMenu.Append(ID_EDIT_INSERT_NBSP, "Insert Non-breaking Space")
         editMenu.AppendSeparator()
@@ -2230,8 +2230,8 @@ class MyFrame(wx.Frame):
         wx.EVT_MENU(self, ID_EDIT_SELECT_SCENE, self.OnSelectScene)
         wx.EVT_MENU(self, ID_EDIT_UPPER, self.OnUpper)
         wx.EVT_MENU(self, ID_EDIT_SELECT_ALL, self.OnSelectAll)
-        wx.EVT_MENU(self, ID_EDIT_GOTO_PAGE, self.OnGotoPage)
-        wx.EVT_MENU(self, ID_EDIT_GOTO_SCENE, self.OnGotoScene)
+        wx.EVT_MENU(self, ID_EDIT_GO_TO_PAGE, self.OnGotoPage)
+        wx.EVT_MENU(self, ID_EDIT_GO_TO_SCENE, self.OnGotoScene)
         wx.EVT_MENU(self, ID_EDIT_INSERT_NBSP, self.OnInsertNbsp)
         wx.EVT_MENU(self, ID_EDIT_FIND, self.OnFind)
         wx.EVT_MENU(self, ID_EDIT_DELETE_ELEMENTS, self.OnDeleteElements)
@@ -2318,8 +2318,8 @@ class MyFrame(wx.Frame):
             "ID_EDIT_CUT",
             "ID_EDIT_DELETE_ELEMENTS",
             "ID_EDIT_FIND",
-            "ID_EDIT_GOTO_SCENE",
-            "ID_EDIT_GOTO_PAGE",
+            "ID_EDIT_GO_TO_SCENE",
+            "ID_EDIT_GO_TO_PAGE",
             "ID_EDIT_INSERT_NBSP",
             "ID_EDIT_PASTE",
             "ID_EDIT_PASTE_FROM_CB",

@@ -311,8 +311,8 @@ class PDFExporter:
         else:
             extra = ""
 
-        return self.addObj("<< /Creator (Trelby %s)\n"
-                           "/Producer (Trelby %s)\n"
+        return self.addObj("<< /Creator (Scrupulous %s)\n"
+                           "/Producer (Scrupulous %s)\n"
                            "%s"
                            ">>" % (version, version, extra))
 

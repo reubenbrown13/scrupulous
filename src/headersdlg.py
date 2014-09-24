@@ -188,7 +188,7 @@ class HeadersDlg(wx.Dialog):
         doc = pml.Document(self.cfg.paperWidth, self.cfg.paperHeight)
 
         pg = pml.Page(doc)
-        self.headers.generatePML(pg, "42", self.cfg)
+        self.headers.generatePML(pg, "99", self.cfg)
 
         fs = self.cfg.fontSize
         chY = util.getTextHeight(fs)

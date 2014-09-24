@@ -32,17 +32,17 @@ def readNames(frame):
                 nameType = line[1:]
             elif ch in ("M", "F"):
                 if not nameType:
-                    raise Exception("No name type set before line: '%s'" % line)
+                    raise Exception("No name type set before line '%s'" % line)
                 res.append(line[1:], nameType, ch)
             else:
-                raise Exception("Unknown linetype for line: '%s'" % line)
+                raise Exception("Unknown linetype for line '%s'" % line)
 
         nameArr = res
 
         return True
 
     except Exception, e:
-        wx.MessageBox("Error loading name database: %s" % str(e),
+        wx.MessageBox("Error loading name database %s" % str(e),
                       "Error", wx.OK, frame)
 
 
