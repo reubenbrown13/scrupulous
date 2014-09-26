@@ -58,6 +58,9 @@ VIEWMODE_OVERVIEW_SMALL,\
 VIEWMODE_OVERVIEW_LARGE,\
 = range(5)
 
+# pixels to add to the page width to get the minimum size of window
+WIDTH_PADDING = 100
+
 # double-click codes
 WORD_NOT_SELECTED = 0
 WORD_SELECTED = 1
@@ -395,6 +398,14 @@ class MyCtrl(wx.Control):
         # page width and height on screen, in pixels
         self.pageW = int(self.pageW)
         self.pageH = int(self.mm2p * self.sp.cfg.paperHeight)
+
+        # set minimum width
+        if gd.viewMode == VIEWMODE_DRAFT or gd.viewMode == VIEWMODE_LAYOUT:
+            w,h = mainFrame.GetSize()
+            newMinWidth = self.pageW + WIDTH_PADDING
+            if w < newMinWidth:
+                mainFrame.SetSize((newMinWidth,-1))
+            mainFrame.SetMinSize((newMinWidth,-1))
 
     def getCfgGui(self):
         return cfgGui
@@ -1454,6 +1465,7 @@ class MyCtrl(wx.Control):
     def cmdDeleteBackward(self, cs):
         if not self.sp.mark:
             self.sp.deleteBackwardCmd(cs)
+            self.sp.backspacePressed = True
         else:
             self.OnCut(doUpdate=False, copyToClip=False)
 

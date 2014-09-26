@@ -98,6 +98,9 @@ class Screenplay:
         # load/save/creation.
         self.hasChanged = False
 
+        # Was backspace just pressed?
+        self.backspacePressed = False
+
         # first/last undo objects (undo.Base)
         self.firstUndo = None
         self.lastUndo = None
@@ -2366,7 +2369,7 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
     # returns true if a character, inserted at current position, would
     # need to be capitalized as a start of a sentence.
     def capitalizeNeeded(self):
-        if not self.cfgGl.capitalize:
+        if not self.cfgGl.capitalize or self.backspacePressed:
             return False
 
         ls = self.lines
@@ -3167,6 +3170,8 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
 
         if self.capitalizeNeeded():
             char = util.upper(char)
+
+        self.backspacePressed = False
 
         ls = self.lines
         s = ls[self.line].text
