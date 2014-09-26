@@ -543,7 +543,7 @@ class ColorsPanel(wx.Panel):
         wx.EVT_BUTTON(self, btn.GetId(), self.OnChangeColor)
         vsizer2.Add(btn, 0, wx.ALIGN_CENTER | wx.BOTTOM, 10)
 
-        btn = wx.Button(self, -1, " Restore Default ")
+        btn = wx.Button(self, -1, "Restore")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnDefaultColor)
         vsizer2.Add(btn, wx.ALIGN_CENTER)
 
@@ -697,7 +697,7 @@ class PaperPanel(wx.Panel):
         return round(f1, 2) == round(f2, 2)
 
     def addMarginCtrl(self, name, parent, sizer):
-        sizer.Add(wx.StaticText(parent, -1, name + ":"), 0,
+        sizer.Add(wx.StaticText(parent, -1, name), 0,
                   wx.ALIGN_CENTER_VERTICAL)
 
         entry = wx.TextCtrl(parent, -1)
@@ -823,7 +823,7 @@ class FormattingPanel(wx.Panel):
         self.addSpin("fontSize", "Font size", self, hsizer, "fontSize")
         vsizer.Add(hsizer, 0, wx.TOP, 20)
 
-        vsizer.Add(wx.StaticText(self, -1, "Scene CONTINUEDs:"), 0,
+        vsizer.Add(wx.StaticText(self, -1, "Scene CONTINUEDs"), 0,
                    wx.TOP, 20)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -832,7 +832,7 @@ class FormattingPanel(wx.Panel):
         hsizer.Add(self.sceneContinuedsCb, 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
-        self.addSpin("sceneContinuedIndent", "indent:", self, hsizer,
+        self.addSpin("sceneContinuedIndent", "indent", self, hsizer,
                      "sceneContinuedIndent")
         hsizer.Add(wx.StaticText(self, -1, "characters"), 0,
                   wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
@@ -1289,7 +1289,7 @@ class ElementsGlobalPanel(wx.Panel):
         self.OnElementCombo()
 
     def addTypeCombo(self, name, descr, parent, sizer):
-        sizer.Add(wx.StaticText(parent, -1, descr + ":"), 0,
+        sizer.Add(wx.StaticText(parent, -1, descr), 0,
                   wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
 
         combo = wx.ComboBox(parent, -1, style=wx.CB_READONLY)
@@ -1446,18 +1446,17 @@ class PDFFontsPanel(wx.Panel):
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         vsizer.Add(wx.StaticText(self, -1,
-            "Leave all the fields empty to use the default PDF \n"
-            "Courier fonts.\n"
+            "Leave empty to use the default PDF Courier fonts.\n"
             "\n"
-            "Fill in the font name (e.g. AndaleMono) to use the\n"
-            "specified TrueType font. To embed the font in the\n"
-            "generated PDF files, fill in the font filename.\n"
+            "Fill in the font name (e.g. AndaleMono) to use the specified\n"
+            "TrueType font. To embed the font in the generated PDFs,\n"
+            "fill in the font filename.\n"
             "\n"
             "Read the manual for more information.\n"))
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Type"), 0,
+        hsizer.Add(wx.StaticText(self, -1, "Style"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
 
         self.typeCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
@@ -1479,7 +1478,7 @@ class PDFFontsPanel(wx.Panel):
         gsizer.Add((1, 1), 0)
 
         self.addEntry("fileEntry", "File", self, gsizer)
-        btn = wx.Button(self, -1, "Browse")
+        btn = wx.Button(self, -1, "Font...")
         gsizer.Add(btn)
 
         wx.EVT_BUTTON(self, btn.GetId(), self.OnBrowse)
