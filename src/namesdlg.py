@@ -247,7 +247,7 @@ class MyListCtrl(wx.ListCtrl):
         w = util.getTextExtent(self.GetFont(), "Female")[0] + 15
         self.SetColumnWidth(2, w)
 
-        util.setWH(self, w=120*2 + w + 25)
+        util.setWH(self, w=120 * 2 + w + 25)
 
     def OnGetItemText(self, item, col):
         n = self.items[item]

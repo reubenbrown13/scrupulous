@@ -16,7 +16,7 @@ class SCDictDlg(wx.Dialog):
         if isGlobal:
             s = "Global Words"
         else:
-            s = "Script-specific Words"
+            s = "Screenplay-specific Words"
 
         vsizer.Add(wx.StaticText(self, -1, s))
 

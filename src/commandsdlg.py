@@ -8,7 +8,7 @@ import wx.html
 class CommandsDlg(wx.Frame):
     def __init__(self, cfgGl):
         wx.Frame.__init__(self, None, -1, "Commands",
-                          size = (650, 600), style = wx.DEFAULT_FRAME_STYLE)
+                          size=(650, 600), style = wx.DEFAULT_FRAME_STYLE)
 
         self.Center()
 
@@ -81,8 +81,8 @@ R                      Replace
 
     def OnSave(self, event):
         dlg = wx.FileDialog(self, "Save Screenplay As",
-            wildcard = "HTML files (*.html)|*.html|All files|*",
-            style = wx.SAVE | wx.OVERWRITE_PROMPT)
+            wildcard="HTML files (*.html)|*.html|All files|*",
+            style=wx.SAVE | wx.OVERWRITE_PROMPT)
 
         if dlg.ShowModal() == wx.ID_OK:
             util.writeToFile(dlg.GetPath(), self.html, self)

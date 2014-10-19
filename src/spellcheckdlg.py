@@ -88,7 +88,7 @@ class SpellCheckDlg(wx.Dialog):
             self.sc.col += len(self.sc.word)
 
         if not self.sc.findNext():
-            wx.MessageBox("No more spelling errors found.", "Results",
+            wx.MessageBox("No spelling errors found.", "Results",
                           wx.OK, self)
 
             self.EndModal(wx.ID_OK)
@@ -193,7 +193,7 @@ class SpellCheckDlg(wx.Dialog):
         wx.EndBusyCursor()
 
         if len(items) == 0:
-            wx.MessageBox("No Word Suggestions Found", "Results",
+            wx.MessageBox("No Suggestions", "Results",
                           wx.OK, self)
 
             return

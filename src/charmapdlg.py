@@ -1,5 +1,4 @@
 import gutil
-import misc
 import util
 
 import wx
@@ -149,7 +148,7 @@ class MyCharMap(wx.Window):
 
         else:
             dc.SetFont(self.smallFont)
-            dc.DrawText("Click on a character", self.offset,
+            dc.DrawText("Select a character", self.offset,
                         y + pad)
 
     def drawCharBox(self, dc, text, char, x, y, xinc):

@@ -504,7 +504,7 @@ class ViewModeSideBySide(ViewMode):
             sel = t
             break
 
-        if sel == None:
+        if sel is None:
             return (None, None)
 
         line = sel.line

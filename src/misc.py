@@ -213,10 +213,10 @@ class MyStatus(wx.Window):
         util.drawText(dc, s, x, cy, valign=util.VALIGN_CENTER)
 
         dc.SetPen(cfgGui.tabBorderPen)
-        dc.DrawLine(0, h-1, w, h-1)
+        dc.DrawLine(0, h - 1, w, h - 1)
 
         for x in (MyStatus.X_ELEDIVIDER, 0):
-            dc.DrawLine(x, 0, x, h-1)
+            dc.DrawLine(x, 0, x, h - 1)
 
     def SetValues(self, page, pageCnt, elemType, tabNext, enterNext):
         self.page = page
@@ -271,7 +271,7 @@ class MyTabCtrl(wx.Window):
         self.boldFont = None
 
         self.SetMinSize(wx.Size(
-                self.paddingX * 2 + self.arrowWidth * 2 + self.arrowSpacing +\
+                self.paddingX * 2 + self.arrowWidth * 2 + self.arrowSpacing +
                     self.tabWidth + 5,
                 TAB_BAR_HEIGHT))
 
@@ -456,7 +456,7 @@ class MyTabCtrl(wx.Window):
         dc.DrawRectangle(0, 0, w, h)
 
         dc.SetPen(cfgGui.tabBorderPen)
-        dc.DrawLine(0, h-1, w, h-1)
+        dc.DrawLine(0, h - 1, w, h - 1)
 
         xpos = self.paddingX
 
@@ -482,10 +482,10 @@ class MyTabCtrl(wx.Window):
             dc.SetPen(cfgGui.tabBorderPen)
 
             if i == self.selected:
-                points = ((6, 1), (tabW-8, 1), (tabW-6, 2), (tabW-2, tabH), (0, tabH), (4, 2))
+                points = ((6, 1), (tabW-8, 1), (tabW - 6, 2), (tabW - 2, tabH), (0, tabH), (4, 2))
                 dc.SetBrush(cfgGui.workspaceBrush)
             else:
-                points = ((5, 2), (tabW-8, 2), (tabW-6, 3), (tabW-2, tabH-1), (0, tabH-1), (3, 3))
+                points = ((5, 2), (tabW - 8, 2), (tabW - 6, 3), (tabW - 2, tabH - 1), (0, tabH - 1), (3, 3))
                 dc.SetBrush(cfgGui.tabNonActiveBgBrush)
 
             dc.DrawPolygon(points, xpos, tabY)
@@ -800,7 +800,7 @@ class TextDlg(wx.Dialog):
         tc = wx.TextCtrl(self, -1, size=wx.Size(400, 200),
                          style=wx.TE_MULTILINE | wx.TE_READONLY | wx.TE_LINEWRAP)
         tc.SetValue(text)
-        vsizer.Add(tc, 1, wx.EXPAND);
+        vsizer.Add(tc, 1, wx.EXPAND)
 
         vsizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 5)
 
@@ -839,7 +839,7 @@ class TextInputDlg(wx.Dialog):
         vsizer.Add(wx.StaticText(self, -1, text), 1, wx.EXPAND | wx.BOTTOM, 5)
 
         self.tc = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
-        vsizer.Add(self.tc, 1, wx.EXPAND);
+        vsizer.Add(self.tc, 1, wx.EXPAND)
 
         vsizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 5)
 
@@ -1028,7 +1028,7 @@ class ExitCancelDlg(wx.Dialog):
         hsizer.Add(img, 0, wx.ALIGN_CENTER_VERTICAL)
         hsizer.Add(tc, 0, wx.LEFT, 10)
 
-        vsizer.Add(hsizer);
+        vsizer.Add(hsizer)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 

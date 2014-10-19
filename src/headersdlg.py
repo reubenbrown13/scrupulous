@@ -10,7 +10,7 @@ import wx
 class HeadersDlg(wx.Dialog):
     def __init__(self, parent, headers, cfg, cfgGl, applyFunc):
         wx.Dialog.__init__(self, parent, -1, "Headers",
-                           style = wx.DEFAULT_DIALOG_STYLE)
+                           style=wx.DEFAULT_DIALOG_STYLE)
 
         self.headers = headers
         self.cfg = cfg
@@ -45,7 +45,7 @@ class HeadersDlg(wx.Dialog):
         tmp = wx.StaticText(self, -1, "Strings")
         vsizer.Add(tmp)
 
-        self.stringsLb = wx.ListBox(self, -1, size = (200, 100))
+        self.stringsLb = wx.ListBox(self, -1, size=(200, 100))
         vsizer.Add(self.stringsLb, 0, wx.EXPAND)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
@@ -63,9 +63,6 @@ class HeadersDlg(wx.Dialog):
         vsizer.Add(hsizer, 0, wx.TOP, 5)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
-
-        hsizer.Add(wx.StaticText(self, -1, "Text"), 0,
-                   wx.ALIGN_CENTER_VERTICAL)
 
         self.textEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.textEntry, 1, wx.LEFT, 10)
@@ -90,7 +87,7 @@ class HeadersDlg(wx.Dialog):
         wx.EVT_KILL_FOCUS(self.lineEntry, self.OnKillFocus)
         gsizer.Add(self.lineEntry)
 
-        gsizer.Add(wx.StaticText(self, -1, "X Offset (Characters)"), 0,
+        gsizer.Add(wx.StaticText(self, -1, "X Offset"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
 
         self.xoffEntry = wx.SpinCtrl(self, -1)
@@ -101,10 +98,10 @@ class HeadersDlg(wx.Dialog):
 
         gsizer.Add(wx.StaticText(self, -1, "Alignment"), 0,
                    wx.ALIGN_CENTER_VERTICAL)
-        self.alignCombo = wx.ComboBox(self, -1, style = wx.CB_READONLY)
+        self.alignCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 
-        for it in [ ("Left", util.ALIGN_LEFT), ("Center", util.ALIGN_CENTER),
-                    ("Right", util.ALIGN_RIGHT) ]:
+        for it in [("Left", util.ALIGN_LEFT), ("Center", util.ALIGN_CENTER),
+                    ("Right", util.ALIGN_RIGHT)]:
             self.alignCombo.Append(it[0], it[1])
 
         gsizer.Add(self.alignCombo)
@@ -161,9 +158,9 @@ class HeadersDlg(wx.Dialog):
         wx.EVT_LISTBOX(self, self.stringsLb.GetId(), self.OnStringsLb)
 
         # list of widgets that are specific to editing the selected string
-        self.widList = [ self.textEntry, self.xoffEntry, self.alignCombo,
+        self.widList = [self.textEntry, self.xoffEntry, self.alignCombo,
                          self.lineEntry, self.boldCb, self.italicCb,
-                         self.underlinedCb ]
+                         self.underlinedCb]
 
         self.updateGui()
 
@@ -213,7 +210,7 @@ class HeadersDlg(wx.Dialog):
         # some weird state
         event.Skip()
 
-    def OnStringsLb(self, event = None):
+    def OnStringsLb(self, event=None):
         self.hdrIndex = self.stringsLb.GetSelection()
         self.updateHeaderGui()
 
@@ -285,7 +282,7 @@ class HeadersDlg(wx.Dialog):
 
         self.block = False
 
-    def OnMisc(self, event = None):
+    def OnMisc(self, event=None):
         self.headers.emptyLinesAfter = util.getSpinValue(self.elinesEntry)
 
         if (self.hdrIndex == -1) or self.block:

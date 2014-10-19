@@ -158,8 +158,7 @@ class TitlesDlg(wx.Dialog):
 
         vsizer2 = wx.BoxSizer(wx.VERTICAL)
 
-        # wxGTK adds way more space by default than wxMSW between the
-        # items, have to adjust for that
+        # wxGTK adds way more space by default than wxMSW
         pad = 0
         if misc.isWindows:
             pad = 5

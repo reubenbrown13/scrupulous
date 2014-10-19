@@ -92,8 +92,8 @@ class CharacterReport:
             if not ci.include:
                 continue
 
-            tf.addText(ci.name, fs = 14,
-                       style = pml.BOLD | pml.UNDERLINED)
+            tf.addText(ci.name, fs=14,
+                       style=pml.BOLD | pml.UNDERLINED)
 
             if self.inf[self.INF_BASIC].selected:
                 tf.addText("Speeches: %d, Lines: %d (%.2f%%),"
@@ -115,7 +115,7 @@ class CharacterReport:
 
                 for it in util.sortDict(ci.scenes):
                     tf.addText("%3d %s" % (it[1], it[0]),
-                               x = tf.margin * 2.0, fs = 10)
+                               x=tf.margin * 2.0, fs=10)
 
             tf.addSpace(5.0)
 

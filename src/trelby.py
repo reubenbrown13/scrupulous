@@ -401,11 +401,11 @@ class MyCtrl(wx.Control):
 
         # set minimum width
         if gd.viewMode == VIEWMODE_DRAFT or gd.viewMode == VIEWMODE_LAYOUT:
-            w,h = mainFrame.GetSize()
+            w, h = mainFrame.GetSize()
             newMinWidth = self.pageW + WIDTH_PADDING
             if w < newMinWidth:
-                mainFrame.SetSize((newMinWidth,-1))
-            mainFrame.SetMinSize((newMinWidth,-1))
+                mainFrame.SetSize((newMinWidth, -1))
+            mainFrame.SetMinSize((newMinWidth, -1))
 
     def getCfgGui(self):
         return cfgGui
@@ -741,7 +741,7 @@ class MyCtrl(wx.Control):
             sb = wx.EmptyBitmap(size.width, size.height)
             old = getattr(self.__class__, "screenBuf", None)
 
-            if (old == None) or (old.GetDepth() != sb.GetDepth()) or \
+            if (old is None) or (old.GetDepth() != sb.GetDepth()) or \
                (old.GetHeight() != sb.GetHeight()) or \
                (old.GetWidth() != sb.GetWidth()):
                 self.__class__.screenBuf = sb
@@ -1791,7 +1791,7 @@ class MyCtrl(wx.Control):
                     acFi = fi
                     cfont = fi.font
                     cx, cy, cw, ch = t.x + self.sp.column * fx, y, fx, fi.fy
-                    if self.sp.column > len(t.text)-1:
+                    if self.sp.column > len(t.text) - 1:
                         cchar = ""
                     else:
                         cchar = t.text[self.sp.column]
@@ -1863,10 +1863,10 @@ class MyCtrl(wx.Control):
 
             else:
                 # draw only the cursor.
-                height = 1 + (ch//8)
+                height = 1 + (ch // 8)
                 dc.SetPen(wx.Pen(ccol))
                 dc.SetBrush(wx.Brush(ccol))
-                dc.DrawRectangle(cx, cy + (ch-height), cw, height)
+                dc.DrawRectangle(cx, cy + (ch - height), cw, height)
 
             # save ON state.
             self.cursorDcOn.Blit(0, 0, cw, ch, dc, cx, cy)
@@ -2478,7 +2478,7 @@ class MyFrame(wx.Frame):
     def updateKbdCommands(self):
         cfgGl.addShiftKeys()
 
-        if cfgGl.getConflictingKeys() != None:
+        if cfgGl.getConflictingKeys() is not None:
             wx.MessageBox("At least one key bound to more than one\n"
                           "command. Fix this.",
                           "Warning", wx.OK, self)
@@ -2494,7 +2494,7 @@ class MyFrame(wx.Frame):
         global t
         if t.isAlive():
             t.cancel()
-        t = threading.Timer(cfgGl.autoSaveMinutes*60, self.autosaveAllScripts)
+        t = threading.Timer(cfgGl.autoSaveMinutes * 60, self.autosaveAllScripts)
         if cfgGl.autoSaveMinutes > 0:
             t.start()
 

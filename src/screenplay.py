@@ -254,8 +254,7 @@ class Screenplay:
 
         key, version = Screenplay.parseConfigLine(lines[0])
         if not key or (key != "Version"):
-            raise error.MiscError("File doesn't seem to be a proper\n"
-                                  "screenplay.")
+            raise error.MiscError("File isn't' a proper screenplay.")
 
         if version not in ("1", "2", "3"):
             raise error.MiscError("File uses fileformat version '%s',\n"
@@ -1685,8 +1684,8 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
                     self, undo.CMD_MISC, startSection, selectedElems, selectedElems)
             for i in xrange(startSection, endSection + 1):
                 c1, c2 = self.getMarkedColumns(i, selection)
-                self.lines[i].text = self.lines[i].text[:c1] + util.upper(self.lines[i].text[c1:c2+1]) + \
-                self.lines[i].text[c2+1:]
+                self.lines[i].text = self.lines[i].text[:c1] + util.upper(self.lines[i].text[c1:c2 + 1]) + \
+                self.lines[i].text[c2 + 1:]
             self.clearMark()
             self.markChanged()
             if saveUndo:
@@ -2822,7 +2821,7 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
             t = self.lines[1].text
             while True:
                 if i == len(self.lines[l].text):  # end of line
-                    l = l+1
+                    l = l + 1
                     i = 0
                     if 1 == len(self.lines):  # last line
                         return
@@ -2840,7 +2839,7 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
                     if not t[i].isspace():
                         spaceFound = True
 
-                i = i+1
+                i = i + 1
 
     def movePrevWordCmd(self, cs):
         #returns a reverse list of indexes of words in string s
@@ -2849,7 +2848,7 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
             if s and not s[0].isspace():
                 l.append(0)
             for i in xrange(1, len(s)):
-                if not s[i].isspace() and s[i-1].isspace():
+                if not s[i].isspace() and s[i - 1].isspace():
                     l.append(i)
             l.reverse()
             return l
@@ -2865,7 +2864,7 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
                         self.column = word
                         self.line = l
                         return
-                    l = l-1
+                    l = l - 1
                     if l == -1:
                         self.line = 0
                         self.column = 0
@@ -3063,10 +3062,10 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
 
             if (wend == len(self.lines[self.line].text)):
                 wend += 1
-            self.column = wend-1
+            self.column = wend - 1
             while ((not util.isWordBoundary(self.lines[self.line].text[wstart])) and (wstart >= 0)):
                 wstart -= 1
-            self.mark = Mark(self.line, wstart+1)
+            self.mark = Mark(self.line, wstart + 1)
 
     # select all text of the screenplay. sets mark at beginning and moves
     # cursor to the end.

@@ -1,7 +1,6 @@
 import misc
 import pdf
 import pml
-import scenereport
 import screenplay
 import util
 
@@ -10,7 +9,7 @@ import operator
 class LocationReport:
     # sr = SceneReport
     def __init__(self, sr):
-        
+
         self.sp = sr.sp
 
         # key = scene name, value = LocationInfo. note that multiple keys
@@ -73,8 +72,8 @@ class LocationReport:
             # DESC(lines_in_scene) ASC(scenename) order.
             tmp = [(scene, self.scenes[scene].lines) for scene in li.scenes]
 
-            tmp.sort(key = operator.itemgetter(0))
-            tmp.sort(key = operator.itemgetter(1), reverse=True)
+            tmp.sort(key=operator.itemgetter(0))
+            tmp.sort(key=operator.itemgetter(1), reverse=True)
 
             for scene, lines in tmp:
                 if len(tmp) > 1:

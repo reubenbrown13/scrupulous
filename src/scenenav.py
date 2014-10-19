@@ -118,7 +118,7 @@ class MyNavigator(wx.VListBox):
         self.scenefont = cfgGui.fonts[pml.BOLD].font
 
         h = util.getFontHeight(self.scenefont)
-        i = int(h*0.1)
+        i = int(h * 0.1)
         if i <= 1:
             smallh = h - 1
         else:
@@ -149,11 +149,11 @@ class MyNavigator(wx.VListBox):
             return
         i = self.GetFirstVisibleLine()
 
-        height = self.OnMeasureItem(i) + (NAVMARGIN*2)
+        height = self.OnMeasureItem(i) + (NAVMARGIN * 2)
         y -= NAVMARGIN
         while y > height:
             y -= (height + NAVMARGIN)
-            if i == count-1:
+            if i == count - 1:
                 break
             else:
                 i += 1
@@ -162,8 +162,8 @@ class MyNavigator(wx.VListBox):
         ln = y // self.itemheight
         if ln < 0:
             ln = 0
-        if ln > len(self.items[i].ln_nos)-1:
-            ln = len(self.items[i].ln_nos)-1
+        if ln > len(self.items[i].ln_nos) - 1:
+            ln = len(self.items[i].ln_nos) - 1
 
         if i != self.selectedIndex:
             self.selectItemByIndex(i, False)
@@ -188,10 +188,10 @@ class MyNavigator(wx.VListBox):
         else:
             while i > 0:
                 if lineno < self.items[i].lineNo and \
-                    lineno >= self.items[i-1].lineNo:
+                    lineno >= self.items[i - 1].lineNo:
                     # i-1 is the index of the item to be show.
-                    return i-1
-                i = i-1
+                    return i - 1
+                i = i - 1
         # we're now at the topmost element.
         return 0
 
@@ -235,7 +235,7 @@ class MyNavigator(wx.VListBox):
         while i >= 0:
             if not newItems[i].hasSameText(self.items[i]):
                 return True
-            i = i-1
+            i = i - 1
         return False
 
     # Update the navigator list
@@ -270,7 +270,7 @@ class MyNavigator(wx.VListBox):
                     NAV_MARK_WIDTH - NAVMARGIN, rect[3])
 
             dc.SetPen(self.separatorpen)
-            dc.DrawLine(rect[0], rect[1], rect[0]+rect[2], rect[1])
+            dc.DrawLine(rect[0], rect[1], rect[0] + rect[2], rect[1])
 
     def OnDrawBackground(self, dc, rect, n):
         #do nothing
@@ -380,7 +380,7 @@ class MyNavigator(wx.VListBox):
                         ni_line = firstline
 
                     # Note/action after scene line.
-                    if len(navList) > 0 and navList[-1].lineNo == ni_line-1 and navList[-1].sceneText:
+                    if len(navList) > 0 and navList[-1].lineNo == ni_line - 1 and navList[-1].sceneText:
                         if line.lt == NOTE:
                             navList[-1].setBlurb(curLine)
                             navList[-1].annotated = True
@@ -423,7 +423,7 @@ class MyNavigator(wx.VListBox):
 
         for i  in xrange(len(scene_indexes)):
             navList[scene_indexes[i]].sceneLen = \
-                scene_line_nos[i+1] - scene_line_nos[i] - 1
+                scene_line_nos[i + 1] - scene_line_nos[i] - 1
             # refresh internal sublines data
             navList[scene_indexes[i]].genLines()
 

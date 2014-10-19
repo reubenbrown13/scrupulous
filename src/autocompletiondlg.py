@@ -7,7 +7,7 @@ import wx
 class AutoCompletionDlg(wx.Dialog):
     def __init__(self, parent, autoCompletion):
         wx.Dialog.__init__(self, parent, -1, "Auto-completion",
-                           style = wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
+                           style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         self.autoCompletion = autoCompletion
 
@@ -15,7 +15,7 @@ class AutoCompletionDlg(wx.Dialog):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.elementsCombo = wx.ComboBox(self, -1, style = wx.CB_READONLY)
+        self.elementsCombo = wx.ComboBox(self, -1, style=wx.CB_READONLY)
 
         for t in autoCompletion.types.itervalues():
             self.elementsCombo.Append(t.ti.name, t.ti.lt)
@@ -34,8 +34,8 @@ class AutoCompletionDlg(wx.Dialog):
 
         vsizer.Add(wx.StaticText(self, -1, "Default List"))
 
-        self.itemsEntry = wx.TextCtrl(self, -1, style = wx.TE_MULTILINE |
-                                      wx.TE_DONTWRAP, size = (200, 250))
+        self.itemsEntry = wx.TextCtrl(self, -1, style=wx.TE_MULTILINE |
+                                      wx.TE_DONTWRAP, size=(200, 250))
         wx.EVT_TEXT(self, self.itemsEntry.GetId(), self.OnMisc)
         vsizer.Add(self.itemsEntry, 1, wx.EXPAND)
 
@@ -66,7 +66,7 @@ class AutoCompletionDlg(wx.Dialog):
     def OnCancel(self, event):
         self.EndModal(wx.ID_CANCEL)
 
-    def OnElementCombo(self, event = None):
+    def OnElementCombo(self, event=None):
         self.lt = self.elementsCombo.GetClientData(self.elementsCombo.
                                                      GetSelection())
         t = self.autoCompletion.getType(self.lt)
@@ -76,7 +76,7 @@ class AutoCompletionDlg(wx.Dialog):
         self.itemsEntry.Enable(t.enabled)
         self.itemsEntry.SetValue("\n".join(t.items))
 
-    def OnMisc(self, event = None):
+    def OnMisc(self, event=None):
         t = self.autoCompletion.getType(self.lt)
 
         t.enabled = bool(self.enabledCb.IsChecked())
