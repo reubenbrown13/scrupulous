@@ -225,7 +225,7 @@ class DisplayPanel(wx.Panel):
         vsizer.Add(self.fontsLb, 0, wx.BOTTOM, 10)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
-        btn = wx.Button(self, -1, "Change")
+        btn = wx.Button(self, -1, "Font...")
         wx.EVT_LISTBOX_DCLICK(self, self.fontsLb.GetId(),
             self.OnChangeFont)
         wx.EVT_BUTTON(self, btn.GetId(), self.OnChangeFont)
@@ -257,7 +257,7 @@ class DisplayPanel(wx.Panel):
 
         vsizer.Add(hsizer, 0, wx.EXPAND | wx.BOTTOM, 15)
 
-        self.pbRb = wx.RadioBox(self, -1, "Page Break Lines",
+        self.pbRb = wx.RadioBox(self, -1, "Page-Break Lines",
             style=wx.RA_SPECIFY_COLS, majorDimension=1,
             choices=["None", "Normal", "Normal + unadjusted"])
         vsizer.Add(self.pbRb)
@@ -523,7 +523,7 @@ class ColorsPanel(wx.Panel):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.colorsLb = wx.ListBox(self, -1, size=(300, 375))
+        self.colorsLb = wx.ListBox(self, -1, size=(300, 385))
 
         tmp = self.cfg.cvars.color.values()
         tmp.sort(lambda c1, c2: cmp(c1.descr, c2.descr))
@@ -543,7 +543,7 @@ class ColorsPanel(wx.Panel):
         wx.EVT_BUTTON(self, btn.GetId(), self.OnChangeColor)
         vsizer2.Add(btn, 0, wx.ALIGN_CENTER | wx.BOTTOM, 10)
 
-        btn = wx.Button(self, -1, "Restore")
+        btn = wx.Button(self, -1, "Revert")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnDefaultColor)
         vsizer2.Add(btn, wx.ALIGN_CENTER)
 
@@ -1072,7 +1072,7 @@ class MiscPanel(wx.Panel):
         self.progEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.progEntry, 1, wx.ALIGN_CENTER_VERTICAL)
 
-        btn = wx.Button(self, -1, "Set Path")
+        btn = wx.Button(self, -1, "Set")
         wx.EVT_BUTTON(self, btn.GetId(), self.OnBrowsePDF)
         hsizer.Add(btn, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
@@ -1218,7 +1218,7 @@ class MiscPanel(wx.Panel):
 
     def OnBrowsePDF(self, event):
         dlg = wx.FileDialog(
-            cfgFrame, "Choose Program",
+            cfgFrame, "Choose PDF Viewer",
             os.path.dirname(self.cfg.pdfViewerPath),
             self.cfg.pdfViewerPath, style=wx.OPEN)
 

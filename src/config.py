@@ -1087,7 +1087,7 @@ class ConfigGlobal:
         v.addColor("workspace", 80, 90, 100, "Workspace", "Workspace")
         v.addColor("pageBorder", 0, 177, 217, "PageBorder", "Page Border")
         v.addColor("pageShadow", 65, 85, 115, "PageShadow", "Page Shadow")
-        v.addColor("selected", 124, 181, 220, "Selected", "Selection")
+        v.addColor("selected", 120, 180, 210, "Selected", "Selection")
         v.addColor("cursor", 124, 181, 220, "Cursor", "Cursor")
         v.addColor("selected", 127, 127, 127, "Selected", "Selection")
         v.addColor("cursor", 135, 135, 253, "Cursor", "Cursor (Block Mode)")
@@ -1100,9 +1100,9 @@ class ConfigGlobal:
                    "Page-break Line")
         v.addColor("pagebreakNoAdjust", 221, 221, 221,
                    "PageBreakNoAdjustLine",
-                   "Page-break (Original, Not adjusted) Line")
+                   "Page-break (Original, Not Adjusted) Line")
 
-        v.addColor("tabText", 38, 139, 210, "TabText", "Tab Text")
+        v.addColor("tabText", 255, 255, 255, "TabText", "Tab Text")
         v.addColor("tabBorder", 38, 139, 210, "TabBorder",
                    "Tab Border")
         v.addColor("tabBarBg", 62, 71, 83, "TabBarBG",
