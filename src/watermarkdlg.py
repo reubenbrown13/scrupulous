@@ -54,7 +54,7 @@ class WatermarkDlg(wx.Dialog):
         closeBtn = wx.Button(self, -1, "Close")
         hsizer.Add(closeBtn, 0)
         hsizer.Add((1, 1), 1)
-        generateBtn = wx.Button(self, -1, "Generate PDFs")
+        generateBtn = wx.Button(self, -1, "Generate")
         hsizer.Add(generateBtn, 0)
 
         vsizer.Add(hsizer, 0, wx.EXPAND | wx.TOP, 10)

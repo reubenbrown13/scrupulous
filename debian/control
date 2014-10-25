@@ -2,7 +2,7 @@ Source: trelby
 Section: python
 Priority: extra
 Maintainer: Jon Miller <millingjon@gmail.com>
-Build-Depends: debhelper (>= 8), python-all (>= 2.7), xsltproc, docbook-xsl, devscripts, fakeroot, python-mock
+Build-Depends: debhelper (>= 8), python-all (>= 2.7.5), xsltproc, docbook-xsl, devscripts, fakeroot, python-mock
 Standards-Version: 3.9.5
 Homepage: http://www.github.com/millingjon/scrupulous
 
