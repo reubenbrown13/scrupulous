@@ -700,10 +700,8 @@ class Key:
         5: "E",
         6: "F",
         7: "G",
-
         # CTRL+Enter = 10 in Windows
         10: "Enter (Windows)",
-
         11: "K",
         12: "L",
         14: "N",

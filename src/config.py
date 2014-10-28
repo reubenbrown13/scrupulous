@@ -361,7 +361,7 @@ class Config:
         self.__class__.cvars.setDefaults(self)
 
         # type configs, key = line type, value = Type
-        self.types = { }
+        self.types = {}
 
         # element types
         t = Type(screenplay.SCENE)
@@ -446,7 +446,7 @@ class Config:
         self.types[t.lt] = t
 
         # pdf font configs, key = PDF_FONT_*, value = PdfFontInfo
-        self.pdfFonts = { }
+        self.pdfFonts = {}
 
         for name, style in (
             (PDF_FONT_NORMAL, pml.COURIER),
@@ -1095,7 +1095,7 @@ class ConfigGlobal:
                    "Auto-completion Foreground")
         v.addColor("autoCompBg", 255, 240, 168, "AutoCompletionBG",
                    "Auto-completion Background")
-        v.addColor("note", 80, 90, 100, "ScriptNote", "Script Note")
+        v.addColor("note", 255, 165, 0, "ScriptNote", "Script Note")
         v.addColor("pagebreak", 221, 221, 221, "PageBreakLine",
                    "Page-break Line")
         v.addColor("pagebreakNoAdjust", 221, 221, 221,
@@ -1107,14 +1107,21 @@ class ConfigGlobal:
                    "Tab Border")
         v.addColor("tabBarBg", 62, 71, 83, "TabBarBG",
                    "Tab Bar Background")
-        v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg", "Non-active Tab")
-        v.addColor("navSceneText", 255, 255, 255, "NavSceneText", "Navigator Scene Text")
-        v.addColor("navSceneSelectedMark", 62, 71, 83, "NavSceneSelectedMark", "Navigator Selected Scene Marker")
-        v.addColor("navNoteText", 230, 219, 116, "NavNoteText", "Navigator Note Text")
-        v.addColor("navBlurbText", 248, 248, 242, "NavBlurbText", "Navigator Blurb Text")
-        v.addColor("navTransitionText", 173, 216, 230, "NavTransitionText", "Navigator Transition Text")
+        v.addColor("tabNonActiveBg", 65, 85, 115, "TabNonActiveBg",
+                    "Non-active Tab")
+        v.addColor("navSceneText", 255, 255, 255, "NavSceneText",
+                    "Navigator Scene Text")
+        v.addColor("navSceneSelectedMark", 62, 71, 83,
+                    "NavSceneSelectedMark", "Navigator Selected Scene Marker")
+        v.addColor("navNoteText", 230, 219, 116, "NavNoteText",
+                    "Navigator Note Text")
+        v.addColor("navBlurbText", 248, 248, 242, "NavBlurbText",
+                    "Navigator Blurb Text")
+        v.addColor("navTransitionText", 173, 216, 230, "NavTransitionText",
+                    "Navigator Transition Text")
         v.addColor("navBg", 80, 90, 100, "NavBg", "Navigator Background")
-        v.addColor("navAnnotatedBg", 255, 237, 223, "NavAnnotatedBg", "Navigator Annotated Scene Background")
+        v.addColor("navAnnotatedBg", 255, 165, 0, "NavAnnotatedBg",
+                    "Navigator Annotated Scene Background")
 
         for t in getTIs():
             v.addColor("text%s" % t.name, 0, 0, 0, "Text%sFG" % t.name,
@@ -1485,16 +1492,16 @@ def lt2ti(lt):
 def _init():
 
     for lt, char, name in (
-        (screenplay.SCENE,      "\\", "Scene"),
-        (screenplay.ACTION,     ".",  "Action"),
-        (screenplay.CHARACTER,  "_",  "Character"),
-        (screenplay.DIALOGUE,   ":",  "Dialogue"),
-        (screenplay.PAREN,      "(",  "Parenthetical"),
-        (screenplay.TRANSITION, "/",  "Transition"),
-        (screenplay.SHOT,       "=",  "Shot"),
-        (screenplay.ACTBREAK,   "@",  "Act break"),
-        (screenplay.TITLE,      "&",  "Title"),
-        (screenplay.NOTE,       "%",  "Note")
+        (screenplay.SCENE, "\\", "Scene"),
+        (screenplay.ACTION, ".", "Action"),
+        (screenplay.CHARACTER, "_", "Character"),
+        (screenplay.DIALOGUE, ":", "Dialogue"),
+        (screenplay.PAREN, "(", "Parenthetical"),
+        (screenplay.TRANSITION, "/", "Transition"),
+        (screenplay.SHOT, "=", "Shot"),
+        (screenplay.ACTBREAK, "@", "Act break"),
+        (screenplay.TITLE, "&", "Title"),
+        (screenplay.NOTE, "%", "Note")
         ):
 
         ti = TypeInfo(lt, char, name)
