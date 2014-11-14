@@ -34,7 +34,7 @@ class FindDlg(wx.Dialog):
         self.replaceEntry = wx.TextCtrl(self, -1, style=wx.TE_PROCESS_ENTER)
         gsizer.Add(self.replaceEntry, 0, wx.EXPAND)
 
-        vsizer.Add(gsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
+        vsizer.Add(gsizer, 0, wx.EXPAND | wx.BOTTOM, 5)
 
         hsizer2 = wx.BoxSizer(wx.HORIZONTAL)
 
