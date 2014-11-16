@@ -8,19 +8,19 @@
 ]>
 
 <book id="trelby-manual" lang="en">
-  <title>Trelby Manual</title>
+  <title>Scrupulous Manual</title>
 
   <subtitle>Version &trelby.version;</subtitle>
 
   <bookinfo>
 
     <authorgroup>
-	  <corpauthor>Trelby developers</corpauthor>
+	  <corpauthor>Scrupulous developers</corpauthor>
     </authorgroup>
 
     <copyright>
       <year>2014</year>
-      <holder>Trelby developers</holder>
+      <holder>Scrupulous developers</holder>
     </copyright>
 
   </bookinfo>
@@ -36,7 +36,7 @@
 	  <title>Basic concepts</title>
 
 	  <para>If you don't know anything about writing a screenplay, get a
-	  copy of a book such as David Trottier's "The Screenwriter's Bible".
+	  copy of a book such as David Trottier's "The Screenwriter's Bible."
 	  This manual will not cover the same ground, but focuses on concepts
 	  specific to &trelby;.</para>
 
@@ -141,7 +141,7 @@
 		  <listitem>
 
 			<para>Note style is used to insert notes to yourself or to
-			others about that part of the script. Example: "Should Bobby
+			others about that part of the screenplay. Example: "Should Bobby
 			shoot first?".</para>
 
 		  </listitem>
@@ -167,13 +167,13 @@
 	  <variablelist>
 
 		<varlistentry>
-		  <term>Script tabs and status</term>
+		  <term>Screenplay tabs and status</term>
 		  <listitem>
 
-			<para>Each script gets its own tab, with the tab's name being
-			the filename of each script. You can click on each tab to
-			change the active script to that one, or the X at the end of
-			each tab to close that tab.</para>
+			<para>Each screenplay gets its own tab, with the tab's name
+			being the filename of each screenplay. You can click on each tab
+			to change the active screenplay to that one, or the X at the end
+			of each tab to close that tab.</para>
 
             <para>After tabs is a column showing the current element's
             style, a column showing what the Enter/Tab keys would do, and
@@ -186,7 +186,7 @@
 		  <term>Main text area</term>
 		  <listitem>
 
-			<para>This is where the actual script is shown and
+			<para>This is where the actual screenplay is shown and
 			edited.</para>
 
 		  </listitem>
@@ -205,7 +205,7 @@
 		<para>The usual movement keys are available: Up/Down/Left/Right to
 		move around, Home/End to move to start/end of line, Page Up/Page
 		Down to move up/down one page (actually one screenful), and CTRL +
-		Home/End to move to start/end of script.</para>
+		Home/End to move to start/end of screenplay.</para>
 
 		<para>CTRL + Up/Down moves one scene up or down.</para>
 
@@ -286,11 +286,11 @@
 
 		<para>Auto-completion saves typing in scene / character /
 		transition / shot elements by showing a list of other elements
-		from the script that match the text in the current element. For
-		example, if you've written the characters "MO" in a new character
-		element, you'll see a list of all character elements that start
-		with "MO" and if you want, you can select one of them and that
-		text will complete the current element.</para>
+		from the screenplay that match the text in the current element.
+		For example, if you've written the characters "MO" in a new
+		character element, you'll see a list of all character elements
+		that start with "MO" and if you want, you can select one of them
+		and that text will complete the current element.</para>
 
 		<para>The auto-completion list only appears after you've written
 		at least one character. If you want to see a list of all possible
@@ -337,8 +337,8 @@
 	  <title>Draft</title>
 
 	  <para>In 'Draft' mode, the text area consists of an empty background
-	  with the script's text drawn on top. This text includes only actual
-	  script contents, so page headers, CONTINUED/(MORE) and other
+	  with the screenplay's text drawn on top. This text includes only actual
+	  screenplay contents, so page headers, CONTINUED/(MORE) and other
 	  automatically added texts are not shown at all. Page breaks, if
 	  enabled, are shown as a horizontal line (see <xref
 	  linkend="display_cfg"/>).</para>
@@ -449,17 +449,17 @@
 	<sect1>
 	  <title>File/Revert</title>
 
-	  <para>Replaces the open script with the last version of it saved to
-	  disk.</para>
+	  <para>Replaces the open screenplay with the last version of it saved
+	  to disk.</para>
 
 	</sect1>
 
 	<sect1>
 	  <title>File/Print (via PDF)</title>
 
-	  <para>This opens up the current script in your configured PDF viewer
-	  program, from which you can print it, or just see what it looks
-	  like.</para>
+	  <para>This opens up the current screenplay in your configured PDF
+	  viewer program, from which you can print it, or just see what it
+	  looks like.</para>
 
 	</sect1>
 
@@ -488,9 +488,9 @@
 	<sect1>
 	  <title>Edit/Undo,Redo</title>
 
-	  <para>Every edit operation you do to the script is recorded and can
-	  be undone/redone. There is a limit to the amount of memory that
-	  &trelby; will use to store undo history, and different edit
+	  <para>Every edit operation you do to the screenplay is recorded and
+	  can be undone/redone. There is a limit to the amount of memory
+	  that &trelby; will use to store undo history, and different edit
 	  operations take different amounts of memory (adding a single new
 	  character takes very little memory, whereas doing a global
 	  Find&amp;Replace can take a lot of memory), but in normal usage you
@@ -504,7 +504,7 @@
 
 		<listitem>
 
-		  <para>Applying new script-specific settings clears all undo history.</para>
+		  <para>Applying new screenplay-specific settings clears all undo history.</para>
 
 		</listitem>
 
@@ -563,7 +563,7 @@
 	<sect1>
 	  <title>Edit/Select all</title>
 
-	  <para>Select all the text in the entire script.</para>
+	  <para>Select all the text in the entire screenplay.</para>
 
 	</sect1>
 
@@ -620,11 +620,11 @@
 	  <title>Edit/Remove elements</title>
 
 	  <para>'Remove elements' opens a dialog allowing you to select one or
-	  more element styles to completely remove from the script.</para>
+	  more element styles to completely remove from the screenplay.</para>
 
 	  <para>You can use this for e.g. removing notes before sending out
-	  copies of the script, or if you want a version of the script with
-	  only the dialog, only the action, or only the scene headers, or
+	  copies of the screenplay, or if you want a version of the screenplay
+	  with only the dialog, only the action, or only the scene headers, or
 	  whatever else you can come up with.</para>
 
 	</sect1>
@@ -672,12 +672,12 @@
 	</sect1>
 
 	<sect1>
-	  <title>Script/Find next error</title>
+	  <title>Screenplay/Find next error</title>
 
-	  <para>'Find next error' searches through the script, starting from
-	  the cursor position, looking for errors. This means that to search
-	  the entire script for errors you should first position the cursor at
-	  the beginning of the script.</para>
+	  <para>'Find next error' searches through the screenplay, starting
+	  from the cursor position, looking for errors. This means that to search
+	  the entire screenplay for errors you should first position the cursor
+	  at the beginning of the screenplay.</para>
 
 	  <para>If it finds any errors, it positions the cursor on the line
 	  containing the error and displays a message detailing the error. You
@@ -723,9 +723,9 @@
 		  <para>Various error conditions that can only arise from bugs in
 		  the program. This includes things like overlong lines, elements
 		  that have lines with different element types, invalid characters
-		  in the script, etc. You should never find any of these errors,
+		  in the screenplay, etc. You should never find any of these errors,
 		  but if you do, you should try to fix them before saving the
-		  script, otherwise you might not be able to load it again. You
+		  screenplay, otherwise you might not be able to load it again. You
 		  should also notify us about the problem so we can fix it.</para>
 
 		  <para>The messages for these all say "(BUG)" at the end so they
@@ -738,9 +738,9 @@
 	</sect1>
 
 	<sect1>
-	  <title>Script/Paginate</title>
+	  <title>Screenplay/Paginate</title>
 
-	  <para>'Paginate' simply repaginates the script. You normally don't
+	  <para>'Paginate' simply repaginates the screenplay. You normally don't
 	  need to run this if you have automatic repagination enabled, but the
 	  command is available for use when automatic repagination is disabled
 	  or you want immediate repagination for some reason.</para>
@@ -748,7 +748,7 @@
 	</sect1>
 
 	<sect1 id="autocomp">
-	  <title>Scripts/Auto-completion</title>
+	  <title>Screenplay/Auto-completion</title>
 
 	  <para>Here you can define items to be added to the auto-completion
 	  lists for Scene, Character and Transition elements, and optionally
@@ -759,17 +759,17 @@
 	  empty. The main use for them are TV shows, where you have a
 	  recurring cast of characters and locations, and it's nice to have
 	  them always available, even if they haven't yet been used in the
-	  current episode's script.</para>
+	  current episode's screenplay.</para>
 
 	</sect1>
 
 	<sect1>
-	  <title>Script/Headers</title>
+	  <title>Screenplay/Headers</title>
 
-	  <para>'Headers' allows you to edit your script's headers. Headers
-	  are lines that are automatically added to the top of each page of
-	  the script, excluding title pages and the first page of the actual
-	  script.</para>
+	  <para>'Headers' allows you to edit your screenplay's headers.
+	  Headers are lines that are automatically added to the top of each page
+	  of the screenplay, excluding title pages and the first page of the
+	  actual screenplay.</para>
 
 	  <para>Topmost in the window is a setting for how many empty lines
 	  you want inserted after your header lines.</para>
@@ -795,13 +795,13 @@
 	  <para>Finally there are 'Preview' and 'Apply' buttons that you can
 	  use to preview your changes. 'Preview' opens up a sample page in
 	  your PDF viewer program, while 'Apply' applies the new headers to
-	  the open script, so you can e.g. see how the page count of the
-	  script would change.</para>
+	  the open screenplay, so you can e.g. see how the page count of the
+	  screenplay would change.</para>
 
 	</sect1>
 
 	<sect1 id="locations_dlg">
-	  <title>Scripts/Locations</title>
+	  <title>Screenplay/Locations</title>
 
 	  <para>This dialog allows you to define what scenes are part of the
 	  same location (see <xref linkend="location_rep"/>). The top listbox
@@ -825,9 +825,9 @@
 	</sect1>
 
 	<sect1>
-	  <title>Script/Title pages</title>
+	  <title>Screenplay/Title pages</title>
 
-	  <para>'Title pages' allows you to edit your script's title pages.
+	  <para>'Title pages' allows you to edit your screenplay's title pages.
 	  You can have as many title pages as you want, or none at all.</para>
 
 	  <para>At the top of the window are add/delete/move/next buttons.
@@ -888,19 +888,19 @@
 	</sect1>
 
 	<sect1>
-	  <title>Script/Spell checker dictionary</title>
+	  <title>Screenplay/Spell checker dictionary</title>
 
-	  <para>This opens a dialog allowing you to edit the script-specific
-	  spell checker dictionary. Insert new words by entering them on
-	  separate lines, or delete existing words by deleting the lines they
-	  are on.</para>
+	  <para>This opens a dialog allowing you to edit the screenplay-
+	  specific spell checker dictionary. Insert new words by entering them
+	  on separate lines, or delete existing words by deleting the lines
+	  they are on.</para>
 
 	</sect1>
 
 	<sect1>
-	  <title>Script/Settings/(Change|Load|Save as)</title>
+	  <title>Screenplay/Settings/(Change|Load|Save as)</title>
 
-	  <para>These allow you to edit/load/save script format settings (see
+	  <para>These allow you to edit/load/save screenplay-format settings (see
 	  <xref linkend="format_settings"/>).</para>
 
 	</sect1>
@@ -908,12 +908,12 @@
 	<sect1>
 	  <title>Tools/Spell checker</title>
 
-	  <para>This spell checks the current script beginning at the current
-	  position. If you want to spell check the entire script, be sure to
-	  position the cursor at the first line of the script.</para>
+	  <para>This spell checks the current screenplay beginning at the current
+	  position. If you want to spell check the entire screenplay, be sure to
+	  position the cursor at the first line of the screenplay.</para>
 
 	  <para>If it finds any words it doesn't recognize, it jumps to that
-	  position in the script, highlights the word, and opens a dialog
+	  position in the screenplay, highlights the word, and opens a dialog
 	  window that has a text box for editing the word, and the following 5
 	  buttons:</para>
 
@@ -923,7 +923,7 @@
 		  <term>Replace</term>
 		  <listitem>
 
-			<para>Replace the word in the script with the (modified) one
+			<para>Replace the word in the screenplay with the (modified) one
 			in the text box. You can also do this by pressing Enter in the
 			text box.</para>
 
@@ -940,10 +940,10 @@
 		</varlistentry>
 
 		<varlistentry>
-		  <term>Add to script dictionary</term>
+		  <term>Add to screenplay dictionary</term>
 		  <listitem>
 
-			<para>Add the word to the script-specific dictionary.</para>
+			<para>Add the word to the screenplay-specific dictionary.</para>
 
 		  </listitem>
 		</varlistentry>
@@ -964,7 +964,7 @@
 			<para>Search for the 5 most similar known words and allow
 			choosing one of them. If selected, that word is put in the
 			text box and you can either edit it further or press 'Replace'
-			at once to replace the word in the script.</para>
+			at once to replace the word in the screenplay.</para>
 
 			<para>Note that this only looks at words with the same two
 			first characters as the misspelled word (mostly for speed
@@ -1025,7 +1025,7 @@
 	  names is shown at the bottom of the window.</para>
 
 	  <para>You can select names from the result list and press 'Insert'
-	  to insert that name at your script at the current cursor
+	  to insert that name at your screenplay at the current cursor
 	  position.</para>
 
 	</sect1>
@@ -1035,29 +1035,30 @@
 
 	  <para>'Character map' opens a window allowing you to insert any
 	  character from the supported ISO-8859-1 (i.e. Latin-1) character set
-	  into your script.</para>
+	  into your screenplay.</para>
 
 	</sect1>
 
 	<sect1>
-	  <title>Tools/Compare scripts</title>
+	  <title>Tools/Compare screenplays</title>
 
-	  <para>You need two different versions of the same script open to use
-	  'Compare scripts'. Select the older one as the first script and the
-	  newer one as the second script. &trelby; then goes through the
-	  scripts looking for changes between them and displays the results as
-	  a PDF file.</para>
+	  <para>You need two different versions of the same screenplay open to
+	  use 'Compare screenplays'. Select the older one as the first screenplay
+	  and the newer one as the second screenplay. &trelby; then goes through
+	  the screenplays looking for changes between them and displays the
+	  results as a PDF.</para>
 
 	  <para>There's a checkbox allowing you to use the same configuration
-	  parameters for the scripts you're comparing. This is useful if the
-	  scripts differ in in their formatting settings, because in that case
-	  practically the entire script would show up as changed.</para>
+	  parameters for the screenplays you're comparing. This is useful if
+	  the screenplays differ in in their formatting settings, because in
+	  that case practically the entire screenplay would show up as
+      changed.</para>
 
-	  <para>The PDF file contains only the changed parts of the script.
-	  The changes are color coded: Deleted lines are red, added lines are
-	  green, non-changed lines (shown for context) are white, and marker
-	  lines for single-line changes are yellow. The changed parts are
-	  separated by two gray lines.</para>
+	  <para>The PDF file contains only the changed parts of the
+	  screenplay. The changes are color coded: Deleted lines are red,
+	  added lines are green, non-changed lines (shown for context) are
+	  white, and marker lines for single-line changes are yellow. The
+	  changed parts are separated by two gray lines.</para>
 
 	</sect1>
 
@@ -1066,8 +1067,8 @@
 
       <para>This tool allows you to generate multiple watermarked PDFs to
       distribute to multiple people. Watermarks are handy when you want to
-      let your readers know overtly that the script is meant only for their
-      viewing, and is not to be distributed.</para>
+      let your readers know overtly that the screenplay is meant only for
+      their viewing, and is not to be distributed.</para>
 
       <para>Enter details like directory, filename prefix, and watermark
       font size. You can have two lines of watermarks per file, and the
@@ -1116,7 +1117,7 @@
 	<title>Settings</title>
 
 	<para>&trelby; has 4 levels of settings: super-global settings, global
-	settings, script format settings, and script-specific settings.</para>
+	settings, screenplay-format settings, and screenplay-specific settings.</para>
 
 	<para>Super-global settings are the current view mode, window size and
 	position, and the global spell checker dictionary. There can only be
@@ -1124,34 +1125,35 @@
 
 	<para>Global settings are things like interface colors, keyboard
 	shortcuts, display fonts and other settings that only affect the user
-	interface of the program, not the script output. You can have multiple
-	sets of these and switch between them at will (see <xref
+	interface of the program, not the screenplay output. You can have
+	multiple sets of these and switch between them at will (see <xref
 	linkend="globcfg_menu"/>). These settings are platform-dependent, so
 	you can't share these between Windows/Linux machines, and even sharing
 	between different machines on the same platform could be unreliable if
 	you don't have the exact same fonts, PDF viewer applications, etc. on
 	the machines.</para>
 
-	<para>Script format settings are things like paper sizes,
+	<para>Screenplay-format settings are things like paper sizes,
 	indendation/line widths/font styles for the different element types,
 	whether to include scene numbers, and so on that directly affect
-	script formatting and output but are not tied to any specific script,
-	in the sense that they can be reused for different scripts with no
-	changes. You can easily save/load these, so you can have ready-made
-	settings for different scenarios. This, and script-specific settings,
-	are completely platform-neutral, guaranteeing the exact same script
-	output whatever platform you use.</para>
+	screenplay formatting and output but are not tied to any specific
+	screenplay, in the sense that they can be reused for different
+	screenplays with no changes. You can easily save/load these, so you
+	settings for different scenarios. This, and screenplay-specific
+	settings, can have ready-made are completely platform-neutral,
+	guaranteeing the exact same screenplay output whatever platform you
+    use.</para>
 
-	<para>Script-specific settings are things that are specific to one
-	particular script, like title pages, header strings, and
-	auto-completion settings, and so can't be reused for different scripts
-	without changes. However, if you want to have a template for these
-	(e.g. your contact information on the title page is always the same,
-	or you're writing several episodes of the same TV show), it's easy:
-	just fill in the information you want, and save the script as
-	"my_template.trel", then when you want to use that as a template,
-	open that file, change what's needed, and save the script under a new
-	name.</para>
+	<para>Screenplay-specific settings are things that are specific to
+	one particular screenplay, like title pages, header strings, and
+	auto-completion settings, and so can't be reused for different
+	screenplays without changes. However, if you want to have a template
+	for these (e.g. your contact information on the title page is always
+	the same, or you're writing several episodes of the same TV show),
+	it's easy: just fill in the information you want, and save the
+	screenplay "my_template.trel", then when you want to use that as a
+	template, as open that file, change what's needed, and save the
+	screenplay under a new name.</para>
 
 	<sect1>
 	  <title>Global settings</title>
@@ -1194,20 +1196,20 @@
 		<para>(Draft view mode only) The 'Page break lines to show'
 		setting affects how page breaks are shown. If you select 'None',
 		they are not shown at all. 'Normal', you see solid gray lines in
-		the scripts indicating actual page break positions. 'Normal +
+		the screenplays indicating actual page break positions. 'Normal +
 		unadjusted', you see the solid lines, but you also see a dotted
 		gray line, that shows where the page could have ended, but that
 		the page break position was adjusted backwards to honor the
 		settings in <xref linkend="format_cfg"/>.</para>
 
-		<para>This is useful when you've finished your script and you're
-		going through it trying to reduce the page count. If, for example,
-		you have three lines, a Character, a Parenthetical, and a Dialogue
-		element, all one line, and the unadjusted page break line is after
-		the Parenthetical line, and the actual page break line is above
-		the character line, you know that if you can trim just one line
-		from the page, all three lines will then fit on the page instead
-		of being pushed to the next page.</para>
+		<para>This is useful when you've finished your screenplay and
+		you're going through it trying to reduce the page count. If, for
+		example, you have three lines, a Character, a Parenthetical, and a
+		Dialogue element, all one line, and the unadjusted page break line
+		is after the Parenthetical line, and the actual page break line is
+		above the character line, you know that if you can trim just one
+		line from the page, all three lines will then fit on the page
+		instead of being pushed to the next page.</para>
 
 	  </sect2>
 
@@ -1241,14 +1243,15 @@
 	  <sect2 id="misc_cfg">
 		<title>Misc</title>
 
-		<para>The default script directory setting allows you to specify
-		the default directory for File/Open dialog on program
+		<para>The default screenplay directory setting allows you to
+		specify the default directory for File/Open dialog on program
 		startup.</para>
 
-		<para>If you've saved your preferred script format settings, you
-		can use the default script settings field to have all new scripts
-		load those settings by default. If you leave this field blank, new
-		scripts will have the system default settings.</para>
+		<para>If you've saved your preferred screenplay-format settings,
+		you can use the default screenplay settings field to have all
+		new screenplays load those settings by default. If you leave
+		this field blank, new screenplays will have the system default
+        settings.</para>
 
 		<para>You can specify what application you want to use as your PDF
 		viewer. On Windows, this is usually Adobe Acrobat, and the path is
@@ -1269,9 +1272,9 @@
 		characters in the middle of sentences to be changed to a 'I'
 		character automatically.</para>
 
-		<para>'When opening a script, start at last saved position' causes
-		the cursor position be restored to the point it was at when the
-		script was saved.</para>
+		<para>'When opening a screenplay, start at last saved position'
+		causes the cursor position be restored to the point it was at when
+		the screenplay was saved.</para>
 
 		<para>'Use a block cursor' will use a full block as cursor, instead
 		of the default thin line.</para>
@@ -1279,34 +1282,34 @@
 		<para>'Blink the cursor' causes the cursor to blink.</para>
 
 		<para>'Recenter screen on scrolling' causes moving around the
-		script using up/down keys to scroll a bit differently: when cursor
-		is at bottom of the screen, and you press down, instead of moving
-		the display down just one line, it will recenter the display on
-		the cursor.</para>
+		screenplay using up/down keys to scroll a bit differently: when
+		cursor is at bottom of the screen, and you press down, instead of
+		moving the display down just one line, it will recenter the display
+		on the cursor.</para>
 
         <para>'Typing replaces selected text' causes selected text to be
         removed and replaced with the character entered whenever a key is
         pressed and there's an active selection.</para>
 
-		<para>'Check script for errors before print, export or compare',
-		if checked, causes the program to run 'Script/Find next error' for
-		the entire script automatically before print/export/compare
-		operations. This is to avoid printing 100 pages and then finding
-		there's an error on one of them, fixing of which causes
-		repagination of the entire script, and having to print all the 100
-		pages again.</para>
+		<para>'Check screenplay for errors before print, export or
+		compare', if checked, causes the program to run 'Screenplay/Find next
+		error' for the entire screenplay automatically before print/export/
+		compare operations. This is to avoid printing 100 pages and then
+		finding there's an error on one of them, fixing of which causes
+		repagination of the entire screenplay, and having to print all the
+		100 pages again.</para>
 
 		<para>'Show splash screen for X seconds' can be used to customize
 		for how long to show the splash screen on startup for, or to
 		disable showing it completely.</para>
 
 		<para>'Auto-paginate interval' defines how often to repaginate the
-		script automatically. If you have a particularly slow machine, you
-		might want to increase this number. Note that automatic
-		repagination is only done when you modify the script, so you can't
-		just sit back and wait for the repagination to happen, you have to
-		keep making changes. (You can always use Script/Paginate if you
-		want immediate repagination.)</para>
+		screenplay automatically. If you have a particularly slow machine,
+		you might want to increase this number. Note that automatic
+		repagination is only done when you modify the screenplay, so you
+		can't just sit back and wait for the repagination to happen, you have
+		to keep making changes. (You can always use Screenplay/Paginate if
+		you want immediate repagination.)</para>
 
 		<para>'Lines to scroll per mouse wheel event' needs no
 		explaining.</para>
@@ -1316,10 +1319,10 @@
 	</sect1>
 
 	<sect1 id="format_settings">
-	  <title>Script format settings</title>
+	  <title>Screenplay-format settings</title>
 
-	  <para>Script format settings are found in Script/Settings/Change. It
-	  has the same Apply/Cancel/OK buttons as the global settings
+	  <para>Screenplay-format settings are found in Screenplay/Settings/Change.
+	  It has the same Apply/Cancel/OK buttons as the global settings
 	  dialog.</para>
 
 	  <sect2 id="elements_cfg">
@@ -1357,7 +1360,7 @@
 		<title>Formatting</title>
 
 		<para>Here you can configure parameters affecting the formatting
-		of the script.</para>
+		of the screenplay.</para>
 
 		<para>The first two settings affect how many action and dialogue
 		lines there must be left at the end of a page to allow breaking at
@@ -1380,7 +1383,7 @@
 
 		<para>'Include scene numbers' causes scene numbers to be inserted
 		to the left and right of each scene element. This is usually only
-		done for scripts in production.</para>
+		done for screenplays in production.</para>
 
 		<para>'Show line numbers' prefixes each line with its line number
 		(starting from 1 at the top of the page). It can be considered a
@@ -1542,7 +1545,7 @@
 		<title>Strings</title>
 
 		<para>Here you can customize the strings that are automatically
-		added to the script in certain situations:</para>
+		added to the screenplay in certain situations:</para>
 
 		<variablelist>
 
@@ -1593,7 +1596,7 @@
 	</sect1>
 
 	<sect1>
-	  <title>Script-specific settings</title>
+	  <title>Screenplay-specific settings</title>
 
 	  <para>Decriptions for these start at <xref
 	  linkend="autocomp"/>.</para>
@@ -1702,7 +1705,7 @@ Something starts beeping.
 		  <listitem>
 
             <para>Text of the the screenplay elements (Action, Dialog,
-            etc) that Trelby understands.</para>
+            etc) that Scrupulous understands.</para>
 
             <para>Script notes in Final Draft are imported as
             notes.</para>
@@ -1724,9 +1727,9 @@ Something starts beeping.
 
 		  <listitem>
 
-            <para>Screenplay elements (Action, Dialog, etc) that Trelby
-            understands are imported. Others are converted to 'Action'
-            type.</para>
+            <para>Screenplay elements (Action, Dialog, etc) that
+            Scrupulous understands are imported. Others are converted
+            to 'Action' type.</para>
 
           </listitem>
 
@@ -1745,9 +1748,9 @@ Something starts beeping.
 
 		  <listitem>
 
-            <para>Screenplay elements (Action, Dialog, etc) that Trelby
-            understands are imported. Others are converted to 'Action'
-            type.</para>
+            <para>Screenplay elements (Action, Dialog, etc) that 
+            Scrupulous understands are imported. Others are converted to
+            'Action' type.</para>
 
           </listitem>
 
@@ -1826,7 +1829,7 @@ Something starts beeping.
 		  <listitem>
 
             <para>Screenplay elements (Action, Dialog, Notes, etc) that
-            Trelby understands are imported. Others are converted to
+            Scrupulous understands are imported. Others are converted to
             'Action' type.</para>
 
           </listitem>
@@ -1842,14 +1845,14 @@ Something starts beeping.
 	<sect1>
 	  <title>Export</title>
 
-	  <para>You can export the script in PDF, RTF, formatted ASCII, HTML,
-      Final Draft XML (.fdx) and Fountain (.fountain) format.</para>
+	  <para>You can export the screenplay in PDF, RTF, formatted ASCII,
+      HTML, Final Draft XML (.fdx), and Fountain (.fountain) format.</para>
 
 	  <para>All are found in the File/Export dialog, which allows you to
 	  choose which one to export as. If you export as a text file, &trelby;
 	  will ask whether you want the page markers included or not. If
-	  you're planning on importing the script to some other program, you
-	  shouldn't include them, otherwise you probably should.</para>
+	  you're planning on importing the screenplay to some other program,
+	  you shouldn't include them, otherwise you probably should.</para>
 
 	  <para>The RTF file produced uses stylesheets, which not all RTF
 	  reading programs support, so if you get unexpected output check with
@@ -1869,16 +1872,16 @@ Something starts beeping.
 	printed output.</para>
 
 	<sect1>
-	  <title>Script report</title>
+	  <title>Screenplay report</title>
 
-	  <para>The script report is a short, one-page report on general
-	  script statistics. It has the following information:</para>
+	  <para>The screenplay report is a short, one-page report on general
+	  screenplay statistics. It has the following information:</para>
 
 	  <itemizedlist>
 
 		<listitem>
 
-		  <para>Total line count of the script and line counts for each
+		  <para>Total line count of the screenplay and line counts for each
 		  element type, both in absolute terms and as a percentage of the
 		  whole.</para>
 
@@ -1930,11 +1933,11 @@ Something starts beeping.
 	  location: list of scenes for the location (if more than one, each is
 	  followed by a percentage showing its part of the total lines of the
 	  location), total lines in location, percentage of action lines in
-	  location, percentage of the location's total lines of the script's
-	  total lines, how many scenes the location has, count of pages that
-	  the location appears in, list of pages that the location appears in,
-	  and optionally a list of all speaking characters in the location
-	  along with the number of lines they speak.</para>
+	  location, percentage of the location's total lines of the
+	  screenplay's total lines, how many scenes the location has, count of
+	  pages that the location appears in, list of pages that the location
+	  appears in, and optionally a list of all speaking characters in the
+	  location along with the number of lines they speak.</para>
 
 	</sect1>
 
@@ -1963,9 +1966,9 @@ Something starts beeping.
 		  <term>Basic information</term>
 		  <listitem>
 			<para>Total number of speeches, total number of lines, the
-			percentage of all the dialogue lines in the script that this
-			character speaks (i.e. 25% would mean this character has
-			one-fourth of the total dialogue in the script), average
+			percentage of all the dialogue lines in the screenplay that
+			this character speaks (i.e. 25% would mean this character has
+			one-fourth of the total dialogue in the screenplay), average
 			number of lines per speech, total words, average number of
 			words per speech and average number of characters per word.
 			</para>
@@ -2001,7 +2004,7 @@ Something starts beeping.
 	  select what orderings to include, while the 'Characters &lt; 10
 	  lines' option, if unselected, leaves out all characters that have
 	  less than 10 dialogue lines, which is useful for trimming out minor
-	  characters from long scripts.</para>
+	  characters from long screenplays.</para>
 
 	  <para>It then generates a chart with one page for each selected
 	  ordering and shows that.</para>
@@ -2021,7 +2024,7 @@ Something starts beeping.
 
 	  <para>You can use this chart in many ways. For example, you can at a
 	  glance see if one of your side characters disappears for 50 pages in
-	  the middle of the script, whether the villain is introduced too
+	  the middle of the screenplay, whether the villain is introduced too
 	  late, and so on.</para>
 
 	  <para>At the top is another graph showing the percentage of action,
@@ -2055,7 +2058,7 @@ Something starts beeping.
 		<term>FILENAME1 FILENAME2 ...</term>
 		<listitem>
 
-		  <para>Open the given script files.</para>
+		  <para>Open the given screenplay files.</para>
 
 		</listitem>
 	  </varlistentry>
@@ -2099,15 +2102,14 @@ Something starts beeping.
   <appendix>
 	<title>File format</title>
 
-	<para>The file format used by &trelby; for scripts is open and
+	<para>The file format used by &trelby; for screenplays is open and
 	documented, and third parties are encouraged to add support for the
 	format in their programs and/or write utility programs that use the
 	file format in some way.</para>
 
 	<para>For more information, see the file 'fileformat.txt' in the
-	program's installation directory, and read through the sample script
-	file provided. If you still have questions about the file format, feel
-	free to contact us by email.</para>
+	program's installation directory, and read through the sample
+	screenplay file provided.</para>
 
   </appendix>
 
