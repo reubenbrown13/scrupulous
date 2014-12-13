@@ -32,7 +32,7 @@ class AutoCompletionDlg(wx.Dialog):
         wx.EVT_CHECKBOX(self, self.enabledCb.GetId(), self.OnMisc)
         vsizer.Add(self.enabledCb, 0, wx.BOTTOM, 10)
 
-        vsizer.Add(wx.StaticText(self, -1, "Default List"))
+        vsizer.Add(wx.StaticText(self, -1, "List"))
 
         self.itemsEntry = wx.TextCtrl(self, -1, style=wx.TE_MULTILINE |
                                       wx.TE_DONTWRAP, size=(200, 250))

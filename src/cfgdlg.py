@@ -89,7 +89,7 @@ class CfgDlg(wx.Dialog):
         hsizer.Add(self.panel, 1, wx.EXPAND)
 
         if isGlobal:
-            self.SetTitle("Settings Dialog")
+            self.SetTitle("Settings")
 
             self.AddPage(GlobalAboutPanel, "About")
             self.AddPage(ColorsPanel, "Colors")
@@ -98,7 +98,7 @@ class CfgDlg(wx.Dialog):
             self.AddPage(KeyboardPanel, "Keyboard")
             self.AddPage(MiscPanel, "Misc")
         else:
-            self.SetTitle("Screenplay Settings Dialog")
+            self.SetTitle("Screenplay Settings")
 
             self.AddPage(ScriptAboutPanel, "About")
             self.AddPage(ElementsPanel, "Elements")
@@ -185,7 +185,7 @@ the user interface of the program like interface colors, keyboard
 shortcuts, display fonts, etc.
 
 The settings here are independent of any screenplay opened in
-Scrupulous, and unique to this computer.
+Scrupulous and unique to this computer.
 
 None of the settings here have any effect on the generated PDF
 output for a screenplay. Navigate to Screenplay/Settings for
@@ -196,14 +196,14 @@ those."""
 class ScriptAboutPanel(AboutPanel):
     def __init__(self, parent, id, cfg):
         s = \
-"""This is the config dialog for screenplay format settings,
-which affects the generated PDF output of a screenplay. Such
+"""This is the config dialog for screenplay-format settings,
+which affects the generated PDF output of a screenplay, such
 formatting as paper size, indendation/line widths/font styles
 for the different element types, and more.
 
 These settings are saved within the screenplay itself.
 
-Looking for the user interface settings (colors, keyboard
+Looking for the user-interface settings (colors, keyboard
 shortcuts, etc.)? Navigate to File/Settings for those."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
