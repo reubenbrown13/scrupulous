@@ -180,31 +180,27 @@ class AboutPanel(wx.Panel):
 class GlobalAboutPanel(AboutPanel):
     def __init__(self, parent, id, cfg):
         s = \
-"""This is the config dialog for global settings, which affects
-the user interface of the program like interface colors, keyboard
-shortcuts, display fonts, etc.
+"""This is the global settings, which affects the user interface
+like interface colors, keyboard, shortcuts, and display fonts.
 
 The settings here are independent of any screenplay opened in
 Scrupulous and unique to this computer.
 
-None of the settings here have any effect on the generated PDF
-output for a screenplay. Navigate to Screenplay/Settings for
-those."""
+For the settings that affect the generated PDF output for a
+screenplay, navigate to Screenplay/Settings."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
 
 class ScriptAboutPanel(AboutPanel):
     def __init__(self, parent, id, cfg):
         s = \
-"""This is the config dialog for screenplay-format settings,
-which affects the generated PDF output of a screenplay, such
-formatting as paper size, indendation/line widths/font styles
-for the different element types, and more.
+"""This is the screenplay-format settings, which affects the
+generated PDF output of a screenplay, such formatting as paper
+size, indendation/line widths/font styles for the different
+element types, and more.
 
-These settings are saved within the screenplay itself.
-
-Looking for the user-interface settings (colors, keyboard
-shortcuts, etc.)? Navigate to File/Settings for those."""
+These settings are saved within the screenplay itself. For
+the user-interface settings, navigate to File/Settings."""
 
         AboutPanel.__init__(self, parent, id, cfg, s)
 
@@ -1028,7 +1024,7 @@ class MiscPanel(wx.Panel):
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
         bsizer = wx.StaticBoxSizer(wx.StaticBox(self, -1,
-            "Default Screenplay Directory"), wx.VERTICAL)
+            "Screenplay Directory"), wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
@@ -1045,7 +1041,7 @@ class MiscPanel(wx.Panel):
         vsizer.Add(bsizer, 0, wx.EXPAND | wx.BOTTOM, 10)
 
         bsizer = wx.StaticBoxSizer(wx.StaticBox(self, -1,
-            "Default Screenplay Settings"), wx.VERTICAL)
+            "Screenplay Settings"), wx.VERTICAL)
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
@@ -1106,7 +1102,7 @@ class MiscPanel(wx.Panel):
             ("honorSavedPos", "Start at Last Saved Position"),
             ("recenterOnScroll", "Recenter Screen on Scrolling"),
             ("overwriteSelectionOnInsert", "Typing Replaces Selected Text"),
-            ("checkOnExport", "Check For Errors Before Print, Export or Compare"),
+            ("checkOnExport", "Check For Errors Before Print, Export, or Compare"),
             ("useBlockCursor", "Use a Block Cursor"),
             ("blinkCursor", "Blink the Cursor"),
             ]
@@ -1456,9 +1452,7 @@ class PDFFontsPanel(wx.Panel):
             "\n"
             "Fill in the font name (e.g. AndaleMono) to use the specified\n"
             "TrueType font. To embed the font in the generated PDFs,\n"
-            "fill in the font filename.\n"
-            "\n"
-            "Read the manual for more information.\n"))
+            "fill in the font filename.\n"))
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 

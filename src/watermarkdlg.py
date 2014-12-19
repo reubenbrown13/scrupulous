@@ -10,7 +10,7 @@ class WatermarkDlg(wx.Dialog):
     # sp - screenplay object, from which to generate PDF
     # prefix - prefix name for the PDF files (unicode)
     def __init__(self, parent, sp, prefix):
-        wx.Dialog.__init__(self, parent, -1, "Watermarked PDFs generator",
+        wx.Dialog.__init__(self, parent, -1, "Watermarked PDFs Generator",
                            style=wx.DEFAULT_DIALOG_STYLE | wx.RESIZE_BORDER)
 
         self.frame = parent
@@ -28,11 +28,11 @@ class WatermarkDlg(wx.Dialog):
         hsizer.Add(btn, 0, wx.ALIGN_CENTER_VERTICAL | wx.LEFT, 10)
 
         vsizer.Add(hsizer, 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 5)
-        vsizer.Add(wx.StaticText(self, -1, "Filename prefix"), 0)
+        vsizer.Add(wx.StaticText(self, -1, "Filename Prefix"), 0)
         self.filenamePrefix = wx.TextCtrl(self, -1, prefix)
         vsizer.Add(self.filenamePrefix, 0, wx.EXPAND | wx.BOTTOM, 5)
 
-        vsizer.Add(wx.StaticText(self, -1, "Watermark font size"), 0)
+        vsizer.Add(wx.StaticText(self, -1, "Watermark Font Size"), 0)
         self.markSize = wx.SpinCtrl(self, -1, size=(60, -1))
         self.markSize.SetRange(20, 80)
         self.markSize.SetValue(40)
@@ -40,11 +40,11 @@ class WatermarkDlg(wx.Dialog):
 
         vsizer.Add(wx.StaticLine(self, -1), 0, wx.EXPAND | wx.TOP | wx.BOTTOM, 5)
 
-        vsizer.Add(wx.StaticText(self, -1, "Common mark"), 0)
+        vsizer.Add(wx.StaticText(self, -1, "Common Mark"), 0)
         self.commonMark = wx.TextCtrl(self, -1, "Confidential")
         vsizer.Add(self.commonMark, 0, wx.EXPAND | wx.BOTTOM, 5)
 
-        vsizer.Add(wx.StaticText(self, -1, "Watermarks (one per line)"))
+        vsizer.Add(wx.StaticText(self, -1, "Watermarks (One Per Line)"))
         self.itemsEntry = wx.TextCtrl(
             self, -1, style=wx.TE_MULTILINE | wx.TE_DONTWRAP,
             size=(300, 200))
@@ -140,14 +140,14 @@ class WatermarkDlg(wx.Dialog):
             pdfdata = pdf.generate(pmldoc)
 
             if not util.writeToFile(fn, pdfdata, self):
-                wx.MessageBox("PDF generation aborted.", "Error", wx.OK, self)
+                wx.MessageBox("PDF Generation Failed", "Error", wx.OK, self)
                 return
             else:
                 count += 1
 
         if count > 0:
             wx.MessageBox("Generated %d files in directory %s." %
-                          (count, directory), "PDFs generated",
+                          (count, directory), "PDFs Generated",
                           wx.OK, self)
         else:
             wx.MessageBox("No watermarks was specified.", "Error", wx.OK, self)
