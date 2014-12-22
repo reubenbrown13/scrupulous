@@ -27,6 +27,7 @@ PageBreakActionLines:2
 PageBreakDialogueLines:2
 SceneContinueds:False
 SceneContinuedIndent:45
+CharacterExtensionSeparate:False
 ShowSceneNumbers:False
 IncludeTOC:True
 ShowTOC:True
@@ -35,8 +36,8 @@ RemoveNotes:False
 OutlineNotes:True
 ShowMargins:False
 ShowLineNumbers:False
-Cursor/Line:996
-Cursor/Column:47
+Cursor/Line:992
+Cursor/Column:0
 String/MoreDialogue:(MORE)
 String/ContinuedPageEnd:(CONTINUED)
 String/ContinuedPageStart:CONTINUED:
@@ -149,6 +150,18 @@ Element/Act break/Export/AllCaps:True
 Element/Act break/Export/Bold:False
 Element/Act break/Export/Italic:False
 Element/Act break/Export/Underlined:True
+Element/Title/BeforeSpacing:0
+Element/Title/IntraSpacing:10
+Element/Title/Indent:20
+Element/Title/Width:20
+Element/Title/Screen/AllCaps:False
+Element/Title/Screen/Bold:False
+Element/Title/Screen/Italic:False
+Element/Title/Screen/Underlined:True
+Element/Title/Export/AllCaps:False
+Element/Title/Export/Bold:False
+Element/Title/Export/Italic:False
+Element/Title/Export/Underlined:True
 Font/Bold-Italic/Name:
 Font/Bold-Italic/Filename:
 Font/Bold/Name:
@@ -933,7 +946,7 @@ Words/14:zzzz
 ..Jason, Sarah and Kevin exchange weird looks.
 ._ASIAN MAN
 .((continued)
->:And apparenlty, the government is
+>:And apparently, the government is
 >:seeking your help to eliminate
 .:them.
 ._JASON
@@ -941,7 +954,7 @@ Words/14:zzzz
 ..The Asian man pauses shortly.
 ._ASIAN MAN
 >:They're giving you full immunity
-.:for the Stonehedge case.
+.:for the Stonehenge case.
 ._JASON
 >:That's it! We help the government
 >:for a "promise" to freedom. Why
@@ -959,7 +972,7 @@ Words/14:zzzz
 ._JASON
 .:I've got a plan.
 >%This sets up the conflict between Jason and the rest of
->%the group by intialing his own plan. Angried by his
+>%the group by initialing his own plan. Angered by his
 .%plan, who knows what will happen next...
 .\EXT. Cabin - NIGHT TO DAY
 .=Time lapse:
@@ -993,7 +1006,7 @@ Words/14:zzzz
 .:we must relocate.
 ._JASON
 >:Well, I can't give in. It goes
->:against my prinicples. Guys, I'm
+>:against my principles. Guys, I'm
 .:out. I'll relocate if I have to.
 ./FADE IN:
 .\Ext. Cabin - day
@@ -1023,8 +1036,8 @@ Words/14:zzzz
 ./FADE OUT
 ./FADE IN:
 .\Int/ext. Car - night
->.Tired and confunsed, Jason has been driving for a while
-..while Kevin sleeps.
+>.Tired and confused, Jason has been driving for a while while
+..Kevin sleeps.
 >.Sarah is in the front seat. She can hardly keep her eyes
 ..open.
 ._SARAH
@@ -1060,7 +1073,7 @@ Words/14:zzzz
 >:Don't worry. I have my heart set on
 .:someone else.
 ._JASON
-.:Oh, and who's that?
+.:Oh, and who's that might be?
 ..Sarah gives him a short kiss.
 ._JASON
 .((jokingly)
@@ -1169,15 +1182,15 @@ Words/14:zzzz
 >:Well, I hate to leave you, but I'll
 .:better not keep my wife waiting.
 ._PRESIDENT
->:You betcha. Tell her I said hello
-.:to the misses.
+.:It was a pleasure seeing you again.
 ._ALLEN
+.((half-laughing)
 .:Good-bye.
 ..Allen leaves quickly. The door closes.
 >.Once the president knows that Allen is far enough away. He
 ..speaks into an intercom.
 ._PRESIDENT
->:Mindy, I know who running against
+>:Mindy, I know who's running against
 .:me this fall.
 .\Ext. Street - minutes later
 >.It's raining lightly. Allen, holding up a umbrella, walks to
@@ -1188,14 +1201,14 @@ Words/14:zzzz
 ._ALLEN
 .:Like a fish on a pole.
 ._ALLEN'S WIFE
->:Good. We have him where we want
-.:him.
+>:Good. We have him exactly where we
+.:want him.
 ._ALLEN
->:I don't think I understand the
-.:plan.
+.:I don't think I understand it all.
 ._ALLEN'S WIFE
 .:Don't worry. You will soon.
 ..Allen gets into the driver's seat. The car drives away.
 >%Another setup wherein Allen is another player in this
 .%government incident/coverup.
 .\Int/ext. Car - night
+..

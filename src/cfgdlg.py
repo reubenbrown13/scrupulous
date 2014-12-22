@@ -1062,9 +1062,6 @@ class MiscPanel(wx.Panel):
 
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        hsizer.Add(wx.StaticText(self, -1, "Path"), 0,
-                   wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)
-
         self.progEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.progEntry, 1, wx.ALIGN_CENTER_VERTICAL)
 
@@ -1125,10 +1122,7 @@ class MiscPanel(wx.Panel):
         self.checkErrorsCb = wx.CheckBox(self, -1,
             "Check Screenplay for Errors Before Print, Export, or Compare")
         wx.EVT_CHECKBOX(self, self.checkErrorsCb.GetId(), self.OnMisc)
-        vsizer.Add(self.checkErrorsCb, 0, wx.BOTTOM, 10)
-
-        tmp = wx.StaticText(self, -1, "(0 = disabled)")
-        vsizer.Add(tmp, 0, wx.ALIGN_CENTER | wx.BOTTOM, 5)
+        vsizer.Add(self.checkErrorsCb, 0, wx.BOTTOM, 8)
 
         self.addSpin("splashTime", "Seconds to show splash screen",
                      self, vsizer, "splashTime")

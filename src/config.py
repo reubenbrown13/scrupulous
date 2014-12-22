@@ -602,7 +602,6 @@ class Config:
         return (PDF_FONT_NORMAL, PDF_FONT_BOLD, PDF_FONT_ITALIC,
                 PDF_FONT_BOLD_ITALIC)
 
-# global config. there is only ever one of these active.
 class ConfigGlobal:
     cvars = None
 
@@ -687,7 +686,7 @@ class ConfigGlobal:
         t.prevTypeTab = screenplay.CHARACTER
         self.types[t.lt] = t
 
-        # keyboard commands. these must be in alphabetical order.
+        # keyboard commands must be in alphabetical order
         self.commands = [] if "TRELBY_TESTING" in os.environ else [
             Command("Abort", "Abort something, e.g. selection,"
                     " auto-completion, etc.", [wx.WXK_ESCAPE], isFixed=True),
@@ -1012,56 +1011,22 @@ class ConfigGlobal:
     def setupVars(self):
         v = self.__class__.cvars = mypickle.Vars()
 
-        # how many seconds to show splash screen for on startup (0 = disabled)
         v.addInt("splashTime", 0, "SplashTime", 0, 10)
-
-        # vertical distance between rows, in pixels
         v.addInt("fontYdelta", 18, "FontYDelta", 4, 125)
-
-        # how many lines to scroll per mouse wheel event
         v.addInt("mouseWheelLines", 4, "MouseWheelLines", 1, 50)
-
-        # how many minutes between auto-saves
         v.addInt("autoSaveMinutes", 0, "AutoSaveMinutes", 0, 60)
-
-        # interval in seconds between automatic pagination (0 = disabled)
         v.addInt("paginateInterval", 1, "PaginateInterval", 0, 10)
-
-        # whether to check script for errors before export / print
         v.addBool("checkOnExport", True, "CheckScriptForErrors")
-
-        # whether to auto-capitalize start of sentences
         v.addBool("capitalize", True, "CapitalizeSentences")
-
-        # whether to auto-capitalize i -> I
         v.addBool("capitalizeI", True, "CapitalizeI")
-
-        # whether to open scripts on their last saved position
         v.addBool("honorSavedPos", True, "OpenScriptOnSavedPos")
-
-        # whether to use a block cursor
         v.addBool("useBlockCursor", False, "UseBlockCursor")
-
-        # whether to blink cursor
         v.addBool("blinkCursor", True, "BlinkCursor")
-
-        # whether to recenter screen when cursor moves out of it
         v.addBool("recenterOnScroll", True, "RecenterOnScroll")
-
-        # whether to overwrite selected text on typing
         v.addBool("overwriteSelectionOnInsert", True, "OverwriteSelectionOnInsert")
-
-        # whether to use per-elem-type colors (textSceneColor etc.)
-        # instead of using textColor for all elem types
         v.addBool("useCustomElemColors", False, "UseCustomElemColors")
-
-        # location of default screenplay settings file
         v.addStrUnicode("sconfFilePath", u"", "SconfFilePath")
-
-        # whether to enable recovering files after a crash
         v.addBool("enableRecovery", True, "EnableRecovery")
-
-        # page break indicators to show
         v.addInt("pbi", PBI_REAL, "PageBreakIndicators", PBI_FIRST,
                     PBI_LAST)
 
@@ -1087,7 +1052,7 @@ class ConfigGlobal:
         v.addColor("workspace", 80, 90, 100, "Workspace", "Workspace")
         v.addColor("pageBorder", 0, 177, 217, "PageBorder", "Page Border")
         v.addColor("pageShadow", 65, 85, 115, "PageShadow", "Page Shadow")
-        v.addColor("selected", 120, 180, 210, "Selected", "Selection")
+        v.addColor("selected", 144, 238, 144, "Selected", "Selection")
         v.addColor("cursor", 124, 181, 220, "Cursor", "Cursor")
         v.addColor("selected", 127, 127, 127, "Selected", "Selection")
         v.addColor("cursor", 135, 135, 253, "Cursor", "Cursor (Block Mode)")
@@ -1297,8 +1262,6 @@ class ConfigGlobal:
                 (ur"C:\Program Files\Adobe\Reader 10.0\Reader\AcroRd32.exe",
                  ""),
                 (ur"C:\Program Files\Adobe\Reader 9.0\Reader\AcroRd32.exe",
-                 ""),
-                (ur"C:\Program Files\Adobe\Reader 8.0\Reader\AcroRd32.exe",
                  ""),
                 (ur"C:\Program Files\Adobe\Acrobat 7.0\Reader\AcroRd32.exe",
                  ""),

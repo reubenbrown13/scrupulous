@@ -19,13 +19,13 @@ class ScriptReport:
         ls = self.sp.lines
 
         total = len(ls)
-        tf.addText("%5d lines in screenplay." % total)
+        tf.addText("%5d Lines in Screenplay" % total)
 
         tf.addSpace(2.0)
 
         for t in config.getTIs():
             cnt = sum([1 for line in ls if line.lt == t.lt])
-            tf.addText("        %13s:  %4d (%d%%)" % (t.name, cnt,
+            tf.addText("        %13s  %4d (%d%%)" % (t.name, cnt,
                                                       util.pct(cnt, total)))
 
         tf.addSpace(4.0)
@@ -35,13 +35,13 @@ class ScriptReport:
         extLines = sum([si.lines for si in self.sr.scenes if
                         util.upper(si.name).startswith("EXT.")])
 
-        tf.addText("Interior / exterior scenes: %d%% / %d%%" % (
+        tf.addText("%d%% Interior / %d%% Exterior Scenes" % (
             util.pct(intLines, intLines + extLines),
             util.pct(extLines, intLines + extLines)))
 
         tf.addSpace(4.0)
 
-        tf.addText("Max / avg. scene length in lines: %d / %.2f" % (
+        tf.addText("Scene Length in Lines: %d Max / %.2f Avg." % (
             self.sr.longestScene, self.sr.avgScene))
 
         # lengths of action elements
@@ -78,11 +78,11 @@ class ScriptReport:
             maxA = 0
             avgA = 0.0
 
-        tf.addText("Max / avg. action element length in lines: %d / %.2f" % (
+        tf.addText("Action Length in Lines: %d Max / %.2f Avg." % (
             maxA, avgA))
 
         tf.addSpace(4.0)
 
-        tf.addText("%d speaking characters." % len(self.cr.cinfo))
+        tf.addText("%d Speaking Characters" % len(self.cr.cinfo))
 
         return pdf.generate(tf.doc)

@@ -62,7 +62,7 @@ class SceneReport:
 # information about one scene
 class SceneInfo:
     def __init__(self, sp):
-        # scene number, e.g. "42A"
+        # scene number, e.g. "2A"
         self.number = None
 
         # scene name, e.g. "INT. MOTEL ROOM - NIGHT"
@@ -77,7 +77,7 @@ class SceneInfo:
         # page numbers
         self.pages = screenplay.PageList(sp.getPageNumbers())
 
-        # key = character name (upper cased), value = number of dialogue
+        # key = character name (uppercase), value = number of dialogue
         # lines
         self.chars = {}
 

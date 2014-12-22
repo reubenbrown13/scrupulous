@@ -39,7 +39,7 @@ def genDialogueChart(mainFrame, sp):
     chart = DialogueChart(sp, minLines)
 
     if not chart.cinfo:
-        wx.MessageBox("No characters speaking found.", "Error", wx.OK,
+        wx.MessageBox("No Speaking Characters Found", "Error", wx.OK,
                       mainFrame)
 
         return
@@ -47,7 +47,7 @@ def genDialogueChart(mainFrame, sp):
     del inf[0]
 
     if len(misc.CheckBoxItem.getClientData(inf)) == 0:
-        wx.MessageBox("Can't disable all output.", "Error", wx.OK,
+        wx.MessageBox("Can't Disable All Output", "Error", wx.OK,
                       mainFrame)
 
         return

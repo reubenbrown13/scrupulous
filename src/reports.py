@@ -51,7 +51,7 @@ def genCharacterReport(mainFrame, sp):
     report = characterreport.CharacterReport(sp)
 
     if not report.cinfo:
-        wx.MessageBox("No characters speaking found.",
+        wx.MessageBox("No Speaking Characters Found",
                       "Error", wx.OK, mainFrame)
 
         return

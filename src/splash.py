@@ -78,10 +78,10 @@ class SplashWindow(wx.Frame):
         if self.pic.Ok():
             dc.DrawBitmap(self.pic, 0, 0, False)
 
-        util.drawText(dc, "Version %s" % (misc.version),
+        util.drawText(dc, "%s" % (misc.version),
                       200, 170, util.ALIGN_RIGHT)
 
-        util.drawText(dc, "Website Coming Soon", 200, 185, util.ALIGN_RIGHT)
+        util.drawText(dc, "Chapter One", 200, 185, util.ALIGN_RIGHT)
 
         if self.quote:
             dc.SetFont(self.sourceFont)
@@ -137,10 +137,10 @@ class SplashWindow(wx.Frame):
 
                 if line.startswith(u"  "):
                     if not tmp:
-                        raise Exception("No lines defined for quote at line %d." % (i + 1))
+                        raise Exception("No quote at line %d." % (i + 1))
 
                     if len(tmp) > 3:
-                        raise Exception("Too many lines defined for quote at line %d." % (i + 1))
+                        raise Exception("Quote is too long at line %d." % (i + 1))
 
                     quotes.append(Quote(line.strip(), tmp))
                     tmp = []
@@ -148,7 +148,7 @@ class SplashWindow(wx.Frame):
                     tmp.append(line.strip())
 
             if tmp:
-                raise Exception("Last quote does not have source.")
+                raise Exception("Last quote contains no source.")
 
             SplashWindow.quotes = quotes
 
