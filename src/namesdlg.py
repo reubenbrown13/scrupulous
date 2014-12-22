@@ -62,8 +62,8 @@ class NamesDlg(wx.Dialog):
         self.typeList = wx.ListCtrl(self, -1,
             style=wx.LC_REPORT | wx.LC_HRULES | wx.LC_VRULES)
 
-        insertNameBtn = wx.Button(self, -1, "Insert Name")
-        vsizer.Add(insertNameBtn, 0, wx.ALIGN_CENTER)
+        selectAllBtn = wx.Button(self, -1, "Select All")
+        vsizer.Add(selectAllBtn, 0, wx.ALIGN_CENTER)
 
         self.typeList.InsertColumn(0, "Count")
         self.typeList.InsertColumn(1, "Origin")
@@ -88,8 +88,8 @@ class NamesDlg(wx.Dialog):
         self.selectAllTypes()
         vsizer.Add(self.typeList, 1, wx.EXPAND | wx.BOTTOM, 5)
 
-        selectAllBtn = wx.Button(self, -1, "Select All")
-        vsizer.Add(selectAllBtn, 0, wx.ALIGN_CENTER)
+        insertNameBtn = wx.Button(self, -1, "Insert Name")
+        vsizer.Add(insertNameBtn, 0, wx.ALIGN_CENTER)
 
         hsizer.Add(vsizer, 0, wx.EXPAND)
 
@@ -106,14 +106,18 @@ class NamesDlg(wx.Dialog):
         wx.EVT_BUTTON(self, searchBtn.GetId(), self.OnSearch)
         vsizer2.Add(searchBtn, 0, wx.EXPAND)
 
+        closeBtn = wx.Button(self, -1, "Close")
+        wx.EVT_BUTTON(self, closeBtn.GetId(), self.OnClose)
+        vsizer2.Add(closeBtn, 0, wx.EXPAND)
+
         hsizer2.Add(vsizer2, 1, wx.RIGHT, 10)
 
-        self.nameRb = wx.RadioBox(self, -1, "Sort By",
+        self.nameRb = wx.RadioBox(self, -1,
             style=wx.RA_SPECIFY_COLS, majorDimension=1,
             choices=["begins with", "contains", "ends in"])
         hsizer2.Add(self.nameRb)
 
-        self.sexRb = wx.RadioBox(self, -1, "Gender",
+        self.sexRb = wx.RadioBox(self, -1,
             style=wx.RA_SPECIFY_COLS, majorDimension=1,
             choices=["Male", "Female", "Both"])
         self.sexRb.SetSelection(2)
@@ -225,7 +229,10 @@ class NamesDlg(wx.Dialog):
 
         wx.EndBusyCursor()
 
-        self.foundLabel.SetLabel("%d Names" % len(l))
+        self.foundLabel.SetLabel("%d names" % len(l))
+
+    def OnClose(self, event):
+        self.EndModal(wx.OK)
 
 class MyListCtrl(wx.ListCtrl):
     def __init__(self, parent):

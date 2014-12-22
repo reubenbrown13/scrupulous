@@ -1,5 +1,3 @@
-# exception classes
-
 class ScrupulousError(Exception):
     def __init__(self, msg):
         Exception.__init__(self, msg)

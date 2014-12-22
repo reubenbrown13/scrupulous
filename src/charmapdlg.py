@@ -15,15 +15,23 @@ class CharMapDlg(wx.Dialog):
         hsizer.Add(self.charMap)
 
         self.insertButton = wx.Button(self, -1, " Insert Character ")
-        hsizer.Add(self.insertButton, 0, wx.ALL, 10)
+        hsizer.Add(self.insertButton, 0, wx.ALL, 0)
         wx.EVT_BUTTON(self, self.insertButton.GetId(), self.OnInsert)
         gutil.btnDblClick(self.insertButton, self.OnInsert)
+
+        self.closeButton = wx.Button(self, -1, "Close")
+        hsizer.Add(self.closeButton, 0, wx.ALL, 0)
+        wx.EVT_BUTTON(self, self.closeButton.GetId(), self.OnClose)
+        gutil.btnDblClick(self.closeButton, self.OnClose)
 
         util.finishWindow(self, hsizer, 0)
 
     def OnInsert(self, event):
         if self.charMap.selected:
             self.ctrl.OnKeyChar(util.MyKeyEvent(ord(self.charMap.selected)))
+
+    def OnClose(self, event):
+        self.EndModal(wx.OK)
 
 class MyCharMap(wx.Window):
     def __init__(self, parent):

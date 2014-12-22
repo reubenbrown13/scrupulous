@@ -3,7 +3,6 @@ import mypickle
 import screenplay
 import util
 
-# manages auto completion information for a single script.
 class AutoCompletion:
     def __init__(self):
         # type configs, key = line type, value = Type
@@ -81,7 +80,7 @@ class AutoCompletion:
 
         return s
 
-    # fix up invalid values and uppercase everything.
+    # fix up invalid values and uppercase everything
     def refresh(self):
         for t in self.types.itervalues():
             tmp = []
