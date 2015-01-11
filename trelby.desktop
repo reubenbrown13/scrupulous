@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=Scrupulous
 Comment=Screenplay Writer
-Exec=scrupulous %f
+Exec=trelby %f
 Icon=/usr/share/trelby/resources/icon256.png
 Type=Application
 Categories=Office;Publishing;
