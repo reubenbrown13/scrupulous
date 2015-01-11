@@ -2028,7 +2028,7 @@ class MyFrame(wx.Frame):
         editMenu.Append(ID_EDIT_PASTE_FROM_CB, "P&aste (system)")
         editMenu.AppendSeparator()
         editMenu.Append(ID_EDIT_SELECT_SCENE, "&Select Scene")
-        editMenu.Append(ID_EDIT_SELECT_ALL, "Select A&ll")
+        editMenu.Append(ID_EDIT_SELECT_ALL, "Select A&ll\tCTRL-A")
         editMenu.Append(ID_EDIT_GO_TO_PAGE, "&Go to Page...\tCTRL-G")
         editMenu.Append(ID_EDIT_GO_TO_SCENE, "Go to Sc&ene...\tALT-G")
         editMenu.AppendSeparator()
@@ -2059,7 +2059,7 @@ class MyFrame(wx.Frame):
             viewMenu.Check(ID_VIEW_STYLE_OVERVIEW_LARGE, True)
 
         viewMenu.AppendSeparator()
-        viewMenu.AppendCheckItem(ID_VIEW_SHOW_FORMATTING, "&Show Formatting")
+        viewMenu.AppendCheckItem(ID_VIEW_SHOW_FORMATTING, "&Show Formatting\tCTRL-ALT-F")
         viewMenu.AppendCheckItem(ID_VIEW_SHOW_NAVIGATOR, "Show Scene &Navigator\tF9")
         if gd.showNavigator:
             viewMenu.Check(ID_VIEW_SHOW_NAVIGATOR, True)
@@ -2093,7 +2093,7 @@ class MyFrame(wx.Frame):
         reportsMenu.Append(ID_REPORTS_DIALOGUE_CHART, "&Dialogue Chart...")
 
         toolsMenu = wx.Menu()
-        toolsMenu.Append(ID_TOOLS_SPELL_CHECK, "&Spell Checker...")
+        toolsMenu.Append(ID_TOOLS_SPELL_CHECK, "&Spell Checker...\tCTRL-ALT-K")
         toolsMenu.Append(ID_TOOLS_NAME_DB, "&Name Database...")
         toolsMenu.Append(ID_TOOLS_CHARMAP, "&Character Map...")
         toolsMenu.Append(ID_TOOLS_COMPARE_SCRIPTS, "C&ompare Screenplays...")
