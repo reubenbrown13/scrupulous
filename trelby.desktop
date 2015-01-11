@@ -1,8 +1,8 @@
 [Desktop Entry]
 Name=Scrupulous
 Comment=Screenplay Writer
-Exec=trelby %f
+Exec=scrupulous %f
 Icon=/usr/share/trelby/resources/icon256.png
 Type=Application
 Categories=Office;Publishing;
-
+Keywords=screenwriting editor;
