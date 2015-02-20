@@ -5,7 +5,6 @@ import util
 
 import wx
 
-# The watermark tool dialog.
 class WatermarkDlg(wx.Dialog):
     # sp - screenplay object, from which to generate PDF
     # prefix - prefix name for the PDF files (unicode)
@@ -18,7 +17,7 @@ class WatermarkDlg(wx.Dialog):
 
         vsizer = wx.BoxSizer(wx.VERTICAL)
 
-        vsizer.Add(wx.StaticText(self, -1, "Directory to save in"), 0)
+        vsizer.Add(wx.StaticText(self, -1, "Directory"), 0)
         hsizer = wx.BoxSizer(wx.HORIZONTAL)
         self.dirEntry = wx.TextCtrl(self, -1)
         hsizer.Add(self.dirEntry, 1, wx.EXPAND)
@@ -150,7 +149,7 @@ class WatermarkDlg(wx.Dialog):
                           (count, directory), "PDFs Generated",
                           wx.OK, self)
         else:
-            wx.MessageBox("No watermarks was specified.", "Error", wx.OK, self)
+            wx.MessageBox("No watermarks were specified.", "Error", wx.OK, self)
 
     def OnClose(self, event):
         self.EndModal(wx.OK)
