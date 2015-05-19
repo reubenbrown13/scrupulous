@@ -1,10 +1,9 @@
-# this file contains quotes to display in the splash screen.
+# This file contains quotes to display in the splash screen.
 #
-# lines beginning with # or containing nothing but whitespace are skipped.
-# the file contents must be in UTF-8. newlines must be unix newlines.
+# Lines beginning with # or containing nothing, but whitespace are skipped.
+# The file contents must be in UTF-8. Newlines must be unix newlines.
 #
-# please use proper unicode quotation marks, ellipsis, etc. search below for
-# examples.
+# Use proper unicode quotation marks, ellipsis, etc.
 #
 # each quote is in this format:
 #
@@ -12,8 +11,6 @@
 # line2 [optional]
 # line3 [optional]
 #   source
-#
-# All quotations should be from less than ten years ago.
 
 I'm an open book. Everybody always seems to know my secrets
 before I know them myself.
@@ -25,12 +22,14 @@ Fish are friends, not food.
 Big things have small beginnings.
   Prometheus (2012)
 
-A wise man can learn more from his ememies than a fool
-from his friends.
-  Rush (2013)
-
 I don't want to survive. I want to live.
   12 Years a Slave (2013)
 
 Why so serious?
   The Dark Knight (2008)
+  
+With great power comes great responsibility.
+  Spider-Man (2002)
+  
+Either get busy living, or get busy dying.
+  The Shawshank Redemption (1994)
