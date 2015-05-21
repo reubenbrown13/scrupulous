@@ -84,11 +84,11 @@ class FindDlg(wx.Dialog):
         find = wx.Button(self, -1, "&Find")
         vsizer.Add(find, 0, wx.EXPAND | wx.BOTTOM, 5)
 
-        replace = wx.Button(self, -1, "&Replace")
-        vsizer.Add(replace, 0, wx.EXPAND | wx.BOTTOM, 5)
-
         replaceAll = wx.Button(self, -1, " Replace All ")
         vsizer.Add(replaceAll, 0, wx.EXPAND | wx.BOTTOM, 5)
+
+        replace = wx.Button(self, -1, "&Replace")
+        vsizer.Add(replace, 0, wx.EXPAND | wx.BOTTOM, 5)
 
         self.moreButton = wx.Button(self, -1, "")
         vsizer.Add(self.moreButton, 0, wx.EXPAND | wx.BOTTOM, 5)
@@ -96,8 +96,8 @@ class FindDlg(wx.Dialog):
         hsizer.Add(vsizer, 0, wx.EXPAND | wx.LEFT, 30)
 
         wx.EVT_BUTTON(self, find.GetId(), self.OnFind)
-        wx.EVT_BUTTON(self, replace.GetId(), self.OnReplace)
         wx.EVT_BUTTON(self, replaceAll.GetId(), self.OnReplaceAll)
+        wx.EVT_BUTTON(self, replace.GetId(), self.OnReplace)
         wx.EVT_BUTTON(self, self.moreButton.GetId(), self.OnMore)
 
         gutil.btnDblClick(find, self.OnFind)
@@ -112,8 +112,8 @@ class FindDlg(wx.Dialog):
         wx.EVT_CHAR(self.findEntry, self.OnCharEntry)
         wx.EVT_CHAR(self.replaceEntry, self.OnCharEntry)
         wx.EVT_CHAR(find, self.OnCharButton)
-        wx.EVT_CHAR(replace, self.OnCharButton)
         wx.EVT_CHAR(replaceAll, self.OnCharButton)
+        wx.EVT_CHAR(replace, self.OnCharButton)
         wx.EVT_CHAR(self.moreButton, self.OnCharButton)
         wx.EVT_CHAR(self.matchWholeCb, self.OnCharMisc)
         wx.EVT_CHAR(self.matchCaseCb, self.OnCharMisc)
