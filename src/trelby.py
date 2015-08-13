@@ -3016,10 +3016,10 @@ class MyApp(wx.App):
                     wx.OK)
             sys.exit()
 
-        if (wx.MAJOR_VERSION != 2) or (wx.MINOR_VERSION != 8):
+        if (wx.MAJOR_VERSION != 3) or (wx.MINOR_VERSION != 0):
             wx.MessageBox("An unsupported version\n"
                           "(%s) of wxWidgets was found.\n"
-                          "Program needs version 2.8." %
+                          "Program needs version 3.0." %
                           wx.VERSION_STRING, "Error", wx.OK)
             sys.exit()
 

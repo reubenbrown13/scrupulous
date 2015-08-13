@@ -363,7 +363,7 @@ class ElementsPanel(wx.Panel):
 
         vsizer.Add(hsizer, 0, wx.BOTTOM, 10)
 
-        gsizer = wx.FlexGridSizer(2, 2, 5, 0)
+        gsizer = wx.FlexGridSizer(0, 2, 5, 0)
 
         gsizer.Add(wx.StaticText(self, -1, "Empty Lines / 10 Before"), 0,
                    wx.ALIGN_CENTER_VERTICAL | wx.RIGHT, 10)

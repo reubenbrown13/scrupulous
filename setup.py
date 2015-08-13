@@ -163,7 +163,7 @@ if sys.platform == "win32":
 else:
     dataFiles = [
         ("applications", ["trelby.desktop"]),
-        ("man/man1", ["trelby.1.gz"]),
+        ("man/man1", ["doc/trelby.1.gz"]),
         ]
     platformOptions = {}
 
@@ -179,7 +179,7 @@ setup(
     description = "Free, multiplatform, feature-rich screenwriting program",
 
     long_description = """\
-Trelby is a simple, powerful, full-featured, multi-platform program for
+Scrupulous is a simple, powerful, full-featured, multi-platform program for
 writing movie screenplays. It is simple, fast and elegantly laid out to
 make screenwriting simple, and it is infinitely configurable.
 
