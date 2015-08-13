@@ -1,11 +1,7 @@
-# This file contains quotes to display in the splash screen.
+# This file contains quotations to display in the splash screen.
 #
-# Lines beginning with # or containing nothing, but whitespace are skipped.
+# Lines beginning with # or containing nothing but whitespace are skipped.
 # The file contents must be in UTF-8. Newlines must be unix newlines.
-#
-# Use proper unicode quotation marks, ellipsis, etc.
-#
-# each quote is in this format:
 #
 # line1
 # line2 [optional]
