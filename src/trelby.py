@@ -1,8 +1,5 @@
 # -*- coding: iso-8859-1 -*-
 
-import wxversion
-wxversion.select('2.8')
-
 from error import *
 import autocompletiondlg
 import cfgdlg
