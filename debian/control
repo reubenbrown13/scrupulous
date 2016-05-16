@@ -2,13 +2,13 @@ Source: trelby
 Section: python
 Priority: extra
 Maintainer: Jon Miller <millingjon@gmail.com>
-Build-Depends: debhelper (>= 8), python-all (>= 2.7.5), xsltproc, docbook-xsl, devscripts, fakeroot, python-mock
+Build-Depends: debhelper (>= 8), python-all (>= 2.7.11), xsltproc, docbook-xsl, devscripts, fakeroot, python-mock
 Standards-Version: 3.9.5
 Homepage: http://www.github.com/millingjon/scrupulous
 
 Package: trelby
 Architecture: all
-Depends: ${misc:Depends}, ${python:Depends}, python-wxgtk2.8, python-crypto, python-lxml
+Depends: ${misc:Depends}, ${python:Depends}, python-wxgtk3.0, python-crypto, python-lxml
 Description: Feature-rich screenwriting program
  Scrupulous is a simple, powerful, full-featured, multi-platform program
  for writing movie screenplays. Layout is simple and elegantly designed
