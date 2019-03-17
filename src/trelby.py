@@ -1240,9 +1240,7 @@ class MyCtrl(wx.Control):
         self.sp.clearMark()
         self.mouseSelectActive = False
         self.updateScreen()
-
-        wasAtStart = self.sp.line == 0
-
+        
         wx.BeginBusyCursor()
 
         if not spellcheck.loadDict(mainFrame):
@@ -1256,12 +1254,7 @@ class MyCtrl(wx.Control):
         wx.EndBusyCursor()
 
         if not found:
-            s = ""
-
-            if not wasAtStart:
-                s = "\n\n(Starting position was not at\n"\
-                    "the beginning of the screenplay.)"
-            wx.MessageBox("No spelling error found." + s, "Results",
+            wx.MessageBox("No spelling error found.", "Results",
                           wx.OK, mainFrame)
 
             return
