@@ -11,6 +11,7 @@ import finddlg
 import gutil
 import headersdlg
 import locationsdlg
+import math
 import misc
 import myimport
 import mypickle
@@ -1755,7 +1756,7 @@ class MyCtrl(wx.Control):
                         # selected
                         width_in_chars = 1
                         
-                    dc.DrawRectangle(t.x + c1 * fx, y, width_in_chars * fx,
+                    dc.DrawRectangle(t.x + c1 * math.ceil(fx), y, width_in_chars * fx,
                         lineh)
 
                 if mainFrame.showFormatting:
