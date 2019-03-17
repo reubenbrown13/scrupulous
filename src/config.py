@@ -1378,6 +1378,10 @@ class ConfigGui:
             if s:
                 nfi = wx.NativeFontInfo()
                 nfi.FromString(s)
+                
+                # Mac does not load a font by default, so force it to use Courier
+                if not nfi.FaceName:
+                  nfi.FromUserString("Courier")
 
                 fi.font = wx.FontFromNativeInfo(nfi)
 
