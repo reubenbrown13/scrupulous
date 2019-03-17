@@ -2116,7 +2116,7 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
         ls = self.lines
 
         # last valid offset for given line's text
-        lvo = max(0, len(ls[line].text) - 1)
+        lvo = max(0, len(ls[line].text))
 
         # only one line marked
         if (line == marked[0]) and (marked[0] == marked[1]):
@@ -2180,6 +2180,10 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
             c1, c2 = self.getMarkedColumns(i, marked)
 
             ln = ls[i]
+            
+            # last character is exclusive unless entire line is selected
+            if i == marked[1] and c2 < len(ln.text):
+                c2 -= 1
 
             cd.lines.append(Line(ln.lb, ln.lt, ln.text[c1:c2 + 1]))
 
@@ -2199,6 +2203,11 @@ Generated with <a href="http://www.github.com/millingjon/scrupulous">Scrupulous<
             c1, c2 = self.getMarkedColumns(i, marked)
 
             ln = ls[i]
+            
+            # last character is exclusive unless entire line is selected
+            if i == marked[1] and c2 < len(ln.text):
+                c2 -= 1
+                
             ln.text = ln.text[0:c1] + ln.text[c2 + 1:]
 
             if i == marked[0]:
