@@ -9,10 +9,10 @@ deb: dist
 	debuild -us -uc -b
 
 names.txt.gz: names.txt
-	gzip -c names.txt > names.txt.gz
+	gzip -cn names.txt > names.txt.gz
 
 dict_en.dat.gz: dict_en.dat
-	gzip -c dict_en.dat > dict_en.dat.gz
+	gzip -cn dict_en.dat > dict_en.dat.gz
 
 manual.html: doc/*
 	make -C doc html && mv doc/manual.html .
