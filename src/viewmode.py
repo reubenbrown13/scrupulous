@@ -496,6 +496,7 @@ class ViewModeSideBySide(ViewMode):
             lastItem = textItems[-1]
             lastPageNumber = math.trunc(lastItem.x / ( self.getPageWidth(ctrl) + pageGap ))
             clickedPage = min(clickedPage, lastPageNumber)
+            
         # calculate selected position
         for t in textItems:
             if t.line == -1:
