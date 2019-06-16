@@ -19,7 +19,7 @@ TAB_BAR_HEIGHT = 24
 version = "2.3-dev"
 
 def init(doWX=True):
-    global isWindows, isUnix, unicodeFS, doDblBuf, progPath, confPath, tmpPrefix
+    global isWindows, isUnix, isMac, unicodeFS, doDblBuf, progPath, confPath, tmpPrefix
 
     # prefix used for temp files
     tmpPrefix = "trelby-tmp-"
@@ -27,8 +27,11 @@ def init(doWX=True):
     isWindows = False
     isUnix = False
 
-    if sys.platform.startswith("linux") or sys.platform.startswith("darwin"):
+    if sys.platform.startswith("linux"):
         isUnix = True
+    elif sys.platform.startswith("darwin"):
+        isUnix = True
+        isMac = True
     else:
         isWindows = True
 
@@ -46,9 +49,15 @@ def init(doWX=True):
         progPath = u"."
         confPath = u".scrupulous"
     else:
-        if isUnix:
+        if isUnix and not isMac:
             progPath = unicode(
                 os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                "UTF-8")
+            
+            confPath = unicode(os.environ["HOME"], "UTF-8") + u"/.trelby"
+        elif isMac:
+            progPath = unicode(
+                os.path.abspath(__file__ + "/../../../../"),
                 "UTF-8")
 
             confPath = unicode(os.environ["HOME"], "UTF-8") + u"/.trelby"
