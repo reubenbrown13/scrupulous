@@ -26,6 +26,7 @@ def init(doWX=True):
 
     isWindows = False
     isUnix = False
+    isMac = False
 
     if sys.platform.startswith("linux"):
         isUnix = True
